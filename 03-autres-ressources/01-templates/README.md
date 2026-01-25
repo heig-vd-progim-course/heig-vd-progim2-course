@@ -80,6 +80,8 @@ Each content folder contains:
   related to the content to be covered.
 - A presentation file (`PRESENTATION.md`) that provides an overview of the
   content, a summarized version of the main points issued from the README file.
+- A quiz file (`QUIZ.md`) that contains questions to test students' knowledge on
+  the content.
 - A directory for exercises (`01-exercices/`) that contains practical exercises
   related to the content with their answers.
 - A directory for the mini-project (`02-mini-projet/`) that contains the
@@ -93,10 +95,11 @@ When creating new course content, always read and follow the structure of all
 relevant template files in the templates directory, including:
 
 - [The main content template](./contenu-de-cours/README.md)
+- [The presentation template](./contenu-de-cours/PRESENTATION.md)
+- [The quiz template](./contenu-de-cours/QUIZ.md)
 - [The exercises template](./contenu-de-cours/01-exercices/README.md)
 - [The mini-project template](./contenu-de-cours/02-mini-projet/README.md)
 - [The solution template](./contenu-de-cours/02-mini-projet/solution/README.md)
-- [The quiz template](./contenu-de-cours/QUIZ.md)
 
 When updating a course content, ensure that all related files and resources are
 also updated accordingly to maintain consistency.
