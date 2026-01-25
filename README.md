@@ -1,7 +1,7 @@
 # HEIG-VD ProgIM2 Course
 
 Bienvenue sur le dépôt principal du cours
-[_Programmation 2 (ProgIM2)_](https://gaps.heig-vd.ch/consultation/fiches/uv/uv.php?id=6082)
+[_Programmation 2 (ProgIM2)_](https://gaps.heig-vd.ch/consultation/fiches/uv/uv.php?id=7627)
 enseigné à la
 [Haute Ecole d'Ingénierie et de Gestion du Canton de Vaud (HEIG-VD)](https://heig-vd.ch),
 Suisse !
