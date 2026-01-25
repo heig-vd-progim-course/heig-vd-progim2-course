@@ -2,9 +2,12 @@
 	"name": "HEIG-VD ProgIM2 Course Development Container",
 	"dockerComposeFile": "compose.yaml",
 	"service": "devcontainer",
+	"runServices": ["plantuml"],
 	"workspaceFolder": "/workspace",
 	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"moby": false
+		},
 		"ghcr.io/devcontainers/features/java:1": {
 			"jdkDistro": "tem",
 			"installMaven": true,
@@ -16,7 +19,7 @@
 			"extensions": [
 				"DavidAnson.vscode-markdownlint",
 				"esbenp.prettier-vscode",
-				"GitHub.copilot-chat",
+				"GitHub.copilot",
 				"jebbs.plantuml",
 				"marp-team.marp-vscode",
 				"ms-vsliveshare.vsliveshare-pack",
