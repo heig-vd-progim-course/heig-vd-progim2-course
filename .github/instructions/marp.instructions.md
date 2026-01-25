@@ -1,10 +1,10 @@
 ---
-name: Marp-Presentations
-description: Guidelines for creating and editing Marp slide presentations
-applyTo: "**/PRESENTATION.md"
+description:
+  Instructions when working with Marp presentations in this repository.
+applyTo: "**/PRESENTATION.md, **/QUIZ.md"
 ---
 
-# Marp Presentation Guidelines
+# Marp guidelines
 
 All presentations MUST follow the exact structure in
 `00.00-template/01-supports-de-cours/PRESENTATION.md`.
@@ -233,9 +233,3 @@ For quiz/revision presentations, use the "Question/Answer" format:
 10. ❌ Not creating `images/` folder with `home.jpg` placeholder
 11. ❌ Including "Références" or documentation links in Sources slide (only
     illustration credits allowed)
-
-## Technical Specifications
-
-- **Markdown**: Use Prettier formatting (80 character ruler)
-- **Encoding**: UTF-8 with LF line endings
-- **Theme**: Use `.marp/theme.css` via `theme: custom-marp-theme` in frontmatter

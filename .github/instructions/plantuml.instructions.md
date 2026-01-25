@@ -1,17 +1,17 @@
 ---
-name: PlantUML-Diagrams
-description: Guidelines for creating and managing PlantUML diagrams
-applyTo: "**/*.plantuml"
+description: Instructions when working with PlantUML files in this repository.
+applyTo: "**/*.puml, **/*.plantuml"
 ---
 
-# PlantUML Diagram Guidelines
+# PlantUML guidelines
+
+- Always use the `.puml` file extension for PlantUML files.
 
 ## Technical Specifications
 
-- **File Extension**: Use `.plantuml` extension for all PlantUML diagram files
-- **Location**: Store in `images/` subfolder of `01-supports-de-cours/`
-- **Rendering**: Render using local server at http://localhost:9090
-- **Build Process**: Generate diagrams manually using
+- Location: Store in `images/` subfolder of `01-supports-de-cours/`
+- Rendering: Render using local server at http://localhost:9090
+- Build Process: Generate diagrams manually using
   `./build-all-plantuml-diagram.sh` script
 
 ## File Organization
