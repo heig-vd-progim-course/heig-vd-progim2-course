@@ -1,4 +1,4 @@
-name: HEIG-VD ProgIM Course GitHub Workflow
+name: HEIG-VD ProgIM1 Course GitHub Workflow
 
 # Allow one concurrent deployment
 concurrency:
