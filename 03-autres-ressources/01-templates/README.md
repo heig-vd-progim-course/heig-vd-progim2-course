@@ -96,6 +96,7 @@ relevant template files in the templates directory, including:
 - [The exercises template](./contenu-de-cours/01-exercices/README.md)
 - [The mini-project template](./contenu-de-cours/02-mini-projet/README.md)
 - [The solution template](./contenu-de-cours/02-mini-projet/solution/README.md)
+- [The quiz template](./contenu-de-cours/QUIZ.md)
 
 When updating a course content, ensure that all related files and resources are
 also updated accordingly to maintain consistency.

@@ -11,8 +11,8 @@ applyTo: "**/*.puml, **/*.plantuml"
 
 - Location: Store in `images/` subfolder of `01-supports-de-cours/`
 - Rendering: Render using local server at http://localhost:9090
-- Build Process: Generate diagrams manually using
-  `./build-all-plantuml-diagram.sh` script
+- Build Process: Generate diagrams manually using `./generate-diagrams.sh`
+  script
 
 ## File Organization
 
@@ -20,22 +20,21 @@ Each course module with diagrams should follow this structure:
 
 ```
 XX.XX-topic/
-└── 01-supports-de-cours/
-    ├── README.md
-    ├── PRESENTATION.md
-    └── images/
-        ├── home.jpg
-        ├── diagram-name.plantuml
-        └── diagram-name.png
+├── README.md
+├── PRESENTATION.md
+└── images/
+   ├── home.jpg
+   ├── diagram-name.puml
+   └── diagram-name.png
 ```
 
 ## Diagram Creation Process
 
-1. Create the `.plantuml` source file in the `images/` directory
+1. Create the `.puml` source file in the `images/` directory
 2. Run the build script to generate PNG images:
    `./build-all-plantuml-diagram.sh`
 3. Reference the generated PNG in README.md and PRESENTATION.md
-4. Commit both the `.plantuml` source and the generated `.png` file
+4. Commit both the `.puml` source and the generated `.png` file
 
 ## PlantUML Best Practices
 
@@ -46,7 +45,7 @@ XX.XX-topic/
 3. **Consistent styling**: Follow the visual style established in existing
    diagrams
 4. **Clear naming**: Use descriptive file names that reflect the diagram content
-   - Example: `iteration.plantuml`, `sequence.plantuml`, `compilation.plantuml`
+   - Example: `iteration.puml`, `sequence.puml`, `compilation.puml`
 
 ## Common Diagram Types
 
@@ -87,7 +86,7 @@ stop
 
 ## Maintenance
 
-- When updating a diagram, modify the `.plantuml` source file
+- When updating a diagram, modify the `.puml` source file
 - Re-run the build script to regenerate the PNG
 - Commit both the updated source and the new PNG
 - Verify that all references to the diagram still work correctly
