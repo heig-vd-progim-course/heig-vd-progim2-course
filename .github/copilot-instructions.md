@@ -106,8 +106,7 @@ profession being taught rather than added as a separate module.
 
 - Content Language: Write all course materials in French
 - Code Language: Use Java for all code examples
-- Pedagogical Level: Adapt explanations to beginner level (first programming
-  course)
+- Pedagogical Level: Adapt explanations to beginner level
 - No Emojis: Never use emojis in course materials, presentations, or exercises
   (except root README.md)
 - Langage épicène: Use gender-neutral language in French (e.g., "la personne qui

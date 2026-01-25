@@ -29,14 +29,6 @@ XX-topic-name/
    └── diagram-name.png
 ```
 
-## Diagram creation process
-
-1. Create the `.puml` source file in the `images/` directory.
-2. Run the build script to generate PNG images: `./generate-diagrams.sh`.
-3. Reference the generated PNG in [README.md](README.md) and
-   [PRESENTATION.md](PRESENTATION.md).
-4. Commit both the `.puml` source and the generated `.png` file.
-
 ## PlantUML best practices
 
 - Keep diagrams simple: focus on pedagogical clarity over technical

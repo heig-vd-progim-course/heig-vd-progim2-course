@@ -15,8 +15,7 @@ applyTo: "**/*.md"
 - Never use emojis in the text.
 - When referencing files, folders, or documents in the repository, always use
   relative paths/links.
-- Avoid highlighting text using bold or italics unless absolutely necessary for
-  emphasis.
+- Avoid highlighting text using bold or italics.
 - When using colon (`:`) in sentences, start with a lowercase letter unless it
   is a quote or a proper noun (e.g. _Note: this is an example._ instead of
   _Note: This is an example._, _I said : "This is an example."_ instead of _"I

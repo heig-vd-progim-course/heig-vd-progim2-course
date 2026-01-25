@@ -101,12 +101,8 @@ Splitting strategies:
 
 ## Content guidelines
 
-- No emojis: never use emojis in presentations (use text warnings like
-  "Attention :" or "Note :").
 - Language: all course presentations must be in French.
 - Code: all code examples must be in Java with English identifiers.
-- Apostrophes: always use simple apostrophes (`'`) instead of typographic
-  apostrophes (`'`, `'`).
 
 ## Quiz presentations (special format)
 
