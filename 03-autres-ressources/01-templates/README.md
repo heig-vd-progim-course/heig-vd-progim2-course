@@ -82,9 +82,9 @@ Each content folder contains:
   content, a summarized version of the main points issued from the README file.
 - A quiz file (`QUIZ.md`) that contains questions to test students' knowledge on
   the content.
-- A directory for exercises (`01-exercices/`) that contains practical exercises
+- A directory for exercises (`02-exercices/`) that contains practical exercises
   related to the content with their answers.
-- A directory for the mini-project (`02-mini-projet/`) that contains the
+- A directory for the mini-project (`03-mini-projet/`) that contains the
   mini-project to be completed by students, including instructions,
   requirements, and expected outcomes.
 - Images, PlantUML diagrams, and other multimedia elements to enhance
@@ -97,9 +97,9 @@ relevant template files in the templates directory, including:
 - [The main content template](./contenu-de-cours/README.md)
 - [The presentation template](./contenu-de-cours/PRESENTATION.md)
 - [The quiz template](./contenu-de-cours/QUIZ.md)
-- [The exercises template](./contenu-de-cours/01-exercices/README.md)
-- [The mini-project template](./contenu-de-cours/02-mini-projet/README.md)
-- [The solution template](./contenu-de-cours/02-mini-projet/solution/README.md)
+- [The exercises template](./contenu-de-cours/02-exercices/README.md)
+- [The mini-project template](./contenu-de-cours/03-mini-projet/README.md)
+- [The solution template](./contenu-de-cours/03-mini-projet/solution/README.md)
 
 When updating a course content, ensure that all related files and resources are
 also updated accordingly to maintain consistency.

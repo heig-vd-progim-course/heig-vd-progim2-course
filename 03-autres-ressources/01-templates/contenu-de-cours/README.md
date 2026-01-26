@@ -14,8 +14,8 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 >   [Présentation (web)]({GITHUB_PAGES_URL}/{COURSE_CONTENTS_FOLDER}/{COURSE_CONTENT}/presentation.html)
 >   ·
 >   [Présentation (PDF)]({GITHUB_PAGES_URL}/{COURSE_CONTENTS_FOLDER}/{COURSE_CONTENT}/{COURSE_CONTENT}-presentation.pdf)
-> - Exercices : [Accéder au contenu](./01-exercices/README.md)
-> - Mini-projet : [Accéder au contenu](./02-mini-projet/README.md)
+> - Exercices : [Accéder au contenu](./02-exercices/README.md)
+> - Mini-projet : [Accéder au contenu](./03-mini-projet/README.md)
 >
 > **Objectifs**
 >
@@ -91,7 +91,7 @@ Nous vous invitons maintenant à réaliser les exercices de la séance afin de
 mettre en pratique les concepts abordés.
 
 Vous trouverez les exercices et leur corrigé ici :
-[Exercices](./01-exercices/README.md).
+[Exercices](./02-exercices/README.md).
 
 ## Mini-projet
 
@@ -99,7 +99,7 @@ Nous vous invitons maintenant à réaliser le mini-projet de la séance afin de
 mettre en pratique les concepts abordés.
 
 Vous trouverez les détails du mini-projet ici :
-[Mini-projet](./02-mini-projet/README.md).
+[Mini-projet](./03-mini-projet/README.md).
 
 ## À faire pour la prochaine séance
 

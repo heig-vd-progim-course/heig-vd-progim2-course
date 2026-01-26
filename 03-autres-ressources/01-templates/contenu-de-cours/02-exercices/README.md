@@ -13,8 +13,7 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 
 - [Table des matières](#table-des-matières)
 - [Exercices](#exercices)
-  - [Exercice 1](#exercice-1)
-  - [Exercice 2](#exercice-2)
+  - [{LEARNING\_TOPIC}](#learning_topic)
 
 ## Exercices
 
@@ -30,9 +29,21 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 > Il est donc important de les faire par vous-même avant de vérifier vos
 > réponses avec les solutions fournies.
 
-### Exercice 1
+### {LEARNING_TOPIC}
+
+#### Exercice 1 - Reconnaissance
 
 Description de l'exercice 1.
+
+Étant donné ce code/commande :
+
+```java
+Extrait de code ou commande
+```
+
+1. Que fait-il ?
+2. Est-il valide ?
+3. Pourquoi ?
 
 <details>
 <summary>Afficher la solution</summary>
@@ -41,14 +52,63 @@ Solution de l'exercice 1.
 
 </details>
 
-### Exercice 2
+#### Exercice 2 – Complétion
 
 Description de l'exercice 2.
+
+Complétez les parties manquantes.
+
+```java
+Extrait de code avec parties manquantes
+```
+
+<details>
+<summary>Indice 1</summary>
+
+Description de l'indice 1.
+
+</details>
 
 <details>
 <summary>Afficher la solution</summary>
 
 Solution de l'exercice 2.
+
+</details>
+
+#### Exercice 3 – Modification
+
+Description de l'exercice 3.
+
+Partez d'un exemple fonctionnel. Modifiez une exigence.
+
+```java
+Extrait de code fonctionnel
+```
+
+<details>
+<summary>Afficher la solution</summary>
+
+Solution de l'exercice 3.
+
+</details>
+
+#### Exercice 4 – Transfert
+
+Description de l'exercice 4.
+
+Nouveau contexte. Même concept sous-jacent.
+
+La difficulté augmente, mais la structure reste la même.
+
+```java
+Extrait de code dans un nouveau contexte
+```
+
+<details>
+<summary>Afficher la solution</summary>
+
+Solution de l'exercice 4.
 
 </details>
 
