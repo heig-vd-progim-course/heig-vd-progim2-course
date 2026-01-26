@@ -11,7 +11,17 @@ Suisse !
 À l'issue de cette unité d'enseignement, la personne qui étudie sera capable de
 :
 
--
+- Expliquer les concepts de la programmation orientée objet (POO) et les
+  appliquer en Java.
+- Organiser et structurer le code en utilisant des classes, des objets,
+  l'encapsulation, l'héritage et le polymorphisme.
+- Manipuler des collections de données en Java, y compris les listes, les
+  ensembles et les maps.
+- Gérer les exceptions en Java pour assurer la robustesse du code.
+- Mettre en place des tests unitaires avec JUnit pour garantir la qualité du
+  code.
+- Décrire les principes de base de la création d'interfaces graphiques avec
+  Swing et les appliquer dans des applications Java.
 
 ## ➡️ Par où commencer ?
 
@@ -24,9 +34,21 @@ Les détails de chaque séance du cours sont disponibles ci-dessous. Chaque séa
 est détaillée avec les contenus, les objectifs, les méthodes d'enseignement et
 d'apprentissage, et les méthodes d'évaluation.
 
-| Séance | Contenu(s) | État[^etat] |
-| -----: | :--------- | :---------- |
-|     00 |            | 🔴 À faire  |
+| Séance | Contenu(s)                                                              | État[^etat] |
+| -----: | :---------------------------------------------------------------------- | :---------- |
+|     01 | Introduction et modalités du cours - Debugging - Algèbre de Boole       | 🔴 À faire  |
+|     02 | Programmation orientée objet : Classes et objets, attributs et méthodes | 🔴 À faire  |
+|     03 | Programmation orientée objet : Encapsulation et héritage                | 🔴 À faire  |
+|     04 | Programmation orientée objet : Polymorphisme                            | 🔴 À faire  |
+|     05 | Tri                                                                     | 🔴 À faire  |
+|     06 | Collections Java : Listes, sets et maps                                 | 🔴 À faire  |
+|     🚨 | Evaluation intermédiaire                                                | 🔴 À faire  |
+|     07 | Collections Java : Lambda et génériques                                 | 🔴 À faire  |
+|     08 | Gestion d'exceptions                                                    | 🔴 À faire  |
+|     09 | Overloading, surcharge de fonctions & type casting                      | 🔴 À faire  |
+|     10 | Tests unitaires avec JUnit                                              | 🔴 À faire  |
+|     11 | Swing et interfaces graphiques                                          | 🔴 À faire  |
+|     12 | Récapitulatif du cours et préparation à l'examen                        | 🔴 À faire  |
 
 ## 📜 Licence
 
