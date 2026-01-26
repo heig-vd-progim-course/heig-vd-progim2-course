@@ -20,9 +20,9 @@ Each course module with diagrams should follow this structure:
 
 ```
 XX-topic-name/
-├── README.md
 ├── PRESENTATION.md
 ├── QUIZ.md
+├── README.md
 └── images/
    ├── illustration.jpg
    ├── diagram-name.puml

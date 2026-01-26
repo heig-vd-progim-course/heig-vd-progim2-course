@@ -26,7 +26,8 @@ Suisse !
 ## ➡️ Par où commencer ?
 
 Vous ne savez pas par où commencer ? Jetez un œil à
-l'[Introduction et modalités du cours](TODO) pour en savoir plus.
+l'[Introduction et modalités du cours](./01-contenus-de-cours/01-modalites-de-lunite-denseignement/README.md)
+pour en savoir plus.
 
 ## 📅 Programme
 
@@ -34,21 +35,32 @@ Les détails de chaque séance du cours sont disponibles ci-dessous. Chaque séa
 est détaillée avec les contenus, les objectifs, les méthodes d'enseignement et
 d'apprentissage, et les méthodes d'évaluation.
 
-| Séance | Contenu(s)                                                              | État[^etat] |
-| -----: | :---------------------------------------------------------------------- | :---------- |
-|     01 | Introduction et modalités du cours - Debugging - Algèbre de Boole       | 🔴 À faire  |
-|     02 | Programmation orientée objet : Classes et objets, attributs et méthodes | 🔴 À faire  |
-|     03 | Programmation orientée objet : Encapsulation et héritage                | 🔴 À faire  |
-|     04 | Programmation orientée objet : Polymorphisme                            | 🔴 À faire  |
-|     05 | Tri                                                                     | 🔴 À faire  |
-|     06 | Collections Java : Listes, sets et maps                                 | 🔴 À faire  |
-|     🚨 | Evaluation intermédiaire                                                | 🔴 À faire  |
-|     07 | Collections Java : Lambda et génériques                                 | 🔴 À faire  |
-|     08 | Gestion d'exceptions                                                    | 🔴 À faire  |
-|     09 | Overloading, surcharge de fonctions & type casting                      | 🔴 À faire  |
-|     10 | Tests unitaires avec JUnit                                              | 🔴 À faire  |
-|     11 | Swing et interfaces graphiques                                          | 🔴 À faire  |
-|     12 | Récapitulatif du cours et préparation à l'examen                        | 🔴 À faire  |
+|            Séance | Contenu(s)                                                                                                                                  | État[^etat] |
+| ----------------: | :------------------------------------------------------------------------------------------------------------------------------------------ | :---------- |
+| [01](#-séance-01) | [Modalités de l'unité d'enseignement](./01-contenus-de-cours/01-modalites-de-lunite-denseignement/README.md) + Debugging + Algèbre de Boole | 🟡 En cours |
+|                02 | Programmation orientée objet : Classes et objets, attributs et méthodes                                                                     | 🔴 À faire  |
+|                03 | Programmation orientée objet : Encapsulation et héritage                                                                                    | 🔴 À faire  |
+|                04 | Programmation orientée objet : Polymorphisme                                                                                                | 🔴 À faire  |
+|                05 | Tri                                                                                                                                         | 🔴 À faire  |
+|                06 | Collections Java : Listes, sets et maps                                                                                                     | 🔴 À faire  |
+|                🚨 | Evaluation intermédiaire                                                                                                                    | 🔴 À faire  |
+|                07 | Collections Java : Lambda et génériques                                                                                                     | 🔴 À faire  |
+|                08 | Gestion d'exceptions                                                                                                                        | 🔴 À faire  |
+|                09 | Overloading, surcharge de fonctions & type casting                                                                                          | 🔴 À faire  |
+|                10 | Tests unitaires avec JUnit                                                                                                                  | 🔴 À faire  |
+|                11 | Swing et interfaces graphiques                                                                                                              | 🔴 À faire  |
+|                12 | Récapitulatif du cours et préparation à l'examen                                                                                            | 🔴 À faire  |
+
+## 🕐 Séance 01
+
+### [Modalités de l'unité d'enseignement](./01-contenus-de-cours/01-modalites-de-lunite-denseignement/)
+
+- Support de cours :
+  [Lien vers le contenu](./01-contenus-de-cours/01-modalites-de-lunite-denseignement/README.md)
+  ·
+  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-de-cours/01-modalites-de-lunite-denseignement/presentation.html)
+  ·
+  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-de-cours/01-modalites-de-lunite-denseignement/01-modalites-de-lunite-denseignement-presentation.pdf)
 
 ## 📜 Licence
 
