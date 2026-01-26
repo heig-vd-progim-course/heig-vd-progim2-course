@@ -17,3 +17,6 @@ Thumbs.db
 
 # Folder config file
 [Dd]esktop.ini
+
+# Temporary files created by users
+tmp
