@@ -111,7 +111,7 @@ profession being taught rather than added as a separate module.
   (except root README.md)
 - Langage épicène: Use gender-neutral language in French (e.g., "la personne qui
   étudie", "l'utilisatrice")
-- Simple apostrophes: Always use simple apostrophes (') instead of typographic
+- Simple apostrophes: Always use typing apostrophes (') instead of typographic
   apostrophes (')
 - Real-world relevance: Use practical examples with ecological and low-tech
   values

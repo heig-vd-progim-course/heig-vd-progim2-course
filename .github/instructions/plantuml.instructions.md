@@ -77,10 +77,9 @@ Key elements:
 
 ## Integration with course materials
 
-- Reference diagrams in [README.md](README.md) using:
+- Reference diagrams in `README.md` using:
   `![Description](./images/diagram-name.png)`.
-- Reference diagrams in [PRESENTATION.md](PRESENTATION.md) using the same
-  syntax.
+- Reference diagrams in `PRESENTATION.md` using the same syntax.
 - Always provide alt text for accessibility.
 - Ensure diagrams complement the textual explanations.
 

@@ -25,6 +25,7 @@ values with those specific to your course:
 - Academic year (`ACADEMIC_YEAR`): 2025-2026
 - License (`LICENSE_NAME`): CC BY-SA 4.0
 - License URL (`LICENSE_URL`): `{GITHUB_REPOSITORY_URL}/blob/main/LICENSE.md`
+- Learning topic (`{LEARNING_TOPIC}`):
 
 ## Repository structure
 

@@ -44,7 +44,7 @@ applyTo: "**/*.md"
 
 ## Admonitions in course materials
 
-Course materials (README.md files in `01-supports-de-cours/`) can use
+Course materials (README.md files in {COURSE_CONTENTS_FOLDER}) can use
 GitHub-flavored admonitions to highlight important information. These are
 rendered as colored boxes on GitHub.
 
