@@ -106,7 +106,7 @@ Selon la
 - Mettre en place des tests unitaires avec JUnit pour garantir la qualité du
   code.
 - Décrire les principes de base de la création d'interfaces graphiques avec
-  Swing et les appliquer dans des applications Java.
+  JavaFX et les appliquer dans des applications Java.
 
 Ces compétences vous permettront de développer des applications Java simples,
 structurées et testées, en appliquant les bonnes pratiques de développement
