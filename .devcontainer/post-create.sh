@@ -8,6 +8,11 @@ alias jpegoptim='jpegoptim --strip-all --all-progressive'
 alias optipng='optipng -o5 -strip all -fix'
 EOF
 
+## Enable globstar option for recursive globbing
+tee -a ~/.bashrc > /dev/null <<"EOF"
+shopt -s globstar nullglob
+EOF
+
 ## Install required packages
 # Update packages list
 sudo apt update
