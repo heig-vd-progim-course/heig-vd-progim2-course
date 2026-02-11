@@ -19,7 +19,7 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 >
 > **Objectifs**
 >
-> À l'issue de cette séance,les personnes qui étudient devraient être capables
+> À l'issue de cette séance, les personnes qui étudient devraient être capables
 > de :
 >
 > - Expliquer ce qu'est une exception et son rôle en Java.
