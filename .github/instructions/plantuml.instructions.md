@@ -11,7 +11,7 @@ applyTo: "**/*.puml, **/*.plantuml"
 
 - Location: store in `images/` subfolder of course content directories.
 - Rendering: render using local server at <http://localhost:9090>.
-- Build process: generate diagrams manually using `./generate-diagrams.sh`
+- Build process: generate diagrams manually using `./build-all-diagrams.sh`
   script.
 
 ## File organization

@@ -33,13 +33,15 @@ The repository should follow the following structure:
 
 ```txt
 ./
-├── 01-contenus-de-cours/
+├── 01-contenus-du-cours/
 │   └── ...
 ├── 02-evaluations/
+│   ├── 01-evaluation/
+│   └── 02-mini-projet-personnel/
 ├── 03-autres-ressources/
 │   └── ...
-├── generate-diagrams.sh
-├── generate-presentations.sh
+├── build-all-diagrams.sh*
+├── build-all-presentations.sh*
 ├── ATTRIBUTION.md
 ├── LICENSE.md
 └── README.md
@@ -72,10 +74,10 @@ Examples of improper folder naming conventions:
 
 ## Course contents structure
 
-The directory `01-contenus-de-cours/` (`COURSE_CONTENTS_FOLDER`) contains all
+The directory `01-contenus-du-cours/` (`COURSE_CONTENTS_FOLDER`) contains all
 course materials, organized into subdirectories for each content.
 
-Each content folder contains:
+Each content folder may contain:
 
 - A README file (`README.md`) that contains detailed explanations and examples
   related to the content to be covered.
@@ -83,6 +85,8 @@ Each content folder contains:
   content, a summarized version of the main points issued from the README file.
 - A quiz file (`QUIZ.md`) that contains questions to test students' knowledge on
   the content.
+- A directory for code examples (`01-code-examples/`) that contains practical
+  code examples related to the content, with explanations and expected outputs.
 - A directory for exercises (`02-exercices/`) that contains practical exercises
   related to the content with their answers.
 - A directory for the mini-project (`03-mini-projet/`) that contains the
@@ -95,15 +99,38 @@ Each content folder contains:
 When creating new course content, always read and follow the structure of all
 relevant template files in the templates directory, including:
 
-- [The main content template](./contenu-de-cours/README.md)
-- [The presentation template](./contenu-de-cours/PRESENTATION.md)
-- [The quiz template](./contenu-de-cours/QUIZ.md)
-- [The exercises template](./contenu-de-cours/02-exercices/README.md)
-- [The mini-project template](./contenu-de-cours/03-mini-projet/README.md)
-- [The solution template](./contenu-de-cours/03-mini-projet/solution/README.md)
+- [The main README](../../README.md).
+- [The presentation template](./contenu-du-cours/PRESENTATION.md).
+- [The quiz template](./contenu-du-cours/QUIZ.md)
+- [The main content template](./contenu-du-cours/README.md).
+- [The code examples template](./contenu-du-cours/01-code-examples/README.md).
+- [The exercises template](./contenu-du-cours/02-exercices/README.md).
+- [The solution template](./contenu-du-cours/03-mini-projet/solution/README.md).
 
 When updating a course content, ensure that all related files and resources are
 also updated accordingly to maintain consistency.
+
+When creating new course content, always start by only creating the main content
+folder with its README file. The result will then be reviewed before adding more
+resources such as exercises or mini-projects.
+
+You can use the previously created course contents as examples to guide you in
+structuring new contents.
+
+## Evaluations structure
+
+The directory `02-evaluations/` (`EVALUATIONS_FOLDER`) contains all evaluation
+resources, organized into subdirectories for each evaluation/evaluation type.
+
+Each evaluation folder contains:
+
+- A README file (`README.md`) that contains detailed explanations and examples
+  related to the topic to be covered.
+- A presentation file (`PRESENTATION.md`) that provides an overview of the
+  topic, a summarized version of the main points issued from the README file.
+
+Use the [`evaluation`](./evaluation/) template to create new evaluation
+resources.
 
 ## Other resources structure
 

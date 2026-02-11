@@ -9,9 +9,9 @@ applyTo: "**/PRESENTATION.md, **/QUIZ.md"
 All presentations must follow the exact structure in the templates directory:
 
 - Course presentations:
-  `03-autres-ressources/01-templates/contenu-de-cours/PRESENTATION.md`
+  `03-autres-ressources/01-templates/contenu-du-cours/PRESENTATION.md`
 - Quiz presentations:
-  `03-autres-ressources/01-templates/contenu-de-cours/QUIZ.md`
+  `03-autres-ressources/01-templates/contenu-du-cours/QUIZ.md`
 
 ## Frontmatter rules
 

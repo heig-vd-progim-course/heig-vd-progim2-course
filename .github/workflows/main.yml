@@ -32,7 +32,7 @@ jobs:
         uses: docker://marpteam/marp-cli:v4.2.3
         with:
           entrypoint: bash
-          args: generate-presentations.sh
+          args: build-all-presentations.sh
 
       - name: Upload files
         uses: actions/upload-artifact@v4

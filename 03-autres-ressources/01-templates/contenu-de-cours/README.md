@@ -10,10 +10,9 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 >
 > **Ressources annexes**
 >
-> - Autres formats du support de cours :
->   [Présentation (web)]({GITHUB_PAGES_URL}/{COURSE_CONTENTS_FOLDER}/{COURSE_CONTENT}/presentation.html)
->   ·
->   [Présentation (PDF)]({GITHUB_PAGES_URL}/{COURSE_CONTENTS_FOLDER}/{COURSE_CONTENT}/{COURSE_CONTENT}-presentation.pdf)
+> - Autres formats du support de cours : [Présentation (web)][presentation-web]
+>   · [Présentation (PDF)][presentation-pdf]
+> - Exemples de code : [Accéder au contenu](./01-code-examples/README.md)
 > - Exercices : [Accéder au contenu](./02-exercices/README.md)
 > - Mini-projet : [Accéder au contenu](./03-mini-projet/README.md)
 >
@@ -113,3 +112,7 @@ il est recommandé pour la prochaine séance de :
 <!-- URLs -->
 
 [licence]: {LICENSE_URL}
+[presentation-web]:
+	{GITHUB_PAGES_URL}/{COURSE_CONTENTS_FOLDER}/{COURSE_CONTENT}/presentation.html
+[presentation-pdf]:
+	{GITHUB_PAGES_URL}/{COURSE_CONTENTS_FOLDER}/{COURSE_CONTENT}/{COURSE_CONTENT}-presentation.pdf

@@ -5,10 +5,9 @@ size: "16:9"
 paginate: "true"
 author: "{AUTHOR}"
 description:
-  "{COURSE_CONTENT} pour le cours {COURSE_CODE} enseigné à la {INSTITUTION},
-  Suisse"
+  "Évaluation {EVALUATION_NUMBER} - {ACADEMIC_YEAR} pour le cours {COURSE_CODE}
+  enseigné à la {INSTITUTION}, Suisse"
 lang: "fr"
-url: "{GITHUB_PAGES_URL}/{COURSE_CONTENTS_FOLDER}/{COURSE_CONTENT}/presentation.html"
 header: "[**{COURSE_CONTENT}**][contenu-complet-sur-github]"
 footer:
   "[**{INSTITUTION}**]({INSTITUTION_URL}) - [{COURSE_CODE}
@@ -16,7 +15,7 @@ footer:
 headingDivider: 6
 ---
 
-# {COURSE_CONTENT}
+# Évaluation {EVALUATION_NUMBER}
 
 <!--
 _class: lead
@@ -25,33 +24,13 @@ _paginate: false
 
 <{GITHUB_REPOSITORY_URL}>
 
-Visualiser le contenu complet sur GitHub [à cette
-adresse][contenu-complet-sur-github].
-
 <small>{AUTHOR}.</small>
 
 <small>Ce travail est sous licence [{LICENSE_NAME}][licence].</small>
 
 ![bg opacity:0.1][illustration-principale]
 
-## Plus de détails sur GitHub
-
-<!-- _class: lead -->
-
-_Cette présentation est un résumé du contenu complet disponible sur GitHub._
-
-_Pour plus de détails, consulter le [contenu complet sur
-GitHub][contenu-complet-sur-github] ou en cliquant sur l'en-tête de ce
-document._
-
-## Objectifs
-
-- Objectif 1.
-- Objectif 2.
-- ...
-- Objectif n.
-
-![bg right:40%][illustration-objectifs]
+##
 
 ---
 
