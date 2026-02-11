@@ -174,7 +174,7 @@ pratiques acquises tout au long de l'unité d'enseignement :
 - Gestion d'exceptions.
 - Overloading, surcharge de fonctions et type casting.
 - Tests unitaires avec JUnit.
-- Swing et interfaces graphiques.
+- JavaFX et interfaces graphiques.
 
 La durée de l'évaluation est d'environ 180 minutes.
 
