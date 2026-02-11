@@ -21,7 +21,7 @@ Suisse !
 - Mettre en place des tests unitaires avec JUnit pour garantir la qualité du
   code.
 - Décrire les principes de base de la création d'interfaces graphiques avec
-  Swing et les appliquer dans des applications Java.
+  JavaFX et les appliquer dans des applications Java.
 
 ## ➡️ Par où commencer ?
 
