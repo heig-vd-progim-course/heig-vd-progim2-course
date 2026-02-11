@@ -1,6 +1,6 @@
 # Attribution
 
-<!--PLease use TASL to attribute. More information here: https://wiki.creativecommons.org/wiki/Recommended_practices_for_attribution-->
+<!--Please use TASL to attribute. More information here: https://wiki.creativecommons.org/wiki/Recommended_practices_for_attribution-->
 
 - [HEIG-VD DAI Course](https://github.com/heig-vd-dai-course/heig-vd-dai-course)
   by Ludovic Delafontaine [@ludelafo](https://github.com/ludelafo/) and Hadrien
