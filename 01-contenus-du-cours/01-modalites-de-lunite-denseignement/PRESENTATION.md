@@ -164,7 +164,7 @@ L'unité d'enseignement sera évaluée à l'aide de deux évaluations écrites :
 ## "Qu'en est-il de ChatGPT, etc. ?" (1/3)
 
 **Vous pouvez utiliser tous les outils que vous souhaitez** (notes personnelles,
-Internet, outils d'IA, etc.), **sauf pendant les évaluations**.Vous pourrez les
+Internet, outils d'IA, etc.), **sauf pendant les évaluations**. Vous pourrez les
 utiliser dans la vie réelle, alors mieux vaut apprendre à vous en servir dès
 maintenant.
 
