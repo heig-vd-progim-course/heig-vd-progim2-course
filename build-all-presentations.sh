@@ -29,10 +29,19 @@ rm -f **/*-quiz.pdf
 rm -f **/presentation.html
 rm -f **/quiz.html
 
+# Detect CPU count in a portable way
+if command -v nproc > /dev/null 2>&1; then
+    CPU_COUNT=$(nproc)
+elif command -v sysctl > /dev/null 2>&1; then
+    CPU_COUNT=$(sysctl -n hw.ncpu 2>/dev/null || echo 1)
+else
+    CPU_COUNT=1
+fi
+
 # Convert presentations
 MARP_ARGS=(
     --config-file .marp/config.yaml
-    --parallel $(nproc)
+    --parallel "$CPU_COUNT"
     **/PRESENTATION.md **/QUIZ.md
 )
 
