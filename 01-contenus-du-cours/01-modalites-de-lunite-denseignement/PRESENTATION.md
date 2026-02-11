@@ -241,7 +241,7 @@ Est-ce que vous avez des questions ?
 <!-- URLs -->
 
 [contenu-complet-sur-github]:
-	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/tree/main/01-contenus-de-cours/01-modalites-de-lunite-denseignement/README.md
+	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/tree/main/01-contenus-du-cours/01-modalites-de-lunite-denseignement/README.md
 [licence]:
 	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/blob/main/LICENSE.md
 

@@ -26,7 +26,7 @@ Suisse !
 ## ➡️ Par où commencer ?
 
 Vous ne savez pas par où commencer ? Jetez un œil à
-l'[Introduction et modalités du cours](./01-contenus-de-cours/01-modalites-de-lunite-denseignement/README.md)
+l'[Introduction et modalités du cours](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/README.md)
 pour en savoir plus.
 
 ## 📅 Programme
@@ -37,7 +37,7 @@ d'apprentissage, et les méthodes d'évaluation.
 
 |            Séance | Contenu(s)                                                                                                                                  | État[^etat] |
 | ----------------: | :------------------------------------------------------------------------------------------------------------------------------------------ | :---------- |
-| [01](#-séance-01) | [Modalités de l'unité d'enseignement](./01-contenus-de-cours/01-modalites-de-lunite-denseignement/README.md) + Debugging + Algèbre de Boole | 🟡 En cours |
+| [01](#-séance-01) | [Modalités de l'unité d'enseignement](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/README.md) + Debugging + Algèbre de Boole | 🟡 En cours |
 |                02 | Programmation orientée objet : Classes et objets, attributs et méthodes                                                                     | 🔴 À faire  |
 |                03 | Programmation orientée objet : Encapsulation et héritage                                                                                    | 🔴 À faire  |
 |                04 | Programmation orientée objet : Polymorphisme                                                                                                | 🔴 À faire  |
@@ -53,14 +53,14 @@ d'apprentissage, et les méthodes d'évaluation.
 
 ## 🕐 Séance 01
 
-### [Modalités de l'unité d'enseignement](./01-contenus-de-cours/01-modalites-de-lunite-denseignement/)
+### [Modalités de l'unité d'enseignement](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/)
 
 - Support de cours :
-  [Lien vers le contenu](./01-contenus-de-cours/01-modalites-de-lunite-denseignement/README.md)
+  [Lien vers le contenu](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/README.md)
   ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-de-cours/01-modalites-de-lunite-denseignement/presentation.html)
+  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/01-modalites-de-lunite-denseignement/presentation.html)
   ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-de-cours/01-modalites-de-lunite-denseignement/01-modalites-de-lunite-denseignement-presentation.pdf)
+  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/01-modalites-de-lunite-denseignement/01-modalites-de-lunite-denseignement-presentation.pdf)
 
 ## 📜 Licence
 
