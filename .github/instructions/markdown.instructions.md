@@ -28,7 +28,8 @@ applyTo: "**/*.md"
 
 ### Lists
 
-- Always use a period at the end of each list item.
+- Always use a period at the end of each list item, except for tables of
+  contents where the items are links to sections in the same document.
 - Use consistent indentation (2 spaces) for nested lists.
 
 ### Code blocks
