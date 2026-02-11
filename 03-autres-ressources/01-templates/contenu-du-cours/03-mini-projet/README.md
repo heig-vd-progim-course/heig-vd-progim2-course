@@ -15,6 +15,7 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 - [Objectifs](#objectifs)
 - [Conclusion](#conclusion)
 - [Solution](#solution)
+- [Idées pour le mini-projet personnel](#idées-pour-le-mini-projet-personnel)
 - [Aller plus loin](#aller-plus-loin)
 
 ## Objectifs

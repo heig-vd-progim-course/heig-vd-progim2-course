@@ -35,8 +35,8 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 > - Différencier les types primitifs et leurs classes wrapper.
 > - Appliquer l'autoboxing et l'unboxing.
 > - Comprendre les implications de performance entre primitifs et wrappers.
-> - Utiliser les méthodes utilitaires des classes wrapper
->   (`Integer.parseInt()`, etc.).
+> - Utiliser les méthodes utilitaires des classes wrapper (`Integer.parseInt()`,
+>   etc.).
 >
 > **Méthodes d'enseignement et d'apprentissage**
 >

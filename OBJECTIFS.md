@@ -6,12 +6,11 @@ V. Guidoux, avec l'aide de
 Ce travail est sous licence
 [CC BY-SA 4.0](https://github.com/heig-vd-progim-course/heig-vd-progim2-course/blob/main/LICENSE.md).
 
-Ce document présente l'ensemble des objectifs d'apprentissage pour chaque
-séance du cours de Programmation 2. Les objectifs sont formulés avec des verbes
-d'action mesurables basés sur la taxonomie de Bloom.
+Ce document présente l'ensemble des objectifs d'apprentissage pour chaque séance
+du cours de Programmation 2.
 
 ## Table des matières
- 
+
 - [Objectifs généraux du cours](#objectifs-généraux-du-cours)
 - [Séance 01 - Introduction et bases](#séance-01---introduction-et-bases)
 - [Séance 02 - POO : Classes et objets](#séance-02---poo--classes-et-objets)
@@ -87,8 +86,7 @@ d'action mesurables basés sur la taxonomie de Bloom.
 - Implémenter des méthodes pour manipuler les attributs d'une classe.
 - Utiliser le mot-clé `this` pour référencer l'instance courante.
 - Créer des constructeurs pour initialiser les objets.
-- Différencier les constructeurs par défaut et les constructeurs
-  paramétrés.
+- Différencier les constructeurs par défaut et les constructeurs paramétrés.
 
 ### Encapsulation de base
 
@@ -133,8 +131,7 @@ d'action mesurables basés sur la taxonomie de Bloom.
 
 - Appliquer le modificateur `protected` pour les membres accessibles aux
   sous-classes.
-- Utiliser le mot-clé `final` pour empêcher la modification ou la
-  redéfinition.
+- Utiliser le mot-clé `final` pour empêcher la modification ou la redéfinition.
 - Évaluer quand utiliser `final` sur des classes, méthodes ou variables.
 
 ### Mini-projet (partie 2)
@@ -152,8 +149,7 @@ d'action mesurables basés sur la taxonomie de Bloom.
 
 - Expliquer le concept de polymorphisme en POO.
 - Utiliser des références de type parent pour des objets de type enfant.
-- Appliquer le polymorphisme pour traiter différents objets de manière
-  uniforme.
+- Appliquer le polymorphisme pour traiter différents objets de manière uniforme.
 - Démontrer comment le polymorphisme améliore la flexibilité du code.
 
 ### Redéfinition de méthodes (`@Override`)
@@ -538,7 +534,6 @@ numérique en :
 - Sensibilisant à la saisonnalité et à la planification des cultures.
 - Encourageant les pratiques écologiques (rotation des cultures, économie
   d'eau).
-- Développant un outil utile pour des initiatives locales et citoyennes.
 
 ---
 

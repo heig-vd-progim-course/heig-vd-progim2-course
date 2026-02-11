@@ -57,13 +57,12 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 
 ## Table des matières
 
-- [{COURSE\_CONTENT}](#course_content)
-	- [Table des matières](#table-des-matières)
-	- [Objectifs](#objectifs)
-	- [Conclusion](#conclusion)
-	- [Exercices](#exercices)
-	- [Mini-projet](#mini-projet)
-	- [À faire pour la prochaine séance](#à-faire-pour-la-prochaine-séance)
+- [Table des matières](#table-des-matières)
+- [Objectifs](#objectifs)
+- [Conclusion](#conclusion)
+- [Exercices](#exercices)
+- [Mini-projet](#mini-projet)
+- [À faire pour la prochaine séance](#à-faire-pour-la-prochaine-séance)
 
 ## Objectifs
 

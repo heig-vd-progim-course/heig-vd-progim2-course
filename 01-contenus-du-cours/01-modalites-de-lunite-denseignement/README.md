@@ -15,8 +15,8 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 >   [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/01-modalites-de-lunite-denseignement/presentation.html)
 >   ·
 >   [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/01-modalites-de-lunite-denseignement/01-modalites-de-lunite-denseignement-presentation.pdf)
-
-> **Objectifs**
+>
+>   **Objectifs**
 >
 > À l'issue de cette séance, les personnes qui étudient devraient être capables
 > de :

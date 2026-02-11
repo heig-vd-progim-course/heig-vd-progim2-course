@@ -28,8 +28,8 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 > - Reconnaître les avantages du développement piloté par les tests (TDD).
 > - Créer une classe de test avec JUnit.
 > - Utiliser les annotations `@Test`, `@BeforeEach`, `@AfterEach`.
-> - Écrire des assertions avec `assertEquals()`, `assertTrue()`, `assertFalse()`,
->   `assertNull()`.
+> - Écrire des assertions avec `assertEquals()`, `assertTrue()`,
+>   `assertFalse()`, `assertNull()`.
 > - Exécuter les tests et interpréter les résultats.
 > - Tester les exceptions attendues avec `assertThrows()`.
 > - Utiliser `@BeforeAll` et `@AfterAll` pour l'initialisation globale.
