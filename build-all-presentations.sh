@@ -52,6 +52,7 @@ echo "Converting presentations to PDF..."
 "${MARP_CMD[@]}" "${MARP_ARGS[@]}" --pdf
 
 # Rename files
+# TODO : The message has an extra apostrophe at the end (Renaming HTML files'...). This looks like a typo and may be confusing in logs.
 echo "Renaming HTML files'..."
 for file in **/{PRESENTATION,QUIZ}.html; do
     path="$(dirname "$file")"
