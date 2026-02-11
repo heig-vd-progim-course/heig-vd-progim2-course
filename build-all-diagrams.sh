@@ -55,8 +55,11 @@ for multipart_svg_file in **/*_001.svg; do
     done
 done
 
-# TODO If no multipart diagrams are generated, multipart_files stays empty and this call will run PlantUML with no input files (likely failing the script). Add a guard to skip regeneration when the array is empty.
-echo "Regenerating single-page SVG files for multipart diagrams..."
-"${PLANTUML_CMD[@]}" "${PLANT_UML_ARGS[@]}" "${multipart_files[@]}"
+if [ ${#multipart_files[@]} -gt 0 ]; then
+    echo "Regenerating single-page SVG files for multipart diagrams..."
+    "${PLANTUML_CMD[@]}" "${PLANT_UML_ARGS[@]}" "${multipart_files[@]}"
+else
+    echo "No multipart diagrams found, skipping single-page regeneration."
+fi
 
 echo "All diagrams processed successfully!"
