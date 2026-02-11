@@ -41,6 +41,16 @@ _Cette présentation est un quiz pour tester ses connaissances sur le chapitre e
 cours. Pour plus de détails, consultez le [contenu complet sur
 GitHub][contenu-complet-sur-github]._
 
+## Structure du quiz
+
+<!-- _class: lead -->
+
+**Répartition recommandée des questions :**
+
+- 60-70% : contenu de la séance actuelle.
+- 20-30% : révision des séances précédentes (pratique de récupération).
+- 10% : questions connectant plusieurs concepts (pensée critique).
+
 ## Question 1 - Donnée
 
 > Question à poser aux étudiants ?

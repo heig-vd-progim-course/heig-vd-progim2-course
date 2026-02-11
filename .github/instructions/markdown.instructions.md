@@ -82,3 +82,32 @@ rendered as colored boxes on GitHub.
 - Use IMPORTANT for critical concepts required for success
 - Use WARNING for common mistakes or misunderstandings
 - Use CAUTION for dangerous operations or irreversible actions
+
+## Accessibility guidelines
+
+All course materials must be accessible to all students, including those with
+disabilities or using assistive technologies.
+
+### Links and references
+
+- Use descriptive link text that makes sense out of context (avoid "click here"
+  or "here").
+- When referencing files or code, provide context about what the link points to.
+
+**Good:**
+
+```markdown
+Consultez le [guide de débogage](./debugging-guide.md) pour plus de détails.
+```
+
+**Bad:**
+
+```markdown
+Pour plus de détails, cliquez [ici](./debugging-guide.md).
+```
+
+### Code examples
+
+- Provide explanatory text before and after code blocks.
+- Use comments within code to explain complex sections.
+- Ensure code examples can be understood without relying on syntax highlighting.

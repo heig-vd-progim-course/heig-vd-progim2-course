@@ -104,7 +104,7 @@ relevant template files in the templates directory, including:
 - [The main content template](./contenu-du-cours/README.md).
 - [The code examples template](./contenu-du-cours/01-exemples-de-code/README.md).
 - [The exercises template](./contenu-du-cours/02-exercices/README.md).
-- [The solution template](./contenu-du-cours/03-mini-projet/solution/README.md).
+- [The mini-project template](./contenu-du-cours/03-mini-projet/README.md).
 
 When updating a course content, ensure that all related files and resources are
 also updated accordingly to maintain consistency.

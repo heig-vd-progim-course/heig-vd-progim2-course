@@ -52,6 +52,27 @@ Solution de l'exercice 1.
 
 </details>
 
+#### Exercice 1b – Prédiction de sortie
+
+Description de l'exercice 1b.
+
+Prédisez la sortie de ce code sans l'exécuter :
+
+```java
+Extrait de code complet
+```
+
+1. Que va afficher ce programme ?
+2. Pourquoi ?
+3. Testez votre prédiction en exécutant le code.
+
+<details>
+<summary>Afficher la solution</summary>
+
+Solution de l'exercice 1b avec explication du comportement.
+
+</details>
+
 #### Exercice 2 – Complétion
 
 Description de l'exercice 2.
@@ -76,9 +97,38 @@ Solution de l'exercice 2.
 
 </details>
 
-#### Exercice 3 – Modification
+#### Exercice 3 – Comparaison de code
 
 Description de l'exercice 3.
+
+Comparez ces deux approches :
+
+**Code A :**
+
+```java
+Première approche
+```
+
+**Code B :**
+
+```java
+Seconde approche
+```
+
+1. Lequel est préférable ? Pourquoi ?
+2. Quels sont les avantages et inconvénients de chaque approche ?
+3. Dans quel contexte utiliseriez-vous l'un plutôt que l'autre ?
+
+<details>
+<summary>Afficher la solution</summary>
+
+Analyse comparative détaillée des deux approches.
+
+</details>
+
+#### Exercice 3b – Modification
+
+Description de l'exercice 3b.
 
 Partez d'un exemple fonctionnel. Modifiez une exigence.
 
