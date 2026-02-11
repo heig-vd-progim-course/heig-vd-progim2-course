@@ -81,7 +81,7 @@ devraient être capables de :
 
 ## Conclusion
 
-TODO: Résumer les points clés du cours et encourager les étudiants à continuer
+TODO: Résumer les points clés du cours et encourager les étudiantes à continuer
 leur apprentissage.
 
 ## Exercices
