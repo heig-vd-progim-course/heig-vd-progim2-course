@@ -176,7 +176,7 @@ pratiques acquises tout au long de l'unité d'enseignement :
 - Tests unitaires avec JUnit.
 - Swing et interfaces graphiques.
 
-La durée de l'évaluation est d'environ 90 minutes.
+La durée de l'évaluation est d'environ 180 minutes.
 
 **Aucune aide n'est autorisée** lors de cette évaluation.
 
