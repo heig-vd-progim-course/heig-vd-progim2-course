@@ -29,8 +29,8 @@ TODO
 
 ## Solution
 
-La solution du mini-projet est accessible dans un dépôt GitHub dédié à l'adresse
-suivante : <TODO>.
+Vous pouvez trouver la solution du mini-projet à l'adresse suivante :
+[`solution`](./solution/README.md).
 
 > [!NOTE]
 >
@@ -38,19 +38,9 @@ suivante : <TODO>.
 > recommandé de développer votre propre version du mini-projet avant de
 > consulter la solution.
 >
-> De plus, cette solution référence un commit spécifique. Des modifications
-> peuvent avoir été apportées au dépôt depuis ce commit.
->
-> Pour accéder à la version exacte de la solution correspondant à ce commit/tag,
-> vous pouvez cloner le dépôt et utiliser la commande Git suivante pour basculer
-> sur le commit/tag spécifique :
->
-> ```bash
-> git checkout <commit-hash> # ou git checkout <tag>
-> ```
->
-> Remplacez `<commit-hash>` ou `<tag>` par l'identifiant du commit ou du tag
-> correspondant à la solution.
+> Il existe souvent plusieurs façons de résoudre un même problème. Cette
+> solution illustre une approche possible, mais ce n'est pas nécessairement la
+> seule solution correcte.
 
 ## Idées pour le mini-projet personnel
 
