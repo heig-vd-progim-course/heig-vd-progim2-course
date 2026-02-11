@@ -85,7 +85,10 @@ Each content folder may contain:
 - A quiz file (`QUIZ.md`) that contains questions to test students' knowledge on
   the content.
 - A directory for code examples (`01-exemples-de-code/`) that contains practical
-  code examples related to the content, with explanations and expected outputs.
+  code examples organized in two subfolders: `01-exemples/` with correct,
+  working code following best practices, and `02-erreurs-courantes/` with
+  intentionally incorrect code (prefixed with `ERROR-`) showing common mistakes
+  with detailed explanatory comments.
 - A directory for exercises (`02-exercices/`) that contains practical exercises
   related to the content with their answers.
 - A directory for the mini-project (`03-mini-projet/`) that contains the
