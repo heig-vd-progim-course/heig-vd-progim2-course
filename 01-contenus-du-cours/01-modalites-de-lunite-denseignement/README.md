@@ -156,7 +156,7 @@ lors des six premières séances :
 - Tri.
 - Collections Java : listes, sets et maps.
 
-La durée de l'évaluation est d'environ 90 minutes.
+La durée de l'évaluation est d'environ 180 minutes.
 
 **Aucune aide n'est autorisée** lors de cette évaluation.
 
