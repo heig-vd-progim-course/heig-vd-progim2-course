@@ -12,7 +12,7 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 >
 > - Autres formats du support de cours : [Présentation (web)][presentation-web]
 >   · [Présentation (PDF)][presentation-pdf]
-> - Exemples de code : [Accéder au contenu](./01-code-examples/README.md)
+> - Exemples de code : [Accéder au contenu](./01-exemples-de-code/README.md)
 > - Exercices : [Accéder au contenu](./02-exercices/README.md)
 > - Mini-projet : [Accéder au contenu](./03-mini-projet/README.md)
 >
@@ -57,12 +57,13 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 
 ## Table des matières
 
-- [Table des matières](#table-des-matières)
-- [Objectifs](#objectifs)
-- [Conclusion](#conclusion)
-- [Exercices](#exercices)
-- [Mini-projet](#mini-projet)
-- [À faire pour la prochaine séance](#à-faire-pour-la-prochaine-séance)
+- [{COURSE\_CONTENT}](#course_content)
+	- [Table des matières](#table-des-matières)
+	- [Objectifs](#objectifs)
+	- [Conclusion](#conclusion)
+	- [Exercices](#exercices)
+	- [Mini-projet](#mini-projet)
+	- [À faire pour la prochaine séance](#à-faire-pour-la-prochaine-séance)
 
 ## Objectifs
 

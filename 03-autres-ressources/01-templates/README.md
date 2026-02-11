@@ -85,7 +85,7 @@ Each content folder may contain:
   content, a summarized version of the main points issued from the README file.
 - A quiz file (`QUIZ.md`) that contains questions to test students' knowledge on
   the content.
-- A directory for code examples (`01-code-examples/`) that contains practical
+- A directory for code examples (`01-exemples-de-code/`) that contains practical
   code examples related to the content, with explanations and expected outputs.
 - A directory for exercises (`02-exercices/`) that contains practical exercises
   related to the content with their answers.
@@ -103,7 +103,7 @@ relevant template files in the templates directory, including:
 - [The presentation template](./contenu-du-cours/PRESENTATION.md).
 - [The quiz template](./contenu-du-cours/QUIZ.md)
 - [The main content template](./contenu-du-cours/README.md).
-- [The code examples template](./contenu-du-cours/01-code-examples/README.md).
+- [The code examples template](./contenu-du-cours/01-exemples-de-code/README.md).
 - [The exercises template](./contenu-du-cours/02-exercices/README.md).
 - [The solution template](./contenu-du-cours/03-mini-projet/solution/README.md).
 
