@@ -37,169 +37,19 @@ d'apprentissage, et les méthodes d'évaluation.
 
 |            Séance | Contenu(s)                                                                                                      | État[^etat] |
 | ----------------: | :-------------------------------------------------------------------------------------------------------------- | :---------- |
-| [01](#-séance-01) | [Modalités](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/README.md) + [Debugging](./01-contenus-du-cours/02-debugging/README.md) + [Algèbre de Boole](./01-contenus-du-cours/03-algebre-de-boole/README.md) | 🟡 En cours |
-| [02](#-séance-02) | [Programmation orientée objet : Classes et objets](./01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/README.md)     | 🔴 À faire  |
-| [03](#-séance-03) | [Programmation orientée objet : Encapsulation et héritage](./01-contenus-du-cours/05-programmation-orientee-objet-encapsulation-et-heritage/README.md) | 🔴 À faire  |
-| [04](#-séance-04) | [Programmation orientée objet : Polymorphisme](./01-contenus-du-cours/06-programmation-orientee-objet-polymorphisme/README.md)             | 🔴 À faire  |
-| [05](#-séance-05) | [Algorithmes de tri](./01-contenus-du-cours/07-algorithmes-de-tri/README.md)                                   | 🔴 À faire  |
-| [06](#-séance-06) | [Collections Java : Listes, sets et maps](./01-contenus-du-cours/08-collections-java-listes-sets-et-maps/README.md)       | 🔴 À faire  |
+|                01 | [Modalités](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/README.md) + [Debugging](./01-contenus-du-cours/02-debugging/README.md) + [Algèbre de Boole](./01-contenus-du-cours/03-algebre-de-boole/README.md) | 🟡 En cours |
+|                02 | [Programmation orientée objet : Classes et objets](./01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/README.md)     | 🔴 À faire  |
+|                03 | [Programmation orientée objet : Encapsulation et héritage](./01-contenus-du-cours/05-programmation-orientee-objet-encapsulation-et-heritage/README.md) | 🔴 À faire  |
+|                04 | [Programmation orientée objet : Polymorphisme](./01-contenus-du-cours/06-programmation-orientee-objet-polymorphisme/README.md)             | 🔴 À faire  |
+|                05 | [Algorithmes de tri](./01-contenus-du-cours/07-algorithmes-de-tri/README.md)                                   | 🔴 À faire  |
+|                06 | [Collections Java : Listes, sets et maps](./01-contenus-du-cours/08-collections-java-listes-sets-et-maps/README.md)       | 🔴 À faire  |
 |                🚨 | Evaluation intermédiaire                                                                                        | 🔴 À faire  |
-| [07](#-séance-07) | [Collections Java : Lambda et génériques](./01-contenus-du-cours/09-collections-java-lambda-et-generiques/README.md)      | 🔴 À faire  |
-| [08](#-séance-08) | [Gestion des exceptions](./01-contenus-du-cours/10-gestion-des-exceptions/README.md)                           | 🔴 À faire  |
-| [09](#-séance-09) | [Overloading et type casting](./01-contenus-du-cours/11-overloading-et-type-casting/README.md)                 | 🔴 À faire  |
-| [10](#-séance-10) | [Tests unitaires avec JUnit](./01-contenus-du-cours/12-tests-unitaires-avec-junit/README.md)                   | 🔴 À faire  |
-| [11](#-séance-11) | [JavaFX et interfaces graphiques](./01-contenus-du-cours/13-javafx-et-interfaces-graphiques/README.md)         | 🔴 À faire  |
-| [12](#-séance-12) | [Récapitulatif et préparation à l'examen](./01-contenus-du-cours/14-recapitulatif-et-preparation-a-lexamen/README.md)     | 🔴 À faire  |
-
-## 🕐 Séance 01
-
-### [Modalités de l'unité d'enseignement](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/)
-
-- Support de cours :
-  [Lien vers le contenu](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/README.md)
-  ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/01-modalites-de-lunite-denseignement/presentation.html)
-  ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/01-modalites-de-lunite-denseignement/01-modalites-de-lunite-denseignement-presentation.pdf)
-
-### [Debugging](./01-contenus-du-cours/02-debugging/)
-
-- Support de cours :
-  [Lien vers le contenu](./01-contenus-du-cours/02-debugging/README.md)
-  ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/02-debugging/presentation.html)
-  ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/02-debugging/02-debugging-presentation.pdf)
-
-### [Algèbre de Boole](./01-contenus-du-cours/03-algebre-de-boole/)
-
-- Support de cours :
-  [Lien vers le contenu](./01-contenus-du-cours/03-algebre-de-boole/README.md)
-  ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/03-algebre-de-boole/presentation.html)
-  ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/03-algebre-de-boole/03-algebre-de-boole-presentation.pdf)
-
-## 🕑 Séance 02
-
-### [Programmation orientée objet : Classes et objets](./01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/)
-
-- Support de cours :
-  [Lien vers le contenu](./01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/README.md)
-  ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/presentation.html)
-  ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/04-programmation-orientee-objet-classes-et-objets-presentation.pdf)
-
-## 🕒 Séance 03
-
-### [Programmation orientée objet : Encapsulation et héritage](./01-contenus-du-cours/05-programmation-orientee-objet-encapsulation-et-heritage/)
-
-- Support de cours :
-  [Lien vers le contenu](./01-contenus-du-cours/05-programmation-orientee-objet-encapsulation-et-heritage/README.md)
-  ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/05-programmation-orientee-objet-encapsulation-et-heritage/presentation.html)
-  ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/05-programmation-orientee-objet-encapsulation-et-heritage/05-programmation-orientee-objet-encapsulation-et-heritage-presentation.pdf)
-
-## 🕓 Séance 04
-
-### [Programmation orientée objet : Polymorphisme](./01-contenus-du-cours/06-programmation-orientee-objet-polymorphisme/)
-
-- Support de cours :
-  [Lien vers le contenu](./01-contenus-du-cours/06-programmation-orientee-objet-polymorphisme/README.md)
-  ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/06-programmation-orientee-objet-polymorphisme/presentation.html)
-  ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/06-programmation-orientee-objet-polymorphisme/06-programmation-orientee-objet-polymorphisme-presentation.pdf)
-
-## 🕔 Séance 05
-
-### [Algorithmes de tri](./01-contenus-du-cours/07-algorithmes-de-tri/)
-
-- Support de cours :
-  [Lien vers le contenu](./01-contenus-du-cours/07-algorithmes-de-tri/README.md)
-  ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/07-algorithmes-de-tri/presentation.html)
-  ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/07-algorithmes-de-tri/07-algorithmes-de-tri-presentation.pdf)
-
-## 🕕 Séance 06
-
-### [Collections Java : Listes, sets et maps](./01-contenus-du-cours/08-collections-java-listes-sets-et-maps/)
-
-- Support de cours :
-  [Lien vers le contenu](./01-contenus-du-cours/08-collections-java-listes-sets-et-maps/README.md)
-  ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/08-collections-java-listes-sets-et-maps/presentation.html)
-  ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/08-collections-java-listes-sets-et-maps/08-collections-java-listes-sets-et-maps-presentation.pdf)
-
-## 🕖 Séance 07
-
-### [Collections Java : Lambda et génériques](./01-contenus-du-cours/09-collections-java-lambda-et-generiques/)
-
-- Support de cours :
-  [Lien vers le contenu](./01-contenus-du-cours/09-collections-java-lambda-et-generiques/README.md)
-  ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/09-collections-java-lambda-et-generiques/presentation.html)
-  ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/09-collections-java-lambda-et-generiques/09-collections-java-lambda-et-generiques-presentation.pdf)
-
-## 🕗 Séance 08
-
-### [Gestion des exceptions](./01-contenus-du-cours/10-gestion-des-exceptions/)
-
-- Support de cours :
-  [Lien vers le contenu](./01-contenus-du-cours/10-gestion-des-exceptions/README.md)
-  ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/10-gestion-des-exceptions/presentation.html)
-  ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/10-gestion-des-exceptions/10-gestion-des-exceptions-presentation.pdf)
-
-## 🕘 Séance 09
-
-### [Overloading et type casting](./01-contenus-du-cours/11-overloading-et-type-casting/)
-
-- Support de cours :
-  [Lien vers le contenu](./01-contenus-du-cours/11-overloading-et-type-casting/README.md)
-  ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/11-overloading-et-type-casting/presentation.html)
-  ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/11-overloading-et-type-casting/11-overloading-et-type-casting-presentation.pdf)
-
-## 🕙 Séance 10
-
-### [Tests unitaires avec JUnit](./01-contenus-du-cours/12-tests-unitaires-avec-junit/)
-
-- Support de cours :
-  [Lien vers le contenu](./01-contenus-du-cours/12-tests-unitaires-avec-junit/README.md)
-  ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/12-tests-unitaires-avec-junit/presentation.html)
-  ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/12-tests-unitaires-avec-junit/12-tests-unitaires-avec-junit-presentation.pdf)
-
-## 🕚 Séance 11
-
-### [JavaFX et interfaces graphiques](./01-contenus-du-cours/13-javafx-et-interfaces-graphiques/)
-
-- Support de cours :
-  [Lien vers le contenu](./01-contenus-du-cours/13-javafx-et-interfaces-graphiques/README.md)
-  ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/13-javafx-et-interfaces-graphiques/presentation.html)
-  ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/13-javafx-et-interfaces-graphiques/13-javafx-et-interfaces-graphiques-presentation.pdf)
-
-## 🕛 Séance 12
-
-### [Récapitulatif et préparation à l'examen](./01-contenus-du-cours/14-recapitulatif-et-preparation-a-lexamen/)
-
-- Support de cours :
-  [Lien vers le contenu](./01-contenus-du-cours/14-recapitulatif-et-preparation-a-lexamen/README.md)
-  ·
-  [Présentation (web)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/14-recapitulatif-et-preparation-a-lexamen/presentation.html)
-  ·
-  [Présentation (PDF)](https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/14-recapitulatif-et-preparation-a-lexamen/14-recapitulatif-et-preparation-a-lexamen-presentation.pdf)
+|                07 | [Collections Java : Lambda et génériques](./01-contenus-du-cours/09-collections-java-lambda-et-generiques/README.md)      | 🔴 À faire  |
+|                08 | [Gestion des exceptions](./01-contenus-du-cours/10-gestion-des-exceptions/README.md)                           | 🔴 À faire  |
+|                09 | [Overloading et type casting](./01-contenus-du-cours/11-overloading-et-type-casting/README.md)                 | 🔴 À faire  |
+|                10 | [Tests unitaires avec JUnit](./01-contenus-du-cours/12-tests-unitaires-avec-junit/README.md)                   | 🔴 À faire  |
+|                11 | [JavaFX et interfaces graphiques](./01-contenus-du-cours/13-javafx-et-interfaces-graphiques/README.md)         | 🔴 À faire  |
+|                12 | [Récapitulatif et préparation à l'examen](./01-contenus-du-cours/14-recapitulatif-et-preparation-a-lexamen/README.md)     | 🔴 À faire  |
 
 ## 📜 Licence
 
