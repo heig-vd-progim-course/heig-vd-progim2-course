@@ -64,7 +64,7 @@ jobs:
 
       - name: Generate index.html with tree
         run: |
-          tree -H '.' --noreport --dirsfirst -T 'HEIG-VD MVP Course' -P "*.html|*.pdf" --prune --charset utf-8 -o index.html
+          tree -H '.' --noreport --dirsfirst -T 'HEIG-VD ProgIM2 Course' -P "*.html|*.pdf" --prune --charset utf-8 -o index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
