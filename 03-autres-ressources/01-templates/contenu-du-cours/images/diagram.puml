@@ -1,0 +1,18 @@
+@startuml
+!theme plain
+
+' Exemple de diagramme d'activité
+' Remplacer ce contenu par votre propre diagramme
+
+start
+:Instruction 1;
+:Instruction 2;
+if (Condition ?) then (oui)
+  :Action si vrai;
+else (non)
+  :Action si faux;
+endif
+:Instruction finale;
+stop
+
+@enduml

@@ -1,7 +1,7 @@
 # HEIG-VD ProgIM2 Course
 
 Bienvenue sur le dépôt principal du cours
-[_Programmation 2 (ProgIM2)_](https://gaps.heig-vd.ch/consultation/fiches/uv/uv.php?id=6082)
+[_Programmation 2 (ProgIM2)_](https://gaps.heig-vd.ch/consultation/fiches/uv/uv.php?id=7627)
 enseigné à la
 [Haute Ecole d'Ingénierie et de Gestion du Canton de Vaud (HEIG-VD)](https://heig-vd.ch),
 Suisse !
@@ -11,12 +11,23 @@ Suisse !
 À l'issue de cette unité d'enseignement, la personne qui étudie sera capable de
 :
 
--
+- Expliquer les concepts de la programmation orientée objet (POO) et les
+  appliquer en Java.
+- Organiser et structurer le code en utilisant des classes, des objets,
+  l'encapsulation, l'héritage et le polymorphisme.
+- Manipuler des collections de données en Java, y compris les listes, les
+  ensembles et les maps.
+- Gérer les exceptions en Java pour assurer la robustesse du code.
+- Mettre en place des tests unitaires avec JUnit pour garantir la qualité du
+  code.
+- Décrire les principes de base de la création d'interfaces graphiques avec
+  JavaFX et les appliquer dans des applications Java.
 
 ## ➡️ Par où commencer ?
 
 Vous ne savez pas par où commencer ? Jetez un œil à
-l'[Introduction et modalités du cours](TODO) pour en savoir plus.
+l'[Introduction et modalités du cours](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/README.md)
+pour en savoir plus.
 
 ## 📅 Programme
 
@@ -24,9 +35,21 @@ Les détails de chaque séance du cours sont disponibles ci-dessous. Chaque séa
 est détaillée avec les contenus, les objectifs, les méthodes d'enseignement et
 d'apprentissage, et les méthodes d'évaluation.
 
-| Séance | Contenu(s) | État[^etat] |
-| -----: | :--------- | :---------- |
-|     00 |            | 🔴 À faire  |
+| Séance | Contenu(s)                                                                                                                                                                                                                 | État[^etat] |
+| -----: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------- |
+|     01 | [Modalités](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/README.md) + [Debugging](./01-contenus-du-cours/02-debugging/README.md) + [Algèbre de Boole](./01-contenus-du-cours/03-algebre-de-boole/README.md) | 🟡 En cours |
+|     02 | [Programmation orientée objet : Classes et objets](./01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/README.md)                                                                                     | 🔴 À faire  |
+|     03 | [Programmation orientée objet : Encapsulation et héritage](./01-contenus-du-cours/05-programmation-orientee-objet-encapsulation-et-heritage/README.md)                                                                     | 🔴 À faire  |
+|     04 | [Programmation orientée objet : Polymorphisme](./01-contenus-du-cours/06-programmation-orientee-objet-polymorphisme/README.md)                                                                                             | 🔴 À faire  |
+|     05 | [Algorithmes de tri](./01-contenus-du-cours/07-algorithmes-de-tri/README.md)                                                                                                                                               | 🔴 À faire  |
+|     06 | [Collections Java : Listes, sets et maps](./01-contenus-du-cours/08-collections-java-listes-sets-et-maps/README.md)                                                                                                        | 🔴 À faire  |
+|     🚨 | Evaluation intermédiaire                                                                                                                                                                                                   | 🔴 À faire  |
+|     07 | [Collections Java : Lambda et génériques](./01-contenus-du-cours/09-collections-java-lambda-et-generiques/README.md)                                                                                                       | 🔴 À faire  |
+|     08 | [Gestion des exceptions](./01-contenus-du-cours/10-gestion-des-exceptions/README.md)                                                                                                                                       | 🔴 À faire  |
+|     09 | [Overloading et type casting](./01-contenus-du-cours/11-overloading-et-type-casting/README.md)                                                                                                                             | 🔴 À faire  |
+|     10 | [Tests unitaires avec JUnit](./01-contenus-du-cours/12-tests-unitaires-avec-junit/README.md)                                                                                                                               | 🔴 À faire  |
+|     11 | [JavaFX et interfaces graphiques](./01-contenus-du-cours/13-javafx-et-interfaces-graphiques/README.md)                                                                                                                     | 🔴 À faire  |
+|     12 | [Récapitulatif et préparation à l'examen](./01-contenus-du-cours/14-recapitulatif-et-preparation-a-lexamen/README.md)                                                                                                      | 🔴 À faire  |
 
 ## 📜 Licence
 
