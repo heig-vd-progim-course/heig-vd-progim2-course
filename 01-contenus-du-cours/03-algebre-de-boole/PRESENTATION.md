@@ -45,15 +45,18 @@ _Pour plus de détails, consulter le [contenu complet sur
 GitHub][contenu-complet-sur-github] ou en cliquant sur l'en-tête de ce
 document._
 
-## Objectifs
+## Objectifs (1/2)
 
 - Lister les opérateurs logiques de base (AND, OR, NOT, XOR).
 - Évaluer des expressions booléennes simples et complexes.
 - Appliquer les tables de vérité pour valider des expressions logiques.
-- Simplifier des expressions booléennes en utilisant les lois de De Morgan.
-- Construire des conditions complexes pour contrôler le flux d'un programme.
 
 ![bg right:40%][illustration-objectifs]
+
+## Objectifs (2/2)
+
+- Simplifier des expressions booléennes en utilisant les lois de De Morgan.
+- Construire des conditions complexes pour contrôler le flux d'un programme.
 
 ## Introduction à l'algèbre de Boole
 
@@ -67,8 +70,6 @@ pour :
 - Contrôler des boucles (`while`, `for`)
 - Valider des données
 - Filtrer des informations
-
-![bg right:40%][illustration-introduction]
 
 ## Le type boolean en Java
 
@@ -100,7 +101,7 @@ boolean isInactive = !isActive;  // false
 | true  | false |
 | false | true  |
 
-## Opérateur AND (&&)
+## Opérateur AND (&&) (1/2)
 
 L'opérateur `&&` retourne `true` seulement si **les deux** opérandes sont
 `true`.
@@ -108,11 +109,19 @@ L'opérateur `&&` retourne `true` seulement si **les deux** opérandes sont
 ```java
 boolean hasPermission = true;
 boolean isOwner = false;
+boolean isAdmin = true;
 
-boolean canEdit = hasPermission && isOwner;  // false
+boolean canEdit = hasPermission && isOwner; // false
+
+boolean canDelete = hasPermission && isAdmin; // true
+
 ```
 
-**Table de vérité**
+## Opérateur AND (&&) (2/2)
+
+```java
+a && b
+```
 
 | a     | b     | a && b |
 | ----- | ----- | ------ |
@@ -121,18 +130,25 @@ boolean canEdit = hasPermission && isOwner;  // false
 | true  | false | false  |
 | true  | true  | true   |
 
-## Opérateur OR (||)
+## Opérateur OR (||) (1/2)
 
 L'opérateur `||` retourne `true` si **au moins un** des opérandes est `true`.
 
 ```java
 boolean isAdmin = false;
 boolean isModerator = true;
+boolean isUser = false;
 
 boolean hasAccess = isAdmin || isModerator;  // true
+
+boolean canView = isAdmin || isUser;  // false
 ```
 
-**Table de vérité**
+## Opérateur OR (||) (2/2)
+
+```java
+a || b
+```
 
 | a     | b     | a \|\| b |
 | ----- | ----- | -------- |
@@ -141,18 +157,25 @@ boolean hasAccess = isAdmin || isModerator;  // true
 | true  | false | true     |
 | true  | true  | true     |
 
-## Opérateur XOR (^)
+## Opérateur XOR (^) (1/2)
 
 L'opérateur `^` retourne `true` si **exactement un** des opérandes est `true`.
 
 ```java
 boolean option1 = true;
 boolean option2 = true;
+boolean option3 = false;
 
 boolean exclusiveChoice = option1 ^ option2;  // false
+
+boolean anotherChoice = option1 ^ option3;  // true
 ```
 
-**Table de vérité**
+## Opérateur XOR (^) (2/2)
+
+```java
+a ^ b
+```
 
 | a     | b     | a ^ b |
 | ----- | ----- | ----- |
@@ -205,7 +228,7 @@ pas évaluée**, évitant une `NullPointerException`.
 **Important** : l'ordre des conditions est crucial pour éviter les erreurs
 d'exécution.
 
-## Priorité des opérateurs
+## Priorité des opérateurs (1/2)
 
 Java définit une priorité entre les opérateurs logiques :
 
@@ -214,10 +237,15 @@ Java définit une priorité entre les opérateurs logiques :
 3. `||` (OR)
 4. `^` (XOR) - priorité la plus basse
 
+## Priorité des opérateurs (2/2)
+
 **Recommandation** : toujours utiliser des parenthèses pour rendre l'ordre
 d'évaluation explicite.
 
 ```java
+boolean result = a || b && c;  // Ambigu : est-ce (a || b) && c ou a || (b && c) ?
+// Réponse: a || (b && c) en raison de la priorité, mais ce n'est pas évident à lire.
+
 boolean result = (a || b) && c;  // Clair et lisible
 ```
 
@@ -225,41 +253,25 @@ boolean result = (a || b) && c;  // Clair et lisible
 
 Les lois de De Morgan permettent de transformer des expressions logiques.
 
-**Première loi**
+**Première loi** : `!(a && b)` est équivalent à `(!a || !b)`.
 
-```java
-!(a && b)  ≡  (!a || !b)
-```
+> La négation d'une conjonction est équivalente à la disjonction des négations.
 
-La négation d'un AND devient un OR de négations.
-
-**Exemple**
-
-```java
-!(isAdmin && hasPermission)  ≡  (!isAdmin || !hasPermission)
-```
+**Exemple** : `!(isAdmin && hasPermission)` est équivalent à
+`(!isAdmin || !hasPermission)`.
 
 ## Lois de De Morgan (2/2)
 
-**Deuxième loi**
+**Deuxième loi** : `!(a || b)` est équivalent à `(!a && !b)`.
 
-```java
-!(a || b)  ≡  (!a && !b)
-```
+> La négation d'une disjonction est équivalente à la conjonction des négations.
 
-La négation d'un OR devient un AND de négations.
-
-**Exemple**
-
-```java
-!(isWeekend || isHoliday)  ≡  (!isWeekend && !isHoliday)
-```
+**Exemple** : `!(isWeekend || isHoliday)` est équivalent à
+`(!isWeekend && !isHoliday)`.
 
 Ces lois sont utiles pour simplifier ou restructurer des conditions complexes.
 
 ## Applications pratiques : structures conditionnelles
-
-Les expressions booléennes permettent de contrôler le flux d'exécution.
 
 ```java
 boolean hasLocalFiles = true;
@@ -310,11 +322,17 @@ if (canUseService) {
 
 Toujours utiliser des parenthèses pour rendre l'ordre d'évaluation explicite.
 
+<div class="two-columns">
+<div>
+
 **À éviter**
 
 ```java
 boolean result = a || b && c;  // Ambigu
 ```
+
+</div>
+<div>
 
 **À privilégier**
 
@@ -322,20 +340,29 @@ boolean result = a || b && c;  // Ambigu
 boolean result = a || (b && c);  // Clair
 ```
 
+</div>
+</div>
+
 Le code est lu plus souvent qu'il n'est écrit.
 
 ## Bonnes pratiques : noms de variables explicites
 
 Utiliser des préfixes comme `is`, `has`, `can` pour les variables booléennes.
 
-**Mauvais exemples**
+<div class="two-columns">
+<div>
+
+**À éviter**
 
 ```java
 boolean x = true;
 boolean flag = false;
 ```
 
-**Bons exemples**
+</div>
+<div>
+
+**À privilégier**
 
 ```java
 boolean isConnected = true;
@@ -343,23 +370,39 @@ boolean hasPermission = false;
 boolean canEdit = (age > 18);
 ```
 
+</div>
+</div>
+
 ## Bonnes pratiques : éviter les comparaisons redondantes
 
 Pas besoin de comparer une variable booléenne à `true` ou `false`.
+
+<div class="two-columns">
+<div>
 
 **À éviter**
 
 ```java
 if (isReady == true) { }
 if (hasError == false) { }
+
+return isValid == true;
 ```
+
+</div>
+<div>
 
 **À privilégier**
 
 ```java
 if (isReady) { }
 if (!hasError) { }
+
+return isValid;
 ```
+
+</div>
+</div>
 
 ## Bonnes pratiques : décomposer les expressions complexes
 
