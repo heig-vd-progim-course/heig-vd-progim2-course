@@ -139,17 +139,17 @@ public class AccessControl {
         boolean isEmergency = false;
 
         // TODO: L'accès est accordé SI la personne a un badge ET un code valide
-        boolean normalAccess = /* votre code ici */;
+        boolean hasNormalAccess = /* votre code ici */;
 
         // TODO: L'accès d'urgence est accordé SI c'est une urgence OU la personne est autorisée
-        boolean emergencyAccess = /* votre code ici */;
+        boolean hasEmergencyAccess = /* votre code ici */;
 
         // TODO: L'accès est refusé SI la personne n'a PAS de badge
-        boolean accessDenied = /* votre code ici */;
+        boolean isAccessDenied = /* votre code ici */;
 
-        System.out.println("Accès normal autorisé: " + normalAccess);
-        System.out.println("Accès d'urgence autorisé: " + emergencyAccess);
-        System.out.println("Accès refusé: " + accessDenied);
+        System.out.println("Accès normal autorisé: " + hasNormalAccess);
+        System.out.println("Accès d'urgence autorisé: " + hasEmergencyAccess);
+        System.out.println("Accès refusé: " + isAccessDenied);
     }
 }
 ```
@@ -175,17 +175,17 @@ public class AccessControl {
         boolean isEmergency = false;
 
         // Accès normal : badge ET code valide requis
-        boolean normalAccess = hasBadge && hasValidCode;
+        boolean hasNormalAccess = hasBadge && hasValidCode;
 
         // Accès d'urgence : urgence OU autorisation spéciale
-        boolean emergencyAccess = isEmergency || isAuthorized;
+        boolean hasEmergencyAccess = isEmergency || isAuthorized;
 
         // Accès refusé : PAS de badge
-        boolean accessDenied = !hasBadge;
+        boolean isAccessDenied = !hasBadge;
 
-        System.out.println("Accès normal autorisé: " + normalAccess);
-        System.out.println("Accès d'urgence autorisé: " + emergencyAccess);
-        System.out.println("Accès refusé: " + accessDenied);
+        System.out.println("Accès normal autorisé: " + hasNormalAccess);
+        System.out.println("Accès d'urgence autorisé: " + hasEmergencyAccess);
+        System.out.println("Accès refusé: " + isAccessDenied);
     }
 }
 ```
@@ -200,9 +200,9 @@ Accès refusé: false
 
 **Explication :**
 
-- `normalAccess = true && true = true` (les deux conditions sont vraies)
-- `emergencyAccess = false || false = false` (aucune condition n'est vraie)
-- `accessDenied = !true = false` (inverse de true)
+- `hasNormalAccess = true && true = true` (les deux conditions sont vraies)
+- `hasEmergencyAccess = false || false = false` (aucune condition n'est vraie)
+- `isAccessDenied = !true = false` (inverse de true)
 
 **Points clés :**
 
