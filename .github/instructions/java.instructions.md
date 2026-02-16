@@ -19,8 +19,8 @@ applyTo: "**/*.java"
 
 ### Classes and interfaces
 
-- Use PascalCase for class and interface names (e.g., `User`, `VehicleInterface`,
-  `AbstractShape`).
+- Use PascalCase for class and interface names (e.g., `User`,
+  `VehicleInterface`, `AbstractShape`).
 - Class names should be nouns (e.g., `Product`, `Customer`, `Order`).
 - Interface names can use adjectives with `-able` suffix or nouns (e.g.,
   `Comparable`, `Serializable`, `Vehicle`).

@@ -60,6 +60,7 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 - [Table des matières](#table-des-matières)
 - [Objectifs](#objectifs)
 - [Conclusion](#conclusion)
+- [Exemples de code](#exemples-de-code)
 - [Exercices](#exercices)
 - [Mini-projet](#mini-projet)
 - [À faire pour la prochaine séance](#à-faire-pour-la-prochaine-séance)
@@ -79,10 +80,28 @@ devraient être capables de :
 
 ---
 
+<details>
+<summary>Pour aller plus loin</summary>
+
+TODO: Ajouter des sujets avancés, des ressources complémentaires ou des concepts
+optionnels qui permettent d'approfondir le sujet.
+
+</details>
+
+---
+
 ## Conclusion
 
 TODO: Résumer les points clés du cours et encourager les étudiantes à continuer
 leur apprentissage.
+
+## Exemples de code
+
+Nous vous invitons à consulter les exemples de code associés à ce contenu de
+cours pour mieux comprendre les concepts abordés.
+
+Vous trouverez les exemples de code ici :
+[Exemples de code](./01-exemples-de-code/README.md).
 
 ## Exercices
 
@@ -106,6 +125,8 @@ Chaque personne est libre de gérer son temps comme elle le souhaite. Cependant,
 il est recommandé pour la prochaine séance de :
 
 - Relire le support de cours si nécessaire.
+- Relire les exemples de code et leur description pour bien comprendre les
+  concepts.
 - Finaliser les exercices qui n'ont pas été terminés en classe.
 - Finaliser la partie du mini-projet qui n'a pas été terminée en classe.
 

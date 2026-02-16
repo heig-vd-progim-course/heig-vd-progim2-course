@@ -111,3 +111,65 @@ Pour plus de détails, cliquez [ici](./debugging-guide.md).
 - Provide explanatory text before and after code blocks.
 - Use comments within code to explain complex sections.
 - Ensure code examples can be understood without relying on syntax highlighting.
+
+### Code block descriptions in course materials
+
+In course materials (README.md files in course content folders), always follow
+each Java code block with a description in French explaining what the code does,
+wrapped in HTML `<details>` tags for accessibility.
+
+This helps students who use screen readers or who need additional context to
+understand the code.
+
+**Format:**
+
+````markdown
+```java
+// Code example
+```
+
+<details>
+<summary>Description du code</summary>
+
+Description littérale et technique des constructions syntaxiques : déclarations,
+initialisations, opérateurs, structures de contrôle, appels de méthode, etc.
+
+</details>
+````
+
+**Example:**
+
+````markdown
+```java
+boolean isReady = true;
+boolean isFinished = false;
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration et initialisation d'une variable de type booléen `isReady` à `true`.
+
+Déclaration et initialisation d'une variable de type booléen `isFinished` à
+`false`.
+
+</details>
+````
+
+**Guidelines:**
+
+- **Be literal and technical:** Describe the syntactic constructions
+  (declarations, initializations, operators, control structures, method calls,
+  etc.), NOT the semantic meaning or business purpose.
+- Use precise professional vocabulary in French: "déclaration",
+  "initialisation", "affectation", "comparaison", "conjonction", "négation",
+  "appel de méthode", "structure conditionnelle", etc.
+- **Example of what to do:** "Déclaration et initialisation d'une variable de
+  type `int` nommée `batteryLevel` avec la valeur `15`. Structure conditionnelle
+  `if` avec une expression booléenne : comparaison (opérateur `<`) entre la
+  variable `batteryLevel` et la valeur `20`."
+- **Example of what NOT to do:** "Vérifie si la batterie est faible et affiche
+  un message." (This is semantic/business explanation, not literal description)
+- Reference variable names, method names, operators, and values using backticks.
+- For longer code blocks, group related lines by syntactic function.
+- Keep descriptions concise but technically complete.
