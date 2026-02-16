@@ -406,21 +406,14 @@ return isValid;
 
 ## Bonnes pratiques : décomposer les expressions complexes
 
-Si une expression devient trop longue, la décomposer en variables
-intermédiaires.
-
-**Avant**
-
 ```java
+// Complexe et difficile à lire
 if ((user.isActive() && user.hasSubscription() && !user.isBanned()) ||
     (user.isAdmin() && user.hasValidToken())) {
     // ...
 }
-```
 
-**Après**
-
-```java
+// Plus clair et maintenable
 boolean isRegularUser = user.isActive() && user.hasSubscription() && !user.isBanned();
 boolean isAuthenticatedAdmin = user.isAdmin() && user.hasValidToken();
 
@@ -433,6 +426,9 @@ if (isRegularUser || isAuthenticatedAdmin) {
 
 `=` est l'affectation, `==` est la comparaison.
 
+<div class="two-columns">
+<div>
+
 **Erreur**
 
 ```java
@@ -440,6 +436,9 @@ if (isActive = false) {  // Affectation !
     System.out.println("Inactif");
 }
 ```
+
+</div>
+<div>
 
 **Correction**
 
@@ -449,10 +448,16 @@ if (!isActive) {  // Comparaison
 }
 ```
 
+</div>
+</div>
+
 ## Erreurs courantes : types non booléens
 
 En Java, les opérateurs logiques ne fonctionnent qu'avec des expressions
 booléennes.
+
+<div class="two-columns">
+<div>
 
 **Invalide en Java**
 
@@ -463,6 +468,9 @@ if (count) {  // ERREUR en Java
 }
 ```
 
+</div>
+<div>
+
 **Correction**
 
 ```java
@@ -471,22 +479,19 @@ if (count != 0) {  // Expression booléenne explicite
 }
 ```
 
+</div>
+</div>
+
 ## Erreurs courantes : oubli de l'ordre avec court-circuit
 
-L'ordre des conditions avec `&&` ou `||` est crucial.
-
-**Dangereux**
-
 ```java
+// Risque de NullPointerException si text est null
 String text = null;
 if ((text.length() > 0) && (text != null)) {  // NullPointerException !
     // ...
 }
-```
 
-**Correct**
-
-```java
+// Correct : vérifier d'abord que text n'est pas null
 if ((text != null) && (text.length() > 0)) {  // Sûr
     // ...
 }
@@ -501,6 +506,7 @@ Est-ce que vous avez des questions ?
 ## À vous de jouer !
 
 - (Re)lire le contenu de cours.
+- Lire les exemples de code et les descriptions.
 - Faire les exercices.
 - Faire le mini-projet.
 - Poser des questions si nécessaire.

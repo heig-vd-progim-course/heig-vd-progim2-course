@@ -64,6 +64,7 @@ Est-ce que vous avez des questions ?
 ## À vous de jouer !
 
 - (Re)lire le contenu de cours.
+- Lire les exemples de code et les descriptions.
 - Faire les exercices.
 - Faire le mini-projet.
 - Poser des questions si nécessaire.
