@@ -1,0 +1,12 @@
+@startuml
+!theme plain
+
+start
+if (canBook ) then (true)
+  :Afficher "Réservation confirmée.";
+else (false)
+  :Afficher "Impossible de réserver.";
+endif
+stop
+
+@enduml

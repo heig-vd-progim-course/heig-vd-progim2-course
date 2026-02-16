@@ -173,3 +173,43 @@ Déclaration et initialisation d'une variable de type booléen `isFinished` à
 - Reference variable names, method names, operators, and values using backticks.
 - For longer code blocks, group related lines by syntactic function.
 - Keep descriptions concise but technically complete.
+
+### PlantUML diagrams for control structures
+
+For code examples containing control structures (conditional statements like
+`if`, `if-else`, `switch` or iterative statements like `for`, `while`,
+`do-while`), always create a corresponding PlantUML activity diagram and include
+it at the end of the code description.
+
+**Process:**
+
+1. Create a `.puml` file in the `images/` subfolder with a descriptive name
+   (e.g., `condition-if-else-batterylow.puml`).
+2. Generate the diagram using `./build-all-diagrams.sh` script.
+3. Add the diagram reference at the end of the `<details>` section using:
+   `![Description](./images/diagram-name.svg)`.
+
+**PlantUML structure for control flow diagrams:**
+
+```plantuml
+@startuml
+!theme plain
+
+start
+if (condition ) then (true)
+  :Action si true;
+else (false)
+  :Action si false;
+endif
+stop
+
+@enduml
+```
+
+**Important rules:**
+
+- Always use `!theme plain` for consistent styling.
+- Use French for action labels: "Afficher", "Déclarer", "Calculer", etc.
+- Use `true` and `false` (not "oui"/"non") for condition branches.
+- Keep diagrams simple and focused on the control flow.
+- Use descriptive file names that reflect the code example.

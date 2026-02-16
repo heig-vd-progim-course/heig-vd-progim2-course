@@ -1,0 +1,19 @@
+@startuml
+!theme plain
+
+start
+:Initialiser attempts = 0;
+:Initialiser isSuccess = false;
+while ((attempts < maxAttempts) && !isSuccess ) is (true)
+  :Afficher "Tentative " + (attempts + 1);
+  :isSuccess = tryConnect();
+  :attempts++;
+endwhile (false)
+if (isSuccess ) then (true)
+  :Afficher "Connexion réussie.";
+else (false)
+  :Afficher "Échec après " + maxAttempts + " tentatives.";
+endif
+stop
+
+@enduml

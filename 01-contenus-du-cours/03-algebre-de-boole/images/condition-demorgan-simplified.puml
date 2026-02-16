@@ -1,0 +1,10 @@
+@startuml
+!theme plain
+
+start
+if (!hasError && !hasWarning ) then (true)
+  :Afficher "Tout est en ordre.";
+endif
+stop
+
+@enduml

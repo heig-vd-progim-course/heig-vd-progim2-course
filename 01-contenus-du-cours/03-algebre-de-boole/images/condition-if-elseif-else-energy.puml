@@ -1,0 +1,14 @@
+@startuml
+!theme plain
+
+start
+if (useSolarPower ) then (true)
+  :Afficher "Utilisation de l'énergie solaire.";
+else if (useBattery ) then (true)
+  :Afficher "Utilisation de la batterie.";
+else (false)
+  :Afficher "Énergie insuffisante.";
+endif
+stop
+
+@enduml

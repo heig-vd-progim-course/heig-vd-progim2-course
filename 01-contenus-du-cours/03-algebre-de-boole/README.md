@@ -161,6 +161,8 @@ Structure conditionnelle `if` testant la variable booléenne `isReady`.
 Dans le bloc conditionnel : appel de la méthode statique `System.out.println()`
 avec la chaîne de caractères `"Le système est prêt."` en argument.
 
+![Diagramme de la structure conditionnelle simple](./images/condition-simple-isready.svg)
+
 </details>
 
 **Retour d'une méthode**
@@ -257,6 +259,8 @@ chaîne de caractères `"La batterie est suffisante."` en argument.
 
 Dans le bloc `else` : appel de la méthode statique `System.out.println()` avec
 la chaîne de caractères `"Veuillez recharger l'appareil."` en argument.
+
+![Diagramme de la structure conditionnelle if-else](./images/condition-if-else-batterylow.svg)
 
 </details>
 
@@ -361,6 +365,8 @@ Dans le bloc conditionnel : appel de la méthode statique `System.out.println()`
 avec la chaîne de caractères `"Conditions idéales pour une sortie vélo."` en
 argument.
 
+![Diagramme de la structure conditionnelle AND](./images/condition-and-temperature-sunny.svg)
+
 </details>
 
 **Comportement court-circuit**
@@ -398,6 +404,8 @@ l'appel de méthode `username.length()` et la valeur `0`.
 
 Dans le bloc conditionnel : appel de la méthode statique `System.out.println()`
 avec la chaîne de caractères `"Nom d'utilisatrice valide."` en argument.
+
+![Diagramme de la structure conditionnelle avec court-circuit](./images/condition-and-username-null.svg)
 
 </details>
 
@@ -484,6 +492,8 @@ entre `dayOfWeek` et `6`, et comparaison entre `dayOfWeek` et `7`.
 Dans le bloc conditionnel : appel de la méthode statique `System.out.println()`
 avec la chaîne de caractères `"C'est le week-end !"` en argument.
 
+![Diagramme de la structure conditionnelle OR](./images/condition-or-dayofweek.svg)
+
 </details>
 
 **Comportement court-circuit**
@@ -513,6 +523,8 @@ variables avec l'opérateur OR (symbole `||`).
 
 Dans le bloc conditionnel : appel de la méthode statique `System.out.println()`
 avec la chaîne de caractères `"Accès autorisé."` en argument.
+
+![Diagramme de la structure conditionnelle OR avec court-circuit](./images/condition-or-adminrights.svg)
 
 </details>
 
@@ -602,6 +614,8 @@ variables avec l'opérateur XOR (symbole `^`).
 Dans le bloc conditionnel : appel de la méthode statique `System.out.println()`
 avec la chaîne de caractères `"Une source d'énergie unique est utilisée."` en
 argument.
+
+![Diagramme de la structure conditionnelle XOR](./images/condition-xor-solarpower.svg)
 
 </details>
 
@@ -966,6 +980,8 @@ booléennes `hasError` et `hasWarning`.
 Dans le bloc conditionnel : appel de la méthode statique `System.out.println()`
 avec la chaîne de caractères `"Tout est en ordre."` en argument.
 
+![Diagramme de la structure conditionnelle avec négation](./images/condition-not-or-error.svg)
+
 </details>
 
 **Après simplification avec De Morgan**
@@ -985,6 +1001,8 @@ variables booléennes `hasError` et `hasWarning`.
 
 Dans le bloc conditionnel : appel de la méthode statique `System.out.println()`
 avec la chaîne de caractères `"Tout est en ordre."` en argument.
+
+![Diagramme de la structure conditionnelle simplifiée avec De Morgan](./images/condition-demorgan-simplified.svg)
 
 </details>
 
@@ -1025,6 +1043,8 @@ Dans le bloc conditionnel : appel de la méthode statique `System.out.println()`
 avec la chaîne de caractères `"Batterie faible, veuillez recharger."` en
 argument.
 
+![Diagramme de la structure conditionnelle simple](./images/condition-simple-batterylevel.svg)
+
 </details>
 
 **Exemple avec plusieurs conditions**
@@ -1060,6 +1080,8 @@ Deuxième branche : condition composée d'une conjonction (opérateur `&&`) entr
 
 Troisième branche (else) : bloc exécutant
 `System.out.println("Aucun fichier disponible.")`.
+
+![Diagramme de la structure conditionnelle if-else if-else](./images/condition-if-elseif-else-localfiles.svg)
 
 </details>
 
@@ -1101,6 +1123,8 @@ conjonction (opérateur `&&`) entre `hasMinLength`, `hasUpperCase` et
 `hasNumber`. Bloc `if` exécutant `System.out.println("Mot de passe valide.")`.
 Bloc `else` exécutant
 `System.out.println("Le mot de passe ne respecte pas les critères.")`.
+
+![Diagramme de la structure conditionnelle de validation de mot de passe](./images/condition-if-else-password.svg)
 
 </details>
 
@@ -1150,6 +1174,8 @@ Structure conditionnelle `if-else` après la boucle : branche `if` testant
 `else` exécutant `System.out.println()` avec concaténation incluant la variable
 `maxAttempts`.
 
+![Diagramme de la boucle while avec tentatives](./images/iteration-while-attempts.svg)
+
 </details>
 
 **Boucle for avec condition complexe**
@@ -1183,6 +1209,8 @@ booléenne combinant deux comparaisons (opérateurs `>=` et `<=`) avec l'opérat
 AND (symbole `&&`). Dans le bloc conditionnel : appel de la méthode statique
 `System.out.println()` avec concaténation de chaînes, et affectation de `true` à
 la variable `foundOptimal`.
+
+![Diagramme de la boucle for avec recherche de température](./images/iteration-for-temperatures.svg)
 
 </details>
 
@@ -1227,6 +1255,8 @@ bloc `if` : appel de la méthode statique `System.out.println()` avec la chaîne
 `"Accès autorisé au service."`. Dans le bloc `else` : appel de
 `System.out.println()` avec la chaîne `"Accès refusé."`.
 
+![Diagramme de la structure conditionnelle d'éligibilité au service](./images/condition-if-else-canuseservice.svg)
+
 </details>
 
 **Exemple : gestion d'un système de réservation**
@@ -1264,6 +1294,8 @@ Structure conditionnelle `if-else` testant la variable `canBook`. Dans le bloc
 `if` : appel de la méthode statique `System.out.println()` avec la chaîne
 `"Réservation confirmée."`. Dans le bloc `else` : appel de
 `System.out.println()` avec la chaîne `"Impossible de réserver."`.
+
+![Diagramme de la structure conditionnelle de réservation](./images/condition-if-else-canbook.svg)
 
 </details>
 
@@ -1304,6 +1336,8 @@ Structure conditionnelle `if-else if-else` avec trois branches testant
 successivement `useSolarPower` et `useBattery`. Dans chaque bloc : appel de la
 méthode statique `System.out.println()` avec des chaînes de caractères
 différentes.
+
+![Diagramme de la structure conditionnelle de gestion d'énergie](./images/condition-if-elseif-else-energy.svg)
 
 </details>
 

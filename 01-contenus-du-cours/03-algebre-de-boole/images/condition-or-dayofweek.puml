@@ -1,0 +1,10 @@
+@startuml
+!theme plain
+
+start
+if ((dayOfWeek == 6) || (dayOfWeek == 7) ) then (true)
+  :Afficher "C'est le week-end !";
+endif
+stop
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+!theme plain
+
+start
+if (canUseService ) then (true)
+  :Afficher "Accès autorisé au service.";
+else (false)
+  :Afficher "Accès refusé.";
+endif
+stop
+
+@enduml

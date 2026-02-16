@@ -1,0 +1,12 @@
+@startuml
+!theme plain
+
+start
+if (!isBatteryLow ) then (true)
+  :Afficher "La batterie est suffisante.";
+else (false)
+  :Afficher "Veuillez recharger l'appareil.";
+endif
+stop
+
+@enduml

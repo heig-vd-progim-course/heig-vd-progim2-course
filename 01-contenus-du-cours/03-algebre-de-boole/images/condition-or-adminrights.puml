@@ -1,0 +1,10 @@
+@startuml
+!theme plain
+
+start
+if (hasAdminRights || hasSpecialPermission ) then (true)
+  :Afficher "Accès autorisé.";
+endif
+stop
+
+@enduml

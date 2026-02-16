@@ -1,0 +1,16 @@
+@startuml
+!theme plain
+
+start
+:Initialiser foundOptimal = false;
+:i = 0;
+while (i < temperatures.length && !foundOptimal ) is (true)
+  if ((temperatures[i] >= 20) && (temperatures[i] <= 22) ) then (true)
+    :Afficher "Température optimale trouvée : " + temperatures[i];
+    :foundOptimal = true;
+  endif
+  :i++;
+endwhile (false)
+stop
+
+@enduml
