@@ -52,7 +52,8 @@ complétant du code existant. La difficulté augmente progressivement.
 
 ### Exercice 1 - Déclaration et initialisation de booléens
 
-Vous devez créer un programme qui gère l'état d'un capteur IoT.
+Vous devez créer un programme qui gère l'état d'un capteur IoT (Internet of
+Things).
 
 Complétez le code suivant en déclarant et initialisant les variables booléennes
 manquantes :
