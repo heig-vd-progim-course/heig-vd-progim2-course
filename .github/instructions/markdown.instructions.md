@@ -213,3 +213,49 @@ stop
 - Use `true` and `false` (not "oui"/"non") for condition branches.
 - Keep diagrams simple and focused on the control flow.
 - Use descriptive file names that reflect the code example.
+
+### Code examples organization
+
+When creating code examples for course content in the `01-exemples-de-code/`
+folder, follow this structure:
+
+**Directory naming convention:**
+
+- `0*-titre/` : correct code examples showing best practices (simple to
+  complex).
+- `1*-a-eviter-titre/` : incorrect code examples showing common mistakes.
+
+**Important rules:**
+
+- Start with good practice examples numbered `01-`, `02-`, `03-`, etc. in
+  increasing complexity.
+- Add counter-examples numbered `11-a-eviter-`, `12-a-eviter-`, etc. to show
+  what to avoid.
+- Each directory must contain:
+  - `README.md` explaining the example/error.
+  - `Example.java` (for 0*) or `ErrorExample.java` (for 1*-a-eviter).
+
+**Example structure:**
+
+```
+01-exemples-de-code/
+├── README.md
+├── 01-exemple-basic/
+│   ├── README.md
+│   └── Example.java
+├── 02-exemple-intermediaire/
+│   ├── README.md
+│   └── Example.java
+├── 11-a-eviter-erreur-courante/
+│   ├── README.md
+│   └── ErrorExample.java
+└── 12-a-eviter-autre-erreur/
+    ├── README.md
+    └── ErrorExample.java
+```
+
+**Template files:**
+
+- Use templates from
+  `/workspace/03-autres-ressources/01-templates/contenu-du-cours/01-exemples-de-code/`
+  for consistency.

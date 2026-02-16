@@ -1,15 +1,15 @@
-// Exemple [numéro] : [Titre de l'exemple]
+// Exemple 01 : Cas de base
 //
-// Objectif pédagogique : [ce que cet exemple illustre]
+// Objectif pédagogique : comprendre [concept de base]
 //
 // Concepts illustrés :
 // - Concept 1
 // - Concept 2
 //
 // Sortie attendue :
-// [Description de ce que le programme doit afficher]
+// La sortie attendue du programme
 
-public class Example[Numero][NomCourt] {
+public class Example01Basic {
     public static void main(String[] args) {
         // Étape 1 : [explication de cette partie]
         

@@ -15,9 +15,7 @@
 // - Explication de la correction
 // - Bonne pratique à adopter
 //
-// Voir : ../01-exemples/[NomFichierCorrect].java pour un exemple correct
-
-public class ERROR[NomErreur] {
+public class Error11ExampleBasic {
     public static void main(String[] args) {
         // Code incorrect ici qui illustre l'erreur
         

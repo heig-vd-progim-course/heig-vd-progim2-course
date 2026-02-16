@@ -13,8 +13,17 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 
 - [Table des matières](#table-des-matières)
 - [Introduction](#introduction)
+- [Structure des exemples](#structure-des-exemples)
 - [Exemples](#exemples)
-  - [{LEARNING_TOPIC}](#learning_topic)
+  - [{LEARNING\_TOPIC}](#learning_topic)
+- [Navigation rapide](#navigation-rapide)
+- [Points clés à retenir](#points-clés-à-retenir)
+- [Comment travailler efficacement avec ces exemples](#comment-travailler-efficacement-avec-ces-exemples)
+  - [Pour les exemples corrects (0\*)](#pour-les-exemples-corrects-0)
+  - [Pour les contre-exemples (1\*-a-eviter)](#pour-les-contre-exemples-1-a-eviter)
+- [Progression suggérée](#progression-suggérée)
+- [En cas de difficulté](#en-cas-de-difficulté)
+- [Pour aller plus loin](#pour-aller-plus-loin)
 
 ## Introduction
 
@@ -50,187 +59,138 @@ demander de l'aide envers vos collègues ou au corps enseignant.
 
 ## Structure des exemples
 
-Les exemples de code sont organisés dans deux dossiers :
+Les exemples de code sont organisés selon une numérotation claire :
 
-- `01-exemples/` : exemples de code corrects illustrant les bonnes pratiques.
-  Ces fichiers peuvent être utilisés comme référence et adaptés pour vos
-  projets.
-- `02-erreurs-courantes/` : exemples de code **INCORRECT** montrant les erreurs
-  fréquentes, avec des commentaires expliquant le problème. **Ces fichiers sont
-  uniquement à des fins pédagogiques et ne doivent jamais être copiés.**
+- **`0*-titre/`** : exemples de code **corrects** illustrant les bonnes
+  pratiques, du plus simple au plus complexe. Ces fichiers peuvent être utilisés
+  comme référence et adaptés pour vos projets.
+- **`1*-a-eviter-titre/`** : exemples de code **INCORRECTS** montrant les
+  erreurs fréquentes, avec des commentaires expliquant le problème. **Ces
+  fichiers sont uniquement à des fins pédagogiques et ne doivent jamais être
+  copiés.**
 
 > [!IMPORTANT]
 >
-> Tous les fichiers dans `01-exemples/` sont corrects et suivent les bonnes
-> pratiques. Tous les fichiers dans `02-erreurs-courantes/` sont volontairement
-> incorrects pour illustrer des erreurs à éviter.
+> - Tous les dossiers commençant par `0*` contiennent du code **correct** et
+>   suivent les bonnes pratiques.
+> - Tous les dossiers commençant par `1*-a-eviter` contiennent du code
+>   **volontairement incorrect** pour illustrer des erreurs à éviter.
 
 ## Exemples
 
+Les exemples sont organisés par ordre de complexité croissante. Commencez par
+les exemples numérotés `01`, `02`, etc., puis consultez les contre-exemples
+`11-a-eviter`, `12-a-eviter`, etc. pour comprendre les erreurs à éviter.
+
 ### {LEARNING_TOPIC}
 
-#### Exemple 1 - Cas simple et fondamental
+#### 📁 [01-exemple-basic](./01-exemple-basic/README.md)
 
-**Fichier :** `01-exemples/Example1Basic.java`
+**Objectif :** comprendre [concept de base].
 
-Description de l'exemple 1 et du concept qu'il illustre.
+Description courte de l'exemple 1 et du concept qu'il illustre.
 
-**Objectif pédagogique :** comprendre [concept de base].
-
-```java
-// Exemple de code complet et commenté
-public class ExampleBasic {
-    public static void main(String[] args) {
-        // Étape 1 : explication de cette partie
-        int value = 42;
-
-        // Étape 2 : explication de cette partie
-        System.out.println("La valeur est : " + value);
-    }
-}
-```
-
-**Sortie attendue :**
-
-```
-La valeur est : 42
-```
-
-**Points clés à retenir :**
-
-- Point clé 1.
-- Point clé 2.
-- Point clé 3.
+**Concepts illustrés :** [concept1], [concept2].
 
 ---
 
-#### Exemple 2 - Application pratique
+#### 📁 [02-exemple-intermediaire](./02-exemple-intermediaire/README.md)
 
-**Fichier :** `01-exemples/Example2Practical.java`
+**Objectif :** approfondir [concept intermédiaire].
 
-Description de l'exemple 2 avec un contexte d'utilisation réaliste.
+Description courte de l'exemple 2 et du concept qu'il illustre.
 
-**Objectif pédagogique :** appliquer [concept] dans un contexte pratique.
-
-```java
-// Exemple plus élaboré avec plusieurs concepts
-public class Example2Practical {
-    // Code complet et bien commenté
-}
-```
-
-**Sortie attendue :**
-
-```
-[Sortie du programme]
-```
-
-**Explication détaillée :**
-
-1. Première étape du raisonnement.
-2. Deuxième étape du raisonnement.
-3. Résultat obtenu et pourquoi.
+**Concepts illustrés :** [concept1], [concept2].
 
 ---
 
-#### Exemple 3 - Comparaison d'approches
+#### ⚠️ [11-a-eviter-erreur-courante](./11-a-eviter-erreur-courante/README.md)
 
-**Fichiers :** `01-exemples/ApproachA.java` et `ApproachB.java`
+**À éviter :** [description de l'erreur].
 
-Comparaison entre différentes façons d'implémenter la même fonctionnalité.
+Description courte de l'erreur illustrée.
 
-**Objectif pédagogique :** évaluer différentes approches et choisir la plus
-appropriée.
-
-**Approche A - [Nom de l'approche] :**
-
-```java
-// Première approche
-```
-
-**Avantages :**
-
-- Avantage 1.
-- Avantage 2.
-
-**Inconvénients :**
-
-- Inconvénient 1.
-- Inconvénient 2.
-
-**Approche B - [Nom de l'approche] :**
-
-```java
-// Seconde approche
-```
-
-**Avantages :**
-
-- Avantage 1.
-- Avantage 2.
-
-**Inconvénients :**
-
-- Inconvénient 1.
-- Inconvénient 2.
-
-**Recommandation :** utiliser l'approche A quand [contexte], et l'approche B
-quand [autre contexte].
+**Concepts concernés :** [concept1], [concept2].
 
 ---
 
-## Erreurs courantes
+#### ⚠️ [12-a-eviter-autre-erreur](./12-a-eviter-autre-erreur/README.md)
 
-> [!WARNING]
+**À éviter :** [description de l'erreur].
+
+Description courte de l'erreur illustrée.
+
+**Concepts concernés :** [concept1], [concept2].
+
+---
+
+## Navigation rapide
+
+**Bonnes pratiques (0\*):**
+
+- [01-exemple-basic](./01-exemple-basic/README.md)
+- [02-exemple-intermediaire](./02-exemple-intermediaire/README.md)
+- ...
+
+**À éviter (1\*):**
+
+- [11-a-eviter-erreur-courante](./11-a-eviter-erreur-courante/README.md)
+- [12-a-eviter-autre-erreur](./12-a-eviter-autre-erreur/README.md)
+- ...
+
+## Points clés à retenir
+
+- Point clé 1 : [concept important].
+- Point clé 2 : [bonne pratique à adopter].
+- Point clé 3 : [erreur courante à éviter].
+
+## Comment travailler efficacement avec ces exemples
+
+### Pour les exemples corrects (0\*)
+
+1. **Lisez** d'abord le README.md du dossier pour comprendre l'objectif.
+2. **Étudiez** le code en suivant les commentaires ligne par ligne.
+3. **Exécutez** le programme et comparez avec la sortie attendue.
+4. **Expérimentez** en modifiant le code pour tester votre compréhension.
+5. **Utilisez** ces exemples comme base pour les exercices.
+
+### Pour les contre-exemples (1\*-a-eviter)
+
+1. **Lisez** d'abord le README.md pour comprendre quelle erreur est illustrée.
+2. **Essayez de prédire** quel sera le problème avant d'exécuter le code.
+3. **Exécutez** le code incorrect pour observer l'erreur.
+4. **Analysez** les messages d'erreur ou le comportement inattendu.
+5. **Comprenez** pourquoi l'erreur se produit grâce aux commentaires.
+6. **Consultez** l'exemple correct correspondant pour voir la bonne approche.
+
+> [!TIP]
 >
-> Le dossier `02-erreurs-courantes/` contient du code **VOLONTAIREMENT
-> INCORRECT** à des fins pédagogiques uniquement.
+> Le meilleur moyen d'apprendre est de :
 >
-> **Ne copiez jamais ces fichiers dans vos projets !**
->
-> Chaque fichier commence par le préfixe `ERROR-` et contient des commentaires
-> détaillés expliquant pourquoi le code est incorrect et comment le corriger.
+> 1. Comprendre **pourquoi** le code fonctionne (exemples 0\*).
+> 2. Comprendre **pourquoi** le code ne fonctionne pas (exemples 1\*).
+> 3. **Pratiquer** en écrivant votre propre code sans copier-coller.
 
-### Erreur courante 1 - [Nom de l'erreur]
+## Progression suggérée
 
-**Fichier :** `02-erreurs-courantes/ERROR-[NomErreur].java`
+1. Commencez par `01-exemple-basic` pour les fondamentaux.
+2. Progressez vers les exemples numérotés suivants (02, 03, etc.).
+3. Pour chaque concept, consultez le contre-exemple correspondant (11, 12,
+   etc.).
+4. Alternez entre exemples corrects et incorrects pour renforcer la
+   compréhension.
+5. Terminez par les exercices pour mettre en pratique.
 
-Description de l'erreur courante et pourquoi elle se produit.
+## En cas de difficulté
 
-**Objectif pédagogique :** identifier et comprendre [erreur commune].
+Si vous rencontrez des difficultés avec un exemple :
 
-**Contenu du fichier :**
-
-Le fichier contient du code incorrect avec des commentaires détaillés expliquant
-:
-
-- Quelle est l'erreur.
-- Pourquoi elle se produit.
-- Quel message d'erreur ou comportement inattendu cela génère.
-- Comment la corriger (explication, pas code corrigé).
-- Où trouver des exemples corrects dans `01-exemples/`.
-
-**Exemple de structure du fichier :**
-
-```java
-// ⚠️ ERREUR COURANTE : [Nom de l'erreur]
-// Ce code est INCORRECT et sert uniquement à illustrer une erreur fréquente.
-// NE PAS COPIER CE CODE DANS VOS PROJETS.
-//
-// Problème : [description du problème]
-// Résultat : [ce qui se passe quand on exécute]
-//
-// Pour corriger : [explication de la correction]
-// Voir : 01-exemples/[FichierCorrect].java pour un exemple correct
-
-public class ERROR[NomErreur] {
-    public static void main(String[] args) {
-        // Code incorrect ici
-    }
-}
-```
-
-**Leçon à retenir :** explication de la bonne pratique à adopter.
+1. **Relisez** les commentaires dans le code attentivement.
+2. **Consultez** le contenu du cours principal pour revoir le concept.
+3. **Comparez** avec d'autres exemples similaires.
+4. **Demandez de l'aide** à vos collègues ou au corps enseignant.
+5. **Évitez** de recourir immédiatement à des outils IA - c'est en réfléchissant
+   par vous-même que vous apprendrez le mieux.
 
 ---
 
@@ -242,6 +202,7 @@ public class ERROR[NomErreur] {
 >
 > - Modifier les exemples pour tester votre compréhension.
 > - Combiner plusieurs concepts vus dans différents exemples.
+> - Créer vos propres exemples en vous inspirant de la structure.
 > - Passer aux [exercices](../02-exercices/README.md) pour mettre en pratique.
 
 <!-- URLs -->
