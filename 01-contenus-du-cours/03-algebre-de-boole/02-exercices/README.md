@@ -67,12 +67,12 @@ public class SensorStatus {
         // TODO: Déclarez une variable booléenne 'hasError' initialisée à false
 
 
-        // TODO: Déclarez une variable booléenne 'needsMaintenance' initialisée à false
+        // TODO: Déclarez une variable booléenne 'isMaintenanceNeeded' initialisée à false
 
 
         System.out.println("Capteur actif: " + isActive);
         System.out.println("Erreur détectée: " + hasError);
-        System.out.println("Maintenance nécessaire: " + needsMaintenance);
+        System.out.println("Maintenance nécessaire: " + isMaintenanceNeeded);
     }
 }
 ```
@@ -97,11 +97,11 @@ public class SensorStatus {
         // Déclaration et initialisation des variables booléennes
         boolean isActive = true;
         boolean hasError = false;
-        boolean needsMaintenance = false;
+        boolean isMaintenanceNeeded = false;
 
         System.out.println("Capteur actif: " + isActive);
         System.out.println("Erreur détectée: " + hasError);
-        System.out.println("Maintenance nécessaire: " + needsMaintenance);
+        System.out.println("Maintenance nécessaire: " + isMaintenanceNeeded);
     }
 }
 ```
