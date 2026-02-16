@@ -92,7 +92,7 @@ questions relatives à l'unité d'enseignement :
 
 ## Objectifs de l'unité d'enseignement
 
-Selon la
+La fiche d'unité d'enseignement est disponible à l'adresse suivante :
 [fiche d'unité](https://gaps.heig-vd.ch/consultation/fiches/uv/uv.php?id=7627),
 à la fin de cette unité d'enseignement, vous devriez être capable de :
 

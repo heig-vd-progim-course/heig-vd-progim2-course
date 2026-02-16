@@ -13,7 +13,7 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 
 - [Table des matières](#table-des-matières)
 - [Exercices](#exercices)
-  - [{LEARNING\_TOPIC}](#learning_topic)
+  - [{LEARNING_TOPIC}](#learning_topic)
 
 ## Exercices
 
