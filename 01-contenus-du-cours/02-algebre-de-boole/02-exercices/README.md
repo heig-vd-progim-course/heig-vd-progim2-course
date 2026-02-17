@@ -1829,44 +1829,35 @@ public class AccessControl {
         // 3. Vérification du niveau de sécurité
         boolean levelAccessOK = false;
 
-        switch (securityLevel) {
-            case 1:  // Public
-                levelAccessOK = true;
-                break;
-
-            case 2:  // Interne
-                levelAccessOK = isEmployee || hasVisitorBadge;
-                if (!levelAccessOK) {
-                    System.out.println("  Niveau 2 requiert: employé·e OU badge visiteur");
-                }
-                break;
-
-            case 3:  // Confidentiel
-                levelAccessOK = isEmployee && hasClearance;
-                if (!isEmployee) {
-                    System.out.println("  Niveau 3 requiert: être employé·e");
-                }
-                if (!hasClearance) {
-                    System.out.println("  Niveau 3 requiert: habilitation de sécurité");
-                }
-                break;
-
-            case 4:  // Secret
-                levelAccessOK = isEmployee && hasClearance && isOnApprovedList;
-                if (!isEmployee) {
-                    System.out.println("  Niveau 4 requiert: être employé·e");
-                }
-                if (!hasClearance) {
-                    System.out.println("  Niveau 4 requiert: habilitation de sécurité");
-                }
-                if (!isOnApprovedList) {
-                    System.out.println("  Niveau 4 requiert: être sur la liste approuvée");
-                }
-                break;
-
-            default:
-                System.out.println("  Niveau de sécurité invalide");
-                levelAccessOK = false;
+        if (securityLevel == 1) {  // Public
+            levelAccessOK = true;
+        } else if (securityLevel == 2) {  // Interne
+            levelAccessOK = isEmployee || hasVisitorBadge;
+            if (!levelAccessOK) {
+                System.out.println("  Niveau 2 requiert: employé·e OU badge visiteur");
+            }
+        } else if (securityLevel == 3) {  // Confidentiel
+            levelAccessOK = isEmployee && hasClearance;
+            if (!isEmployee) {
+                System.out.println("  Niveau 3 requiert: être employé·e");
+            }
+            if (!hasClearance) {
+                System.out.println("  Niveau 3 requiert: habilitation de sécurité");
+            }
+        } else if (securityLevel == 4) {  // Secret
+            levelAccessOK = isEmployee && hasClearance && isOnApprovedList;
+            if (!isEmployee) {
+                System.out.println("  Niveau 4 requiert: être employé·e");
+            }
+            if (!hasClearance) {
+                System.out.println("  Niveau 4 requiert: habilitation de sécurité");
+            }
+            if (!isOnApprovedList) {
+                System.out.println("  Niveau 4 requiert: être sur la liste approuvée");
+            }
+        } else {
+            System.out.println("  Niveau de sécurité invalide");
+            levelAccessOK = false;
         }
 
         accessGranted = accessGranted && levelAccessOK;
@@ -1996,14 +1987,17 @@ private static boolean checkTimeAccess(boolean isEmployee, int currentHour) {
 private static boolean checkLevelAccess(int level, boolean isEmployee,
                                          boolean hasVisitorBadge, boolean hasClearance,
                                          boolean isOnApprovedList) {
-    switch (level) {
-        case 1: return true;
-        case 2: return checkLevel2(isEmployee, hasVisitorBadge);
-        case 3: return checkLevel3(isEmployee, hasClearance);
-        case 4: return checkLevel4(isEmployee, hasClearance, isOnApprovedList);
-        default:
-            System.out.println("  Niveau de sécurité invalide");
-            return false;
+    if (level == 1) {
+        return true;
+    } else if (level == 2) {
+        return checkLevel2(isEmployee, hasVisitorBadge);
+    } else if (level == 3) {
+        return checkLevel3(isEmployee, hasClearance);
+    } else if (level == 4) {
+        return checkLevel4(isEmployee, hasClearance, isOnApprovedList);
+    } else {
+        System.out.println("  Niveau de sécurité invalide");
+        return false;
     }
 }
 
