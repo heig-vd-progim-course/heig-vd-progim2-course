@@ -228,24 +228,28 @@ public class DeMorganSimplification {
         boolean isOffline = true;
         boolean isLowBattery = false;
 
-        // Expression originale complexe : !(hasConnection && hasData)
-        // TODO: Simplifiez cette expression en appliquant les lois de De Morgan
-        boolean cannotConnect = /* votre code ici */;
+        // Expression originale avec négation globale
+        boolean cannotConnect = !(hasConnection && hasData);
 
-        // Expression originale complexe : !(isOffline || isLowBattery)
-        // TODO: Simplifiez cette expression en appliquant les lois de De Morgan
-        boolean isOperational = /* votre code ici */;
+        // TODO: Écrivez l'équivalence de De Morgan de l'expression ci-dessus
+        boolean cannotConnectSimplified = /* votre code ici */;
+
+        // Expression originale avec négation globale
+        boolean isOperational = !(isOffline || isLowBattery);
+
+        // TODO: Écrivez l'équivalence de De Morgan de l'expression ci-dessus
+        boolean isOperationalSimplified = /* votre code ici */;
 
         // Vérification : les deux expressions doivent donner le même résultat
-        System.out.println("Expression originale : " + !(hasConnection && hasData));
-        System.out.println("Expression simplifiée: " + cannotConnect);
-        System.out.println("Identiques: " + (!(hasConnection && hasData) == cannotConnect));
+        System.out.println("Expression originale : " + cannotConnect);
+        System.out.println("Expression simplifiée: " + cannotConnectSimplified);
+        System.out.println("Identiques: " + (cannotConnect == cannotConnectSimplified));
 
         System.out.println();
 
-        System.out.println("Expression originale : " + !(isOffline || isLowBattery));
-        System.out.println("Expression simplifiée: " + isOperational);
-        System.out.println("Identiques: " + (!(isOffline || isLowBattery) == isOperational));
+        System.out.println("Expression originale : " + isOperational);
+        System.out.println("Expression simplifiée: " + isOperationalSimplified);
+        System.out.println("Identiques: " + (isOperational == isOperationalSimplified));
     }
 }
 ```
@@ -277,22 +281,28 @@ public class DeMorganSimplification {
         boolean isOffline = true;
         boolean isLowBattery = false;
 
+        // Expression originale avec négation globale
+        boolean cannotConnect = !(hasConnection && hasData);
+
         // Première loi de De Morgan : !(A && B) = !A || !B
-        boolean cannotConnect = !hasConnection || !hasData;
+        boolean cannotConnectSimplified = !hasConnection || !hasData;
+
+        // Expression originale avec négation globale
+        boolean isOperational = !(isOffline || isLowBattery);
 
         // Deuxième loi de De Morgan : !(A || B) = !A && !B
-        boolean isOperational = !isOffline && !isLowBattery;
+        boolean isOperationalSimplified = !isOffline && !isLowBattery;
 
         // Vérification : les deux expressions doivent donner le même résultat
-        System.out.println("Expression originale : " + !(hasConnection && hasData));
-        System.out.println("Expression simplifiée: " + cannotConnect);
-        System.out.println("Identiques: " + (!(hasConnection && hasData) == cannotConnect));
+        System.out.println("Expression originale : " + cannotConnect);
+        System.out.println("Expression simplifiée: " + cannotConnectSimplified);
+        System.out.println("Identiques: " + (cannotConnect == cannotConnectSimplified));
 
         System.out.println();
 
-        System.out.println("Expression originale : " + !(isOffline || isLowBattery));
-        System.out.println("Expression simplifiée: " + isOperational);
-        System.out.println("Identiques: " + (!(isOffline || isLowBattery) == isOperational));
+        System.out.println("Expression originale : " + isOperational);
+        System.out.println("Expression simplifiée: " + isOperationalSimplified);
+        System.out.println("Identiques: " + (isOperational == isOperationalSimplified));
     }
 }
 ```
@@ -547,7 +557,7 @@ approches pour résoudre un même problème.
 
 Comparez ces deux implémentations d'une fonction de validation de mot de passe.
 
-**Code A (avec comparaisons redondantes) :**
+**Code A :**
 
 ```java
 public class PasswordValidatorA {
@@ -584,7 +594,7 @@ public class PasswordValidatorA {
 }
 ```
 
-**Code B (simplifié) :**
+**Code B :**
 
 ```java
 public class PasswordValidatorB {
@@ -703,7 +713,7 @@ public class PasswordValidatorC {
 
 Comparez ces deux implémentations d'un système de validation d'inscription.
 
-**Code A (validation séparée) :**
+**Code A :**
 
 ```java
 public class RegistrationValidatorA {
@@ -766,7 +776,7 @@ public class RegistrationValidatorA {
 }
 ```
 
-**Code B (validation en court-circuit) :**
+**Code B :**
 
 ```java
 public class RegistrationValidatorB {
