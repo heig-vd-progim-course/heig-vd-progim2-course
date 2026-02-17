@@ -2099,6 +2099,6 @@ il est recommandé pour la prochaine séance de :
 [licence]:
 	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/blob/main/LICENSE.md
 [presentation-web]:
-	https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/03-algebre-de-boole/presentation.html
+	https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/02-algebre-de-boole/presentation.html
 [presentation-pdf]:
-	https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/03-algebre-de-boole/03-algebre-de-boole-presentation.pdf
+	https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/02-algebre-de-boole/02-algebre-de-boole-presentation.pdf

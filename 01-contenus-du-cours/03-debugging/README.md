@@ -63,6 +63,6 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 [licence]:
 	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/blob/main/LICENSE.md
 [presentation-web]:
-	https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/02-debugging/presentation.html
+	https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/03-debugging/presentation.html
 [presentation-pdf]:
-	https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/02-debugging/02-debugging-presentation.pdf
+	https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/03-debugging/03-debugging-presentation.pdf

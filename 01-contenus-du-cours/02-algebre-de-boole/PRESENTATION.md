@@ -7,7 +7,7 @@ author: V. Guidoux, avec l'aide de GitHub Copilot
 description:
   Algèbre de Boole pour le cours ProgIM2 enseigné à la HEIG-VD, Suisse
 lang: fr
-url: https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/03-algebre-de-boole/presentation.html
+url: https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/02-algebre-de-boole/presentation.html
 header: "[**Algèbre de Boole**][contenu-complet-sur-github]"
 footer:
   "[**HEIG-VD**](https://heig-vd.ch) - [ProgIM2
@@ -535,7 +535,7 @@ Est-ce que vous avez des questions ?
 <!-- URLs -->
 
 [contenu-complet-sur-github]:
-	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/tree/main/01-contenus-du-cours/03-algebre-de-boole/README.md
+	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/tree/main/01-contenus-du-cours/02-algebre-de-boole/README.md
 [licence]:
 	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/blob/main/LICENSE.md
 
