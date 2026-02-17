@@ -510,10 +510,9 @@ Est-ce que vous avez des questions ?
 - Faire les exercices.
 - Faire le mini-projet.
 - Poser des questions si nécessaire.
+- Entraidez-vous
 
-➡️ [Visualiser le contenu complet sur GitHub.][contenu-complet-sur-github]
-
-**N'hésitez pas à vous entraider si vous avez des difficultés !**
+➡️ [Contenu complet sur GitHub.][contenu-complet-sur-github]
 
 ![bg right:40%][illustration-a-vous-de-jouer]
 
