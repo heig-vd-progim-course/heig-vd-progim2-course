@@ -154,25 +154,29 @@ L'unité d'enseignement sera évaluée à l'aide de deux évaluations écrites :
 ## Évaluation finale
 
 - À la fin de l'unité d'enseignement.
-- Porte sur l'ensemble des connaissances acquises.
+- Porte sur les six dernières séances (séance 7 à 12).
 - Connaissances théoriques et pratiques.
 - Durée d'environ 180 minutes.
 - **Aucune aide autorisée.**
 
 ![bg right:40%][illustration-modalites-devaluation]
 
-## "Qu'en est-il de ChatGPT, etc. ?" (1/3)
+## _"Qu'en est-il de ChatGPT, etc. ?"_
+
+<!-- _class: lead -->
+
+## _"Qu'en est-il de ChatGPT, etc. ?"_ (1)
 
 **Vous pouvez utiliser tous les outils que vous souhaitez** (notes personnelles,
-Internet, outils d'IA, etc.), **sauf pendant les évaluations**. Vous pourrez les
-utiliser dans la vie réelle, alors mieux vaut apprendre à vous en servir dès
-maintenant.
+Internet, outils d'IA, etc.), **sauf pendant les évaluations** (sauf mention
+contraire). Vous pouvez les utiliser dans la vie réelle ; il serait utopique de
+ma part de vous en priver.
 
-Cependant, d'après notre expérience, ces outils ne sont pas suffisamment fiables
-pour être utilisés sans supervision. Ils peuvent vous aider, mais ils ne
-remplacent pas vos propres connaissances et compétences.
+Cependant, d'après mon expérience, **ces outils ne sont pas suffisamment
+fiables** pour être utilisés sans supervision. **Ils peuvent vous aider, mais
+ils ne remplacent pas vos propres connaissances et compétences**.
 
-## "Qu'en est-il de ChatGPT, etc. ?" (2/3)
+## _"Qu'en est-il de ChatGPT, etc. ?"_ (2)
 
 Concentrez-vous sur la compréhension des concepts et des principes qui
 sous-tendent les tâches sur lesquelles vous travaillez.
@@ -180,21 +184,67 @@ sous-tendent les tâches sur lesquelles vous travaillez.
 Une fois que vous maîtrisez les concepts, vous pouvez utiliser ces outils pour
 vous aider dans la mise en œuvre.
 
-**Votre intégrité personnelle et académique est en jeu.** Si nous avons des
-doutes sur votre travail, nous vous demanderons de nous l'expliquer. Vous
-pourriez être pénalisé si quelque chose semble suspect.
+Au risque d'utiliser une analogie un peu vieillotte : apprenez à calculer avant
+de vouloir utiliser une calculatrice.
 
-## "Qu'en est-il de ChatGPT, etc. ?" (3/3)
+Une excellente vidéo sur le sujet :
+[_"La Fabrique à Idiots"_ - Micode](https://www.youtube.com/watch?v=4xq6bVbS-Pw).
 
-Quelques règles concernant l'utilisation de ces outils :
+## _"Qu'en est-il de ChatGPT, etc. ?"_ (3)
 
-- Vous **devez être capable d'expliquer ce que vous avez fait et pourquoi vous
-  l'avez fait**.
-- Vous **devez indiquer quand vous avez utilisé une aide externe** (outils et
-  sources).
-- Vous **devez être capable de faire le travail par vous-même**. Ces outils vont
-  et viennent ($$$, fin de vie, etc.), vous ne devez pas vous y fier
-  entièrement.
+Quelques règles concernant l'utilisation de ces outils pour vos rendus :
+
+- Vous **devez indiquer quand, pourquoi et comment vous avez utilisé une aide
+  externe** (la raison, outils, sources, etc.), **soit dans le code, soit dans
+  un rapport annexe**.
+- Vous **devez expliquer le fonctionnement du code que vous avez utilisé**, que
+  ce soit du code généré par des outils d'intelligence artificielle ou du code
+  copié depuis des sources externes, **et comment il s'intègre dans votre
+  travail**.
+
+## _Qu'en est-il de ChatGPT, etc. ?"_ (4)
+
+- En cas de doutes de notre part, vous pourriez être questionné.e.
+- **Si vos explications ne sont pas convaincantes, injustifiées, dans le
+  contexte ou si vous n'êtes pas transparent.e sur l'utilisation de ces
+  outils**, je considère que vous n'avez pas acquis les compétences nécessaires
+  du cours. **Vous serez alors pénalisé.e avec la note 1 pour l'évaluation
+  concernée**.
+- En cas de doutes, n'hésitez pas à me contacter pour discuter de votre
+  utilisation de ces outils.
+
+<center>
+
+**Votre intégrité personnelle et académique est en jeu**.
+
+</center>
+
+## _Qu'en est-il de ChatGPT, etc. ?"_ (5)
+
+**Tout le monde va utiliser l'AI lorsque vous sortirez de vos études.**
+
+**C'est justement grâce à un esprit critique et une bonne compréhension des
+concepts** que vous saurez utiliser efficacement les outils à disposition (AI ou
+autre) et **que vous pourrez vous démarquer des autres**.
+
+À titre personnel, je pense qu'une personne issue du monde de l'ingénierie ne
+fait bien son travail que si elle le remet en question.
+
+---
+
+<!--
+_header: ""
+_footer: ""
+_paginate: false
+-->
+
+<div class="thumbnail">
+
+[_"La Fabrique à Idiots"_ - Micode, 15.01.2026](https://www.youtube.com/watch?v=4xq6bVbS-Pw)
+
+![bg](./images/la-fabrique-a-idiots-micode.jpg)
+
+</div>
 
 ## Bibliographie et ressources
 

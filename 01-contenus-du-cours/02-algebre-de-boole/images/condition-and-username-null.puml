@@ -1,0 +1,10 @@
+@startuml
+!theme plain
+
+start
+if ((username != null) && (username.length() > 0) ) then (true)
+  :Afficher "Nom d'utilisatrice valide.";
+endif
+stop
+
+@enduml

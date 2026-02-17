@@ -1,0 +1,10 @@
+@startuml
+!theme plain
+
+start
+if (batteryLevel < 20 ) then (true)
+  :Afficher "Batterie faible, veuillez recharger.";
+endif
+stop
+
+@enduml

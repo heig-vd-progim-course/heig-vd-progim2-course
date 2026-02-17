@@ -1,0 +1,14 @@
+@startuml
+!theme plain
+
+start
+if (hasLocalFiles && !hasInternetConnection ) then (true)
+  :Afficher "Mode hors ligne activé.";
+else if (hasLocalFiles && hasInternetConnection ) then (true)
+  :Afficher "Synchronisation des fichiers...";
+else (false)
+  :Afficher "Aucun fichier disponible.";
+endif
+stop
+
+@enduml

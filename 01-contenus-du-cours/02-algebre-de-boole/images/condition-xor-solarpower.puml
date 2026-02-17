@@ -1,0 +1,10 @@
+@startuml
+!theme plain
+
+start
+if (usesSolarPower ^ usesGridPower ) then (true)
+  :Afficher "Une source d'énergie unique est utilisée.";
+endif
+stop
+
+@enduml

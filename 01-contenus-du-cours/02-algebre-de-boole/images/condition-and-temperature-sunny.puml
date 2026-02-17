@@ -1,0 +1,10 @@
+@startuml
+!theme plain
+
+start
+if ((temperature > 20) && isSunny ) then (true)
+  :Afficher "Conditions idéales pour une sortie vélo.";
+endif
+stop
+
+@enduml

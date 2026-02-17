@@ -1,0 +1,10 @@
+@startuml
+!theme plain
+
+start
+if (isReady ) then (true)
+  :Afficher "Le système est prêt.";
+endif
+stop
+
+@enduml

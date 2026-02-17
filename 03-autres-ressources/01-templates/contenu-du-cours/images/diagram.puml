@@ -7,7 +7,7 @@
 start
 :Instruction 1;
 :Instruction 2;
-if (Condition ?) then (oui)
+if (Condition ) then (oui)
   :Action si vrai;
 else (non)
   :Action si faux;

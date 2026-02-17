@@ -58,7 +58,7 @@ For this programming course, commonly used PlantUML diagram types include:
 start
 :Instruction 1;
 :Instruction 2;
-if (Condition ?) then (oui)
+if (Condition ) then (oui)
   :Action si vrai;
 else (non)
   :Action si faux;

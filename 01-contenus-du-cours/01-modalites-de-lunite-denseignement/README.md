@@ -51,7 +51,7 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 - [Modalités d'évaluation](#modalités-dévaluation)
   - [Évaluation intermédiaire](#évaluation-intermédiaire)
   - [Évaluation finale](#évaluation-finale)
-- [Utilisation d'outils d'intelligence artificielle](#utilisation-doutils-dintelligence-artificielle)
+- [_"Qu'en est-il de ChatGPT, etc. ?"_](#quen-est-il-de-chatgpt-etc-)
 - [Bibliographie et ressources](#bibliographie-et-ressources)
 - [Conclusion](#conclusion)
 
@@ -92,7 +92,7 @@ questions relatives à l'unité d'enseignement :
 
 ## Objectifs de l'unité d'enseignement
 
-Selon la
+La fiche d'unité d'enseignement est disponible à l'adresse suivante :
 [fiche d'unité](https://gaps.heig-vd.ch/consultation/fiches/uv/uv.php?id=7627),
 à la fin de cette unité d'enseignement, vous devriez être capable de :
 
@@ -148,13 +148,7 @@ L'évaluation intermédiaire aura lieu à mi-parcours de l'unité d'enseignement
 (séance 7).
 
 Cette évaluation portera sur les connaissances théoriques et pratiques acquises
-lors des six premières séances :
-
-- Programmation orientée objet : classes et objets, attributs et méthodes.
-- Programmation orientée objet : encapsulation et héritage.
-- Programmation orientée objet : polymorphisme.
-- Tri.
-- Collections Java : listes, sets et maps.
+lors des six premières séances.
 
 La durée de l'évaluation est d'environ 180 minutes.
 
@@ -180,35 +174,56 @@ La durée de l'évaluation est d'environ 180 minutes.
 
 **Aucune aide n'est autorisée** lors de cette évaluation.
 
-## Utilisation d'outils d'intelligence artificielle
+## _"Qu'en est-il de ChatGPT, etc. ?"_
 
 **Vous pouvez utiliser tous les outils que vous souhaitez** (notes personnelles,
-Internet, outils d'intelligence artificielle, etc.), **sauf pendant les
-évaluations**. Vous pourrez les utiliser dans la vie réelle, alors mieux vaut
-apprendre à vous en servir dès maintenant.
+Internet, outils d'IA, etc.), **sauf pendant les évaluations** (sauf mention
+contraire). Vous pouvez les utiliser dans la vie réelle ; il serait utopique de
+ma part de vous en priver.
 
-Cependant, d'après notre expérience, ces outils ne sont pas suffisamment fiables
-pour être utilisés sans supervision. Ils peuvent vous aider, mais ils ne
-remplacent pas vos propres connaissances et compétences.
+Cependant, d'après mon expérience, **ces outils ne sont pas suffisamment
+fiables** pour être utilisés sans supervision. **Ils peuvent vous aider, mais
+ils ne remplacent pas vos propres connaissances et compétences**.
 
 Concentrez-vous sur la compréhension des concepts et des principes qui
-sous-tendent les tâches sur lesquelles vous travaillez. Une fois que vous
-maîtrisez les concepts, vous pouvez utiliser ces outils pour vous aider dans la
-mise en œuvre.
+sous-tendent les tâches sur lesquelles vous travaillez.
 
-**Votre intégrité personnelle et académique est en jeu.** Si nous avons des
-doutes sur votre travail, nous vous demanderons de nous l'expliquer. Vous
-pourriez être pénalisé si quelque chose semble suspect.
+Une fois que vous maîtrisez les concepts, vous pouvez utiliser ces outils pour
+vous aider dans la mise en œuvre.
 
-Quelques règles concernant l'utilisation de ces outils :
+Au risque d'utiliser une analogie un peu vieillotte : apprenez à calculer avant
+de vouloir utiliser une calculatrice.
 
-- Vous **devez être capable d'expliquer ce que vous avez fait et pourquoi vous
-  l'avez fait**.
-- Vous **devez indiquer quand vous avez utilisé une aide externe** (outils et
-  sources).
-- Vous **devez être capable de faire le travail par vous-même**. Ces outils vont
-  et viennent ($$$, fin de vie, etc.), vous ne devez pas vous y fier
-  entièrement.
+Une excellente vidéo sur le sujet :
+[_"La Fabrique à Idiots"_ - Micode](https://www.youtube.com/watch?v=4xq6bVbS-Pw).
+
+Quelques règles concernant l'utilisation de ces outils pour vos rendus :
+
+- Vous **devez indiquer quand, pourquoi et comment vous avez utilisé une aide
+  externe** (la raison, outils, sources, etc.), **soit dans le code, soit dans
+  un rapport annexe**.
+- Vous **devez expliquer le fonctionnement du code que vous avez utilisé**, que
+  ce soit du code généré par des outils d'intelligence artificielle ou du code
+  copié depuis des sources externes, **et comment il s'intègre dans votre
+  travail**.
+- En cas de doutes de notre part, vous pourriez être questionné.e.
+- **Si vos explications ne sont pas convaincantes, injustifiées dans le contexte
+  ou si vous n'êtes pas transparent.e sur l'utilisation de ces outils**, je
+  considère que vous n'avez pas acquis les compétences nécessaires du cours.
+  **Vous serez alors pénalisé.e avec la note 1 pour l'évaluation concernée**.
+- En cas de doutes, n'hésitez pas à me contacter pour discuter de votre
+  utilisation de ces outils.
+
+**Votre intégrité personnelle et académique est en jeu**.
+
+**Tout le monde va utiliser l'AI lorsque vous sortirez de vos études.**
+
+**C'est justement grâce à un esprit critique et une bonne compréhension des
+concepts** que vous saurez utiliser efficacement les outils à disposition (AI ou
+autre) et **que vous pourrez vous démarquer des autres**.
+
+À titre personnel, je pense qu'une personne issue du monde de l'ingénierie ne
+fait bien son travail que si elle le remet en question.
 
 ## Bibliographie et ressources
 
