@@ -15,7 +15,6 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 >   · [Présentation (PDF)][presentation-pdf]
 > - Exemples de code : [Accéder au contenu](./01-exemples-de-code/README.md)
 > - Exercices : [Accéder au contenu](./02-exercices/README.md)
-> - Mini-projet : [Accéder au contenu](./03-mini-projet/README.md)
 >
 > **Objectifs**
 >
@@ -2075,14 +2074,6 @@ mettre en pratique les concepts abordés.
 Vous trouverez les exercices et leur corrigé ici :
 [Exercices](./02-exercices/README.md).
 
-## Mini-projet
-
-Nous vous invitons maintenant à réaliser le mini-projet de la séance afin de
-mettre en pratique les concepts abordés.
-
-Vous trouverez les détails du mini-projet ici :
-[Mini-projet](./03-mini-projet/README.md).
-
 ## À faire pour la prochaine séance
 
 Chaque personne est libre de gérer son temps comme elle le souhaite. Cependant,
@@ -2092,7 +2083,6 @@ il est recommandé pour la prochaine séance de :
 - Relire les exemples de code et leur description pour bien comprendre les
   concepts.
 - Finaliser les exercices qui n'ont pas été terminés en classe.
-- Finaliser la partie du mini-projet qui n'a pas été terminée en classe.
 
 <!-- URLs -->
 
