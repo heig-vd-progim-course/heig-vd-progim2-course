@@ -37,7 +37,7 @@ d'apprentissage, et les méthodes d'évaluation.
 
 | Séance | Date          | Contenu(s)                                                                                                                                                                                          | État[^etat] |
 | -----: | :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------- |
-|     01 | 16.02 - 20.02 | [Modalités](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/README.md) + [Algèbre de Boole](./01-contenus-du-cours/02-algebre-de-boole/README.md)                                       | 🟡 En cours |
+|     01 | 16.02 - 20.02 | [Modalités](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/README.md) + [Algèbre de Boole](./01-contenus-du-cours/02-algebre-de-boole/README.md)                                       | 🟢 Prêt     |
 |     02 | 23.02 - 27.02 | [Debugging](./01-contenus-du-cours/03-debugging/README.md) + [Programmation orientée objet : Classes et objets](./01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/README.md) | 🔴 À faire  |
 |     03 | 02.03 - 06.03 | [Programmation orientée objet : Encapsulation et héritage](./01-contenus-du-cours/05-programmation-orientee-objet-encapsulation-et-heritage/README.md)                                              | 🔴 À faire  |
 |     04 | 09.03 - 13.03 | [Programmation orientée objet : Polymorphisme](./01-contenus-du-cours/06-programmation-orientee-objet-polymorphisme/README.md)                                                                      | 🔴 À faire  |

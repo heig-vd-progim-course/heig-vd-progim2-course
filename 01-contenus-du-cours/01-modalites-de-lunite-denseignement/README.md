@@ -222,8 +222,8 @@ Quelques règles concernant l'utilisation de ces outils pour vos rendus :
 concepts** que vous saurez utiliser efficacement les outils à disposition (AI ou
 autre) et **que vous pourrez vous démarquer des autres**.
 
-À titre personnel, je pense qu'une personne issue du monde de l'ingénierie ne
-fait bien son travail que si elle le remet en question.
+Je pense qu'une personne issue du monde de l'ingénierie ne fait bien son travail
+que si elle le remet en question.
 
 ## Bibliographie et ressources
 
@@ -236,6 +236,8 @@ Les ressources suivantes sont recommandées pour approfondir vos connaissances :
   <https://openclassrooms.com/fr/courses/6173501-apprenez-a-programmer-en-java>
 - JUnit 5 User Guide : <https://junit.org/junit5/docs/current/user-guide/>
 - Swing Tutorial : <https://docs.oracle.com/javase/tutorial/uiswing/>
+- [https://www.youtube.com/watch?v=RVB3PBPxMWg](https://www.youtube.com/watch?v=RVB3PBPxMWg)
+- [https://www.youtube.com/watch?v=8ueBiBOTs9E](https://www.youtube.com/watch?v=8ueBiBOTs9E)
 
 ## Conclusion
 
