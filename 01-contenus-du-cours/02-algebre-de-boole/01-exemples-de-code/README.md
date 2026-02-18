@@ -12,21 +12,17 @@ Les exemples sont organisés en deux catégories :
 Exemples démontrant les bonnes pratiques et l'utilisation correcte des concepts
 d'algèbre de Boole, du plus simple au plus complexe.
 
-1. **[01-declaration-boolean](01-declaration-boolean/README.md)** : Déclaration
-   et initialisation de variables booléennes
-2. **[02-operateurs-base](02-operateurs-base/README.md)** : Opérateurs de base
-   (NOT, AND, OR) avec tables de vérité
-3. **[03-operateur-xor](03-operateur-xor/README.md)** : Opérateur XOR et ses
-   applications
-4. **[04-court-circuit](04-court-circuit/README.md)** : Évaluation court-circuit
-   et optimisation
-5. **[05-lois-demorgan](05-lois-demorgan/README.md)** : Application des lois de
-   De Morgan
-6. **[06-condition-simple](06-condition-simple/README.md)** : Structure `if`
-   simple
-7. **[07-condition-if-else](07-condition-if-else/README.md)** : Structure
-   `if-else`
-8. **[08-condition-complexe](08-condition-complexe/README.md)** : Structure
+1. **[01-declaration-boolean](01-declaration-boolean/)** : Déclaration et
+   initialisation de variables booléennes
+2. **[02-operateurs-base](02-operateurs-base/)** : Opérateurs de base (NOT, AND,
+   OR) avec tables de vérité
+3. **[03-operateur-xor](03-operateur-xor/)** : Opérateur XOR et ses applications
+4. **[04-court-circuit](04-court-circuit/)** : Évaluation court-circuit et
+   optimisation
+5. **[05-lois-demorgan](05-lois-demorgan/)** : Application des lois de De Morgan
+6. **[06-condition-simple](06-condition-simple/)** : Structure `if` simple
+7. **[07-condition-if-else](07-condition-if-else/)** : Structure `if-else`
+8. **[08-condition-complexe](08-condition-complexe/)** : Structure
    `if-else if-else`
 
 ### ⚠️ Pratiques à éviter (11-16)
@@ -34,18 +30,18 @@ d'algèbre de Boole, du plus simple au plus complexe.
 Exemples illustrant les erreurs courantes et les mauvaises pratiques, avec leurs
 corrections.
 
-11. **[11-a-eviter-affectation-condition](11-a-eviter-affectation-condition/README.md)**
+11. **[11-a-eviter-affectation-condition](11-a-eviter-affectation-condition/)**
     : Confusion entre `=` et `==`
-12. **[12-a-eviter-comparaison-redondante](12-a-eviter-comparaison-redondante/README.md)**
+12. **[12-a-eviter-comparaison-redondante](12-a-eviter-comparaison-redondante/)**
     : Comparaisons redondantes (`if (x == true)`)
-13. **[13-a-eviter-type-non-booleen](13-a-eviter-type-non-booleen/README.md)** :
-    Types non booléens dans les conditions
-14. **[14-a-eviter-negations-multiples](14-a-eviter-negations-multiples/README.md)**
-    : Négations multiples difficiles à lire
-15. **[15-a-eviter-ordre-court-circuit](15-a-eviter-ordre-court-circuit/README.md)**
-    : Ordre incorrect avec court-circuit
-16. **[16-a-eviter-expression-complexe](16-a-eviter-expression-complexe/README.md)**
-    : Expressions complexes sans décomposition
+13. **[13-a-eviter-type-non-booleen](13-a-eviter-type-non-booleen/)** : Types
+    non booléens dans les conditions
+14. **[14-a-eviter-negations-multiples](14-a-eviter-negations-multiples/)** :
+    Négations multiples difficiles à lire
+15. **[15-a-eviter-ordre-court-circuit](15-a-eviter-ordre-court-circuit/)** :
+    Ordre incorrect avec court-circuit
+16. **[16-a-eviter-expression-complexe](16-a-eviter-expression-complexe/)** :
+    Expressions complexes sans décomposition
 
 ## Structure de chaque exemple
 

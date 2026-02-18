@@ -13,7 +13,7 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 >
 > - Autres formats du support de cours : [Présentation (web)][presentation-web]
 >   · [Présentation (PDF)][presentation-pdf]
-> - Exemples de code : [Accéder au contenu](./01-exemples-de-code/README.md)
+> - Exemples de code : [Accéder au contenu](./01-exemples-de-code/)
 > - Exercices : [Accéder au contenu](./02-exercices/README.md)
 >
 > **Objectifs**
