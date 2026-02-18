@@ -112,18 +112,18 @@ public class Example04CourtCircuit {
         // Si text est null, la deuxième condition (text.length() > 0)
         // ne sera jamais évaluée grâce au court-circuit
         
-        if (text != null) {
-            System.out.println("text n'est pas null, vérification de la longueur");
-            if (text.length() > 0) {
-                System.out.println("text est valide");
-                return true;
-            } else {
-                System.out.println("text est vide");
-                return false;
-            }
+        // Utilisation du court-circuit avec &&
+        // Si text est null, text.length() ne sera JAMAIS appelé
+        System.out.println("Vérification: text != null ? " + (text != null));
+        
+        if (text != null && text.length() > 0) {
+            // Si on arrive ici, les deux conditions sont vraies
+            System.out.println("text est valide");
+            return true;
         } else {
-            System.out.println("text est null, vérification sautée");
+            System.out.println("text est invalide (null ou vide)");
             return false;
         }
     }
+    
 }
