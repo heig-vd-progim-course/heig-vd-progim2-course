@@ -6,26 +6,25 @@ _["Programmation orientée objet : Classes et objets"](../)_.
 
 ## Table des matières
 
-- [Programmation orientée objet : Classes et objets - Mini-projet (partie 1)](#programmation-orientée-objet--classes-et-objets---mini-projet-partie-1)
-  - [Table des matières](#table-des-matières)
-  - [Introduction au mini-projet fil rouge](#introduction-au-mini-projet-fil-rouge)
-  - [Présentation du mini-projet](#présentation-du-mini-projet)
-  - [Objectifs de cette session](#objectifs-de-cette-session)
-  - [Structure du projet](#structure-du-projet)
-  - [Création des classes](#création-des-classes)
-    - [Étape 1 : créer la classe Plant](#étape-1--créer-la-classe-plant)
-    - [Étape 2 : créer la classe Plot](#étape-2--créer-la-classe-plot)
-    - [Étape 3 : créer la classe Gardener](#étape-3--créer-la-classe-gardener)
-  - [Création de la classe principale](#création-de-la-classe-principale)
-    - [Étape 4 : créer la classe GardenManagementSystem](#étape-4--créer-la-classe-gardenmanagementsystem)
-    - [Étape 5 : ajouter la fonctionnalité de récolte](#étape-5--ajouter-la-fonctionnalité-de-récolte)
-  - [Test du projet](#test-du-projet)
-    - [Compilation et exécution en ligne de commande](#compilation-et-exécution-en-ligne-de-commande)
-    - [Sortie attendue](#sortie-attendue)
-  - [Diagramme de classes](#diagramme-de-classes)
-  - [Solution](#solution)
-  - [Conclusion](#conclusion)
-  - [Aller plus loin](#aller-plus-loin)
+- [Table des matières](#table-des-matières)
+- [Introduction au mini-projet fil rouge](#introduction-au-mini-projet-fil-rouge)
+- [Présentation du mini-projet](#présentation-du-mini-projet)
+- [Objectifs de cette session](#objectifs-de-cette-session)
+- [Structure du projet](#structure-du-projet)
+- [Création des classes](#création-des-classes)
+  - [Étape 1 : créer la classe Plant](#étape-1--créer-la-classe-plant)
+  - [Étape 2 : créer la classe Plot](#étape-2--créer-la-classe-plot)
+  - [Étape 3 : créer la classe Gardener](#étape-3--créer-la-classe-gardener)
+- [Création de la classe principale](#création-de-la-classe-principale)
+  - [Étape 4 : créer la classe GardenManagementSystem](#étape-4--créer-la-classe-gardenmanagementsystem)
+  - [Étape 5 : ajouter la fonctionnalité de récolte](#étape-5--ajouter-la-fonctionnalité-de-récolte)
+- [Test du projet](#test-du-projet)
+  - [Compilation et exécution en ligne de commande](#compilation-et-exécution-en-ligne-de-commande)
+  - [Sortie attendue](#sortie-attendue)
+- [Diagramme de classes](#diagramme-de-classes)
+- [Solution](#solution)
+- [Conclusion](#conclusion)
+- [Aller plus loin](#aller-plus-loin)
 
 ## Introduction au mini-projet fil rouge
 
@@ -596,11 +595,9 @@ aromatiques).
 
 Voici quelques pistes pour enrichir votre projet :
 
-- Ajoutez un attribut `isHarvested` (booléen) à la classe `Plant` pour indiquer
-  si la plante a été récoltée.
 - Ajoutez un constructeur supplémentaire dans chaque classe qui initialise
   seulement certains attributs avec des valeurs par défaut pour les autres.
 - Créez une classe `Season` (saison) avec les attributs `name` et
-  `averageTemperature`, et ajoutez-la au système.
+  `averageTemperature`.
 - Modifiez la méthode `displayInfo()` pour qu'elle retourne une `String` au lieu
   d'afficher directement.
