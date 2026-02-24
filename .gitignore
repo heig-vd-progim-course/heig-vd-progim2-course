@@ -11,6 +11,10 @@
 *.html
 *.pdf
 
+## Java 
+# Compiled Java class files
+*.class
+
 ## Windows
 # Windows thumbnail cache files
 Thumbs.db

@@ -26,7 +26,7 @@ Suisse !
 ## ➡️ Par où commencer ?
 
 Vous ne savez pas par où commencer ? Jetez un œil à
-l'[Introduction et modalités du cours](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/README.md)
+l'[Introduction et modalités du cours](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/)
 pour en savoir plus.
 
 ## 📅 Programme
@@ -35,21 +35,21 @@ Les détails de chaque séance du cours sont disponibles ci-dessous. Chaque séa
 est détaillée avec les contenus, les objectifs, les méthodes d'enseignement et
 d'apprentissage, et les méthodes d'évaluation.
 
-| Séance | Date          | Contenu(s)                                                                                                                                                                                          | État[^etat] |
-| -----: | :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------- |
-|     01 | 16.02 - 20.02 | [Modalités](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/README.md) + [Algèbre de Boole](./01-contenus-du-cours/02-algebre-de-boole/README.md)                                       | 🟢 Prêt     |
-|     02 | 23.02 - 27.02 | [Debugging](./01-contenus-du-cours/03-debugging/README.md) + [Programmation orientée objet : Classes et objets](./01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/README.md) | 🔴 À faire  |
-|     03 | 02.03 - 06.03 | [Programmation orientée objet : Encapsulation et héritage](./01-contenus-du-cours/05-programmation-orientee-objet-encapsulation-et-heritage/README.md)                                              | 🔴 À faire  |
-|     04 | 09.03 - 13.03 | [Programmation orientée objet : Polymorphisme](./01-contenus-du-cours/06-programmation-orientee-objet-polymorphisme/README.md)                                                                      | 🔴 À faire  |
-|     05 | 16.03 - 20.03 | [Algorithmes de tri](./01-contenus-du-cours/07-algorithmes-de-tri/README.md)                                                                                                                        | 🔴 À faire  |
-|     06 | 23.03 - 27.03 | [Collections Java : Listes, sets et maps](./01-contenus-du-cours/08-collections-java-listes-sets-et-maps/README.md)                                                                                 | 🔴 À faire  |
-|     🚨 | 30.03 - 03.04 | Evaluation intermédiaire                                                                                                                                                                            | 🔴 À faire  |
-|     07 | 13.04 - 17.04 | [Collections Java : Lambda et génériques](./01-contenus-du-cours/09-collections-java-lambda-et-generiques/README.md)                                                                                | 🔴 À faire  |
-|     08 | 20.04 - 24.04 | [Gestion des exceptions](./01-contenus-du-cours/10-gestion-des-exceptions/README.md)                                                                                                                | 🔴 À faire  |
-|     09 | 27.04 - 01.05 | [Overloading et type casting](./01-contenus-du-cours/11-overloading-et-type-casting/README.md)                                                                                                      | 🔴 À faire  |
-|     10 | 04.05 - 08.05 | [Tests unitaires avec JUnit](./01-contenus-du-cours/12-tests-unitaires-avec-junit/README.md)                                                                                                        | 🔴 À faire  |
-|     11 | 11.05 - 15.05 | [JavaFX et interfaces graphiques](./01-contenus-du-cours/13-javafx-et-interfaces-graphiques/README.md)                                                                                              | 🔴 À faire  |
-|     12 | 18.05 - 22.05 | [Récapitulatif et préparation à l'examen](./01-contenus-du-cours/14-recapitulatif-et-preparation-a-lexamen/README.md)                                                                               | 🔴 À faire  |
+| Séance | Date          | Contenu(s)                                                                                                                                    | État[^etat] |
+| -----: | :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------- | :---------- |
+|     01 | 16.02 - 20.02 | [Modalités](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/) + [Algèbre de Boole](./01-contenus-du-cours/02-algebre-de-boole/)   | 🟢 Prêt     |
+|     02 | 23.02 - 27.02 | [Programmation orientée objet : Classes et objets](./01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/)                 | 🟢 Prêt     |
+|     03 | 02.03 - 06.03 | [Programmation orientée objet : Encapsulation et héritage](./01-contenus-du-cours/05-programmation-orientee-objet-encapsulation-et-heritage/) | 🔴 À faire  |
+|     04 | 09.03 - 13.03 | [Programmation orientée objet : Polymorphisme](./01-contenus-du-cours/06-programmation-orientee-objet-polymorphisme/)                         | 🔴 À faire  |
+|     05 | 16.03 - 20.03 | [Algorithmes de tri](./01-contenus-du-cours/07-algorithmes-de-tri/)                                                                           | 🔴 À faire  |
+|     06 | 23.03 - 27.03 | [Collections Java : Listes, sets et maps](./01-contenus-du-cours/08-collections-java-listes-sets-et-maps/)                                    | 🔴 À faire  |
+|     🚨 | 30.03 - 03.04 | Evaluation intermédiaire                                                                                                                      | 🔴 À faire  |
+|     07 | 13.04 - 17.04 | [Collections Java : Lambda et génériques](./01-contenus-du-cours/09-collections-java-lambda-et-generiques/)                                   | 🔴 À faire  |
+|     08 | 20.04 - 24.04 | [Gestion des exceptions](./01-contenus-du-cours/10-gestion-des-exceptions/)                                                                   | 🔴 À faire  |
+|     09 | 27.04 - 01.05 | [Overloading et type casting](./01-contenus-du-cours/11-overloading-et-type-casting/)                                                         | 🔴 À faire  |
+|     10 | 04.05 - 08.05 | [Tests unitaires avec JUnit](./01-contenus-du-cours/12-tests-unitaires-avec-junit/)                                                           | 🔴 À faire  |
+|     11 | 11.05 - 15.05 | [JavaFX et interfaces graphiques](./01-contenus-du-cours/13-javafx-et-interfaces-graphiques/)                                                 | 🔴 À faire  |
+|     12 | 18.05 - 22.05 | [Récapitulatif et préparation à l'examen](./01-contenus-du-cours/14-recapitulatif-et-preparation-a-lexamen/)                                  | 🔴 À faire  |
 
 ## 📜 Licence
 

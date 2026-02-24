@@ -1,0 +1,19 @@
+@startuml example-car
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Car {
+  + brand: String
+  + model: String
+  + year: int
+  + isRunning: boolean
+  --
+  + Car(brand: String, model: String, year: int)
+  + start(): void
+  + stop(): void
+  + getInfo(): String
+}
+
+@enduml

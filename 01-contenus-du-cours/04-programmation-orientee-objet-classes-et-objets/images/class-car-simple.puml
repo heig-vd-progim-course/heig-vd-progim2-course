@@ -1,0 +1,15 @@
+@startuml class-car-simple
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Car {
+  + brand: String
+  + model: String
+  + year: int
+  --
+  + start(): void
+}
+
+@enduml
