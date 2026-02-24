@@ -16,7 +16,7 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 > - Exemples de code : [Accéder au contenu](./01-exemples-de-code/)
 > - Exercices : [Accéder au contenu](./02-exercices/)
 > - Mini-projet : [Accéder au contenu](./03-mini-projet/)
-> - Quiz : [Accéder au contenu](./QUIZ.md)
+> - Quiz : [Accéder au contenu][quiz-web]
 >
 > **Objectifs**
 >
@@ -1042,6 +1042,8 @@ Le mini-projet est disponible ici : [Mini-projet (partie 1)](./03-mini-projet/).
 
 [licence]:
 	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/blob/main/LICENSE.md
+[quiz-web]:
+	https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/quiz.html
 [presentation-web]:
 	https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/presentation.html
 [presentation-pdf]:
