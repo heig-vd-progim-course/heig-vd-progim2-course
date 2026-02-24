@@ -64,4 +64,4 @@ Pour éviter cette erreur :
 ---
 
 **Exemple suivant :**
-[12-a-eviter-comparaison-redondante](../12-a-eviter-comparaison-redondante/README.md)
+[12-a-eviter-comparaison-redondante](../12-a-eviter-comparaison-redondante/)

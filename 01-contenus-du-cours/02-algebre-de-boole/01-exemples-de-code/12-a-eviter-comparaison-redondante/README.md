@@ -66,4 +66,4 @@ Pour écrire du code plus clair :
 ---
 
 **Exemple suivant :**
-[13-a-eviter-type-non-booleen](../13-a-eviter-type-non-booleen/README.md)
+[13-a-eviter-type-non-booleen](../13-a-eviter-type-non-booleen/)

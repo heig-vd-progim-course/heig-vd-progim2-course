@@ -60,4 +60,4 @@ Pour choisir le bon ordre :
 ---
 
 **Exemple suivant :**
-[16-a-eviter-expression-complexe](../16-a-eviter-expression-complexe/README.md)
+[16-a-eviter-expression-complexe](../16-a-eviter-expression-complexe/)

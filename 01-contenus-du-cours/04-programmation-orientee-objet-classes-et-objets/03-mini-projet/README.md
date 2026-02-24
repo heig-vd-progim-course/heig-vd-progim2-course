@@ -2,7 +2,7 @@
 
 Ce mini-projet est conçu pour vous permettre de mettre en pratique les concepts
 théoriques vus dans le contenu
-_["Programmation orientée objet : Classes et objets"](../README.md)_.
+_["Programmation orientée objet : Classes et objets"](../)_.
 
 ## Table des matières
 
@@ -34,8 +34,8 @@ plusieurs séances du cours _"Programmation 2 (ProgIM2)"_ !
 
 Ce mini-projet est conçu pour vous permettre de mettre en pratique les concepts
 théoriques vus dans le cours
-_["Programmation orientée objet : Classes et objets"](../README.md)_. N'hésitez
-pas à vous y référer si vous avez besoin de rafraîchir votre mémoire.
+_["Programmation orientée objet : Classes et objets"](../)_. N'hésitez pas à
+vous y référer si vous avez besoin de rafraîchir votre mémoire.
 
 En lisant les contenus préparés pour les sessions de mini-projet, vous trouverez
 peut-être ce que l'on appelle des _"avertissements"_ ou des _"alertes"_.
@@ -100,8 +100,8 @@ C'est parti !
 
 > [!TIP]
 >
-> Le [support de cours](../README.md) est disponible pour vous aider à
-> comprendre les concepts théoriques abordés dans ce mini-projet si besoin !
+> Le [support de cours](../) est disponible pour vous aider à comprendre les
+> concepts théoriques abordés dans ce mini-projet si besoin !
 
 ## Présentation du mini-projet
 
@@ -180,13 +180,12 @@ attributs suivants :
 
 - `name` : le nom de la plante (type `String`).
 - `species` : l'espèce de la plante (type `String`).
-- `plantingDate` : la date de plantation au format `yyyy-MM-dd` (type
-  `String`).
+- `plantingDate` : la date de plantation au format `yyyy-MM-dd` (type `String`).
 - `size` : la taille de la plante en centimètres (type `double`).
 - `isHarvested` : indique si la plante a été récoltée (type `boolean`).
 
-Créez un fichier `Plant.java` dans le dossier `src/` et ajoutez le code
-suivant :
+Créez un fichier `Plant.java` dans le dossier `src/` et ajoutez le code suivant
+:
 
 ```java
 public class Plant {
@@ -249,8 +248,7 @@ contient les attributs suivants :
 - `size` : la taille de la parcelle en mètres carrés (type `double`).
 - `location` : la localisation de la parcelle (type `String`).
 
-Créez un fichier `Plot.java` dans le dossier `src/` et ajoutez le code suivant
-:
+Créez un fichier `Plot.java` dans le dossier `src/` et ajoutez le code suivant :
 
 ```java
 public class Plot {
@@ -345,11 +343,11 @@ public class GardenManagementSystem {
         System.out.println();
 
         // Création de plantes
-        Plant tomato = new Plant("Tomate cerise", "Solanum lycopersicum", 
+        Plant tomato = new Plant("Tomate cerise", "Solanum lycopersicum",
                                  "2025-04-15", 45.5);
-        Plant carrot = new Plant("Carotte", "Daucus carota", 
+        Plant carrot = new Plant("Carotte", "Daucus carota",
                                  "2025-03-20", 12.0);
-        Plant basil = new Plant("Basilic", "Ocimum basilicum", 
+        Plant basil = new Plant("Basilic", "Ocimum basilicum",
                                 "2025-05-01", 25.3);
 
         // Création de parcelles
@@ -408,13 +406,13 @@ Ajoutez le code suivant après la modification de la taille de la tomate :
         System.out.println("--- Récolte des plantes ---");
         tomato.harvest();
         carrot.harvest();
-        
+
         // Affichage des informations après récolte
         System.out.println();
         System.out.println("--- État des plantes après récolte ---");
         tomato.displayInfo();
         carrot.displayInfo();
-        
+
         // Tentative de récolte d'une plante déjà récoltée
         System.out.println("--- Tentative de récolte de la tomate à nouveau ---");
         tomato.harvest();
@@ -423,14 +421,14 @@ Ajoutez le code suivant après la modification de la taille de la tomate :
 > [!NOTE]
 >
 > La méthode `harvest()` illustre un concept important : une méthode peut
-> modifier l'état interne d'un objet (ici, l'attribut `isHarvested`) et
-> afficher un message en fonction de cet état.
+> modifier l'état interne d'un objet (ici, l'attribut `isHarvested`) et afficher
+> un message en fonction de cet état.
 
 > [!TIP]
 >
-> Notez comment la méthode `harvest()` vérifie si la plante a déjà été
-> récoltée avant de modifier l'attribut. C'est une bonne pratique pour éviter
-> des actions incohérentes.
+> Notez comment la méthode `harvest()` vérifie si la plante a déjà été récoltée
+> avant de modifier l'attribut. C'est une bonne pratique pour éviter des actions
+> incohérentes.
 
 ## Test du projet
 
@@ -555,7 +553,7 @@ classes (association, héritage, implémentation d'interfaces).
 ## Solution
 
 Vous pouvez trouver la solution complète du mini-projet à l'adresse suivante :
-[`solution`](./solution/README.md).
+[`solution`](./solution/).
 
 > [!NOTE]
 >

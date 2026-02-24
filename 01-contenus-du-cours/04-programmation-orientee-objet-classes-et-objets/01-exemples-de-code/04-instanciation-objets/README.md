@@ -67,7 +67,6 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple précédent :**
-[03-constructeur-simple](../03-constructeur-simple/README.md)
+**Exemple précédent :** [03-constructeur-simple](../03-constructeur-simple/)
 
-**Exemple suivant :** [05-mot-cle-this](../05-mot-cle-this/README.md)
+**Exemple suivant :** [05-mot-cle-this](../05-mot-cle-this/)

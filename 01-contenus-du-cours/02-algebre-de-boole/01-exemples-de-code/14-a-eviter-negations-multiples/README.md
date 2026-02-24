@@ -66,4 +66,4 @@ Pour éviter les négations multiples :
 ---
 
 **Exemple suivant :**
-[15-a-eviter-ordre-court-circuit](../15-a-eviter-ordre-court-circuit/README.md)
+[15-a-eviter-ordre-court-circuit](../15-a-eviter-ordre-court-circuit/)

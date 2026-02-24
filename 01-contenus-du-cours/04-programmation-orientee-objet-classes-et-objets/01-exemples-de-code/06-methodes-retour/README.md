@@ -56,6 +56,6 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple précédent :** [05-mot-cle-this](../05-mot-cle-this/README.md)
+**Exemple précédent :** [05-mot-cle-this](../05-mot-cle-this/)
 
-**Exemple suivant :** [07-modification-etat](../07-modification-etat/README.md)
+**Exemple suivant :** [07-modification-etat](../07-modification-etat/)

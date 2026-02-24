@@ -658,7 +658,7 @@ Est-ce que vous avez des questions sur le quiz ou le contenu ?
 <!-- URLs -->
 
 [contenu-complet-sur-github]:
-	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/tree/main/01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/README.md
+	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/tree/main/01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/
 [licence]: https://creativecommons.org/licenses/by-sa/4.0/
 
 <!-- Illustrations -->

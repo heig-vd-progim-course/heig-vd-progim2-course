@@ -7,7 +7,7 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 > [!TIP]
 >
 > Toutes les informations relatives à ce contenu sont décrites dans le
-> [contenu principal](../README.md).
+> [contenu principal](../).
 
 ## Table des matières
 
@@ -84,7 +84,7 @@ les exemples numérotés `01`, `02`, etc., puis consultez les contre-exemples
 
 ### {LEARNING_TOPIC}
 
-#### 📁 [01-exemple-basic](./01-exemple-basic/README.md)
+#### 📁 [01-exemple-basic](./01-exemple-basic/)
 
 **Objectif :** comprendre [concept de base].
 
@@ -94,7 +94,7 @@ Description courte de l'exemple 1 et du concept qu'il illustre.
 
 ---
 
-#### 📁 [02-exemple-intermediaire](./02-exemple-intermediaire/README.md)
+#### 📁 [02-exemple-intermediaire](./02-exemple-intermediaire/)
 
 **Objectif :** approfondir [concept intermédiaire].
 
@@ -104,7 +104,7 @@ Description courte de l'exemple 2 et du concept qu'il illustre.
 
 ---
 
-#### ⚠️ [11-a-eviter-erreur-courante](./11-a-eviter-erreur-courante/README.md)
+#### ⚠️ [11-a-eviter-erreur-courante](./11-a-eviter-erreur-courante/)
 
 **À éviter :** [description de l'erreur].
 
@@ -114,7 +114,7 @@ Description courte de l'erreur illustrée.
 
 ---
 
-#### ⚠️ [12-a-eviter-autre-erreur](./12-a-eviter-autre-erreur/README.md)
+#### ⚠️ [12-a-eviter-autre-erreur](./12-a-eviter-autre-erreur/)
 
 **À éviter :** [description de l'erreur].
 
@@ -128,14 +128,14 @@ Description courte de l'erreur illustrée.
 
 **Bonnes pratiques (0\*):**
 
-- [01-exemple-basic](./01-exemple-basic/README.md)
-- [02-exemple-intermediaire](./02-exemple-intermediaire/README.md)
+- [01-exemple-basic](./01-exemple-basic/)
+- [02-exemple-intermediaire](./02-exemple-intermediaire/)
 - ...
 
 **À éviter (1\*):**
 
-- [11-a-eviter-erreur-courante](./11-a-eviter-erreur-courante/README.md)
-- [12-a-eviter-autre-erreur](./12-a-eviter-autre-erreur/README.md)
+- [11-a-eviter-erreur-courante](./11-a-eviter-erreur-courante/)
+- [12-a-eviter-autre-erreur](./12-a-eviter-autre-erreur/)
 - ...
 
 ## Points clés à retenir

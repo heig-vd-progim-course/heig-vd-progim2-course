@@ -69,6 +69,6 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple précédent :** [06-methodes-retour](../06-methodes-retour/README.md)
+**Exemple précédent :** [06-methodes-retour](../06-methodes-retour/)
 
-**Exemple suivant :** [08-exemple-complet](../08-exemple-complet/README.md)
+**Exemple suivant :** [08-exemple-complet](../08-exemple-complet/)

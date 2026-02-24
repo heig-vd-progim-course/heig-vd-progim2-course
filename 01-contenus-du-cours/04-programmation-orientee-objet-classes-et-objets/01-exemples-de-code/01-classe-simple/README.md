@@ -70,5 +70,4 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple suivant :**
-[02-classe-avec-methodes](../02-classe-avec-methodes/README.md)
+**Exemple suivant :** [02-classe-avec-methodes](../02-classe-avec-methodes/)

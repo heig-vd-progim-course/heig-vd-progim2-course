@@ -81,4 +81,4 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple suivant :** [03-operateur-xor](../03-operateur-xor/README.md)
+**Exemple suivant :** [03-operateur-xor](../03-operateur-xor/)

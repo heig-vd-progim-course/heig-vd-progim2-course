@@ -7,7 +7,7 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 > [!TIP]
 >
 > Toutes les informations relatives à ce contenu sont décrites dans le
-> [contenu principal](../README.md).
+> [contenu principal](../).
 
 ## Table des matières
 

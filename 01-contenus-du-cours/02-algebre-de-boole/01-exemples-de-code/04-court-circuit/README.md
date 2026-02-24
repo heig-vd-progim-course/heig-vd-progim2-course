@@ -94,4 +94,4 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple suivant :** [05-lois-demorgan](../05-lois-demorgan/README.md)
+**Exemple suivant :** [05-lois-demorgan](../05-lois-demorgan/)

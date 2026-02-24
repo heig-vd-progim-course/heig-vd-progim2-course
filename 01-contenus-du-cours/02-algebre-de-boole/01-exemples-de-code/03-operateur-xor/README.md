@@ -77,4 +77,4 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple suivant :** [04-court-circuit](../04-court-circuit/README.md)
+**Exemple suivant :** [04-court-circuit](../04-court-circuit/)

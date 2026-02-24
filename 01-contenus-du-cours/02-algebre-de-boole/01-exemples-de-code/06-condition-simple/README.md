@@ -74,4 +74,4 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple suivant :** [07-condition-if-else](../07-condition-if-else/README.md)
+**Exemple suivant :** [07-condition-if-else](../07-condition-if-else/)

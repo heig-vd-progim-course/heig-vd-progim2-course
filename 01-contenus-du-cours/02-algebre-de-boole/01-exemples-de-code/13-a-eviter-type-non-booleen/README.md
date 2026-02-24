@@ -64,4 +64,4 @@ Pour écrire des conditions correctes :
 ---
 
 **Exemple suivant :**
-[14-a-eviter-negations-multiples](../14-a-eviter-negations-multiples/README.md)
+[14-a-eviter-negations-multiples](../14-a-eviter-negations-multiples/)

@@ -69,7 +69,6 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple précédent :**
-[04-instanciation-objets](../04-instanciation-objets/README.md)
+**Exemple précédent :** [04-instanciation-objets](../04-instanciation-objets/)
 
-**Exemple suivant :** [06-methodes-retour](../06-methodes-retour/README.md)
+**Exemple suivant :** [06-methodes-retour](../06-methodes-retour/)

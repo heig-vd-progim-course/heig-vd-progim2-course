@@ -30,5 +30,4 @@ La sortie attendue du programme
 
 ---
 
-**Exemple suivant :**
-[02-exemple-intermediaire](../02-exemple-intermediaire/README.md)
+**Exemple suivant :** [02-exemple-intermediaire](../02-exemple-intermediaire/)

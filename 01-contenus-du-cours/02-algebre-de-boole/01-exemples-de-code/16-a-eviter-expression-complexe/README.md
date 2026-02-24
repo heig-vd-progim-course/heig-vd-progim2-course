@@ -70,4 +70,4 @@ Pour décomposer une expression complexe :
 ---
 
 **Retour aux exemples de bonnes pratiques :**
-[01-declaration-boolean](../01-declaration-boolean/README.md)
+[01-declaration-boolean](../01-declaration-boolean/)
