@@ -16,6 +16,7 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 > - Exemples de code : [Accéder au contenu](./01-exemples-de-code/README.md)
 > - Exercices : [Accéder au contenu](./02-exercices/README.md)
 > - Mini-projet : [Accéder au contenu](./03-mini-projet/README.md)
+> - Quiz : [Accéder au contenu](./QUIZ.md)
 >
 > **Objectifs**
 >
