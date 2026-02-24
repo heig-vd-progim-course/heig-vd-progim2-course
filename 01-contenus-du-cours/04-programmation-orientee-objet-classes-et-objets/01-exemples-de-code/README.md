@@ -87,9 +87,8 @@ Pour une meilleure compréhension, suivez cet ordre :
 2. **Exemples 04-05** : manipuler les objets (`new`, `this`)
 3. **Exemples 06-07** : utiliser les méthodes avancées (retour, modification)
 4. **Exemple 08** : synthèse complète
-5. **Exercices** : pratiquer avec les [exercices](../02-exercices/README.md)
-6. **Mini-projet** : appliquer avec le
-   [mini-projet](../03-mini-projet/README.md)
+5. **Exercices** : pratiquer avec les [exercices](../02-exercices/)
+6. **Mini-projet** : appliquer avec le [mini-projet](../03-mini-projet/)
 
 ## Concepts couverts
 

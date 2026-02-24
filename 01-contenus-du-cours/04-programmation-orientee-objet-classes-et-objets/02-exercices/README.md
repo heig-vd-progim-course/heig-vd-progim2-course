@@ -1389,7 +1389,7 @@ Pour aller plus loin, pratiquez en créant vos propres classes pour modéliser d
 objets du monde réel : vélos, smartphones, comptes utilisateur, etc.
 
 N'hésitez pas à consulter le [contenu principal du cours](../README.md) et le
-[mini-projet](../03-mini-projet/README.md) pour approfondir ces concepts.
+[mini-projet](../03-mini-projet/) pour approfondir ces concepts.
 
 <!-- URLs -->
 
