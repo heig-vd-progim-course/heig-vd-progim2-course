@@ -1,0 +1,37 @@
+@startuml class-diagram
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Plant {
+  + name: String
+  + species: String
+  + plantingDate: String
+  + size: double
+  + isHarvested: boolean
+  --
+  + Plant(name: String, species: String, plantingDate: String, size: double)
+  + displayInfo(): void
+  + harvest(): void
+}
+
+class Plot {
+  + plotNumber: int
+  + size: double
+  + location: String
+  --
+  + Plot(plotNumber: int, size: double, location: String)
+  + displayInfo(): void
+}
+
+class Gardener {
+  + name: String
+  + email: String
+  + experienceYears: int
+  --
+  + Gardener(name: String, email: String, experienceYears: int)
+  + displayInfo(): void
+}
+
+@enduml
