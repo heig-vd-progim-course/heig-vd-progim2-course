@@ -13,9 +13,9 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 >
 > - Autres formats du support de cours : [Présentation (web)][presentation-web]
 >   · [Présentation (PDF)][presentation-pdf]
-> - Exemples de code : [Accéder au contenu](./01-exemples-de-code/README.md)
-> - Exercices : [Accéder au contenu](./02-exercices/README.md)
-> - Mini-projet : [Accéder au contenu](./03-mini-projet/README.md)
+> - Exemples de code : [Accéder au contenu](./01-exemples-de-code/)
+> - Exercices : [Accéder au contenu](./02-exercices/)
+> - Mini-projet : [Accéder au contenu](./03-mini-projet/)
 > - Quiz : [Accéder au contenu](./QUIZ.md)
 >
 > **Objectifs**
@@ -1014,15 +1014,14 @@ Nous vous invitons à consulter les exemples de code associés à ce contenu de
 cours pour mieux comprendre les concepts abordés.
 
 Vous trouverez les exemples de code ici :
-[Exemples de code](./01-exemples-de-code/README.md).
+[Exemples de code](./01-exemples-de-code/).
 
 ## Exercices
 
 Nous vous invitons maintenant à réaliser les exercices de la séance afin de
 mettre en pratique les concepts abordés.
 
-Vous trouverez les exercices et leur corrigé ici :
-[Exercices](./02-exercices/README.md).
+Vous trouverez les exercices et leur corrigé ici : [Exercices](./02-exercices/).
 
 ## Mini-projet
 
@@ -1030,8 +1029,7 @@ Pour mettre en pratique les concepts vus dans ce chapitre, vous allez réaliser
 un mini-projet qui consiste à créer un système de gestion de jardin
 communautaire.
 
-Le mini-projet est disponible ici :
-[Mini-projet (partie 1)](./03-mini-projet/README.md).
+Le mini-projet est disponible ici : [Mini-projet (partie 1)](./03-mini-projet/).
 
 À la fin de ce mini-projet, vous aurez créé :
 

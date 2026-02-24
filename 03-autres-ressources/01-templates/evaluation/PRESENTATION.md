@@ -72,7 +72,7 @@ Est-ce que vous avez des questions ?
 <!-- URLs -->
 
 [contenu-complet-sur-github]:
-	{GITHUB_REPOSITORY_URL}/tree/main/{COURSE_CONTENTS_FOLDER}/{COURSE_CONTENT_FOLDER}/README.md
+	{GITHUB_REPOSITORY_URL}/tree/main/{COURSE_CONTENTS_FOLDER}/{COURSE_CONTENT_FOLDER}/
 [licence]: {LICENSE_URL}
 
 <!-- Illustrations -->

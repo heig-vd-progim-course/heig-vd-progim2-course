@@ -15,7 +15,7 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 - [Introduction](#introduction)
 - [Structure des exemples](#structure-des-exemples)
 - [Exemples](#exemples)
-  - [{LEARNING\_TOPIC}](#learning_topic)
+  - [{LEARNING_TOPIC}](#learning_topic)
 - [Navigation rapide](#navigation-rapide)
 - [Points clés à retenir](#points-clés-à-retenir)
 - [Comment travailler efficacement avec ces exemples](#comment-travailler-efficacement-avec-ces-exemples)
@@ -203,7 +203,7 @@ Si vous rencontrez des difficultés avec un exemple :
 > - Modifier les exemples pour tester votre compréhension.
 > - Combiner plusieurs concepts vus dans différents exemples.
 > - Créer vos propres exemples en vous inspirant de la structure.
-> - Passer aux [exercices](../02-exercices/README.md) pour mettre en pratique.
+> - Passer aux [exercices](../02-exercices/) pour mettre en pratique.
 
 <!-- URLs -->
 

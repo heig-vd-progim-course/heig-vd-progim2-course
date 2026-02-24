@@ -14,7 +14,7 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 > - Autres formats du support de cours : [Présentation (web)][presentation-web]
 >   · [Présentation (PDF)][presentation-pdf]
 > - Exemples de code : [Accéder au contenu](./01-exemples-de-code/)
-> - Exercices : [Accéder au contenu](./02-exercices/README.md)
+> - Exercices : [Accéder au contenu](./02-exercices/)
 >
 > **Objectifs**
 >
@@ -2071,8 +2071,7 @@ deviendront naturelles dans votre approche de résolution de problèmes.
 Nous vous invitons maintenant à réaliser les exercices de la séance afin de
 mettre en pratique les concepts abordés.
 
-Vous trouverez les exercices et leur corrigé ici :
-[Exercices](./02-exercices/README.md).
+Vous trouverez les exercices et leur corrigé ici : [Exercices](./02-exercices/).
 
 ## À faire pour la prochaine séance
 

@@ -460,7 +460,7 @@ Est-ce que vous avez des questions ?
 [licence]:
 	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/blob/main/LICENSE.md
 [mini-projet]:
-	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/tree/main/01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/03-mini-projet/README.md
+	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/tree/main/01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/03-mini-projet/
 
 <!-- Illustrations -->
 

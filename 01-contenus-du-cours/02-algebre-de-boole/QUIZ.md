@@ -338,7 +338,7 @@ Est-ce que vous avez des questions sur le quiz ou le contenu ?
 <!-- URLs -->
 
 [contenu-complet-sur-github]:
-	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/tree/main/01-contenus-du-cours/02-algebre-de-boole/README.md
+	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/tree/main/01-contenus-du-cours/02-algebre-de-boole/
 [licence]: https://creativecommons.org/licenses/by-sa/4.0/
 
 <!-- Illustrations -->
