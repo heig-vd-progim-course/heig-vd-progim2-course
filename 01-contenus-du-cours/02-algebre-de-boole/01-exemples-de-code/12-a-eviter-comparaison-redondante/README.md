@@ -16,7 +16,7 @@ Une erreur stylistique courante est de comparer explicitement une variable
 booléenne à `true` ou `false`. Cette comparaison est redondante car la variable
 est déjà un booléen.
 
-**❌ Problème :**
+**Problème :**
 
 ```java
 if (isReady == true) {      // Redondant

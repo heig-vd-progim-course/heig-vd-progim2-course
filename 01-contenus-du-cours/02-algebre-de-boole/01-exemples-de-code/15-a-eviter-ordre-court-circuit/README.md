@@ -16,7 +16,7 @@ Les opérateurs `&&` et `||` utilisent l'évaluation court-circuit : ils
 s'arrêtent dès que le résultat est déterminé. L'ordre des conditions est donc
 crucial pour éviter les erreurs et optimiser les performances.
 
-**❌ Problème :**
+**Problème :**
 
 ```java
 // DANGER : NullPointerException si text est null

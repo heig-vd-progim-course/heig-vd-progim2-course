@@ -17,7 +17,7 @@ les types dans les conditions : seules les expressions de type `boolean` sont
 acceptées. Une valeur numérique (0, 1) ou une chaîne ne peut pas être utilisée
 directement.
 
-**❌ Problème :**
+**Problème :**
 
 ```java
 int count = 0;

@@ -88,12 +88,6 @@ du cours de Programmation 2.
 - Créer des constructeurs pour initialiser les objets.
 - Différencier les constructeurs par défaut et les constructeurs paramétrés.
 
-### Encapsulation de base
-
-- Appliquer les modificateurs d'accès (`private`, `public`).
-- Créer des getters et setters pour accéder aux attributs privés.
-- Justifier l'utilisation de l'encapsulation pour protéger les données.
-
 ### Mini-projet (partie 1)
 
 - Créer les classes de base pour le système de jardin (`Plant`, `Plot`,
@@ -104,6 +98,12 @@ du cours de Programmation 2.
 - Ajouter des méthodes simples pour afficher les informations.
 
 ## Séance 03 - POO : Encapsulation et héritage
+
+### Encapsulation de base
+
+- Appliquer les modificateurs d'accès (`private`, `public`).
+- Créer des getters et setters pour accéder aux attributs privés.
+- Justifier l'utilisation de l'encapsulation pour protéger les données.
 
 ### Encapsulation avancée
 

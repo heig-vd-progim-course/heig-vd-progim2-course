@@ -16,7 +16,7 @@ Une erreur fréquente en programmation est de confondre l'opérateur d'affectati
 `=` avec l'opérateur de comparaison `==`. Cette erreur est particulièrement
 problématique dans les structures conditionnelles.
 
-**❌ Problème :**
+**Problème :**
 
 ```java
 if (isReady = true) {  // ERREUR : affectation au lieu de comparaison

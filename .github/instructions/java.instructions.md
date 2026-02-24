@@ -147,10 +147,10 @@ Use inline comments to:
 Do not comment obvious code:
 
 ```java
-// ❌ Mauvais : commentaire évident
+// Mauvais : commentaire évident
 int age = 25; // Définit l'âge à 25
 
-// ✅ Bon : commentaire utile
+// Bon : commentaire utile
 // L'âge minimum légal pour conduire en Suisse
 int minDrivingAge = 18;
 ```

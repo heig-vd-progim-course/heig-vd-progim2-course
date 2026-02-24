@@ -16,7 +16,7 @@ public class Example16AEviterExpressionComplexe {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 1 : Condition de contrôle d'accès complexe
+        // ERREUR 1 : Condition de contrôle d'accès complexe
         // ========================================
         
         System.out.println("Problème 1: Condition d'accès complexe");
@@ -34,7 +34,7 @@ public class Example16AEviterExpressionComplexe {
         System.out.println("experienceYears: " + experienceYears);
         System.out.println();
         
-        System.out.println("❌ Code avec expression complexe:");
+        System.out.println("Code avec expression complexe:");
         System.out.println("if ((age >= 18 && age < 25 && hasLicense && !hasSuspension && experienceYears >= 2) ||");
         System.out.println("    (age >= 25 && age < 65 && hasLicense && !hasSuspension) ||");
         System.out.println("    (age >= 65 && hasLicense && !hasSuspension && experienceYears >= 10)) {");
@@ -42,7 +42,7 @@ public class Example16AEviterExpressionComplexe {
         System.out.println("}");
         System.out.println();
         
-        // ❌ MAUVAIS CODE
+        // MAUVAIS CODE
         if ((age >= 18 && age < 25 && hasLicense && !hasSuspension && experienceYears >= 2) ||
             (age >= 25 && age < 65 && hasLicense && !hasSuspension) ||
             (age >= 65 && hasLicense && !hasSuspension && experienceYears >= 10)) {
@@ -102,7 +102,7 @@ public class Example16AEviterExpressionComplexe {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 2 : Validation de formulaire complexe
+        // ERREUR 2 : Validation de formulaire complexe
         // ========================================
         
         System.out.println("Problème 2: Validation de formulaire complexe");
@@ -113,7 +113,7 @@ public class Example16AEviterExpressionComplexe {
         String email = "alice@example.com";
         boolean agreedToTerms = true;
         
-        System.out.println("❌ Code avec expression complexe:");
+        System.out.println("Code avec expression complexe:");
         System.out.println("if (username != null && username.length() >= 3 && username.length() <= 20 &&");
         System.out.println("    password != null && password.length() >= 8 && containsUpperCase(password) &&");
         System.out.println("    containsLowerCase(password) && containsDigit(password) &&");
@@ -123,7 +123,7 @@ public class Example16AEviterExpressionComplexe {
         System.out.println("}");
         System.out.println();
         
-        // ❌ MAUVAIS CODE (commenté pour la démonstration)
+        // MAUVAIS CODE (commenté pour la démonstration)
         /*
         if (username != null && username.length() >= 3 && username.length() <= 20 &&
             password != null && password.length() >= 8 && containsUpperCase(password) &&
@@ -197,7 +197,7 @@ public class Example16AEviterExpressionComplexe {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 3 : Condition métier complexe
+        // ERREUR 3 : Condition métier complexe
         // ========================================
         
         System.out.println("Problème 3: Règle métier complexe");
@@ -209,7 +209,7 @@ public class Example16AEviterExpressionComplexe {
         boolean hasPromoCode = false;
         String dayOfWeek = "Tuesday";
         
-        System.out.println("❌ Code illisible:");
+        System.out.println("Code illisible:");
         System.out.println("if ((price >= 100 && isMember && loyaltyPoints >= 500) ||");
         System.out.println("    (hasPromoCode && price >= 50) ||");
         System.out.println("    (dayOfWeek.equals(\"Tuesday\") && price >= 75 && isMember)) {");

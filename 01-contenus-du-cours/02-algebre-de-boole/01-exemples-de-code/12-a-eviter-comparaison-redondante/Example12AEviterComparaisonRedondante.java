@@ -15,7 +15,7 @@ public class Example12AEviterComparaisonRedondante {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 1 : Comparaison redondante dans if
+        // ERREUR 1 : Comparaison redondante dans if
         // ========================================
         
         System.out.println("Problème 1: Comparaison redondante dans une condition");
@@ -23,8 +23,8 @@ public class Example12AEviterComparaisonRedondante {
         
         boolean isReady = true;
         
-        // ❌ MAUVAIS CODE : Comparaison redondante
-        System.out.println("❌ Code redondant:");
+        // MAUVAIS CODE : Comparaison redondante
+        System.out.println("Code redondant:");
         System.out.println("if (isReady == true) {");
         System.out.println("    System.out.println(\"Système prêt\");");
         System.out.println("}");
@@ -52,7 +52,7 @@ public class Example12AEviterComparaisonRedondante {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 2 : Comparaison avec false
+        // ERREUR 2 : Comparaison avec false
         // ========================================
         
         System.out.println("Problème 2: Comparaison redondante avec false");
@@ -60,8 +60,8 @@ public class Example12AEviterComparaisonRedondante {
         
         boolean hasError = false;
         
-        // ❌ MAUVAIS CODE
-        System.out.println("❌ Code redondant:");
+        // MAUVAIS CODE
+        System.out.println("Code redondant:");
         System.out.println("if (hasError == false) {");
         System.out.println("    System.out.println(\"Pas d'erreur\");");
         System.out.println("}");
@@ -89,7 +89,7 @@ public class Example12AEviterComparaisonRedondante {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 3 : Comparaison dans return
+        // ERREUR 3 : Comparaison dans return
         // ========================================
         
         System.out.println("Problème 3: Comparaison redondante dans return");
@@ -98,8 +98,8 @@ public class Example12AEviterComparaisonRedondante {
         boolean isConnected = true;
         boolean hasData = true;
         
-        // ❌ MAUVAIS CODE
-        System.out.println("❌ Code redondant:");
+        // MAUVAIS CODE
+        System.out.println("Code redondant:");
         System.out.println("return (isConnected && hasData) == true;");
         System.out.println();
         
@@ -120,13 +120,13 @@ public class Example12AEviterComparaisonRedondante {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 4 : Return avec comparaison
+        // ERREUR 4 : Return avec comparaison
         // ========================================
         
         System.out.println("Problème 4: Return d'un booléen avec comparaison redondante");
         System.out.println();
         
-        System.out.println("❌ Code redondant:");
+        System.out.println("Code redondant:");
         System.out.println("boolean canAccess = checkAccess();");
         System.out.println("return canAccess == true;");
         System.out.println();
@@ -145,7 +145,7 @@ public class Example12AEviterComparaisonRedondante {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 5 : Pire cas - Double négation
+        // ERREUR 5 : Pire cas - Double négation
         // ========================================
         
         System.out.println("Problème 5: Double négation (pire cas)");
@@ -153,7 +153,7 @@ public class Example12AEviterComparaisonRedondante {
         
         boolean isInvalid = false;
         
-        System.out.println("❌ Code très confus:");
+        System.out.println("Code très confus:");
         System.out.println("if (isInvalid != false) {  // Double négation !");
         System.out.println("    System.out.println(\"Non valide\");");
         System.out.println("}");
@@ -192,7 +192,7 @@ public class Example12AEviterComparaisonRedondante {
         System.out.println("→ Évitez les doubles négations");
     }
     
-    // ❌ Méthode avec comparaison redondante
+    // Méthode avec comparaison redondante
     private static boolean checkAccessBad() {
         boolean isReady = true;
         return isReady == true;  // Redondant !

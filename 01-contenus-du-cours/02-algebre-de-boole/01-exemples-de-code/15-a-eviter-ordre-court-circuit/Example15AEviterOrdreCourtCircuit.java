@@ -15,7 +15,7 @@ public class Example15AEviterOrdreCourtCircuit {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 1 : Vérification null dans le mauvais ordre
+        // ERREUR 1 : Vérification null dans le mauvais ordre
         // ========================================
         
         System.out.println("Problème 1: Vérification null après utilisation");
@@ -23,14 +23,14 @@ public class Example15AEviterOrdreCourtCircuit {
         
         String text = null;
         
-        System.out.println("❌ Code dangereux (commenté pour éviter le crash):");
+        System.out.println("Code dangereux (commenté pour éviter le crash):");
         System.out.println("String text = null;");
         System.out.println("if (text.length() > 0 && text != null) {");
         System.out.println("    // NullPointerException !");
         System.out.println("}");
         System.out.println();
         
-        // ❌ MAUVAIS CODE (commenté)
+        // MAUVAIS CODE (commenté)
         /*
         if (text.length() > 0 && text != null) {
             // CRASH : NullPointerException sur text.length()
@@ -61,7 +61,7 @@ public class Example15AEviterOrdreCourtCircuit {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 2 : Division par zéro
+        // ERREUR 2 : Division par zéro
         // ========================================
         
         System.out.println("Problème 2: Division par zéro non protégée");
@@ -70,7 +70,7 @@ public class Example15AEviterOrdreCourtCircuit {
         int divisor = 0;
         int value = 100;
         
-        System.out.println("❌ Code dangereux (commenté pour éviter le crash):");
+        System.out.println("Code dangereux (commenté pour éviter le crash):");
         System.out.println("int divisor = 0;");
         System.out.println("int value = 100;");
         System.out.println("if (value / divisor > 5 && divisor != 0) {");
@@ -78,7 +78,7 @@ public class Example15AEviterOrdreCourtCircuit {
         System.out.println("}");
         System.out.println();
         
-        // ❌ MAUVAIS CODE (commenté)
+        // MAUVAIS CODE (commenté)
         /*
         if (value / divisor > 5 && divisor != 0) {
             // CRASH : division par zéro
@@ -108,7 +108,7 @@ public class Example15AEviterOrdreCourtCircuit {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 3 : Ordre peu performant
+        // ERREUR 3 : Ordre peu performant
         // ========================================
         
         System.out.println("Problème 3: Condition coûteuse évaluée inutilement");
@@ -117,13 +117,13 @@ public class Example15AEviterOrdreCourtCircuit {
         String[] database = {"Alice", "Bob", "Charlie"};
         String searchName = "David";
         
-        System.out.println("❌ Code peu performant:");
+        System.out.println("Code peu performant:");
         System.out.println("if (searchInDatabase(name) || name.length() > 3) {");
         System.out.println("    // searchInDatabase est appelé même si length > 3");
         System.out.println("}");
         System.out.println();
         
-        // ❌ MAUVAIS CODE (fonctionnel mais inefficace)
+        // MAUVAIS CODE (fonctionnel mais inefficace)
         System.out.println("Évaluation avec ordre inefficace:");
         System.out.print("Recherche dans la base... ");
         boolean found1 = searchInDatabase(database, searchName);
@@ -153,7 +153,7 @@ public class Example15AEviterOrdreCourtCircuit {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 4 : Appel de méthode avec effet de bord
+        // ERREUR 4 : Appel de méthode avec effet de bord
         // ========================================
         
         System.out.println("Problème 4: Méthode avec effet de bord non contrôlée");
@@ -162,13 +162,13 @@ public class Example15AEviterOrdreCourtCircuit {
         int[] counter = {0};
         boolean condition = false;
         
-        System.out.println("❌ Code avec ordre incorrect:");
+        System.out.println("Code avec ordre incorrect:");
         System.out.println("if (incrementAndCheck(counter) && condition) {");
         System.out.println("    // incrementAndCheck est TOUJOURS appelé");
         System.out.println("}");
         System.out.println();
         
-        // ❌ MAUVAIS CODE
+        // MAUVAIS CODE
         System.out.println("Compteur avant: " + counter[0]);
         if (incrementAndCheck(counter) && condition) {
             System.out.println("Les deux conditions sont vraies");

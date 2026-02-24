@@ -15,7 +15,7 @@ public class Example13AEviterTypeNonBooleen {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 1 : Utiliser un nombre comme condition
+        // ERREUR 1 : Utiliser un nombre comme condition
         // ========================================
         
         System.out.println("Problème 1: Utiliser un nombre comme condition");
@@ -23,14 +23,14 @@ public class Example13AEviterTypeNonBooleen {
         
         int count = 0;
         
-        System.out.println("❌ Code incorrect (commenté car erreur de compilation):");
+        System.out.println("Code incorrect (commenté car erreur de compilation):");
         System.out.println("int count = 0;");
         System.out.println("if (count) {  // ERREUR : count n'est pas un booléen");
         System.out.println("    System.out.println(\"Count est non-zéro\");");
         System.out.println("}");
         System.out.println();
         
-        // ❌ MAUVAIS CODE (commenté)
+        // MAUVAIS CODE (commenté)
         /*
         if (count) {  // ERREUR DE COMPILATION : incompatible types
             System.out.println("Count est non-zéro");
@@ -59,7 +59,7 @@ public class Example13AEviterTypeNonBooleen {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 2 : Utiliser 0 ou 1 comme booléen
+        // ERREUR 2 : Utiliser 0 ou 1 comme booléen
         // ========================================
         
         System.out.println("Problème 2: Utiliser 0 ou 1 comme booléen");
@@ -67,14 +67,14 @@ public class Example13AEviterTypeNonBooleen {
         
         int flag = 1;
         
-        System.out.println("❌ Code incorrect (commenté car erreur de compilation):");
+        System.out.println("Code incorrect (commenté car erreur de compilation):");
         System.out.println("int flag = 1;");
         System.out.println("if (flag) {  // ERREUR même si flag vaut 1");
         System.out.println("    System.out.println(\"Flag est activé\");");
         System.out.println("}");
         System.out.println();
         
-        // ❌ MAUVAIS CODE (commenté)
+        // MAUVAIS CODE (commenté)
         /*
         if (flag) {  // ERREUR : même avec 1, ce n'est pas un booléen
             System.out.println("Flag est activé");
@@ -114,7 +114,7 @@ public class Example13AEviterTypeNonBooleen {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 3 : Utiliser null directement
+        // ERREUR 3 : Utiliser null directement
         // ========================================
         
         System.out.println("Problème 3: Utiliser null directement");
@@ -122,14 +122,14 @@ public class Example13AEviterTypeNonBooleen {
         
         String text = null;
         
-        System.out.println("❌ Code incorrect (commenté car erreur de compilation):");
+        System.out.println("Code incorrect (commenté car erreur de compilation):");
         System.out.println("String text = null;");
         System.out.println("if (text) {  // ERREUR : text n'est pas un booléen");
         System.out.println("    System.out.println(\"Texte existe\");");
         System.out.println("}");
         System.out.println();
         
-        // ❌ MAUVAIS CODE (commenté)
+        // MAUVAIS CODE (commenté)
         /*
         if (text) {  // ERREUR : String n'est pas un boolean
             System.out.println("Texte existe");
@@ -152,7 +152,7 @@ public class Example13AEviterTypeNonBooleen {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 4 : Chaîne vide
+        // ERREUR 4 : Chaîne vide
         // ========================================
         
         System.out.println("Problème 4: Tester une chaîne vide");
@@ -160,14 +160,14 @@ public class Example13AEviterTypeNonBooleen {
         
         String name = "";
         
-        System.out.println("❌ Code incorrect (commenté car erreur de compilation):");
+        System.out.println("Code incorrect (commenté car erreur de compilation):");
         System.out.println("String name = \"\";");
         System.out.println("if (name) {  // ERREUR : name n'est pas un booléen");
         System.out.println("    System.out.println(\"Nom fourni\");");
         System.out.println("}");
         System.out.println();
         
-        // ❌ MAUVAIS CODE (commenté)
+        // MAUVAIS CODE (commenté)
         /*
         if (name) {  // ERREUR : String n'est pas un boolean
             System.out.println("Nom fourni");
