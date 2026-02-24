@@ -1,7 +1,7 @@
-// Classe Gardener - représente un jardinier qui cultive une parcelle
+// Classe Gardener - représente une jardinière qui cultive une parcelle
 //
 // Cette classe illustre les concepts de base de la POO :
-// - Attributs pour représenter les données du jardinier
+// - Attributs pour représenter les données de la jardinière
 // - Constructeur pour initialiser un objet
 // - Méthode pour afficher les informations
 //
@@ -22,9 +22,9 @@ public class Gardener {
         this.experienceYears = experienceYears;
     }
 
-    // Méthode pour afficher les informations du jardinier
+    // Méthode pour afficher les informations de la jardinière
     public void displayInfo() {
-        System.out.println("=== Informations du jardinier ===");
+        System.out.println("=== Informations de la jardinière ===");
         System.out.println("Nom: " + name);
         System.out.println("Email: " + email);
         System.out.println("Expérience: " + experienceYears + " ans");

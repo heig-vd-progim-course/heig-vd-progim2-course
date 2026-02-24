@@ -25,7 +25,7 @@ public class GardenManagementSystem {
         Plot plot1 = new Plot(1, 10.5, "Zone Nord");
         Plot plot2 = new Plot(2, 15.0, "Zone Sud");
 
-        // Création de jardiniers
+        // Création de jardinières
         Gardener alice = new Gardener("Alice Dupont", "alice.dupont@example.com", 3);
         Gardener bob = new Gardener("Bob Martin", "bob.martin@example.com", 5);
 
@@ -39,7 +39,7 @@ public class GardenManagementSystem {
         plot1.displayInfo();
         plot2.displayInfo();
 
-        System.out.println("--- Jardiniers du jardin ---");
+        System.out.println("--- jardinières du jardin ---");
         alice.displayInfo();
         bob.displayInfo();
 

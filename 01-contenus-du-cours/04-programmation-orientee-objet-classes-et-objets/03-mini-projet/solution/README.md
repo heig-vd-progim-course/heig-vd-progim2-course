@@ -32,9 +32,9 @@ Cette classe représente une plante dans le jardin avec les attributs suivants :
 - `isHarvested` : indique si la plante a été récoltée (booléen).
 
 La classe contient un constructeur pour initialiser tous les attributs (avec
-`isHarvested` initialisé à `false` par défaut), une méthode `displayInfo()`
-pour afficher les informations de la plante, et une méthode `harvest()` pour
-récolter la plante.
+`isHarvested` initialisé à `false` par défaut), une méthode `displayInfo()` pour
+afficher les informations de la plante, et une méthode `harvest()` pour récolter
+la plante.
 
 ### Plot.java
 
@@ -54,15 +54,15 @@ méthode `displayInfo()` pour afficher les informations de la parcelle.
 
 [Voir le code source](./src/Gardener.java)
 
-Cette classe représente un jardinier qui cultive une parcelle avec les attributs
-suivants :
+Cette classe représente une jardinière qui cultive une parcelle avec les
+attributs suivants :
 
-- `name` : le nom du jardinier.
-- `email` : l'adresse email du jardinier.
+- `name` : le nom de la jardinière.
+- `email` : l'adresse email de la jardinière.
 - `experienceYears` : le nombre d'années d'expérience.
 
 La classe contient un constructeur pour initialiser tous les attributs et une
-méthode `displayInfo()` pour afficher les informations du jardinier.
+méthode `displayInfo()` pour afficher les informations de la jardinière.
 
 ### GardenManagementSystem.java
 
@@ -70,7 +70,7 @@ méthode `displayInfo()` pour afficher les informations du jardinier.
 
 Cette classe principale contient la méthode `main()` qui permet de tester les
 trois autres classes. Elle crée plusieurs objets (plantes, parcelles,
-jardiniers), affiche leurs informations, et démontre l'utilisation de la
+jardinières), affiche leurs informations, et démontre l'utilisation de la
 méthode `harvest()` pour récolter des plantes.
 
 ## Compilation et exécution
@@ -124,13 +124,13 @@ Numéro: 2
 Taille: 15.0 m²
 Localisation: Zone Sud
 
---- Jardiniers du jardin ---
-=== Informations du jardinier ===
+--- jardinières du jardin ---
+=== Informations de la jardinière ===
 Nom: Alice Dupont
 Email: alice.dupont@example.com
 Expérience: 3 ans
 
-=== Informations du jardinier ===
+=== Informations de la jardinière ===
 Nom: Bob Martin
 Email: bob.martin@example.com
 Expérience: 5 ans
@@ -197,7 +197,7 @@ public Plant(String name, String species, String plantingDate, double size) {
 Le mot-clé `new` permet de créer une nouvelle instance d'une classe :
 
 ```java
-Plant tomato = new Plant("Tomate cerise", "Solanum lycopersicum", 
+Plant tomato = new Plant("Tomate cerise", "Solanum lycopersicum",
                          "2025-04-15", 45.5);
 ```
 

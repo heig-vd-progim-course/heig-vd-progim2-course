@@ -263,7 +263,7 @@ du cours de Programmation 2.
 ### Mini-projet (partie 5)
 
 - Utiliser une `ArrayList<Plot>` pour gérer les parcelles du jardin.
-- Utiliser une `HashMap<String, Gardener>` pour associer jardiniers et
+- Utiliser une `HashMap<String, Gardener>` pour associer jardinières et
   parcelles.
 - Utiliser un `Set<Plant>` pour gérer les plantes uniques disponibles.
 - Implémenter des méthodes pour rechercher, ajouter et supprimer des éléments.
@@ -509,7 +509,7 @@ Au fil du semestre, la personne qui étudie développera progressivement un
 système complet de gestion de jardin communautaire qui permettra de :
 
 - Gérer différents types de plantes (légumes, fruits, herbes, fleurs).
-- Organiser les parcelles du jardin et leur attribution aux jardiniers.
+- Organiser les parcelles du jardin et leur attribution aux jardinières.
 - Planifier les plantations et suivre les récoltes.
 - Calculer les besoins en eau et en entretien.
 - Visualiser l'état du jardin et les prochaines tâches à effectuer.

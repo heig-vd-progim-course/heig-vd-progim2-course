@@ -323,24 +323,6 @@ if (temperature >= 15 && humidity <= 80) {
 2. `!(temperature < 15)` → `temperature >= 15`
 3. `!(humidity > 80)` → `humidity <= 80`
 
-## Question 10 - Donnée
-
-**Modification : Refactorisation d'une condition complexe**
-
-Cette condition est difficile à lire. Quelle amélioration est prioritaire ?
-
-```java
-if (a && b || c && !d && e || !f && g && h && !i) { ... }
-```
-
-**A.** Ajouter des parenthèses pour clarifier la priorité
-
-**B.** Extraire des sous-expressions dans des variables bien nommées
-
-**C.** Convertir en if-else imbriqués
-
-**D.** Utiliser un switch
-
 ## Questions
 
 <!-- _class: lead -->

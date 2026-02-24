@@ -570,8 +570,10 @@ class Counter {
 
 **Pourquoi c'est correct :**
 
-- ttribut `value` déclaré -Constructeur initialise à 0
-- increment()` modifie l'état (sans retour) -`getValue()` retourne la valeur
+- Attribut `value` déclaré
+- -Constructeur initialise à 0
+- `increment()` modifie l'état (sans retour)
+- `getValue()` retourne la valeur
 
 **Utilisation :**
 
