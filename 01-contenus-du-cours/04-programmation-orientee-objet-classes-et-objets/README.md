@@ -1038,6 +1038,17 @@ Le mini-projet est disponible ici : [Mini-projet (partie 1)](./03-mini-projet/).
 - Une méthode qui modifie l'état d'un objet (`harvest()`).
 - Un programme principal qui crée et utilise plusieurs objets.
 
+## À faire pour la prochaine séance
+
+Chaque personne est libre de gérer son temps comme elle le souhaite. Cependant,
+il est recommandé pour la prochaine séance de :
+
+- Relire le support de cours si nécessaire.
+- Relire les exemples de code et leur description pour bien comprendre les
+  concepts.
+- Finaliser les exercices qui n'ont pas été terminés en classe.
+- Finaliser la partie du mini-projet qui n'a pas été terminée en classe.
+
 <!-- URLs -->
 
 [licence]:

@@ -2083,6 +2083,7 @@ il est recommandé pour la prochaine séance de :
 - Relire les exemples de code et leur description pour bien comprendre les
   concepts.
 - Finaliser les exercices qui n'ont pas été terminés en classe.
+- Finaliser la partie du mini-projet qui n'a pas été terminée en classe.
 
 <!-- URLs -->
 
