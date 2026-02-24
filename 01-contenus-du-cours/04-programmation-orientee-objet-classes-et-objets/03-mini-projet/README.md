@@ -18,6 +18,7 @@ _["Programmation orientée objet : Classes et objets"](../README.md)_.
     - [Étape 3 : créer la classe Gardener](#étape-3--créer-la-classe-gardener)
   - [Création de la classe principale](#création-de-la-classe-principale)
     - [Étape 4 : créer la classe GardenManagementSystem](#étape-4--créer-la-classe-gardenmanagementsystem)
+    - [Étape 5 : ajouter la fonctionnalité de récolte](#étape-5--ajouter-la-fonctionnalité-de-récolte)
   - [Test du projet](#test-du-projet)
     - [Compilation et exécution en ligne de commande](#compilation-et-exécution-en-ligne-de-commande)
     - [Sortie attendue](#sortie-attendue)

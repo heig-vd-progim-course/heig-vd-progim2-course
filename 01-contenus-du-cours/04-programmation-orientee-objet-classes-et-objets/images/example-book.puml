@@ -1,0 +1,20 @@
+@startuml example-book
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Book {
+  + title: String
+  + author: String
+  + pages: int
+  + price: double
+  + isAvailable: boolean
+  --
+  + Book(title: String, author: String, pages: int, price: double)
+  + displayInfo(): void
+  + borrow(): void
+  + returnBook(): void
+}
+
+@enduml

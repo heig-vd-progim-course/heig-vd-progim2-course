@@ -1,0 +1,15 @@
+@startuml
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Person {
+  + name: String
+  + age: int
+  --
+  + Person(name: String, age: int)
+  + displayInfo(): void
+}
+
+@enduml
