@@ -371,7 +371,7 @@ sans l'exécuter.
 Prédisez la sortie du programme suivant :
 
 ```java
-public class Rectangle {
+class Rectangle {
     int width;
     int height;
 
@@ -442,7 +442,7 @@ Rectangle: 8x3 (aire: 24)
 Analysez le code suivant et prédisez l'état final des objets :
 
 ```java
-public class BankAccount {
+class BankAccount {
     String owner;
     double balance;
 
@@ -770,7 +770,7 @@ public class Book {
 **Code modifié** :
 
 ```java
-public class Book {
+class Book {
     String title;
     String author;
     int pages;
@@ -1030,7 +1030,7 @@ suivantes :
 <summary>Afficher la solution</summary>
 
 ```java
-public class Recipe {
+class Recipe {
     String name;
     int servings;
     int prepTimeMinutes;
@@ -1190,7 +1190,7 @@ Développez une application simple pour suivre des dépenses personnelles.
 <summary>Afficher la solution</summary>
 
 ```java
-public class Expense {
+class Expense {
     String description;
     double amount;
     String category;
@@ -1223,7 +1223,7 @@ public class Expense {
     }
 }
 
-public class ExpenseTracker {
+class ExpenseTracker {
     double totalExpenses;
     int numberOfExpenses;
 
