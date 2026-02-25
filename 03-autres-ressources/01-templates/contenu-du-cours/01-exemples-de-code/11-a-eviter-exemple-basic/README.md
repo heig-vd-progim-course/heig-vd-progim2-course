@@ -1,4 +1,4 @@
-# ⚠️ À éviter 11 - Erreur courante sur [concept]
+# À éviter 11 - Erreur courante sur [concept]
 
 > [!CAUTION]
 >

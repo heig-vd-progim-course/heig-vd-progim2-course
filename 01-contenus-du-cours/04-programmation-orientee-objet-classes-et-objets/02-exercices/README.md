@@ -1208,7 +1208,7 @@ class Expense {
         System.out.println("  Montant: " + amount + " CHF");
         System.out.println("  Date: " + date);
         if (isMajorExpense()) {
-            System.out.println("  ⚠️  Dépense importante");
+            System.out.println("   Dépense importante");
         }
     }
 
@@ -1309,7 +1309,7 @@ public class Main {
 [Transport] Abonnement CFF
   Montant: 150.0 CHF
   Date: 01.02.2026
-  ⚠️  Dépense importante
+   Dépense importante
 
 ✓ Dépense ajoutée: Café au restaurant
 [Loisirs] Café au restaurant

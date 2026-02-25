@@ -25,7 +25,7 @@ d'algèbre de Boole, du plus simple au plus complexe.
 8. **[08-condition-complexe](08-condition-complexe/)** : Structure
    `if-else if-else`
 
-### ⚠️ Pratiques à éviter (11-16)
+### Pratiques à éviter (11-16)
 
 Exemples illustrant les erreurs courantes et les mauvaises pratiques, avec leurs
 corrections.

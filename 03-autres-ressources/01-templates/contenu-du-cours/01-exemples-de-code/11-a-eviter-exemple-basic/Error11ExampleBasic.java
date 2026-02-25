@@ -1,4 +1,4 @@
-// ⚠️ ERREUR COURANTE : [Nom de l'erreur]
+// ERREUR COURANTE : [Nom de l'erreur]
 // Ce code est INCORRECT et sert uniquement à illustrer une erreur fréquente.
 // NE PAS COPIER CE CODE DANS VOS PROJETS.
 //

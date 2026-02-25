@@ -65,7 +65,7 @@ if command -v jq &> /dev/null; then
     
     echo "$SETTINGS_FILE mis à jour avec succès!"
 else
-    echo "⚠️  jq n'est pas installé. Mise à jour manuelle requise."
+    echo " jq n'est pas installé. Mise à jour manuelle requise."
     echo ""
     echo "Ajoutez cette configuration dans $SETTINGS_FILE:"
     echo ""
