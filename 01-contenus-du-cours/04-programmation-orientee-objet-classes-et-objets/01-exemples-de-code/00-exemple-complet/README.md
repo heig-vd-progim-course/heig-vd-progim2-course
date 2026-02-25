@@ -518,7 +518,7 @@ compris avec eux-mêmes.
 
 #### Code (solution finale)
 
-Voir le fichier `Main.java` pour le code complet.
+Voir le fichier [`Main.java`](Main.java) pour le code complet.
 
 <details>
 <summary>Description du code</summary>
