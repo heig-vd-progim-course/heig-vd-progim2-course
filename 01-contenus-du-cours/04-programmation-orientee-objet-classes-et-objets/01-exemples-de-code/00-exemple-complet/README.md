@@ -69,12 +69,36 @@ public class Main {
 <details>
 <summary>Description du code</summary>
 
-Ce code utilise des variables simples pour représenter deux personnes. Pour
-chaque personne, nous avons deux variables séparées : une pour le nom (`String`)
-et une pour l'âge (`int`).
+Déclaration de la classe `Main` avec le modificateur `public`.
 
-Les informations sont ensuite affichées en utilisant directement les noms des
-variables dans les `System.out.println()`.
+Déclaration de la méthode `main` avec les modificateurs `public static void` et
+le paramètre `String[] args`. Cette méthode est le point d'entrée du programme.
+
+Déclaration et initialisation d'une variable de type `String` nommée `name1`
+avec la valeur `"Sacha"`.
+
+Déclaration et initialisation d'une variable de type `int` nommée `age1` avec la
+valeur `15`.
+
+Déclaration et initialisation d'une variable de type `String` nommée `name2`
+avec la valeur `"Yasmine"`.
+
+Déclaration et initialisation d'une variable de type `int` nommée `age2` avec la
+valeur `25`.
+
+Appel de la méthode statique `println` de l'objet `out` (de type `PrintStream`)
+de la classe `System`. Passage en argument d'une expression de concaténation de
+chaînes de caractères (opérateur `+`) entre les variables `name1`, la chaîne
+`" a "`, la variable `age1` et la chaîne `" ans."`.
+
+Appel de la méthode statique `println` avec concaténation similaire pour `name2`
+et `age2`.
+
+Appel de la méthode statique `println` avec concaténation de `name2`, la chaîne
+`" est plus agée que "` et `name1`.
+
+Appel de la méthode statique `println` avec concaténation de `name2`, la chaîne
+`" salue "` et `name1`.
 
 </details>
 
@@ -118,12 +142,29 @@ public class Main {
 <details>
 <summary>Description du code</summary>
 
-Cette version utilise deux tableaux parallèles : un pour les noms et un pour les
-âges. L'index dans chaque tableau représente une personne (index 0 pour Sacha,
-index 1 pour Yasmine).
+**Changements par rapport à l'Étape 1 :**
 
-Une boucle `for` permet d'afficher les informations de toutes les personnes sans
-répéter le code.
+Déclaration et initialisation d'un tableau de type `String[]` nommé `names` avec
+les valeurs `"Sacha"` et `"Yasmine"` (syntaxe d'initialisation avec accolades).
+
+Déclaration et initialisation d'un tableau de type `int[]` nommé `ages` avec les
+valeurs `15` et `25`.
+
+Structure de contrôle `for` avec :
+
+- Initialisation : déclaration et initialisation d'une variable de type `int`
+  nommée `i` avec la valeur `0`.
+- Condition : comparaison (opérateur `<`) entre la variable `i` et l'attribut
+  `length` du tableau `names`.
+- Incrémentation : post-incrémentation (opérateur `++`) de la variable `i`.
+
+Dans le corps de la boucle : appel de `println` avec concaténation utilisant les
+éléments du tableau `names` à l'index `i` et `ages` à l'index `i`.
+
+Appel de `println` avec concaténation utilisant `names[1]` (Yasmine) et
+`names[0]` (Sacha).
+
+Appel de `println` avec concaténation utilisant `names[1]` et `names[0]`.
 
 </details>
 
@@ -179,15 +220,39 @@ public class Main {
 <details>
 <summary>Description du code</summary>
 
-Nous créons une classe `Person` avec deux attributs : `name` et `age`. Cette
-classe sert de "moule" pour créer des objets.
+**Changements par rapport à l'Étape 2 :**
 
-Dans la méthode `main`, nous créons deux objets `Person` avec `new Person()`.
-Cette instruction appelle le **constructeur par défaut** qui alloue la mémoire
-pour un nouvel objet.
+Déclaration d'une classe `Person` (sans modificateur d'accès, donc visibilité
+par défaut dans le package).
 
-Ensuite, nous assignons les valeurs aux attributs de chaque objet avec
-`one.name`, `one.age`, etc.
+Déclaration d'un attribut de type `String` nommé `name` (visibilité par défaut
+dans le package).
+
+Déclaration d'un attribut de type `int` nommé `age` (visibilité par défaut dans
+le package).
+
+Dans la méthode `main` :
+
+Déclaration et initialisation d'une variable de type `Person` nommée `one` avec
+un nouvel objet créé par l'opérateur `new` et l'appel au constructeur par défaut
+`Person()` (implicite, fourni automatiquement par Java).
+
+Affectation (opérateur `=`) de la valeur `"Sacha"` à l'attribut `name` de
+l'objet référencé par `one` (accès avec opérateur `.`).
+
+Affectation de la valeur `15` à l'attribut `age` de l'objet référencé par `one`.
+
+Déclaration et initialisation d'une variable de type `Person` nommée `two` avec
+un nouvel objet créé par l'opérateur `new` et l'appel au constructeur par défaut
+`Person()`.
+
+Affectation de la valeur `"Yasmine"` à l'attribut `name` de l'objet référencé
+par `two`.
+
+Affectation de la valeur `25` à l'attribut `age` de l'objet référencé par `two`.
+
+Appels de `println` avec concaténation utilisant les attributs `name` et `age`
+des objets `one` et `two` (accès avec opérateur `.`).
 
 </details>
 
@@ -242,16 +307,35 @@ public class Main {
 <details>
 <summary>Description du code</summary>
 
-Nous définissons un **constructeur** : une méthode spéciale qui porte le nom de
-la classe et n'a pas de type de retour. Le constructeur est appelé
-automatiquement lors de l'utilisation de `new Person(...)`.
+**Changements par rapport à l'Étape 3 :**
 
-Le mot-clé `this` permet de distinguer les attributs de l'objet (`this.name`)
-des paramètres du constructeur (`name`).
+Dans la classe `Person` :
 
-**Important** : dès qu'on définit un constructeur personnalisé, le constructeur
-par défaut (sans paramètres) disparaît. Si on voulait les deux, il faudrait
-définir explicitement le constructeur sans paramètres.
+Déclaration d'un constructeur avec le modificateur `public`, portant le nom de
+la classe `Person`, sans type de retour. Le constructeur prend deux paramètres :
+un paramètre de type `String` nommé `name` et un paramètre de type `int` nommé
+`age`.
+
+Dans le corps du constructeur : affectation de la valeur du paramètre `name` à
+l'attribut `name` de l'objet courant (référencé par le mot-clé `this`). Le
+mot-clé `this` permet de lever l'ambiguïté entre le paramètre et l'attribut de
+même nom.
+
+Affectation de la valeur du paramètre `age` à l'attribut `age` de l'objet
+courant (référencé par `this`).
+
+Dans la méthode `main` :
+
+Déclaration et initialisation d'une variable de type `Person` nommée `one` avec
+un nouvel objet créé par l'opérateur `new` et l'appel au constructeur
+`Person(String, int)` avec les arguments `"Sacha"` et `15`.
+
+Déclaration et initialisation d'une variable de type `Person` nommée `two` avec
+un nouvel objet créé par l'appel au constructeur `Person(String, int)` avec les
+arguments `"Yasmine"` et `25`.
+
+**Note** : les affectations manuelles aux attributs (comme `one.name = ...`) ne
+sont plus nécessaires, l'initialisation se fait dans le constructeur.
 
 </details>
 
@@ -304,12 +388,26 @@ public class Main {
 <details>
 <summary>Description du code</summary>
 
-Nous ajoutons une **méthode d'instance** `displayInfo()` qui affiche les
-informations de l'objet courant. Cette méthode peut accéder directement aux
-attributs `name` et `age` de l'objet sur lequel elle est appelée.
+**Changements par rapport à l'Étape 4 :**
 
-Lorsqu'on appelle `one.displayInfo()`, la méthode utilise les valeurs de `one`.
-Lorsqu'on appelle `two.displayInfo()`, elle utilise les valeurs de `two`.
+Dans la classe `Person` :
+
+Déclaration d'une méthode d'instance avec le modificateur `public`, de type de
+retour `void`, nommée `displayInfo`, sans paramètre.
+
+Dans le corps de la méthode : appel de `println` avec concaténation des
+attributs `name` et `age` de l'objet courant (accès direct sans `this` car il
+n'y a pas d'ambiguïté).
+
+Dans la méthode `main` :
+
+Appel de la méthode `displayInfo` sur l'objet référencé par `one` (opérateur
+`.`).
+
+Appel de la méthode `displayInfo` sur l'objet référencé par `two`.
+
+**Note** : les appels directs à `System.out.println(one.name + ...)` ne sont
+plus nécessaires, remplacés par les appels à la méthode `displayInfo()`.
 
 </details>
 
@@ -373,18 +471,33 @@ public class Main {
 <details>
 <summary>Description du code</summary>
 
-La méthode `displayAgeDifference()` prend un autre objet `Person` en paramètre.
-Elle compare l'âge de l'objet courant (`this.age`) avec l'âge de l'autre objet
-(`other.age`).
+**Changements par rapport à l'Étape 5 :**
 
-Le mot-clé `this` représente l'objet sur lequel la méthode est appelée. Par
-exemple, dans `one.displayAgeDifference(two)` :
+Dans la classe `Person` :
 
-- `this` représente `one` (Sacha)
-- `other` représente `two` (Yasmine)
+Déclaration d'une méthode d'instance avec le modificateur `public`, de type de
+retour `void`, nommée `displayAgeDifference`, prenant un paramètre de type
+`Person` nommé `other`.
 
-La méthode s'adapte automatiquement selon les objets utilisés. Si on appelle
-`two.displayAgeDifference(one)`, les rôles sont inversés.
+Dans le corps de la méthode : structure conditionnelle `if-else if-else` :
+
+- Condition `if` : comparaison (opérateur `<`) entre l'attribut `age` de l'objet
+  courant (`this.age`) et l'attribut `age` de l'objet `other` (`other.age`). Si
+  vrai, appel de `println` avec concaténation indiquant que `other` est plus
+  agée que `this`.
+- Condition `else if` : comparaison (opérateur `>`) entre `this.age` et
+  `other.age`. Si vrai, appel de `println` indiquant que `this` est plus agée
+  que `other`.
+- Bloc `else` : appel de `println` avec le message `"Elles ont le même âge"`.
+
+Dans la méthode `main` :
+
+Appel de la méthode `displayAgeDifference` sur l'objet référencé par `one` avec
+comme argument l'objet référencé par `two`.
+
+**Note** : l'appel direct à
+`System.out.println(two.name + " est plus agée que " + one.name)` est remplacé
+par l'appel à la méthode `displayAgeDifference()`.
 
 </details>
 
@@ -410,12 +523,23 @@ Voir le fichier `Main.java` pour le code complet.
 <details>
 <summary>Description du code</summary>
 
-La méthode `salute()` permet à une personne de saluer une autre personne (ou
-elle-même !). Comme pour `displayAgeDifference()`, elle prend un objet `Person`
-en paramètre.
+**Changements par rapport à l'Étape 6 :**
 
-Des appels comme `one.salute(one)` sont parfaitement valides : un objet peut
-interagir avec lui-même. Java ne fait pas de distinction particulière.
+Dans la classe `Person` :
+
+Déclaration d'une méthode d'instance avec le modificateur `public`, de type de
+retour `void`, nommée `salute`, prenant un paramètre de type `Person` nommé
+`other`.
+
+Dans le corps de la méthode : appel de `println` avec concaténation de
+l'attribut `name` de l'objet courant, la chaîne `" salue "` et l'attribut `name`
+de l'objet `other`.
+
+Dans la méthode `main` :
+
+La méthode `salute()` est appelée plusieurs fois (voir le fichier `Main.java`
+pour les détails complets), y compris avec des appels comme `one.salute(one)` où
+un objet interagit avec lui-même.
 
 </details>
 
