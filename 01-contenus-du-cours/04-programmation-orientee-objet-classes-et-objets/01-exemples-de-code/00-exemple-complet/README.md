@@ -30,7 +30,7 @@ La classe `Person` contient trois méthodes intéressantes :
 
 - `displayInfo()` : affiche les informations de base
 - `displayAgeDifference(Person other)` : compare l'âge avec une autre personne
-- `salute(Person other)` : permet de saluer une autre personne (ou soi-même !)
+- `greet(Person other)` : permet de saluer une autre personne (ou soi-même !)
 
 ## Tutoriel pas à pas
 
@@ -509,7 +509,7 @@ par l'appel à la méthode `displayAgeDifference()`.
   de personnes
 - **Interaction entre objets** : les objets peuvent collaborer
 
-### Étape 7 : Solution finale avec `salute()`
+### Étape 7 : Solution finale avec `greet()`
 
 #### Problème à résoudre
 
@@ -528,7 +528,7 @@ Voir le fichier `Main.java` pour le code complet.
 Dans la classe `Person` :
 
 Déclaration d'une méthode d'instance avec le modificateur `public`, de type de
-retour `void`, nommée `salute`, prenant un paramètre de type `Person` nommé
+retour `void`, nommée `greet`, prenant un paramètre de type `Person` nommé
 `other`.
 
 Dans le corps de la méthode : appel de `println` avec concaténation de
@@ -537,8 +537,8 @@ de l'objet `other`.
 
 Dans la méthode `main` :
 
-La méthode `salute()` est appelée plusieurs fois (voir le fichier `Main.java`
-pour les détails complets), y compris avec des appels comme `one.salute(one)` où
+La méthode `greet()` est appelée plusieurs fois (voir le fichier `Main.java`
+pour les détails complets), y compris avec des appels comme `one.greet(one)` où
 un objet interagit avec lui-même.
 
 </details>
@@ -547,7 +547,7 @@ un objet interagit avec lui-même.
 
 - **Encapsulation** : les données (attributs) et les comportements (méthodes)
   sont regroupés
-- **Code auto-documenté** : `one.salute(two)` est immédiatement compréhensible
+- **Code auto-documenté** : `one.greet(two)` est immédiatement compréhensible
 - **Extensibilité** : ajouter une troisième personne ne change rien au code
   existant
 - **Maintenance facilitée** : la logique est centralisée dans la classe
