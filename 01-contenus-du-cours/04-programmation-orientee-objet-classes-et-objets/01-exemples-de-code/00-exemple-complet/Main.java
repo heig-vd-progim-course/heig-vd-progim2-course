@@ -47,7 +47,7 @@ class Person {
      * 
      * Démontre qu'un objet peut interagir avec lui-même ou avec d'autres objets.
      */
-    public void salute(Person other) {
+    public void greet(Person other) {
         System.out.println(this.name + " salue " + other.name);
     }
 
@@ -75,9 +75,9 @@ public class Main {
         one.displayAgeDifference(two);
 
         // Salutations entre personnes
-        two.salute(one);
-        one.salute(one);      // Une personne peut se saluer elle-même
-        one.salute(two);
-        three.salute(one);
+        two.greet(one);
+        one.greet(one);      // Une personne peut se saluer elle-même
+        one.greet(two);
+        three.greet(one);
     }
 }
