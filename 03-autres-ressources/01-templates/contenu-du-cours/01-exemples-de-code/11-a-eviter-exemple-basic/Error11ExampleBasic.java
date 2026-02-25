@@ -19,7 +19,7 @@ public class Error11ExampleBasic {
     public static void main(String[] args) {
         // Code incorrect ici qui illustre l'erreur
         
-        // ❌ LIGNE PROBLÉMATIQUE : commentaire expliquant précisément l'erreur
+        // LIGNE PROBLÉMATIQUE : commentaire expliquant précisément l'erreur
         
     }
 }

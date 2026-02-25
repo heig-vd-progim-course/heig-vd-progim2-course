@@ -17,7 +17,7 @@ les types dans les conditions : seules les expressions de type `boolean` sont
 acceptées. Une valeur numérique (0, 1) ou une chaîne ne peut pas être utilisée
 directement.
 
-**❌ Problème :**
+**Problème :**
 
 ```java
 int count = 0;
@@ -64,4 +64,4 @@ Pour écrire des conditions correctes :
 ---
 
 **Exemple suivant :**
-[14-a-eviter-negations-multiples](../14-a-eviter-negations-multiples/README.md)
+[14-a-eviter-negations-multiples](../14-a-eviter-negations-multiples/)

@@ -91,4 +91,4 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple suivant :** [06-condition-simple](../06-condition-simple/README.md)
+**Exemple suivant :** [06-condition-simple](../06-condition-simple/)

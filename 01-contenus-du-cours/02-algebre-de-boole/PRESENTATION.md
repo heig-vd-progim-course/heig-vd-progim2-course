@@ -246,7 +246,7 @@ d'évaluation explicite.
 boolean result = a || b && c;  // Ambigu : est-ce (a || b) && c ou a || (b && c) ?
 // Réponse: a || (b && c) en raison de la priorité, mais ce n'est pas évident à lire.
 
-boolean result = (a || b) && c;  // Clair et lisible
+boolean result = a || (b && c);  // Clair et lisible
 ```
 
 ## Lois de De Morgan (1/2)

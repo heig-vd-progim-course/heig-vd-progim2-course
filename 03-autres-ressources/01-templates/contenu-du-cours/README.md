@@ -15,6 +15,7 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 > - Exemples de code : [Accéder au contenu](./01-exemples-de-code/)
 > - Exercices : [Accéder au contenu](./02-exercices/)
 > - Mini-projet : [Accéder au contenu](./03-mini-projet/)
+> - Quiz : [Accéder au contenu][quiz-web]
 >
 > **Objectifs**
 >
@@ -132,6 +133,8 @@ il est recommandé pour la prochaine séance de :
 <!-- URLs -->
 
 [licence]: {LICENSE_URL}
+[quiz-web]:
+	{GITHUB_PAGES_URL}/{COURSE_CONTENTS_FOLDER}/{COURSE_CONTENT}/quiz.html
 [presentation-web]:
 	{GITHUB_PAGES_URL}/{COURSE_CONTENTS_FOLDER}/{COURSE_CONTENT}/presentation.html
 [presentation-pdf]:

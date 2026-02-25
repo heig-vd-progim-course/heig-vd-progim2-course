@@ -8,7 +8,7 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 > [!TIP]
 >
 > Toutes les informations relatives à ce contenu sont décrites dans le
-> [contenu principal](../README.md).
+> [contenu principal](../).
 
 ## Table des matières
 
@@ -1388,7 +1388,7 @@ objet :
 Pour aller plus loin, pratiquez en créant vos propres classes pour modéliser des
 objets du monde réel : vélos, smartphones, comptes utilisateur, etc.
 
-N'hésitez pas à consulter le [contenu principal du cours](../README.md) et le
+N'hésitez pas à consulter le [contenu principal du cours](../) et le
 [mini-projet](../03-mini-projet/) pour approfondir ces concepts.
 
 <!-- URLs -->

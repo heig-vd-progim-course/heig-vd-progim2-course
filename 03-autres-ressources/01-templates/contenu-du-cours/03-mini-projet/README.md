@@ -7,7 +7,7 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 > [!TIP]
 >
 > Trouvez d'autres informations relatives à ce contenu dans le
-> [contenu parent](../README.md).
+> [contenu parent](../).
 
 ## Table des matières
 
@@ -31,7 +31,7 @@ TODO
 ## Solution
 
 Vous pouvez trouver la solution du mini-projet à l'adresse suivante :
-[`solution`](./solution/README.md).
+[`solution`](./solution/).
 
 > [!NOTE]
 >

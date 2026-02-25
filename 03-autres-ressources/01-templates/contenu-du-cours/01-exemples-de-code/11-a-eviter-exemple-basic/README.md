@@ -56,4 +56,4 @@ Explication de la bonne pratique correspondante.
 ---
 
 **Prochain contre-exemple :**
-[12-a-eviter-autre-erreur](../12-a-eviter-autre-erreur/README.md)
+[12-a-eviter-autre-erreur](../12-a-eviter-autre-erreur/)

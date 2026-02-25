@@ -15,7 +15,7 @@ public class Example11AEviterAffectationCondition {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR : Affectation au lieu de comparaison
+        // ERREUR : Affectation au lieu de comparaison
         // ========================================
         
         boolean isReady = false;
@@ -23,7 +23,7 @@ public class Example11AEviterAffectationCondition {
         System.out.println("Valeur initiale de isReady: " + isReady);
         System.out.println();
         
-        // ❌ MAUVAIS CODE (commenté pour éviter l'erreur de compilation)
+        // MAUVAIS CODE (commenté pour éviter l'erreur de compilation)
         // Cette ligne AFFECTE la valeur true à isReady au lieu de la COMPARER
         /*
         if (isReady = true) {
@@ -31,7 +31,7 @@ public class Example11AEviterAffectationCondition {
         }
         */
         
-        System.out.println("❌ Code incorrect (commenté):");
+        System.out.println("Code incorrect (commenté):");
         System.out.println("if (isReady = true) {");
         System.out.println("    System.out.println(\"Système prêt !\");");
         System.out.println("}");
@@ -94,14 +94,14 @@ public class Example11AEviterAffectationCondition {
         System.out.println("Valeur initiale de count: " + count);
         System.out.println();
         
-        // ❌ MAUVAIS CODE (commenté)
+        // MAUVAIS CODE (commenté)
         /*
         if (count = 10) {  // ERREUR : affectation au lieu de comparaison
             System.out.println("Count est 10");
         }
         */
         
-        System.out.println("❌ Code incorrect (commenté):");
+        System.out.println("Code incorrect (commenté):");
         System.out.println("if (count = 10) {  // Erreur de compilation en Java!");
         System.out.println("    System.out.println(\"Count est 10\");");
         System.out.println("}");

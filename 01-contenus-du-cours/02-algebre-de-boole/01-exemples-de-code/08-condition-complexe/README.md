@@ -109,4 +109,4 @@ Pour mieux comprendre cet exemple, essayez de :
 ---
 
 **Exemple suivant :**
-[11-a-eviter-affectation-condition](../11-a-eviter-affectation-condition/README.md)
+[11-a-eviter-affectation-condition](../11-a-eviter-affectation-condition/)

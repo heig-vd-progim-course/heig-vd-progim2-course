@@ -101,10 +101,10 @@ Each content folder may contain:
 When creating new course content, always read and follow the structure of all
 relevant template files in the templates directory, including:
 
-- [The main README](../../README.md).
+- [The main README](../../).
 - [The presentation template](./contenu-du-cours/PRESENTATION.md).
 - [The quiz template](./contenu-du-cours/QUIZ.md)
-- [The main content template](./contenu-du-cours/README.md).
+- [The main content template](./contenu-du-cours/).
 - [The code examples template](./contenu-du-cours/01-exemples-de-code/).
 - [The exercises template](./contenu-du-cours/02-exercices/).
 - [The mini-project template](./contenu-du-cours/03-mini-projet/).

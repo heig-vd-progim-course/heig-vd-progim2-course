@@ -55,8 +55,6 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple précédent :**
-[02-classe-avec-methodes](../02-classe-avec-methodes/README.md)
+**Exemple précédent :** [02-classe-avec-methodes](../02-classe-avec-methodes/)
 
-**Exemple suivant :**
-[04-instanciation-objets](../04-instanciation-objets/README.md)
+**Exemple suivant :** [04-instanciation-objets](../04-instanciation-objets/)

@@ -15,6 +15,7 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 >   · [Présentation (PDF)][presentation-pdf]
 > - Exemples de code : [Accéder au contenu](./01-exemples-de-code/)
 > - Exercices : [Accéder au contenu](./02-exercices/)
+> - Quiz : [Accéder au contenu][quiz-web]
 >
 > **Objectifs**
 >
@@ -2082,11 +2083,14 @@ il est recommandé pour la prochaine séance de :
 - Relire les exemples de code et leur description pour bien comprendre les
   concepts.
 - Finaliser les exercices qui n'ont pas été terminés en classe.
+- Finaliser la partie du mini-projet qui n'a pas été terminée en classe.
 
 <!-- URLs -->
 
 [licence]:
 	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/blob/main/LICENSE.md
+[quiz-web]:
+	https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/02-algebre-de-boole/quiz.html
 [presentation-web]:
 	https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/02-algebre-de-boole/presentation.html
 [presentation-pdf]:

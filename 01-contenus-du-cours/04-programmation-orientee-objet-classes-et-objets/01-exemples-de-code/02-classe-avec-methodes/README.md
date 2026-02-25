@@ -73,7 +73,6 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple précédent :** [01-classe-simple](../01-classe-simple/README.md)
+**Exemple précédent :** [01-classe-simple](../01-classe-simple/)
 
-**Exemple suivant :**
-[03-constructeur-simple](../03-constructeur-simple/README.md)
+**Exemple suivant :** [03-constructeur-simple](../03-constructeur-simple/)

@@ -88,5 +88,4 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple suivant :**
-[08-condition-complexe](../08-condition-complexe/README.md)
+**Exemple suivant :** [08-condition-complexe](../08-condition-complexe/)

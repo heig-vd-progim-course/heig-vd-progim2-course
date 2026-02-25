@@ -8,8 +8,10 @@ concepts fondamentaux de la programmation orientée objet (POO).
 Les exemples sont organisés de manière progressive, du plus simple au plus
 complexe :
 
-### Bonnes pratiques (01-08)
+### Bonnes pratiques (00-08)
 
+0. **[00-exemple-complet](00-exemple-complet/)** : Exemple complet introductif
+   illustrant les concepts fondamentaux de la POO
 1. **[01-classe-simple](01-classe-simple/)** : Déclaration d'une classe avec des
    attributs (**deux classes dans un fichier**)
 2. **[02-classe-avec-methodes](02-classe-avec-methodes/)** : Ajout de méthodes à
@@ -71,8 +73,7 @@ java Main
 
 ## Liens avec le support de cours
 
-Ces exemples complètent le [support de cours principal](../README.md) en
-fournissant :
+Ces exemples complètent le [support de cours principal](../) en fournissant :
 
 - Des cas d'usage concrets et exécutables
 - Des démonstrations pratiques des concepts théoriques
@@ -83,6 +84,7 @@ fournissant :
 
 Pour une meilleure compréhension, suivez cet ordre :
 
+0. **Exemple 00** (optionnel) : vue d'ensemble introductive de tous les concepts
 1. **Exemples 01-03** : comprendre les bases (classe, méthodes, constructeur)
 2. **Exemples 04-05** : manipuler les objets (`new`, `this`)
 3. **Exemples 06-07** : utiliser les méthodes avancées (retour, modification)
@@ -106,4 +108,4 @@ Ces exemples illustrent les concepts suivants :
 
 ---
 
-**Retour au support de cours :** [README principal](../README.md)
+**Retour au support de cours :** [README principal](../)

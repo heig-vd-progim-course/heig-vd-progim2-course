@@ -55,4 +55,4 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple suivant :** [02-operateurs-base](../02-operateurs-base/README.md)
+**Exemple suivant :** [02-operateurs-base](../02-operateurs-base/)

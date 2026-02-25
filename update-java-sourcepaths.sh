@@ -39,13 +39,13 @@ echo "$SOURCE_PATHS" | sed 's/^		"/  - /' | sed 's/"$//'
 
 # Lire le fichier settings.json et remplacer la section java.project.sourcePaths
 if [ ! -f "$SETTINGS_FILE" ]; then
-    echo "❌ Erreur: $SETTINGS_FILE n'existe pas"
+    echo "Erreur: $SETTINGS_FILE n'existe pas"
     exit 1
 fi
 
 # Utiliser jq pour manipuler le JSON correctement
 if command -v jq &> /dev/null; then
-    echo "✅ Utilisation de jq pour mettre à jour le JSON..."
+    echo "Utilisation de jq pour mettre à jour le JSON..."
     
     # Extraire les chemins en tant que tableau JSON
     PATHS_ARRAY=$(find . -type f -name "*.java" \
@@ -63,7 +63,7 @@ if command -v jq &> /dev/null; then
     jq ".\"java.project.sourcePaths\" = $PATHS_ARRAY" "$SETTINGS_FILE" > "$TEMP_FILE"
     mv "$TEMP_FILE" "$SETTINGS_FILE"
     
-    echo "✅ $SETTINGS_FILE mis à jour avec succès!"
+    echo "$SETTINGS_FILE mis à jour avec succès!"
 else
     echo "⚠️  jq n'est pas installé. Mise à jour manuelle requise."
     echo ""

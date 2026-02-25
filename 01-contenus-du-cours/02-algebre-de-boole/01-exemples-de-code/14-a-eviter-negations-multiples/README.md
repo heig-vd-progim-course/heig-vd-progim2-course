@@ -16,7 +16,7 @@ Les négations multiples rendent le code difficile à lire et augmentent le risq
 d'erreurs logiques. Elles peuvent souvent être simplifiées en utilisant les lois
 de De Morgan ou en reformulant la condition.
 
-**❌ Problème :**
+**Problème :**
 
 ```java
 if (!(!(isReady))) {                        // Triple négation !
@@ -66,4 +66,4 @@ Pour éviter les négations multiples :
 ---
 
 **Exemple suivant :**
-[15-a-eviter-ordre-court-circuit](../15-a-eviter-ordre-court-circuit/README.md)
+[15-a-eviter-ordre-court-circuit](../15-a-eviter-ordre-court-circuit/)

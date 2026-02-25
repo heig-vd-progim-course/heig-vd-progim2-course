@@ -7,10 +7,10 @@ Ce travail est sous licence [{LICENSE_NAME}][licence].
 > [!TIP]
 >
 > Trouvez d'autres informations relatives à ce contenu dans le
-> [contenu parent](../README.md).
+> [contenu parent](../).
 
 Ce dossier contient la solution du mini-projet du cours
-_["{COURSE_CONTENT}"](../README.md)_.
+_["{COURSE_CONTENT}"](../)_.
 
 ## Structure du projet
 

@@ -32,7 +32,7 @@ allowed are:
 All other slides are automatically created by `##` headings thanks to
 `headingDivider: 6`.
 
-❌ **Wrong**:
+**Wrong**:
 
 ```markdown
 ## Slide 1
@@ -46,7 +46,7 @@ Content here
 More content
 ```
 
-✅ **Correct**:
+**Correct**:
 
 ```markdown
 ## Slide 1

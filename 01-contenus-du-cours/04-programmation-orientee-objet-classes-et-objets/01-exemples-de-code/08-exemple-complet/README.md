@@ -121,8 +121,7 @@ Pour mieux comprendre cet exemple, essayez de :
 
 ---
 
-**Exemple précédent :**
-[07-modification-etat](../07-modification-etat/README.md)
+**Exemple précédent :** [07-modification-etat](../07-modification-etat/)
 
 **Suite du cours :** [Exercices](../../02-exercices/) •
 [Mini-projet](../../03-mini-projet/)

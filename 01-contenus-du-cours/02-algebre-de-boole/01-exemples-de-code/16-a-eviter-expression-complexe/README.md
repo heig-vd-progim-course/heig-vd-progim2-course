@@ -17,7 +17,7 @@ Une expression booléenne trop complexe est difficile à lire, comprendre,
 déboguer et maintenir. La décomposition en variables intermédiaires avec des
 noms explicites améliore grandement la qualité du code.
 
-**❌ Problème :**
+**Problème :**
 
 ```java
 if ((age >= 18 && age < 65 && hasLicense && !hasSuspension) ||
@@ -70,4 +70,4 @@ Pour décomposer une expression complexe :
 ---
 
 **Retour aux exemples de bonnes pratiques :**
-[01-declaration-boolean](../01-declaration-boolean/README.md)
+[01-declaration-boolean](../01-declaration-boolean/)

@@ -8,7 +8,7 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 > [!TIP]
 >
 > Toutes les informations relatives à ce contenu sont décrites dans le
-> [contenu principal](../README.md).
+> [contenu principal](../).
 
 ## Table des matières
 

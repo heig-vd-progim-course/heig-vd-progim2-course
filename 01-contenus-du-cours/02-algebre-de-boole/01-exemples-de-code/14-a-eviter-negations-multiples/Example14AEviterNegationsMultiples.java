@@ -15,7 +15,7 @@ public class Example14AEviterNegationsMultiples {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 1 : Double négation
+        // ERREUR 1 : Double négation
         // ========================================
         
         System.out.println("Problème 1: Double négation inutile");
@@ -23,7 +23,7 @@ public class Example14AEviterNegationsMultiples {
         
         boolean isReady = true;
         
-        System.out.println("❌ Code confus:");
+        System.out.println("Code confus:");
         System.out.println("if (!(!isReady)) {");
         System.out.println("    System.out.println(\"Système prêt\");");
         System.out.println("}");
@@ -50,7 +50,7 @@ public class Example14AEviterNegationsMultiples {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 2 : Négation de conjonction
+        // ERREUR 2 : Négation de conjonction
         // ========================================
         
         System.out.println("Problème 2: Négation d'une expression AND complexe");
@@ -59,7 +59,7 @@ public class Example14AEviterNegationsMultiples {
         boolean hasError = false;
         boolean hasWarning = false;
         
-        System.out.println("❌ Code difficile à lire:");
+        System.out.println("Code difficile à lire:");
         System.out.println("if (!(!hasError && !hasWarning)) {");
         System.out.println("    System.out.println(\"Problèmes détectés\");");
         System.out.println("}");
@@ -92,7 +92,7 @@ public class Example14AEviterNegationsMultiples {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 3 : Négation de disjonction
+        // ERREUR 3 : Négation de disjonction
         // ========================================
         
         System.out.println("Problème 3: Négation d'une expression OR");
@@ -101,7 +101,7 @@ public class Example14AEviterNegationsMultiples {
         boolean isClosed = true;
         boolean isFullyBooked = false;
         
-        System.out.println("❌ Code avec négations multiples:");
+        System.out.println("Code avec négations multiples:");
         System.out.println("if (!(isClosed || isFullyBooked)) {");
         System.out.println("    System.out.println(\"Accès possible\");");
         System.out.println("}");
@@ -132,7 +132,7 @@ public class Example14AEviterNegationsMultiples {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 4 : Noms de variables négatifs
+        // ERREUR 4 : Noms de variables négatifs
         // ========================================
         
         System.out.println("Problème 4: Variables avec noms négatifs");
@@ -140,7 +140,7 @@ public class Example14AEviterNegationsMultiples {
         
         boolean isNotReady = true;
         
-        System.out.println("❌ Code avec double négation implicite:");
+        System.out.println("Code avec double négation implicite:");
         System.out.println("boolean isNotReady = true;");
         System.out.println("if (!isNotReady) {  // \"pas pas prêt\" = confus");
         System.out.println("    System.out.println(\"Système prêt\");");
@@ -174,7 +174,7 @@ public class Example14AEviterNegationsMultiples {
         System.out.println();
         
         // ========================================
-        // ❌ ERREUR 5 : Condition très complexe
+        // ERREUR 5 : Condition très complexe
         // ========================================
         
         System.out.println("Problème 5: Condition excessivement complexe");
@@ -184,7 +184,7 @@ public class Example14AEviterNegationsMultiples {
         boolean hasData = true;
         boolean isOfflineMode = false;
         
-        System.out.println("❌ Code avec négations multiples:");
+        System.out.println("Code avec négations multiples:");
         System.out.println("if (!((!hasInternet && !hasData) || isOfflineMode)) {");
         System.out.println("    System.out.println(\"Connexion disponible\");");
         System.out.println("}");

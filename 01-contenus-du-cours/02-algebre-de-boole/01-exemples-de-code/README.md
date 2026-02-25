@@ -87,8 +87,7 @@ java Example01DeclarationBoolean
 
 ## Liens avec le support de cours
 
-Ces exemples complètent le [support de cours principal](../README.md) en
-fournissant :
+Ces exemples complètent le [support de cours principal](../) en fournissant :
 
 - Des cas d'usage concrets et exécutables
 - Des démonstrations pratiques des concepts théoriques
@@ -106,4 +105,4 @@ Pour une meilleure compréhension, suivez cet ordre :
 
 ---
 
-**Retour au support de cours :** [README principal](../README.md)
+**Retour au support de cours :** [README principal](../)

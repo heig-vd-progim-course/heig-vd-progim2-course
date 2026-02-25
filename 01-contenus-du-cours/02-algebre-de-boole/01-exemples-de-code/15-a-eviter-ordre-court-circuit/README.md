@@ -16,7 +16,7 @@ Les opérateurs `&&` et `||` utilisent l'évaluation court-circuit : ils
 s'arrêtent dès que le résultat est déterminé. L'ordre des conditions est donc
 crucial pour éviter les erreurs et optimiser les performances.
 
-**❌ Problème :**
+**Problème :**
 
 ```java
 // DANGER : NullPointerException si text est null
@@ -60,4 +60,4 @@ Pour choisir le bon ordre :
 ---
 
 **Exemple suivant :**
-[16-a-eviter-expression-complexe](../16-a-eviter-expression-complexe/README.md)
+[16-a-eviter-expression-complexe](../16-a-eviter-expression-complexe/)
