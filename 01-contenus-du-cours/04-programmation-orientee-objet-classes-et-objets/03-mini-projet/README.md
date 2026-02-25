@@ -145,13 +145,12 @@ attributs et méthodes.
 Pour ce mini-projet, nous allons créer la structure de répertoires suivante :
 
 ```text
-04-programmation-orientee-objet-classes-et-objets/
-└── 01-mini-projet/
-    └── src/
-        ├── Plant.java
-        ├── Plot.java
-        ├── Gardener.java
-        └── GardenManagementSystem.java
+03-mini-projet/
+└── src/
+    ├── Plant.java
+    ├── Plot.java
+    ├── Gardener.java
+    └── GardenManagementSystem.java
 ```
 
 > [!TIP]
