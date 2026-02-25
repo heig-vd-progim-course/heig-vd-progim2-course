@@ -104,7 +104,7 @@ Description courte de l'exemple 2 et du concept qu'il illustre.
 
 ---
 
-#### ⚠️ [11-a-eviter-erreur-courante](./11-a-eviter-erreur-courante/)
+#### [11-a-eviter-erreur-courante](./11-a-eviter-erreur-courante/)
 
 **À éviter :** [description de l'erreur].
 
@@ -114,7 +114,7 @@ Description courte de l'erreur illustrée.
 
 ---
 
-#### ⚠️ [12-a-eviter-autre-erreur](./12-a-eviter-autre-erreur/)
+#### [12-a-eviter-autre-erreur](./12-a-eviter-autre-erreur/)
 
 **À éviter :** [description de l'erreur].
 

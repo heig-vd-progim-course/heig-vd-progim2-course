@@ -30,7 +30,7 @@ La classe `Person` contient trois méthodes intéressantes :
 
 - `displayInfo()` : affiche les informations de base
 - `displayAgeDifference(Person other)` : compare l'âge avec une autre personne
-- `salute(Person other)` : permet de saluer une autre personne (ou soi-même !)
+- `greet(Person other)` : permet de saluer une autre personne (ou soi-même !)
 
 ## Tutoriel pas à pas
 
@@ -509,7 +509,7 @@ par l'appel à la méthode `displayAgeDifference()`.
   de personnes
 - **Interaction entre objets** : les objets peuvent collaborer
 
-### Étape 7 : Solution finale avec `salute()`
+### Étape 7 : Solution finale avec `greet()`
 
 #### Problème à résoudre
 
@@ -518,7 +518,91 @@ compris avec eux-mêmes.
 
 #### Code (solution finale)
 
-Voir le fichier `Main.java` pour le code complet.
+```java
+/**
+ * Classe représentant une personne avec un nom et un âge.
+ *
+ */
+class Person {
+    // Attributs (état de la personne)
+    String name;
+    int age;
+
+    /**
+     * Constructeur.
+     *
+     * Initialise une personne avec un nom et un âge.
+     */
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    /**
+     * Affiche les informations de la personne.
+     *
+     * Méthode sans retour (void): affiche directement les informations.
+     */
+    public void displayInfo() {
+        System.out.println(name + " a " + age + " ans.");
+    }
+
+    /**
+     * Compare l'âge avec une autre personne et affiche le résultat.
+     *
+     * Utilise 'this' pour référencer l'objet courant et 'other' pour
+     * l'autre personne passée en paramètre.
+     */
+    public void displayAgeDifference(Person other) {
+        if (this.age < other.age) {
+            System.out.println(other.name + " est plus agée que " + this.name);
+        } else if (this.age > other.age) {
+            System.out.println(this.name + " est plus agée que " + other.name);
+        } else {
+            System.out.println("Elles ont le même âge");
+        }
+    }
+
+    /**
+     * Affiche une salutation vers une autre personne.
+     *
+     * Démontre qu'un objet peut interagir avec lui-même ou avec d'autres objets.
+     */
+    public void greet(Person other) {
+        System.out.println(this.name + " salue " + other.name);
+    }
+
+}
+
+/**
+ * Programme principal démontrant l'utilisation de la classe Person.
+ *
+ * Ce programme crée plusieurs objets Person et montre comment ils peuvent
+ * interagir entre eux et avec eux-mêmes.
+ */
+public class Main {
+    public static void main(String[] args) {
+
+        // Création de trois personnes
+        Person one = new Person("Sacha", 15);
+        Person two = new Person("Yasmine", 25);
+        Person three = new Person("Vincent", 32);
+
+        // Affichage des informations
+        one.displayInfo();
+        two.displayInfo();
+
+        // Comparaison d'âges
+        one.displayAgeDifference(two);
+
+        // Salutations entre personnes
+        two.greet(one);
+        one.greet(one);      // Une personne peut se saluer elle-même
+        one.greet(two);
+        three.greet(one);
+    }
+}
+```
 
 <details>
 <summary>Description du code</summary>
@@ -528,7 +612,7 @@ Voir le fichier `Main.java` pour le code complet.
 Dans la classe `Person` :
 
 Déclaration d'une méthode d'instance avec le modificateur `public`, de type de
-retour `void`, nommée `salute`, prenant un paramètre de type `Person` nommé
+retour `void`, nommée `greet`, prenant un paramètre de type `Person` nommé
 `other`.
 
 Dans le corps de la méthode : appel de `println` avec concaténation de
@@ -537,8 +621,8 @@ de l'objet `other`.
 
 Dans la méthode `main` :
 
-La méthode `salute()` est appelée plusieurs fois (voir le fichier `Main.java`
-pour les détails complets), y compris avec des appels comme `one.salute(one)` où
+La méthode `greet()` est appelée plusieurs fois (voir le fichier `Main.java`
+pour les détails complets), y compris avec des appels comme `one.greet(one)` où
 un objet interagit avec lui-même.
 
 </details>
@@ -547,7 +631,7 @@ un objet interagit avec lui-même.
 
 - **Encapsulation** : les données (attributs) et les comportements (méthodes)
   sont regroupés
-- **Code auto-documenté** : `one.salute(two)` est immédiatement compréhensible
+- **Code auto-documenté** : `one.greet(two)` est immédiatement compréhensible
 - **Extensibilité** : ajouter une troisième personne ne change rien au code
   existant
 - **Maintenance facilitée** : la logique est centralisée dans la classe
