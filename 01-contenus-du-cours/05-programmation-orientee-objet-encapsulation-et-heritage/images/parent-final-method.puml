@@ -1,0 +1,8 @@
+@startuml
+!theme plain
+
+class Parent {
+  + criticalMethod(): void {final}
+}
+
+@enduml

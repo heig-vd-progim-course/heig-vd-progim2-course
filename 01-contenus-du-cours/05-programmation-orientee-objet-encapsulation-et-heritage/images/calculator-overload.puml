@@ -1,0 +1,10 @@
+@startuml
+!theme plain
+
+class Calculator {
+  + add(a: int, b: int): int
+  + add(a: double, b: double): double
+  + add(a: int, b: int, c: int): int
+}
+
+@enduml

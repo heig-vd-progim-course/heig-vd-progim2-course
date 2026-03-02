@@ -1,0 +1,29 @@
+@startuml
+!theme plain
+
+abstract class Employee {
+  # name: String
+  # baseSalary: double
+  --
+  + Employee(name: String, baseSalary: double)
+  + {abstract} calculateSalary(): double
+  + displayInfo(): void
+}
+
+class FullTimeEmployee {
+  + FullTimeEmployee(name: String, baseSalary: double)
+  + calculateSalary(): double
+}
+
+class PartTimeEmployee {
+  - hoursWorked: double
+  - hourlyRate: double
+  --
+  + PartTimeEmployee(name: String, hoursWorked: double, hourlyRate: double)
+  + calculateSalary(): double
+}
+
+Employee <|-- FullTimeEmployee
+Employee <|-- PartTimeEmployee
+
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+!theme plain
+
+class Animal {
+  # name: String
+  # age: int
+  --
+  + Animal(name: String, age: int)
+  + eat(): void
+  + sleep(): void
+}
+
+class Dog {
+  - breed: String
+  --
+  + Dog(name: String, age: int, breed: String)
+  + bark(): void
+}
+
+Animal <|-- Dog
+
+@enduml

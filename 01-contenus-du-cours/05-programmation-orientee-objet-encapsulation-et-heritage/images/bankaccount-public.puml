@@ -1,0 +1,11 @@
+@startuml
+!theme plain
+
+class BankAccount {
+  + owner: String
+  + balance: double
+  --
+  + displayInfo(): void
+}
+
+@enduml

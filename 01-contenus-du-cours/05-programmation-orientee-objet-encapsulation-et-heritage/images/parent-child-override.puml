@@ -1,0 +1,14 @@
+@startuml
+!theme plain
+
+class Parent {
+  + greet(): void
+}
+
+class Child {
+  + greet(): void
+}
+
+Parent <|-- Child
+
+@enduml

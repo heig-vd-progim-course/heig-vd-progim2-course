@@ -1,0 +1,7 @@
+@startuml
+!theme plain
+
+class MathUtils <<final>> {
+}
+
+@enduml

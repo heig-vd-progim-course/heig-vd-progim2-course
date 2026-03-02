@@ -1,0 +1,16 @@
+@startuml
+!theme plain
+
+class Parent {
+  - secret: String
+  # family: String
+  + forEveryone: String
+}
+
+class Child {
+  + test(): void
+}
+
+Parent <|-- Child
+
+@enduml

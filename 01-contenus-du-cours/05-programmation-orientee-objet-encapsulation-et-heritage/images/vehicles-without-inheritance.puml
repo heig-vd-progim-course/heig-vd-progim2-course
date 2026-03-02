@@ -1,0 +1,25 @@
+@startuml
+!theme plain
+
+class Car {
+  - brand: String
+  - model: String
+  - year: int
+  - numberOfDoors: int
+}
+
+class Motorcycle {
+  - brand: String
+  - model: String
+  - year: int
+  - hasSidecar: boolean
+}
+
+class Truck {
+  - brand: String
+  - model: String
+  - year: int
+  - maxLoad: double
+}
+
+@enduml

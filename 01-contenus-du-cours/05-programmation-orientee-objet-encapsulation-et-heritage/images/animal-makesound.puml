@@ -1,0 +1,14 @@
+@startuml
+!theme plain
+
+class Animal {
+  + makeSound(): void
+}
+
+class Dog {
+  + makeSound(): void
+}
+
+Animal <|-- Dog
+
+@enduml

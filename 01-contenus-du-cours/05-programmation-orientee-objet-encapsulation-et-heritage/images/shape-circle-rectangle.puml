@@ -1,0 +1,30 @@
+@startuml
+!theme plain
+
+abstract class Shape {
+  # color: String
+  --
+  + Shape(color: String)
+  + {abstract} calculateArea(): double
+  + displayColor(): void
+}
+
+class Circle {
+  - radius: double
+  --
+  + Circle(color: String, radius: double)
+  + calculateArea(): double
+}
+
+class Rectangle {
+  - width: double
+  - height: double
+  --
+  + Rectangle(color: String, width: double, height: double)
+  + calculateArea(): double
+}
+
+Shape <|-- Circle
+Shape <|-- Rectangle
+
+@enduml

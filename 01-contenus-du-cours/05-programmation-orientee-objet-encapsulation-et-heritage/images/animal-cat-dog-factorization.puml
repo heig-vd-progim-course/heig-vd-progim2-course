@@ -1,0 +1,24 @@
+@startuml
+!theme plain
+
+abstract class Animal {
+  # name: String
+  # age: int
+  --
+  + eat(): void
+  + sleep(): void
+  + {abstract} makeSound(): void
+}
+
+class Cat {
+  + makeSound(): void
+}
+
+class Dog {
+  + makeSound(): void
+}
+
+Animal <|-- Cat
+Animal <|-- Dog
+
+@enduml

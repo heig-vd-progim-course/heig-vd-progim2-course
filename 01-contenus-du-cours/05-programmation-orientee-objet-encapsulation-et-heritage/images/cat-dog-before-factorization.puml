@@ -1,0 +1,22 @@
+@startuml
+!theme plain
+
+class Cat {
+  - name: String
+  - age: int
+  --
+  + eat(): void
+  + sleep(): void
+  + meow(): void
+}
+
+class Dog {
+  - name: String
+  - age: int
+  --
+  + eat(): void
+  + sleep(): void
+  + bark(): void
+}
+
+@enduml
