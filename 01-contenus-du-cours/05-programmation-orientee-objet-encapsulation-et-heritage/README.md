@@ -77,28 +77,28 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 - [Table des matières](#table-des-matières)
 - [Introduction](#introduction)
 - [L'encapsulation](#lencapsulation)
-	- [Pourquoi l'encapsulation ?](#pourquoi-lencapsulation-)
-	- [Les modificateurs d'accès](#les-modificateurs-daccès)
-	- [Rendre les attributs privés](#rendre-les-attributs-privés)
-	- [Les getters et setters](#les-getters-et-setters)
-	- [Validation des données](#validation-des-données)
-	- [Le modificateur final](#le-modificateur-final)
+  - [Pourquoi l'encapsulation ?](#pourquoi-lencapsulation-)
+  - [Les modificateurs d'accès](#les-modificateurs-daccès)
+  - [Rendre les attributs privés](#rendre-les-attributs-privés)
+  - [Les getters et setters](#les-getters-et-setters)
+  - [Validation des données](#validation-des-données)
+  - [Le modificateur final](#le-modificateur-final)
 - [L'héritage](#lhéritage)
-	- [Pourquoi l'héritage ?](#pourquoi-lhéritage-)
-	- [La relation "est-un"](#la-relation-est-un)
-	- [Créer une sous-classe avec extends](#créer-une-sous-classe-avec-extends)
-	- [Le mot-clé super](#le-mot-clé-super)
-	- [Le modificateur protected](#le-modificateur-protected)
-	- [Les méthodes abstraites](#les-méthodes-abstraites)
-	- [Les classes abstraites](#les-classes-abstraites)
-	- [Redéfinition vs surcharge](#redéfinition-vs-surcharge)
+  - [Pourquoi l'héritage ?](#pourquoi-lhéritage-)
+  - [La relation "est-un"](#la-relation-est-un)
+  - [Créer une sous-classe avec extends](#créer-une-sous-classe-avec-extends)
+  - [Le mot-clé super](#le-mot-clé-super)
+  - [Le modificateur protected](#le-modificateur-protected)
+  - [Les méthodes abstraites](#les-méthodes-abstraites)
+  - [Les classes abstraites](#les-classes-abstraites)
+  - [Redéfinition vs surcharge](#redéfinition-vs-surcharge)
 - [Organiser une hiérarchie de classes](#organiser-une-hiérarchie-de-classes)
-	- [Concevoir une hiérarchie logique](#concevoir-une-hiérarchie-logique)
-	- [Factorisation du code](#factorisation-du-code)
-	- [Exemple complet](#exemple-complet)
+  - [Concevoir une hiérarchie logique](#concevoir-une-hiérarchie-logique)
+  - [Factorisation du code](#factorisation-du-code)
+  - [Exemple complet](#exemple-complet)
 - [Ressources annexes](#ressources-annexes)
-	- [Documentation officielle](#documentation-officielle)
-	- [Tutoriels et guides](#tutoriels-et-guides)
+  - [Documentation officielle](#documentation-officielle)
+  - [Tutoriels et guides](#tutoriels-et-guides)
 - [Exemples de code](#exemples-de-code)
 - [Exercices](#exercices)
 - [Mini-projet](#mini-projet)
@@ -108,7 +108,8 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 
 Dans la session précédente, nous avons découvert les concepts fondamentaux de la
 programmation orientée objet : les classes et les objets. Nous avons appris à
-créer des classes simples avec des attributs publics et des méthodes.
+créer des classes simples avec des attributs directement accessibles (sans
+encapsulation) et des méthodes.
 
 Cependant, dans la pratique professionnelle, rendre les attributs publics pose
 plusieurs problèmes :
@@ -1633,8 +1634,8 @@ au polymorphisme avec un tableau de `Vehicle`.
 
 ### Tutoriels et guides
 
-- [Java Tutorial (W3Schools)](https://www.w3schools.com/java/default.asp)
-  : tutoriel complet sur Java.
+- [Java Tutorial (W3Schools)](https://www.w3schools.com/java/default.asp) :
+  tutoriel complet sur Java.
 - [Java Modifiers (W3Schools)](https://www.w3schools.com/java/java_modifiers.asp)
   : guide sur les modificateurs d'accès.
 - [Java Encapsulation (W3Schools)](https://www.w3schools.com/java/java_encapsulation.asp)
