@@ -1,11 +1,7 @@
 # Programmation orientée objet : Encapsulation et héritage - Mini-projet (partie 2)
 
-Bienvenue dans la deuxième partie du mini-projet fil rouge sur la gestion de
-jardin communautaire !
-
-Ce mini-projet est conçu pour vous permettre de mettre en pratique les concepts
-théoriques vus dans le contenu
-_["Programmation orientée objet : Encapsulation et héritage"](../)_.
+Bienvenue dans la deuxième partie du mini-projet sur la gestion de jardin
+communautaire !
 
 > [!TIP]
 >
@@ -37,19 +33,12 @@ _["Programmation orientée objet : Encapsulation et héritage"](../)_.
 - [Diagramme de classes](#diagramme-de-classes)
 - [Solution](#solution)
 - [Conclusion](#conclusion)
-  - [Ce que vous avez appris](#ce-que-vous-avez-appris)
-  - [Pourquoi c'est important](#pourquoi-cest-important)
   - [Prochaine étape](#prochaine-étape)
-- [Aller plus loin](#aller-plus-loin)
-  - [Défis pour débutants](#défis-pour-débutants)
-  - [Défis pour intermédiaires](#défis-pour-intermédiaires)
-  - [Défis pour avancés](#défis-pour-avancés)
 
 ## Présentation du mini-projet
 
-Dans cette deuxième partie du mini-projet fil rouge, nous allons améliorer
-l'application de gestion de jardin communautaire créée lors de la première
-session.
+Dans cette deuxième partie du mini-projet, nous allons améliorer l'application
+de gestion de jardin communautaire créée lors de la première session.
 
 Lors de la première session, nous avons créé des classes simples avec des
 attributs publics. Cela fonctionnait, mais posait plusieurs problèmes :
@@ -1755,7 +1744,7 @@ correctement : les valeurs invalides sont rejetées.
 > - Faites pousser plusieurs plantes avec différents incréments.
 > - Testez d'autres validations (taille négative, nom vide, etc.).
 
-Félicitations ! Votre système fonctionne ! 🎉
+Félicitations ! Votre système fonctionne !
 
 ## Diagramme de classes
 
@@ -1771,105 +1760,7 @@ représentant la hiérarchie des classes que nous avons créées.
 Voici le diagramme UML représentant la hiérarchie des classes après cette
 session :
 
-```plantuml
-@startuml
-
-abstract class PlantBase {
-  # name: String
-  # species: String
-  # plantingDate: String
-  # size: double
-  # isHarvested: boolean
-  --
-  + PlantBase(name, species, plantingDate, size)
-  + getName(): String
-  + getSpecies(): String
-  + getPlantingDate(): String
-  + getSize(): double
-  + isHarvested(): boolean
-  + setName(name): void
-  + setSpecies(species): void
-  + setSize(size): void
-  + setPlantingDate(plantingDate): void
-  + harvest(): void
-  + {abstract} displayInfo(): void
-  + {abstract} getPlantType(): String
-}
-
-class VegetablePlant {
-  - expectedYield: int
-  --
-  + VegetablePlant(name, species, plantingDate, size, expectedYield)
-  + getExpectedYield(): int
-  + setExpectedYield(expectedYield): void
-  + displayInfo(): void
-  + getPlantType(): String
-}
-
-class FlowerPlant {
-  - color: String
-  --
-  + FlowerPlant(name, species, plantingDate, size, color)
-  + getColor(): String
-  + setColor(color): void
-  + displayInfo(): void
-  + getPlantType(): String
-}
-
-class TreePlant {
-  - isFruitTree: boolean
-  --
-  + TreePlant(name, species, plantingDate, size, isFruitTree)
-  + isFruitTree(): boolean
-  + setFruitTree(isFruitTree): void
-  + displayInfo(): void
-  + getPlantType(): String
-}
-
-class Plot {
-  - number: int
-  - size: double
-  - location: String
-  --
-  + Plot(number, size, location)
-  + getNumber(): int
-  + getSize(): double
-  + getLocation(): String
-  + setNumber(number): void
-  + setSize(size): void
-  + setLocation(location): void
-  + displayInfo(): void
-}
-
-class Gardener {
-  - name: String
-  - email: String
-  - yearsOfExperience: int
-  --
-  + Gardener(name, email, yearsOfExperience)
-  + getName(): String
-  + getEmail(): String
-  + getYearsOfExperience(): int
-  + setName(name): void
-  + setEmail(email): void
-  + setYearsOfExperience(yearsOfExperience): void
-  + displayInfo(): void
-}
-
-class GardenManagementSystem {
-  + {static} main(args: String[]): void
-}
-
-PlantBase <|-- VegetablePlant
-PlantBase <|-- FlowerPlant
-PlantBase <|-- TreePlant
-
-GardenManagementSystem ..> PlantBase
-GardenManagementSystem ..> Plot
-GardenManagementSystem ..> Gardener
-
-@enduml
-```
+![Diagramme de classes du système de gestion de jardin](../images/class-diagram-garden-system.svg)
 
 Ce diagramme montre :
 
@@ -1896,52 +1787,7 @@ Une solution complète est disponible dans le dossier [`solution/`](./solution/)
 
 ## Conclusion
 
-Félicitations ! 🎉 Vous avez terminé cette deuxième partie du mini-projet fil
-rouge.
-
-Prenons un moment pour réfléchir à tout ce que vous avez accompli dans cette
-session.
-
-### Ce que vous avez appris
-
-Vous avez maîtrisé deux des concepts les plus importants de la programmation
-orientée objet :
-
-**1. L'encapsulation**
-
-- ✅ Rendre les attributs `private` pour protéger les données.
-- ✅ Créer des getters et setters pour contrôler l'accès.
-- ✅ Ajouter de la validation pour garantir la cohérence.
-- ✅ Comprendre pourquoi c'est essentiel en POO.
-
-**2. L'héritage**
-
-- ✅ Créer une classe abstraite comme modèle de base.
-- ✅ Utiliser `extends` pour créer des sous-classes.
-- ✅ Utiliser `super` pour appeler le constructeur parent.
-- ✅ Implémenter des méthodes abstraites.
-- ✅ Utiliser `protected` pour partager des attributs avec les sous-classes.
-
-**3. La surcharge (overloading)**
-
-- ✅ Créer plusieurs constructeurs avec des paramètres différents.
-- ✅ Créer plusieurs versions d'une méthode.
-- ✅ Comprendre la différence entre surcharge et redéfinition.
-
-### Pourquoi c'est important
-
-Ces concepts ne sont pas juste académiques - ils sont **fondamentaux** dans tous
-les projets Java professionnels :
-
-- **L'encapsulation** garantit que vos objets restent dans un état cohérent et
-  facilite la maintenance du code.
-- **L'héritage** permet de réutiliser du code et de créer des hiérarchies
-  logiques qui correspondent au monde réel.
-- **La surcharge** rend vos classes plus flexibles et plus faciles à utiliser.
-
-Vous les retrouverez partout dans les bibliothèques Java standard (comme
-`String`, `ArrayList`, `Exception`, etc.) et dans tout code professionnel bien
-écrit.
+Félicitations ! Vous avez terminé cette deuxième partie du mini-projet.
 
 ### Prochaine étape
 
@@ -1962,102 +1808,3 @@ et comment cela permet d'écrire du code plus générique et réutilisable.
 >
 > Gardez ce projet précieusement ! Il vous servira de base pour les prochaines
 > sessions et de référence pour vos futurs projets Java.
-
-## Aller plus loin
-
-Vous avez terminé la session et vous voulez continuer à pratiquer ? Excellent !
-Voici quelques défis pour approfondir vos connaissances.
-
-> [!TIP]
->
-> Ces suggestions sont optionnelles et de difficulté variable. Choisissez celles
-> qui vous intéressent le plus et prenez votre temps !
-
-### Défis pour débutants
-
-**1. Créer de nouveaux types de plantes**
-
-Créez une classe `HerbPlant` (herbes aromatiques) avec un attribut spécifique
-comme `culinaryUse` (utilisation culinaire : "condiment", "infusion", etc.).
-
-**2. Ajouter des méthodes utilitaires**
-
-Ajoutez une méthode `getAge()` dans `PlantBase` qui calcule l'âge de la plante
-en fonction de sa date de plantation (vous pouvez simplifier avec des calculs
-approximatifs).
-
-**3. Améliorer la méthode toString()**
-
-Redéfinissez la méthode `toString()` héritée de `Object` dans vos classes pour
-faciliter l'affichage :
-
-```java
-@Override
-public String toString() {
-    return name + " (" + species + ")";
-}
-```
-
-### Défis pour intermédiaires
-
-**4. Validation avancée des emails**
-
-Utilisez des expressions régulières (regex) pour valider les emails de manière
-plus robuste dans `Gardener.setEmail()`.
-
-Indice : cherchez "Java email regex pattern" pour trouver des exemples.
-
-**5. Gestion des dates avec LocalDate**
-
-Remplacez l'attribut `String plantingDate` par `LocalDate` dans `PlantBase`.
-Cela vous permettra de faire des calculs de dates réels.
-
-```java
-import java.time.LocalDate;
-
-protected LocalDate plantingDate;
-```
-
-**6. Ajouter des attributs final**
-
-Certains attributs ne devraient jamais changer après l'initialisation (par
-exemple, la date de plantation). Utilisez le mot-clé `final` :
-
-```java
-protected final LocalDate plantingDate;
-```
-
-### Défis pour avancés
-
-**7. Classe scellée (Java 17+)**
-
-Explorez les classes scellées pour restreindre quelles classes peuvent hériter
-de `PlantBase` :
-
-```java
-public abstract sealed class PlantBase
-    permits VegetablePlant, FlowerPlant, TreePlant {
-    // ...
-}
-```
-
-**8. Créer une classe Garden**
-
-Créez une classe `Garden` qui contient une liste de parcelles et une liste de
-jardinières. Ajoutez des méthodes pour :
-
-- Assigner une jardinière à une parcelle.
-- Lister toutes les plantes du jardin.
-- Compter le nombre de plantes récoltées.
-
-**9. Implémenter Comparable**
-
-Faites en sorte que les plantes puissent être triées par taille en implémentant
-l'interface `Comparable<PlantBase>`.
-
-> [!NOTE]
->
-> N'hésitez pas à expérimenter ! C'est en pratiquant que vous progresserez le
-> plus. Si quelque chose ne fonctionne pas, c'est une opportunité d'apprendre.
->
-> Et surtout, amusez-vous bien ! 🌱
