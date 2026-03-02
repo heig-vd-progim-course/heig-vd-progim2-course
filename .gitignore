@@ -24,3 +24,6 @@ Thumbs.db
 
 # Temporary files created by users
 tmp
+
+# Configuration files
+*.properties
