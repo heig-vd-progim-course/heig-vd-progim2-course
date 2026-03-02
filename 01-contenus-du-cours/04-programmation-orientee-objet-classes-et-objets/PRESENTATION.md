@@ -426,10 +426,9 @@ Est-ce que vous avez des questions ?
 - Faire les exercices.
 - Faire le mini-projet.
 - Poser des questions si nécessaire.
+- Entraidez-vous
 
-➡️ [Visualiser le contenu complet sur GitHub.][contenu-complet-sur-github]
-
-**N'hésitez pas à vous entraidez si vous avez des difficultés !**
+➡️ [Contenu complet sur GitHub.][contenu-complet-sur-github]
 
 ![bg right:40%][illustration-a-vous-de-jouer]
 
@@ -454,8 +453,8 @@ Est-ce que vous avez des questions ?
   [Ferenc Almasi](https://unsplash.com/@flowforfrank) sur
   [Unsplash](https://unsplash.com/photos/macbook-pro-on-brown-wooden-table-EWLHA4T-mso)
 - [Illustration][illustration-a-vous-de-jouer] par
-  [Lala Azizli](https://unsplash.com/@lazizli) sur
-  [Unsplash](https://unsplash.com/photos/person-using-laptop-computer-tfNyTfJpKvc)
+  [Nikita Kachanovsky](https://unsplash.com/@nkachanovskyyy) sur
+  [Unsplash](https://unsplash.com/photos/white-sony-ps4-dualshock-controller-over-persons-palm-FJFPuE1MAOM)
 
 <!-- URLs -->
 
@@ -479,4 +478,4 @@ Est-ce que vous avez des questions ?
 [illustration-dry]:
 	https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop
 [illustration-a-vous-de-jouer]:
-	https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2070&auto=format&fit=crop
+	https://images.unsplash.com/photo-1509198397868-475647b2a1e5?fit=crop&h=720

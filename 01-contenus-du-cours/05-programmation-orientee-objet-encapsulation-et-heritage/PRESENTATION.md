@@ -207,26 +207,20 @@ public void withdraw(double amount) {
 
 ## Le modificateur final
 
-**Sur une variable** : valeur immuable après initialisation.
-
 ```java
 class Circle {
     private final double radius;
-    public Circle(double radius) { this.radius = radius; }
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    // Pas de setRadius() car radius est final
 }
 ```
 
-**Sur une méthode** : ne peut pas être redéfinie.
-
-```java
-public final void criticalMethod() { /* ... */ }
-```
-
-**Sur une classe** : ne peut pas être étendue.
-
-```java
-public final class MathUtils { /* ... */ }
-```
+**Utile pour** : constantes, identifiants uniques, valeurs qui ne doivent pas
+changer.
 
 ## L'héritage
 
@@ -238,40 +232,37 @@ Réutiliser du code et créer des hiérarchies
 
 ```java
 class Car {
-    private String brand, model;
+    private String brand;
+    private String model;
     private int year;
     private int numberOfDoors;
 }
 
 class Motorcycle {
-    private String brand, model;  // Code dupliqué !
-    private int year;             // Code dupliqué !
+    private String brand; // Code dupliqué
+    private String model; // Code dupliqué
+    private int year; // Code dupliqué
     private boolean hasSidecar;
 }
 ```
-
-**Beaucoup de code dupliqué** pour les attributs communs.
 
 ## Solution avec héritage
 
 ```java
 class Vehicle {
-    protected String brand, model;
+    protected String brand;
+    protected String model;
     protected int year;
 }
 
-class Car extends Vehicle {
+class Car extends Vehicle {  // Hérite de brand, model, year
     private int numberOfDoors;
-    // Hérite de brand, model, year
 }
 
-class Motorcycle extends Vehicle {
+class Motorcycle extends Vehicle { // Hérite de brand, model, year
     private boolean hasSidecar;
-    // Hérite de brand, model, year
 }
 ```
-
-**Code factorisé** dans la classe parent.
 
 ## Bénéfices de l'héritage
 
@@ -352,8 +343,6 @@ class Child extends Parent {
 }
 ```
 
-`protected` : accessible dans la classe et ses sous-classes.
-
 ## Les méthodes abstraites
 
 Une **méthode abstraite** n'a pas d'implémentation :
@@ -411,7 +400,7 @@ class FullTimeEmployee extends Employee {
     public double calculateSalary() { return baseSalary; }
 }
 
-// Employee e = new Employee(); // ERREUR !
+/Employee e = new Employee(); // ERREUR !
 FullTimeEmployee e = new FullTimeEmployee(); // OK
 ```
 
@@ -426,7 +415,7 @@ Sert de modèle pour les sous-classes.
 | Peut avoir méthodes abstraites | Toutes méthodes implémentées |
 | Sert de modèle                 | Utilisable directement       |
 
-## Redéfinition vs surcharge
+## Redéfinition vs surcharge (1/2)
 
 **Redéfinition (overriding)** :
 
@@ -438,11 +427,31 @@ Sert de modèle pour les sous-classes.
 - Même nom, **paramètres différents**, dans la **même classe**.
 - Pas d'annotation.
 
+## Redéfinition vs surcharge (2/2)
+
 ```java
 class Calculator {
     public int add(int a, int b) { return a + b; }        // Surcharge
     public double add(double a, double b) { return a + b; } // Surcharge
 }
+```
+
+## Le modificateur final (suite)
+
+**Sur une méthode** : empêche la redéfinition dans les sous-classes.
+
+```java
+class Parent {
+    public final void criticalMethod() {
+        // Ne peut pas être redéfinie
+    }
+}
+```
+
+**Sur une classe** : empêche l'héritage.
+
+```java
+public final class MathUtils { /* Aucune sous-classe possible */ }
 ```
 
 ## Organiser une hiérarchie de classes
@@ -454,100 +463,6 @@ class Calculator {
 3. Utiliser des classes abstraites pour les concepts généraux.
 4. Créer des sous-classes pour les spécialisations.
 5. Éviter les hiérarchies trop profondes (>3-4 niveaux).
-
-![bg right:40%][illustration-hierarchie]
-
-## Factorisation du code
-
-**Avant** :
-
-```java
-class Cat {
-    private String name;
-    public void eat() { /* ... */ }
-    public void sleep() { /* ... */ }
-}
-
-class Dog {
-    private String name;  // Dupliqué
-    public void eat() { /* ... */ }    // Dupliqué
-    public void sleep() { /* ... */ }  // Dupliqué
-}
-```
-
-## Factorisation du code (suite)
-
-**Après** :
-
-```java
-abstract class Animal {
-    protected String name;
-    public void eat() { /* ... */ }
-    public void sleep() { /* ... */ }
-    public abstract void makeSound();
-}
-
-class Cat extends Animal {
-    @Override
-    public void makeSound() { System.out.println("Miaou!"); }
-}
-
-class Dog extends Animal {
-    @Override
-    public void makeSound() { System.out.println("Woof!"); }
-}
-```
-
-Code commun factorisé dans `Animal`.
-
-## Exemple complet
-
-```java
-abstract class Vehicle {
-    protected String brand;
-    protected double fuelLevel;
-
-    public void refuel(double amount) { fuelLevel += amount; }
-    public abstract void start();
-}
-
-class Car extends Vehicle {
-    @Override
-    public void start() {
-        if (fuelLevel < 10) {
-            System.out.println("Carburant insuffisant");
-            return;
-        }
-        System.out.println("La voiture démarre");
-    }
-}
-```
-
-## Récapitulatif : Encapsulation
-
-- **Attributs privés** : `private` pour protéger les données.
-- **Getters/setters** : accès contrôlé.
-- **Validation** : garantir la cohérence.
-- **final** : empêcher les modifications.
-
-## Récapitulatif : Héritage
-
-- **extends** : créer des sous-classes.
-- **super** : appeler le constructeur parent.
-- **protected** : accessible aux sous-classes.
-- **abstract** : classes et méthodes abstraites.
-- **@Override** : redéfinir une méthode parent.
-
-## Pourquoi c'est important
-
-Ces concepts sont **fondamentaux** dans tout projet Java professionnel :
-
-- Toutes les bibliothèques Java standard les utilisent.
-- Essentiels pour écrire du code maintenable.
-- Facilitent la collaboration en équipe.
-- Permettent de créer des architectures robustes.
-
-![bg right:40%][illustration-conclusion]
 
 ## Ressources
 
@@ -561,14 +476,18 @@ Ces concepts sont **fondamentaux** dans tout projet Java professionnel :
 - [W3Schools Java Tutorial](https://www.w3schools.com/java/default.asp)
 - [Java Modifiers](https://www.w3schools.com/java/java_modifiers.asp)
 
-## Prochaines étapes
+## À vous de jouer !
 
-- Consulter les [exemples de code](./01-exemples-de-code/).
-- Réaliser les [exercices](./02-exercices/).
-- Travailler sur le [mini-projet](./03-mini-projet/).
-- Lire le [support de cours complet](./README.md) pour approfondir.
+- (Re)lire le contenu de cours.
+- Lire les exemples de code et les descriptions.
+- Faire les exercices.
+- Faire le mini-projet.
+- Poser des questions si nécessaire.
+- Entraidez-vous
 
-![bg right:40%][illustration-next]
+➡️ [Contenu complet sur GitHub.][contenu-complet-sur-github]
+
+![bg right:40%][illustration-a-vous-de-jouer]
 
 ## Questions ?
 
@@ -578,7 +497,7 @@ Des questions sur l'encapsulation ou l'héritage ?
 
 ![bg opacity:0.2][illustration-questions]
 
-## Sources (1/2)
+## Sources
 
 - [Illustration principale][illustration-principale] par
   [Luca Bravo](https://unsplash.com/@lucabravo) sur
@@ -586,21 +505,9 @@ Des questions sur l'encapsulation ou l'héritage ?
 - [Illustration][illustration-objectifs] par
   [Aline de Nadai](https://unsplash.com/@alinedenadai) sur
   [Unsplash](https://unsplash.com/photos/low-angle-view-of-ball-shoots-in-the-ring-j6brni7fpvs)
-
-## Sources (2/2)
-
-- [Illustration][illustration-poo] par
-  [Shubham Dhage](https://unsplash.com/@theshubhamdhage) sur
-  [Unsplash](https://unsplash.com/photos/blue-and-purple-abstract-art-m4RqNjph00Q)
-- [Illustration][illustration-avantages] par
-  [Alvaro Reyes](https://unsplash.com/@alvarordesign) sur
-  [Unsplash](https://unsplash.com/photos/person-using-macbook-pro-qWwpHwip31M)
-- [Illustration][illustration-dry] par
-  [Ferenc Almasi](https://unsplash.com/@flowforfrank) sur
-  [Unsplash](https://unsplash.com/photos/macbook-pro-on-brown-wooden-table-EWLHA4T-mso)
 - [Illustration][illustration-a-vous-de-jouer] par
-  [Lala Azizli](https://unsplash.com/@lazizli) sur
-  [Unsplash](https://unsplash.com/photos/person-using-laptop-computer-tfNyTfJpKvc)
+  [Nikita Kachanovsky](https://unsplash.com/@nkachanovskyyy) sur
+  [Unsplash](https://unsplash.com/photos/white-sony-ps4-dualshock-controller-over-persons-palm-FJFPuE1MAOM)
 
 <!-- URLs -->
 
@@ -614,15 +521,9 @@ Des questions sur l'encapsulation ou l'héritage ?
 	https://images.unsplash.com/photo-1516389573391-5620a0263801?fit=crop&h=720&auto=format&fit=cro
 [illustration-concepts]:
 	https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800
-[illustration-encapsulation]:
-	https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800
 [illustration-heritage]:
 	https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?q=80&w=800
-[illustration-hierarchie]:
-	https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=800
-[illustration-conclusion]:
-	https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800
-[illustration-next]:
-	https://images.unsplash.com/photo-1501139083538-0139583c060f?q=80&w=800
+[illustration-a-vous-de-jouer]:
+	https://images.unsplash.com/photo-1509198397868-475647b2a1e5?fit=crop&h=720
 [illustration-questions]:
 	https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920
