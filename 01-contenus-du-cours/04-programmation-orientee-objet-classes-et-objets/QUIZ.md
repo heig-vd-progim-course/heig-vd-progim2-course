@@ -220,46 +220,6 @@ book1.price = 50.0;  // Modifie uniquement book1
 
 ## Question 7 - Donnée
 
-**Prédiction : Méthode avec retour**
-
-Que vaut `area` après l'exécution de ce code ?
-
-```java
-class Rectangle {
-    double width;
-    double height;
-
-    double calculateArea() {
-        return width * height;
-    }
-}
-
-Rectangle rect = new Rectangle();
-rect.width = 5.0;
-rect.height = 3.0;
-double area = rect.calculateArea();
-```
-
-**A.** `0.0` **B.** `8.0` **C.** `15.0` **D.** Erreur
-
-## Question 7 - Réponse
-
-**Réponse correcte : C** - `area` vaut `15.0`
-
-```java
-double area = rect.calculateArea();
-// width * height = 5.0 * 3.0 = 15.0
-```
-
-**Explications :**
-
-- La méthode `calculateArea()` retourne `width * height`
-- Les attributs `width` et `height` valent `5.0` et `3.0`
-- Le calcul donne `5.0 * 3.0 = 15.0`
-- La valeur retournée est stockée dans la variable `area`
-
-## Question 8 - Donnée
-
 **Comparaison : Classe vs Objet**
 
 Quelle affirmation est correcte ?
@@ -272,21 +232,28 @@ Quelle affirmation est correcte ?
 
 **D.** Les termes "classe" et "objet" sont synonymes
 
-## Question 8 - Réponse
+## Question 7 - Réponse
 
-**Réponse correcte : C**
+**Réponse correcte : C - Une classe est un modèle pour créer des objets**
 
-**Une classe est un modèle pour créer des objets**
+<div class="two-columns">
+<div>
 
 **Analogie :**
 
 - **Classe** = plan d'architecte pour une maison
 - **Objet** = maison réelle construite à partir du plan
 
+</div>
+<div>
+
 **Différences :**
 
 - **Classe** : définit les attributs et méthodes (modèle abstrait)
 - **Objet** : instance concrète avec des valeurs spécifiques
+
+</div>
+</div>
 
 ## Question 9 - Donnée
 
@@ -305,17 +272,7 @@ class Person {
 }
 ```
 
-**A.** Aucune différence
-
-**B.** Variable 1 = attribut, Variable 2 = variable locale
-
-**C.** Variable 1 est publique, Variable 2 est privée
-
-**D.** Variable 2 est un paramètre
-
 ## Question 9 - Réponse
-
-**Réponse correcte : B**
 
 **Variable 1 = attribut, Variable 2 = variable locale**
 
@@ -330,11 +287,6 @@ class Person {
     }
 }
 ```
-
-**Différences :**
-
-- **Attribut** : visible dans toute la classe, existe tant que l'objet existe
-- **Variable locale** : visible uniquement dans la méthode, disparaît après
 
 ## Question 10 - Donnée
 
@@ -354,84 +306,45 @@ int getAge() {
 }
 ```
 
-**A.** Aucune différence, elles font la même chose
-
-**B.** A affiche, B retourne une valeur
-
-**C.** A est publique, B est privée
-
-**D.** B est un constructeur
-
 ## Question 10 - Réponse
-
-**Réponse correcte : B**
 
 **A affiche directement, B retourne une valeur**
 
+<div class="two-columns">
+<div>
+
 ```java
+/**
+ * Affiche l'âge directement
+ */
 void displayAge() {
-    System.out.println("Âge: " + age);  // Affiche directement
+    System.out.println("Âge: " + age);
 }
 
+/**
+ * Retourne l'âge pour utilisation ultérieure
+ */
 int getAge() {
-    return age;  // Retourne la valeur pour utilisation ultérieure
+    return age;
 }
 ```
+
+</div>
+<div>
 
 **Utilisation :**
 
 ```java
-person.displayAge();           // Affiche directement
-int age = person.getAge();     // Récupère la valeur
-if (person.getAge() > 18) { }  // Utilise dans une condition
+// Affiche directement
+person.displayAge();
+// Récupère la valeur
+int age = person.getAge();
+// Utilise dans une condition
+if (person.getAge() > 18) { }
 ```
 
-## Question 11 - Donnée
-
-**Modification : Ajouter un constructeur**
-
-Cette classe n'a pas de constructeur. Ajoutez-en un qui initialise tous les
-attributs :
-
-```java
-class Student {
-    String name;
-    int age;
-    double averageGrade;
-}
-```
-
-**A.** `void Student(String n, int a, double g)`
-
-**B.** `public Student(String name, int age, double averageGrade)`
-
-**C.** `new Student(String name, int age, double averageGrade)`
-
-**D.** `Student() { }`
-
-## Question 11 - Réponse
-
-**Réponse correcte : B**
-
-```java
-class Student {
-    String name;
-    int age;
-    double averageGrade;
-
-    public Student(String name, int age, double averageGrade) {
-        this.name = name;
-        this.age = age;
-        this.averageGrade = averageGrade;
-    }
-}
-```
-
-**Explications :**
-
-- Constructeur = même nom que la classe, pas de type de retour
-- Utilise `this` pour distinguer attributs et paramètres
-- Permet de créer : `new Student("Alice", 20, 5.2)`
+</div>
+</div>
 
 ## Question 12 - Donnée
 
@@ -451,197 +364,22 @@ class Book {
 }
 ```
 
-**A.** Les attributs doivent être privés
-
-**B.** Un constructeur ne doit pas avoir de type de retour (`void`)
-
-**C.** Il manque le mot-clé `public`
-
-**D.** `this` est mal utilisé
-
 ## Question 12 - Réponse
 
-**Réponse correcte : B**
-
-**Un constructeur ne doit pas avoir de type de retour**
-
-**Code incorrect :**
+**Réponse correcte : Un constructeur ne doit pas avoir de type de retour**
 
 ```java
+// ERREUR : un constructeur ne doit pas avoir de type de retour, même pas void
 void Book(String title, double price) {  // ERREUR : void
-```
 
-**Code correct :**
+// ---
 
-```java
+// CORRECT : pas de type de retour
 public Book(String title, double price) {  // Pas de void
     this.title = title;
     this.price = price;
 }
 ```
-
-**Règle :** Un constructeur n'a **jamais** de type de retour, même pas `void`
-
-## Question 13 - Donnée
-
-**Modification : Méthode qui modifie l'état**
-
-Comment créer une méthode `incrementAge()` qui augmente l'âge de 1 ?
-
-```java
-class Person {
-    String name;
-    int age;
-
-    // Ajoutez la méthode ici
-}
-```
-
-**A.** `void incrementAge() { age = age + 1; }`
-
-**B.** `int incrementAge() { return age + 1; }`
-
-**C.** `void incrementAge() { int age = age + 1; }`
-
-**D.** `void incrementAge(int age) { this.age = age + 1; }`
-
-## Question 13 - Réponse
-
-**Réponse correcte : A**
-
-```java
-class Person {
-    String name;
-    int age;
-
-    void incrementAge() {
-        age = age + 1;  // ou age++;
-    }
-}
-```
-
-**Explications :**
-
-- **A** : modifie l'attribut directement, correct
-- **B** : retourne une valeur mais ne modifie pas l'attribut
-- **C** : crée une variable locale, ne modifie pas l'attribut
-- **D** : prend un paramètre inutile qui masque l'attribut
-
-## Question 14 - Donnée
-
-**Transfert : Application complète**
-
-Créez une classe `Counter` avec :
-
-- Un attribut `value` (int)
-- Un constructeur qui initialise `value` à 0
-- Une méthode `increment()` qui augmente `value`
-- Une méthode `getValue()` qui retourne `value`
-
-Quelle implémentation est correcte ?
-
-_(Voir options sur slide suivant)_
-
-## Question 14 - Réponse (1/2)
-
-**Option A (correcte) :**
-
-```java
-class Counter {
-    int value;
-
-    public Counter() {
-        value = 0;
-    }
-
-    void increment() {
-        value++;
-    }
-
-    int getValue() {
-        return value;
-    }
-}
-```
-
-## Question 14 - Réponse (2/2)
-
-**Réponse correcte : Option A**
-
-**Pourquoi c'est correct :**
-
-- Attribut `value` déclaré
-- -Constructeur initialise à 0
-- `increment()` modifie l'état (sans retour)
-- `getValue()` retourne la valeur
-
-**Utilisation :**
-
-```java
-Counter counter = new Counter();  // value = 0
-counter.increment();               // value = 1
-counter.increment();               // value = 2
-int current = counter.getValue();  // current = 2
-```
-
-## Question 15 - Donnée
-
-**Transfert : Système de bibliothèque**
-
-Vous devez créer une classe `Book` pour un système de bibliothèque. Un livre a
-un titre, un auteur, et peut être emprunté ou disponible. Quelle conception est
-la meilleure ?
-
-**A.** Trois classes séparées : `Title`, `Author`, `Status`
-
-**B.** Une classe `Book` avec trois attributs et une méthode `borrow()`
-
-**C.** Une classe `Book` avec seulement un attribut `String info`
-
-**D.** Utiliser uniquement des variables sans classe
-
-## Question 15 - Réponse (1/2)
-
-**Réponse correcte : B**
-
-```java
-class Book {
-    String title;
-    String author;
-    boolean isAvailable;
-
-    public Book(String title, String author) {
-        this.title = title;
-        this.author = author;
-        this.isAvailable = true;
-    }
-
-    boolean borrow() {
-        if (isAvailable) {
-            isAvailable = false;
-            return true;
-        }
-        return false;
-    }
-}
-```
-
-## Question 15 - Réponse (2/2)
-
-**Pourquoi cette conception ?**
-
-**Avantages :**
-
-- Regroupe les données et comportements liés
-- État clair (`isAvailable`)
-- Méthode qui modifie l'état de manière contrôlée
-- Facile à utiliser et à maintenir
-
-**Alternatives problématiques :**
-
-- **A** : trop complexe pour ce besoin simple
-- **C** : perte de structure, difficile à manipuler
-- **D** : pas de POO, difficile à maintenir
 
 ## Questions
 
