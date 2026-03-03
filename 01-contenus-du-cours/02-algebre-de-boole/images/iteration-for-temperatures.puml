@@ -1,5 +1,8 @@
-@startuml
+@startuml iteration-for-temperatures
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 start
 :Initialiser foundOptimal = false;

@@ -1,5 +1,8 @@
-@startuml
+@startuml condition-and-temperature-sunny
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 start
 if ((temperature > 20) && isSunny ) then (true)

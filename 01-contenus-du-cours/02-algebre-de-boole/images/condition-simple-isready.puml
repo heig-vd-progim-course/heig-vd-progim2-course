@@ -1,5 +1,8 @@
-@startuml
+@startuml condition-simple-isready
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 start
 if (isReady ) then (true)

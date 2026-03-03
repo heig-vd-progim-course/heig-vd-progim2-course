@@ -1,5 +1,8 @@
-@startuml
+@startuml condition-and-username-null
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 start
 if ((username != null) && (username.length() > 0) ) then (true)

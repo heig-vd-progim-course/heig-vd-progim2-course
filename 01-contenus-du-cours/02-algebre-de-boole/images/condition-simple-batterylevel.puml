@@ -1,5 +1,8 @@
-@startuml
+@startuml condition-simple-batterylevel
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 start
 if (batteryLevel < 20 ) then (true)

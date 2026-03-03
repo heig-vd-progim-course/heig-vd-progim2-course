@@ -1,5 +1,8 @@
-@startuml
+@startuml condition-not-or-error
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 start
 if (!(hasError || hasWarning) ) then (true)

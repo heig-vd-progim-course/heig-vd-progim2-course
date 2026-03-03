@@ -1,5 +1,8 @@
-@startuml
+@startuml condition-or-dayofweek
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 start
 if ((dayOfWeek == 6) || (dayOfWeek == 7) ) then (true)

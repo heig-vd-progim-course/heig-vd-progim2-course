@@ -1,5 +1,8 @@
-@startuml
+@startuml condition-if-else-canuseservice
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 start
 if (canUseService ) then (true)
