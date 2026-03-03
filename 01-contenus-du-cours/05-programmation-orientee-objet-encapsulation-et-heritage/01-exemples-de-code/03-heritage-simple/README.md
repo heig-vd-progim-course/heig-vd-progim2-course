@@ -76,6 +76,7 @@ class SavingsAccount extends BankAccount {
     }
 
     // Redéfinition de displayInfo pour ajouter le taux d'intérêt
+    @Override
     public void displayInfo() {
         super.displayInfo();  // Appelle la méthode du parent
         System.out.println("Taux d'intérêt: " + interestRate + "%");
@@ -92,6 +93,7 @@ class CheckingAccount extends BankAccount {
     }
 
     // Redéfinition de withdraw pour permettre le découvert
+    @Override
     public void withdraw(double amount) {
         if (amount > 0 && amount <= balance + overdraftLimit) {
             balance -= amount;
@@ -101,6 +103,7 @@ class CheckingAccount extends BankAccount {
         }
     }
 
+    @Override
     public void displayInfo() {
         super.displayInfo();
         System.out.println("Découvert autorisé: " + overdraftLimit + " CHF");
@@ -149,8 +152,9 @@ parent avec `super(accountNumber, ownerName)` puis initialise `interestRate`.
 Déclaration de la méthode `applyInterest()` spécifique à `SavingsAccount` qui
 calcule et ajoute les intérêts au solde.
 
-Redéfinition de `displayInfo()` : appel de `super.displayInfo()` pour afficher
-les informations de base, puis ajout de l'affichage du taux d'intérêt.
+Redéfinition de `displayInfo()` avec l'annotation `@Override` : appel de
+`super.displayInfo()` pour afficher les informations de base, puis ajout de
+l'affichage du taux d'intérêt.
 
 Déclaration de la classe `CheckingAccount` qui hérite également de `BankAccount`
 avec `extends`.
@@ -160,11 +164,11 @@ Ajout d'un attribut privé `overdraftLimit` pour le découvert autorisé.
 Constructeur de `CheckingAccount` appelant `super()` puis initialisant
 `overdraftLimit`.
 
-Redéfinition de `withdraw()` pour permettre les retraits jusqu'à
-`balance + overdraftLimit` au lieu de seulement `balance`.
+Redéfinition de `withdraw()` avec l'annotation `@Override` pour permettre les
+retraits jusqu'à `balance + overdraftLimit` au lieu de seulement `balance`.
 
-Redéfinition de `displayInfo()` avec `super.displayInfo()` puis affichage du
-découvert autorisé.
+Redéfinition de `displayInfo()` avec l'annotation `@Override` et appel de
+`super.displayInfo()` puis affichage du découvert autorisé.
 
 Dans `main`, création d'une instance de `SavingsAccount`, appel de méthodes
 héritées (`deposit`) et spécifiques (`applyInterest`), puis affichage.

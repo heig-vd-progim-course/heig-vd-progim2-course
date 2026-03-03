@@ -7,7 +7,7 @@ concepts d'encapsulation et d'héritage en programmation orientée objet.
 
 Les exemples sont organisés en deux catégories :
 
-### 📗 Bonnes pratiques (00-07)
+### Bonnes pratiques (00-07)
 
 Exemples démontrant les bonnes pratiques et l'utilisation correcte de
 l'encapsulation et de l'héritage, du plus simple au plus complexe.
@@ -29,7 +29,7 @@ l'encapsulation et de l'héritage, du plus simple au plus complexe.
 7. **[07-organisation-fichiers](07-organisation-fichiers/)** : Bonne pratique
    avec un fichier par classe
 
-### 📕 Pratiques à éviter (11-13)
+### Pratiques à éviter (11-13)
 
 Exemples illustrant les erreurs courantes et les mauvaises pratiques, avec leurs
 corrections.

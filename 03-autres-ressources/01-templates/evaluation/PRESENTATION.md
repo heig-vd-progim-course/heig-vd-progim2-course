@@ -47,6 +47,7 @@ Est-ce que vous avez des questions ?
 - Faire les exercices.
 - Faire le mini-projet.
 - Poser des questions si nécessaire.
+- Entraider-vous !
 
 ➡️ [Visualiser le contenu complet sur GitHub.][contenu-complet-sur-github]
 

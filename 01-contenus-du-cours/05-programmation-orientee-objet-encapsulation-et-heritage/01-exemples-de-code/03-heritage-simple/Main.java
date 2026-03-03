@@ -51,6 +51,7 @@ class SavingsAccount extends BankAccount {
     }
 
     // Redéfinition de displayInfo pour ajouter le taux d'intérêt
+    @Override
     public void displayInfo() {
         super.displayInfo();  // Appelle la méthode du parent
         System.out.println("Taux d'intérêt: " + interestRate + "%");
@@ -67,6 +68,7 @@ class CheckingAccount extends BankAccount {
     }
 
     // Redéfinition de withdraw pour permettre le découvert
+    @Override
     public void withdraw(double amount) {
         if (amount > 0 && amount <= balance + overdraftLimit) {
             balance -= amount;
@@ -76,6 +78,7 @@ class CheckingAccount extends BankAccount {
         }
     }
 
+    @Override
     public void displayInfo() {
         super.displayInfo();
         System.out.println("Découvert autorisé: " + overdraftLimit + " CHF");
