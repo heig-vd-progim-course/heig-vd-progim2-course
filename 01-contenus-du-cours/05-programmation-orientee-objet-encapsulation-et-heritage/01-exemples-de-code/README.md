@@ -13,21 +13,21 @@ Exemples démontrant les bonnes pratiques et l'utilisation correcte de
 l'encapsulation et de l'héritage, du plus simple au plus complexe.
 
 0. **[00-exemple-complet](00-exemple-complet/)** : Exemple complet d'un système
-   de bibliothèque (tutoriel guidé)
+   de bibliothèque (tutoriel guidé).
 1. **[01-encapsulation-basic](01-encapsulation-basic/)** : Encapsulation simple
-   avec getters et setters
+   avec getters et setters.
 2. **[02-encapsulation-validation](02-encapsulation-validation/)** :
-   Encapsulation avec validation des données
+   Encapsulation avec validation des données.
 3. **[03-heritage-simple](03-heritage-simple/)** : Héritage simple entre deux
-   classes
+   classes.
 4. **[04-heritage-abstract](04-heritage-abstract/)** : Classe abstraite et
-   méthodes abstraites
+   méthodes abstraites.
 5. **[05-modificateur-protected](05-modificateur-protected/)** : Utilisation du
-   modificateur `protected`
+   modificateur `protected`.
 6. **[06-redefinition-methode](06-redefinition-methode/)** : Redéfinition de
-   méthodes avec `@Override`
+   méthodes avec `@Override`.
 7. **[07-organisation-fichiers](07-organisation-fichiers/)** : Bonne pratique
-   avec un fichier par classe
+   avec un fichier par classe.
 
 ### Pratiques à éviter (11-13)
 
@@ -35,11 +35,11 @@ Exemples illustrant les erreurs courantes et les mauvaises pratiques, avec leurs
 corrections.
 
 1. **[11-a-eviter-pas-encapsulation](11-a-eviter-pas-encapsulation/)** :
-   Attributs directement accessibles sans protection
+   Attributs directement accessibles sans protection.
 2. **[12-a-eviter-validation-manquante](12-a-eviter-validation-manquante/)** :
-   Encapsulation sans validation appropriée
+   Encapsulation sans validation appropriée.
 3. **[13-a-eviter-heritage-inutile](13-a-eviter-heritage-inutile/)** : Héritage
-   utilisé incorrectement
+   utilisé incorrectement.
 
 ## Structure de chaque exemple
 
