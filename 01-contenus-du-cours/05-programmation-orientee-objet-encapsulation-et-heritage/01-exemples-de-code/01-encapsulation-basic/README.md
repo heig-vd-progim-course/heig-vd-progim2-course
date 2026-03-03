@@ -154,8 +154,8 @@ Solde: 1500.0 CHF
 ## Points clés
 
 - Les attributs sont déclarés `private` pour empêcher l'accès direct
-- Les getters permettent de **lire** les valeurs des attributs privés
-- Les setters permettent de **modifier** les valeurs des attributs privés
+- Les getters permettent de lire les valeurs des attributs privés
+- Les setters permettent de modifier les valeurs des attributs privés
 - L'encapsulation crée une interface publique contrôlée (getters/setters)
 - Le code externe ne peut plus accéder directement aux attributs
 
