@@ -23,7 +23,7 @@ note right of Product
   PROBLÈME :
   - Attributs privés ✓
   - Getters/setters ✓
-  - MAIS aucune validation ❌
+  - MAIS aucune validation
   
   Fausse sécurité :
   On croit être protégé,
