@@ -1,6 +1,9 @@
 @startuml exercice-09-validation
 !theme plain
 
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
 class Product {
   -name: String
   -price: double
@@ -18,5 +21,7 @@ note right of Product
   - Constructeur: garantit état initial valide
   - Setters: garantit état toujours valide
 end note
+
+
 
 @enduml

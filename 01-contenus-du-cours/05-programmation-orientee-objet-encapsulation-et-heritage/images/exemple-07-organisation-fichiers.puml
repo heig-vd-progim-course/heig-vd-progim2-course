@@ -1,5 +1,8 @@
-@startuml
+@startuml exemple-07-organisation-fichiers
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 abstract class Employee {
   # name: String
@@ -47,5 +50,7 @@ note top of Employee
   - Manager.java
   - Main.java
 end note
+
+
 
 @enduml

@@ -1,5 +1,8 @@
-@startuml
+@startuml vehicles-with-inheritance
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 class Vehicle {
   - brand: String
@@ -22,5 +25,7 @@ class Truck {
 Vehicle <|-- Car
 Vehicle <|-- Motorcycle
 Vehicle <|-- Truck
+
+
 
 @enduml

@@ -1,5 +1,8 @@
-@startuml
+@startuml parent-child-override
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 class Parent {
   + greet(): void
@@ -10,5 +13,7 @@ class Child {
 }
 
 Parent <|-- Child
+
+
 
 @enduml

@@ -1,5 +1,8 @@
-@startuml
+@startuml vehicle-complete-example
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 abstract class Vehicle {
   # brand: String
@@ -45,5 +48,7 @@ Vehicle <|-- Motorcycle
 VehicleDemo ..> Vehicle
 VehicleDemo ..> Car
 VehicleDemo ..> Motorcycle
+
+
 
 @enduml

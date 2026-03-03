@@ -1,6 +1,9 @@
 @startuml exercice-11-classe-abstraite
 !theme plain
 
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
 abstract class Payment {
   #amount: double
   +Payment(amount: double)
@@ -32,5 +35,7 @@ note top of Payment
   - Méthodes abstraites
     à implémenter
 end note
+
+
 
 @enduml

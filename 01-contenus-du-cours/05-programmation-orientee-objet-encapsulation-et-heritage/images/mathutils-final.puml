@@ -1,7 +1,12 @@
-@startuml
+@startuml mathutils-final
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 class MathUtils <<final>> {
 }
+
+
 
 @enduml

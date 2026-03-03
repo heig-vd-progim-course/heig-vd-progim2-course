@@ -1,5 +1,8 @@
-@startuml
+@startuml animal-dog-super
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 class Animal {
   # name: String
@@ -19,5 +22,7 @@ Animal <|-- Dog
 note right of Dog::Dog
   super(name, age)
 end note
+
+
 
 @enduml

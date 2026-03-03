@@ -1,5 +1,8 @@
-@startuml
+@startuml bankaccount-getters-setters
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 class BankAccount {
   - owner: String
@@ -12,5 +15,7 @@ class BankAccount {
   + setBalance(balance: double): void
   + displayInfo(): void
 }
+
+
 
 @enduml

@@ -1,6 +1,9 @@
 @startuml exercice-13-paiement
 !theme plain
 
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
 abstract class PaymentMethod {
   #amount: double
   +PaymentMethod(amount: double)
@@ -41,5 +44,7 @@ PaymentMethod <|-- CreditCard
 PaymentMethod <|-- PayPal
 PaymentMethod <|-- BankTransfer
 PaymentProcessor --> PaymentMethod
+
+
 
 @enduml

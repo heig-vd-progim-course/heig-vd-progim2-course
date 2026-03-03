@@ -1,4 +1,8 @@
-@startuml
+@startuml class-diagram-garden-system
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 abstract class PlantBase {
   # name: String
@@ -93,5 +97,7 @@ PlantBase <|-- TreePlant
 GardenManagementSystem ..> PlantBase
 GardenManagementSystem ..> Plot
 GardenManagementSystem ..> Gardener
+
+
 
 @enduml

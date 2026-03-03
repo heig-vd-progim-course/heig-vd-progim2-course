@@ -1,5 +1,8 @@
-@startuml
+@startuml exemple-13-a-eviter-heritage-inutile
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 ' Exemple 1 : Stack hérite de ArrayList
 class ArrayList {
@@ -69,5 +72,7 @@ note right of Car
   un Engine, elle EN A un
   → Utiliser composition
 end note
+
+
 
 @enduml

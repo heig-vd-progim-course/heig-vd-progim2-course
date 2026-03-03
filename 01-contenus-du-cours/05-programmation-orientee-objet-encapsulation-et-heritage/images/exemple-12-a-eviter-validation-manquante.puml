@@ -1,5 +1,8 @@
-@startuml
+@startuml exemple-12-a-eviter-validation-manquante
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 class Product {
   - name: String
@@ -33,5 +36,7 @@ note bottom of Product
   product.setPrice(-999.99);  // Accepté !
   product.setStock(-50);      // Accepté !
 end note
+
+
 
 @enduml

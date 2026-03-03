@@ -1,5 +1,8 @@
-@startuml
+@startuml exemple-02-encapsulation-validation
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 class BankAccount {
   - accountNumber: String
@@ -22,5 +25,7 @@ note right of BankAccount
   - Setters avec vérifications
   - Méthodes métier avec validation
 end note
+
+
 
 @enduml

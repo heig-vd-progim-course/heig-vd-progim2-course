@@ -1,6 +1,9 @@
 @startuml exercice-01-encapsulation
 !theme plain
 
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
 class Person {
   -name: String
   -age: int
@@ -17,5 +20,7 @@ note right of Person
   getters et setters.
   Pas de setter pour age.
 end note
+
+
 
 @enduml

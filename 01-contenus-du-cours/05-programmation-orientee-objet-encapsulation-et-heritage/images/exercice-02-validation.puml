@@ -1,6 +1,9 @@
 @startuml exercice-02-validation
 !theme plain
 
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
 class Product {
   -name: String
   -price: double
@@ -19,5 +22,7 @@ note right of Product
   - price: >= 0
   - stock: >= 0
 end note
+
+
 
 @enduml

@@ -192,8 +192,11 @@ it at the end of the code description.
 **PlantUML structure for control flow diagrams:**
 
 ```plantuml
-@startuml
+@startuml filename
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 start
 if (condition ) then (true)
@@ -208,11 +211,13 @@ stop
 
 **Important rules:**
 
-- Always use `!theme plain` for consistent styling.
+- Always include filename in `@startuml filename` directive
+- Always use `!theme plain` for consistent styling
+- Include both skinparam settings for visual consistency
 - Use French for action labels: "Afficher", "Déclarer", "Calculer", etc.
-- Use `true` and `false` (not "oui"/"non") for condition branches.
-- Keep diagrams simple and focused on the control flow.
-- Use descriptive file names that reflect the code example.
+- Use `true` and `false` (not "oui"/"non") for condition branches
+- Keep diagrams simple and focused on the control flow
+- Use descriptive file names that reflect the code example
 
 ### Code examples organization
 

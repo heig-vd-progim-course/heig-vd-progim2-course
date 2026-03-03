@@ -1,6 +1,9 @@
 @startuml exercice-10-refactorisation
 !theme plain
 
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
 class "User (avant)" as UserBefore {
   +username: String
   +password: String
@@ -27,5 +30,7 @@ note right of UserAfter
   Accès contrôlé par getters/setters
   Pas de setter pour username
 end note
+
+
 
 @enduml

@@ -1,6 +1,9 @@
 @startuml exercice-08-composition-heritage
 !theme plain
 
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
 class Address {
   -street: String
   -city: String
@@ -23,5 +26,7 @@ note right of Employee
   Préférable à l'héritage car
   Employee n'est pas un Address
 end note
+
+
 
 @enduml

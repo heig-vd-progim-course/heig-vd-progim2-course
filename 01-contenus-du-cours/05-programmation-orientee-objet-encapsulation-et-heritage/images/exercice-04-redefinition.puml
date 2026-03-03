@@ -1,6 +1,9 @@
 @startuml exercice-04-redefinition
 !theme plain
 
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
 abstract class Animal {
   -name: String
   +Animal(name: String)
@@ -30,5 +33,7 @@ note right of Cat
   makeSound() affiche
   "Meow!"
 end note
+
+
 
 @enduml

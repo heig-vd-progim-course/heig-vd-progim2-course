@@ -1,5 +1,8 @@
-@startuml
+@startuml exemple-01-encapsulation-basic
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 class BankAccount {
   - accountNumber: String
@@ -19,5 +22,7 @@ note right of BankAccount
   - Getters/setters publics
   - Accès contrôlé
 end note
+
+
 
 @enduml

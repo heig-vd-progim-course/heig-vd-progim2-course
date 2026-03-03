@@ -1,5 +1,8 @@
-@startuml
+@startuml shape-circle-rectangle
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 abstract class Shape {
   # color: String
@@ -26,5 +29,7 @@ class Rectangle {
 
 Shape <|-- Circle
 Shape <|-- Rectangle
+
+
 
 @enduml

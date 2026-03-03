@@ -1,5 +1,8 @@
-@startuml
+@startuml bankaccount-public
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 class BankAccount {
   + owner: String
@@ -7,5 +10,7 @@ class BankAccount {
   --
   + displayInfo(): void
 }
+
+
 
 @enduml

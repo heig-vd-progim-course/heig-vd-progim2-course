@@ -1,6 +1,9 @@
 @startuml exercice-06-polymorphisme
 !theme plain
 
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
 abstract class Shape {
   +{abstract} calculateArea(): double
   +{abstract} getShapeName(): String
@@ -28,5 +31,7 @@ note bottom of Shape
   Polymorphisme: un Shape[]
   peut contenir Rectangle et Circle
 end note
+
+
 
 @enduml

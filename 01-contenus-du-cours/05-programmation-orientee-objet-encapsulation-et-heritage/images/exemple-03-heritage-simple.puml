@@ -1,5 +1,8 @@
-@startuml
+@startuml exemple-03-heritage-simple
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 class BankAccount {
   # accountNumber: String
@@ -40,5 +43,7 @@ note right of CheckingAccount
   Compte courant avec
   découvert autorisé
 end note
+
+
 
 @enduml

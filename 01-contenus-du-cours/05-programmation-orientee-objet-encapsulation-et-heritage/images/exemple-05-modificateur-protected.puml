@@ -1,5 +1,8 @@
-@startuml
+@startuml exemple-05-modificateur-protected
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 class Vehicle {
   - vin: String {private}
@@ -44,5 +47,7 @@ note bottom of Car
   ✓ brand (protected)
   ✗ vin (private)
 end note
+
+
 
 @enduml

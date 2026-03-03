@@ -1,5 +1,8 @@
-@startuml
+@startuml animal-dog
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 class Animal {
   # name: String
@@ -18,5 +21,7 @@ class Dog {
 }
 
 Animal <|-- Dog
+
+
 
 @enduml

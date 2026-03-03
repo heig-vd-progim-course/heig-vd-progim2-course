@@ -1,6 +1,9 @@
 @startuml exercice-03-heritage-vehicules
 !theme plain
 
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
 class Vehicle {
   -brand: String
   -year: int
@@ -22,5 +25,7 @@ class Motorcycle {
 
 Vehicle <|-- Car
 Vehicle <|-- Motorcycle
+
+
 
 @enduml

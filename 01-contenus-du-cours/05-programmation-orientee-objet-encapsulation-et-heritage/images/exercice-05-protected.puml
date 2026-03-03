@@ -1,6 +1,9 @@
 @startuml exercice-05-protected
 !theme plain
 
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
 class Game {
   #coins: int
   +Game()
@@ -26,5 +29,7 @@ note right of Player
   collectCoin() utilise
   addCoin() de Game
 end note
+
+
 
 @enduml

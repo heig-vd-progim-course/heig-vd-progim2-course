@@ -1,5 +1,8 @@
-@startuml
+@startuml exemple-04-heritage-abstract
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 abstract class Shape {
   # color: String
@@ -48,5 +51,7 @@ note top of Shape
   - Méthodes abstraites
   - Code commun réutilisable
 end note
+
+
 
 @enduml

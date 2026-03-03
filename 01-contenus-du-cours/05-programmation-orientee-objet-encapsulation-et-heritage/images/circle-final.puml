@@ -1,5 +1,8 @@
-@startuml
+@startuml circle-final
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 class Circle {
   - radius: double {final}
@@ -7,5 +10,7 @@ class Circle {
   + Circle(radius: double)
   + getRadius(): double
 }
+
+
 
 @enduml

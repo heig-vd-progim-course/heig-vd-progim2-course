@@ -1,5 +1,8 @@
-@startuml
+@startuml parent-child-protected
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 class Parent {
   - secret: String
@@ -12,5 +15,7 @@ class Child {
 }
 
 Parent <|-- Child
+
+
 
 @enduml
