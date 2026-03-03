@@ -1,0 +1,32 @@
+@startuml exercice-06-polymorphisme
+!theme plain
+
+abstract class Shape {
+  +{abstract} calculateArea(): double
+  +{abstract} getShapeName(): String
+}
+
+class Rectangle {
+  -width: double
+  -height: double
+  +Rectangle(width: double, height: double)
+  +calculateArea(): double
+  +getShapeName(): String
+}
+
+class Circle {
+  -radius: double
+  +Circle(radius: double)
+  +calculateArea(): double
+  +getShapeName(): String
+}
+
+Shape <|-- Rectangle
+Shape <|-- Circle
+
+note bottom of Shape
+  Polymorphisme: un Shape[]
+  peut contenir Rectangle et Circle
+end note
+
+@enduml

@@ -180,7 +180,7 @@ java Main
 
 **Résultat attendu :**
 
-```
+```text
 Compte: CH-1234567890
 Propriétaire: Alice Dupont
 Solde: 0.0 CHF

@@ -1,0 +1,30 @@
+@startuml exercice-05-protected
+!theme plain
+
+class Game {
+  #coins: int
+  +Game()
+  +getCoins(): int
+  #addCoin(): void
+}
+
+class Player {
+  -playerName: String
+  +Player(playerName: String)
+  +collectCoin(): void
+  +displayStats(): void
+}
+
+Game <|-- Player
+
+note right of Game
+  coins est protected:
+  accessible dans Player
+end note
+
+note right of Player
+  collectCoin() utilise
+  addCoin() de Game
+end note
+
+@enduml

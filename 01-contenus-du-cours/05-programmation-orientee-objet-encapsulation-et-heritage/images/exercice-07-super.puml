@@ -1,0 +1,25 @@
+@startuml exercice-07-super
+!theme plain
+
+class Employee {
+  -name: String
+  -salary: double
+  +Employee(name: String, salary: double)
+  +displayInfo(): void
+}
+
+class Manager {
+  -teamSize: int
+  +Manager(name: String, salary: double, teamSize: int)
+  +displayInfo(): void
+}
+
+Employee <|-- Manager
+
+note right of Manager
+  Constructeur utilise
+  super(name, salary)
+  pour initialiser Employee
+end note
+
+@enduml

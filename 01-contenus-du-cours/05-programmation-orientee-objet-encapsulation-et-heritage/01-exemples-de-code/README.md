@@ -34,12 +34,12 @@ l'encapsulation et de l'héritage, du plus simple au plus complexe.
 Exemples illustrant les erreurs courantes et les mauvaises pratiques, avec leurs
 corrections.
 
-11. **[11-a-eviter-pas-encapsulation](11-a-eviter-pas-encapsulation/)** :
-    Attributs directement accessibles sans protection
-12. **[12-a-eviter-validation-manquante](12-a-eviter-validation-manquante/)** :
-    Encapsulation sans validation appropriée
-13. **[13-a-eviter-heritage-inutile](13-a-eviter-heritage-inutile/)** : Héritage
-    utilisé incorrectement
+1. **[11-a-eviter-pas-encapsulation](11-a-eviter-pas-encapsulation/)** :
+   Attributs directement accessibles sans protection
+2. **[12-a-eviter-validation-manquante](12-a-eviter-validation-manquante/)** :
+   Encapsulation sans validation appropriée
+3. **[13-a-eviter-heritage-inutile](13-a-eviter-heritage-inutile/)** : Héritage
+   utilisé incorrectement
 
 ## Structure de chaque exemple
 

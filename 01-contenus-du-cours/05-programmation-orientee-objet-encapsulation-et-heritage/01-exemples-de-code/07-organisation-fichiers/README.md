@@ -28,7 +28,7 @@ En Java professionnel :
 
 Cet exemple contient **5 fichiers** :
 
-```
+```text
 07-organisation-fichiers/
 ├── README.md
 ├── Employee.java       (classe abstraite)
@@ -238,7 +238,7 @@ java Main
 
 **Résultat attendu :**
 
-```
+```text
 === Système de gestion des employés ===
 
 === Activités ===

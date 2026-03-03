@@ -1,0 +1,44 @@
+@startuml exercice-12-zoo
+!theme plain
+
+abstract class Animal {
+  -name: String
+  -age: int
+  +Animal(name: String, age: int)
+  +getName(): String
+  +getAge(): int
+  +{abstract} makeSound(): void
+  +{abstract} getFoodType(): String
+}
+
+class Lion {
+  +Lion(name: String, age: int)
+  +makeSound(): void
+  +getFoodType(): String
+}
+
+class Elephant {
+  +Elephant(name: String, age: int)
+  +makeSound(): void
+  +getFoodType(): String
+}
+
+class Penguin {
+  +Penguin(name: String, age: int)
+  +makeSound(): void
+  +getFoodType(): String
+}
+
+class Zoo {
+  -animals: Animal[]
+  +addAnimal(animal: Animal): void
+  +feedAllAnimals(): void
+  +makeAllSounds(): void
+}
+
+Animal <|-- Lion
+Animal <|-- Elephant
+Animal <|-- Penguin
+Zoo o-- Animal
+
+@enduml

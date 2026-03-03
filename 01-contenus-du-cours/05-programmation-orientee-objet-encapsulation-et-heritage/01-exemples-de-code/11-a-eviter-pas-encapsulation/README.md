@@ -132,7 +132,7 @@ java ErrorExample
 
 **Résultat :**
 
-```
+```text
 === Démonstration des problèmes ===
 
 Problème 1 - Aucune validation:

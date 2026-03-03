@@ -1,0 +1,27 @@
+@startuml exercice-08-composition-heritage
+!theme plain
+
+class Address {
+  -street: String
+  -city: String
+  -postalCode: String
+  +Address(street: String, city: String, postalCode: String)
+  +toString(): String
+}
+
+class Employee {
+  -name: String
+  -address: Address
+  +Employee(name: String, address: Address)
+  +displayInfo(): void
+}
+
+Employee --> Address : composition
+
+note right of Employee
+  Composition: Employee "a" Address
+  Préférable à l'héritage car
+  Employee n'est pas un Address
+end note
+
+@enduml

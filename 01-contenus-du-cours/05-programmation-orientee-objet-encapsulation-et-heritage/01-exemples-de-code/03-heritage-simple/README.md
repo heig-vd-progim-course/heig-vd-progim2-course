@@ -185,7 +185,7 @@ java Main
 
 **Résultat attendu :**
 
-```
+```text
 === Compte épargne ===
 Dépôt de 1000.0 CHF effectué
 Intérêts appliqués: 25.0 CHF

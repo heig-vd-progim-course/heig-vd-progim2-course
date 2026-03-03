@@ -1,0 +1,31 @@
+@startuml exercice-10-refactorisation
+!theme plain
+
+class "User (avant)" as UserBefore {
+  +username: String
+  +password: String
+  +email: String
+}
+
+class "User (après)" as UserAfter {
+  -username: String
+  -password: String
+  -email: String
+  +getUsername(): String
+  +setPassword(password: String): void
+  +getEmail(): String
+  +setEmail(email: String): void
+}
+
+note right of UserBefore
+  Problème: attributs publics
+  Aucun contrôle d'accès
+end note
+
+note right of UserAfter
+  Solution: attributs privés
+  Accès contrôlé par getters/setters
+  Pas de setter pour username
+end note
+
+@enduml

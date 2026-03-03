@@ -1,0 +1,36 @@
+@startuml exercice-11-classe-abstraite
+!theme plain
+
+abstract class Payment {
+  #amount: double
+  +Payment(amount: double)
+  +getAmount(): double
+  +{abstract} processPayment(): boolean
+  +{abstract} getPaymentDetails(): String
+}
+
+class CreditCardPayment {
+  -cardNumber: String
+  +CreditCardPayment(amount: double, cardNumber: String)
+  +processPayment(): boolean
+  +getPaymentDetails(): String
+}
+
+class BankTransferPayment {
+  -accountNumber: String
+  +BankTransferPayment(amount: double, accountNumber: String)
+  +processPayment(): boolean
+  +getPaymentDetails(): String
+}
+
+Payment <|-- CreditCardPayment
+Payment <|-- BankTransferPayment
+
+note top of Payment
+  Classe abstraite avec:
+  - Attribut commun (amount)
+  - Méthodes abstraites
+    à implémenter
+end note
+
+@enduml

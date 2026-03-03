@@ -138,7 +138,7 @@ java Main
 
 **Résultat attendu :**
 
-```
+```text
 Numéro de compte: CH-1234567890
 Solde initial: 0.0 CHF
 

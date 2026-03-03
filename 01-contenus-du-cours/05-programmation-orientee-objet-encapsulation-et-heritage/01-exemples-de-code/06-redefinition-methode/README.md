@@ -249,7 +249,7 @@ java Main
 
 **Résultat attendu :**
 
-```
+```text
 === Redéfinition (Override) ===
 
 Rex aboie: Wouaf! Wouaf!

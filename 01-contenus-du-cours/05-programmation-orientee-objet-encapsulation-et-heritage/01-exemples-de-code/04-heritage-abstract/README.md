@@ -243,7 +243,7 @@ java Main
 
 **Résultat attendu :**
 
-```
+```text
 === Rectangle ===
 Forme: Rectangle
 Couleur: bleu
