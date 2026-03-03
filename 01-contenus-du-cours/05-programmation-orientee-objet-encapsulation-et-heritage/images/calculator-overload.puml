@@ -1,0 +1,15 @@
+@startuml calculator-overload
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Calculator {
+  + add(a: int, b: int): int
+  + add(a: double, b: double): double
+  + add(a: int, b: int, c: int): int
+}
+
+
+
+@enduml

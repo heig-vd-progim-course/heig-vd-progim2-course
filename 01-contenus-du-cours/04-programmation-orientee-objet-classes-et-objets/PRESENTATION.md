@@ -62,11 +62,15 @@ document._
 - Utiliser le mot-clé `new` pour créer des instances.
 - Déclarer des attributs de différents types dans une classe.
 
+![bg right:40%][illustration-objectifs]
+
 ## Objectifs (3/3)
 
 - Implémenter des méthodes pour manipuler les attributs d'une classe.
 - Utiliser le mot-clé `this` pour référencer l'instance courante.
 - Créer des constructeurs pour initialiser les objets.
+
+![bg right:40%][illustration-objectifs]
 
 ## Qu'est-ce que la POO ?
 
@@ -422,10 +426,9 @@ Est-ce que vous avez des questions ?
 - Faire les exercices.
 - Faire le mini-projet.
 - Poser des questions si nécessaire.
+- Entraidez-vous
 
-➡️ [Visualiser le contenu complet sur GitHub.][contenu-complet-sur-github]
-
-**N'hésitez pas à vous entraidez si vous avez des difficultés !**
+➡️ [Contenu complet sur GitHub.][contenu-complet-sur-github]
 
 ![bg right:40%][illustration-a-vous-de-jouer]
 
@@ -435,8 +438,8 @@ Est-ce que vous avez des questions ?
   [Luca Bravo](https://unsplash.com/@lucabravo) sur
   [Unsplash](https://unsplash.com/photos/black-flat-screen-computer-monitor-XJXWbfSo2f0)
 - [Illustration][illustration-objectifs] par
-  [Brands&People](https://unsplash.com/@brandsandpeople) sur
-  [Unsplash](https://unsplash.com/photos/person-holding-compass-in-forest-M94kn8Rp61Q)
+  [Aline de Nadai](https://unsplash.com/@alinedenadai) sur
+  [Unsplash](https://unsplash.com/photos/low-angle-view-of-ball-shoots-in-the-ring-j6brni7fpvs)
 
 ## Sources (2/2)
 
@@ -450,8 +453,8 @@ Est-ce que vous avez des questions ?
   [Ferenc Almasi](https://unsplash.com/@flowforfrank) sur
   [Unsplash](https://unsplash.com/photos/macbook-pro-on-brown-wooden-table-EWLHA4T-mso)
 - [Illustration][illustration-a-vous-de-jouer] par
-  [Lala Azizli](https://unsplash.com/@lazizli) sur
-  [Unsplash](https://unsplash.com/photos/person-using-laptop-computer-tfNyTfJpKvc)
+  [Nikita Kachanovsky](https://unsplash.com/@nkachanovskyyy) sur
+  [Unsplash](https://unsplash.com/photos/white-sony-ps4-dualshock-controller-over-persons-palm-FJFPuE1MAOM)
 
 <!-- URLs -->
 
@@ -467,7 +470,7 @@ Est-ce que vous avez des questions ?
 [illustration-principale]:
 	https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2069&auto=format&fit=crop
 [illustration-objectifs]:
-	https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=2070&auto=format&fit=crop
+	https://images.unsplash.com/photo-1516389573391-5620a0263801?fit=crop&h=720&auto=format&fit=cro
 [illustration-poo]:
 	https://images.unsplash.com/photo-1635322966219-b75ed372eb01?q=80&w=2064&auto=format&fit=crop
 [illustration-avantages]:
@@ -475,4 +478,4 @@ Est-ce que vous avez des questions ?
 [illustration-dry]:
 	https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop
 [illustration-a-vous-de-jouer]:
-	https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2070&auto=format&fit=crop
+	https://images.unsplash.com/photo-1509198397868-475647b2a1e5?fit=crop&h=720

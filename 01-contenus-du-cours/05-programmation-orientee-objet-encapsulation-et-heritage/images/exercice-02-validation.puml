@@ -1,0 +1,28 @@
+@startuml exercice-02-validation
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Product {
+  -name: String
+  -price: double
+  -stock: int
+  +setName(name: String): void
+  +setPrice(price: double): void
+  +setStock(stock: int): void
+  +getName(): String
+  +getPrice(): double
+  +getStock(): int
+}
+
+note right of Product
+  Validation dans les setters:
+  - name: non null, non vide
+  - price: >= 0
+  - stock: >= 0
+end note
+
+
+
+@enduml

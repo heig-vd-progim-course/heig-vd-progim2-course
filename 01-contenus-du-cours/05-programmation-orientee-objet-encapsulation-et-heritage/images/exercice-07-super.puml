@@ -1,0 +1,30 @@
+@startuml exercice-07-super
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Employee {
+  -name: String
+  -salary: double
+  +Employee(name: String, salary: double)
+  +displayInfo(): void
+}
+
+class Manager {
+  -teamSize: int
+  +Manager(name: String, salary: double, teamSize: int)
+  +displayInfo(): void
+}
+
+Employee <|-- Manager
+
+note right of Manager
+  Constructeur utilise
+  super(name, salary)
+  pour initialiser Employee
+end note
+
+
+
+@enduml

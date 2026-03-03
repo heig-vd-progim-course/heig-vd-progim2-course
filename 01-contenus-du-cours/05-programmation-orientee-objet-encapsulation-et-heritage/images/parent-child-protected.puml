@@ -1,0 +1,21 @@
+@startuml parent-child-protected
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Parent {
+  - secret: String
+  # family: String
+  + forEveryone: String
+}
+
+class Child {
+  + test(): void
+}
+
+Parent <|-- Child
+
+
+
+@enduml

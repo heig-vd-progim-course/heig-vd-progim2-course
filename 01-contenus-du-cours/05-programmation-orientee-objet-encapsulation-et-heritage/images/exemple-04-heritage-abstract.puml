@@ -1,0 +1,57 @@
+@startuml exemple-04-heritage-abstract
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+abstract class Shape {
+  # color: String
+  --
+  + Shape(color: String)
+  + {abstract} calculateArea(): double
+  + {abstract} calculatePerimeter(): double
+  + displayInfo(): void
+  + paint(newColor: String): void
+}
+
+class Rectangle {
+  - width: double
+  - height: double
+  --
+  + Rectangle(color: String, width: double, height: double)
+  + calculateArea(): double
+  + calculatePerimeter(): double
+}
+
+class Circle {
+  - radius: double
+  --
+  + Circle(color: String, radius: double)
+  + calculateArea(): double
+  + calculatePerimeter(): double
+}
+
+class Triangle {
+  - side1: double
+  - side2: double
+  - side3: double
+  --
+  + Triangle(color: String, side1: double, side2: double, side3: double)
+  + calculateArea(): double
+  + calculatePerimeter(): double
+}
+
+Shape <|-- Rectangle
+Shape <|-- Circle
+Shape <|-- Triangle
+
+note top of Shape
+  Classe abstraite :
+  - Définit le contrat
+  - Méthodes abstraites
+  - Code commun réutilisable
+end note
+
+
+
+@enduml

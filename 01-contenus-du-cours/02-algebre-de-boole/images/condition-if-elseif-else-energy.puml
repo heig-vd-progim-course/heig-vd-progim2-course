@@ -1,5 +1,8 @@
-@startuml
+@startuml condition-if-elseif-else-energy
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 start
 if (useSolarPower ) then (true)

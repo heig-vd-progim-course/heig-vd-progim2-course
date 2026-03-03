@@ -1,0 +1,39 @@
+@startuml exercice-04-redefinition
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+abstract class Animal {
+  -name: String
+  +Animal(name: String)
+  +getName(): String
+  +{abstract} makeSound(): void
+}
+
+class Dog {
+  +Dog(name: String)
+  +makeSound(): void
+}
+
+class Cat {
+  +Cat(name: String)
+  +makeSound(): void
+}
+
+Animal <|-- Dog
+Animal <|-- Cat
+
+note right of Dog
+  makeSound() affiche
+  "Woof! Woof!"
+end note
+
+note right of Cat
+  makeSound() affiche
+  "Meow!"
+end note
+
+
+
+@enduml

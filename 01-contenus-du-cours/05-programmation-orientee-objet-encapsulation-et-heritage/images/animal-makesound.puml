@@ -1,0 +1,19 @@
+@startuml animal-makesound
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Animal {
+  + makeSound(): void
+}
+
+class Dog {
+  + makeSound(): void
+}
+
+Animal <|-- Dog
+
+
+
+@enduml

@@ -1,0 +1,53 @@
+@startuml exemple-05-modificateur-protected
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Vehicle {
+  - vin: String {private}
+  # brand: String {protected}
+  + model: String {public}
+  --
+  + Vehicle(vin: String, brand: String, model: String)
+  # displayVin(): void
+  + displayInfo(): void
+}
+
+class Car {
+  - numberOfDoors: int
+  --
+  + Car(vin: String, brand: String, model: String, numberOfDoors: int)
+  + displayBrandUpperCase(): void
+  + testAccess(): void
+  + displayInfo(): void
+}
+
+class Motorcycle {
+  - type: String
+  --
+  + Motorcycle(vin: String, brand: String, model: String, type: String)
+  + displayCustomInfo(): void
+  + displayInfo(): void
+}
+
+Vehicle <|-- Car
+Vehicle <|-- Motorcycle
+
+note right of Vehicle
+  Modificateurs d'accès :
+  - private : uniquement Vehicle
+  # protected : Vehicle + sous-classes
+  + public : accessible partout
+end note
+
+note bottom of Car
+  Accès :
+  ✓ model (public)
+  ✓ brand (protected)
+  ✗ vin (private)
+end note
+
+
+
+@enduml

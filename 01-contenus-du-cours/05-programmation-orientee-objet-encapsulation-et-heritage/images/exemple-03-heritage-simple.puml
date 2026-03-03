@@ -1,0 +1,49 @@
+@startuml exemple-03-heritage-simple
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class BankAccount {
+  # accountNumber: String
+  # ownerName: String
+  # balance: double
+  --
+  + BankAccount(accountNumber: String, ownerName: String)
+  + deposit(amount: double): void
+  + withdraw(amount: double): void
+  + displayInfo(): void
+}
+
+class SavingsAccount {
+  - interestRate: double
+  --
+  + SavingsAccount(accountNumber: String, ownerName: String, interestRate: double)
+  + applyInterest(): void
+  + displayInfo(): void
+}
+
+class CheckingAccount {
+  - overdraftLimit: double
+  --
+  + CheckingAccount(accountNumber: String, ownerName: String, overdraftLimit: double)
+  + withdraw(amount: double): void
+  + displayInfo(): void
+}
+
+BankAccount <|-- SavingsAccount
+BankAccount <|-- CheckingAccount
+
+note right of SavingsAccount
+  Compte épargne avec
+  taux d'intérêt
+end note
+
+note right of CheckingAccount
+  Compte courant avec
+  découvert autorisé
+end note
+
+
+
+@enduml

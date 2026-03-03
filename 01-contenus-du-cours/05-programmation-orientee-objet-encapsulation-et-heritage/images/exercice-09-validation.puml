@@ -1,0 +1,27 @@
+@startuml exercice-09-validation
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Product {
+  -name: String
+  -price: double
+  +Product(name: String, price: double)
+  +setName(name: String): void
+  +setPrice(price: double): void
+}
+
+note right of Product
+  Validation possible à 2 endroits:
+  1. Dans le constructeur
+  2. Dans les setters
+  
+  Meilleure pratique: les deux!
+  - Constructeur: garantit état initial valide
+  - Setters: garantit état toujours valide
+end note
+
+
+
+@enduml

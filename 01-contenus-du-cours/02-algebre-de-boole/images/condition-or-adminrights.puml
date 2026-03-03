@@ -1,5 +1,8 @@
-@startuml
+@startuml condition-or-adminrights
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 start
 if (hasAdminRights || hasSpecialPermission ) then (true)

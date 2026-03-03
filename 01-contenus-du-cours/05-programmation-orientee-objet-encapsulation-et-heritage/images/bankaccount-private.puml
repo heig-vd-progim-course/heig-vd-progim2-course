@@ -1,0 +1,16 @@
+@startuml bankaccount-private
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class BankAccount {
+  - owner: String
+  - balance: double
+  --
+  + displayInfo(): void
+}
+
+
+
+@enduml

@@ -1,0 +1,50 @@
+@startuml exercice-13-paiement
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+abstract class PaymentMethod {
+  #amount: double
+  +PaymentMethod(amount: double)
+  +getAmount(): double
+  +{abstract} processPayment(): boolean
+  +{abstract} getTransactionFee(): double
+  +getTotalAmount(): double
+}
+
+class CreditCard {
+  -cardNumber: String
+  -cvv: String
+  +CreditCard(amount: double, cardNumber: String, cvv: String)
+  +processPayment(): boolean
+  +getTransactionFee(): double
+}
+
+class PayPal {
+  -email: String
+  +PayPal(amount: double, email: String)
+  +processPayment(): boolean
+  +getTransactionFee(): double
+}
+
+class BankTransfer {
+  -iban: String
+  +BankTransfer(amount: double, iban: String)
+  +processPayment(): boolean
+  +getTransactionFee(): double
+}
+
+class PaymentProcessor {
+  +executePayment(method: PaymentMethod): void
+  +displayPaymentSummary(method: PaymentMethod): void
+}
+
+PaymentMethod <|-- CreditCard
+PaymentMethod <|-- PayPal
+PaymentMethod <|-- BankTransfer
+PaymentProcessor --> PaymentMethod
+
+
+
+@enduml

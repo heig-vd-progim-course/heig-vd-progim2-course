@@ -1,0 +1,13 @@
+@startuml parent-final-method
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Parent {
+  + criticalMethod(): void {final}
+}
+
+
+
+@enduml

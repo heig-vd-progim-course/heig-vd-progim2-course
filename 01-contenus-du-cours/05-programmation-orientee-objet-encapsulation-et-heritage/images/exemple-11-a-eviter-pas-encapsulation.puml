@@ -1,0 +1,30 @@
+@startuml exemple-11-a-eviter-pas-encapsulation
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class BankAccount {
+  accountNumber: String {sans modificateur}
+  ownerName: String {sans modificateur}
+  balance: double {sans modificateur}
+}
+
+note right of BankAccount
+  PROBLÈME :
+  - Aucune encapsulation
+  - Pas de validation
+  - Modifications incontrôlées
+  - États invalides possibles
+  - Pas de traçabilité
+end note
+
+note bottom of BankAccount
+  Exemple d'utilisation problématique :
+  account.balance = -1000.0;  // Accepté !
+  account.ownerName = null;   // Accepté !
+end note
+
+
+
+@enduml

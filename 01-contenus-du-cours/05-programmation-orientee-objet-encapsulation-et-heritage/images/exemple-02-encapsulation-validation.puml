@@ -1,0 +1,31 @@
+@startuml exemple-02-encapsulation-validation
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class BankAccount {
+  - accountNumber: String
+  - ownerName: String
+  - balance: double
+  --
+  + BankAccount(accountNumber: String, ownerName: String)
+  + getAccountNumber(): String
+  + getOwnerName(): String
+  + getBalance(): double
+  + setOwnerName(ownerName: String): void
+  + deposit(amount: double): void
+  + withdraw(amount: double): void
+  + displayInfo(): void
+}
+
+note right of BankAccount
+  Encapsulation avec validation :
+  - Constructeur valide les paramètres
+  - Setters avec vérifications
+  - Méthodes métier avec validation
+end note
+
+
+
+@enduml

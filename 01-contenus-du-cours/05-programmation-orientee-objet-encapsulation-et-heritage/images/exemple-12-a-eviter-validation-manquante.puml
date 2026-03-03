@@ -1,0 +1,42 @@
+@startuml exemple-12-a-eviter-validation-manquante
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Product {
+  - name: String
+  - price: double
+  - stock: int
+  --
+  + Product(name: String, price: double, stock: int)
+  + getName(): String
+  + getPrice(): double
+  + getStock(): int
+  + setName(name: String): void
+  + setPrice(price: double): void
+  + setStock(stock: int): void
+  + displayInfo(): void
+}
+
+note right of Product
+  PROBLÈME :
+  - Attributs privés ✓
+  - Getters/setters ✓
+  - MAIS aucune validation
+  
+  Fausse sécurité :
+  On croit être protégé,
+  mais les valeurs invalides
+  sont acceptées
+end note
+
+note bottom of Product
+  Exemple problématique :
+  product.setPrice(-999.99);  // Accepté !
+  product.setStock(-50);      // Accepté !
+end note
+
+
+
+@enduml

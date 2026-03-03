@@ -1,0 +1,31 @@
+@startuml exercice-03-heritage-vehicules
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Vehicle {
+  -brand: String
+  -year: int
+  +Vehicle(brand: String, year: int)
+  +displayInfo(): void
+}
+
+class Car {
+  -numberOfDoors: int
+  +Car(brand: String, year: int, numberOfDoors: int)
+  +displayInfo(): void
+}
+
+class Motorcycle {
+  -hasPassengerSeat: boolean
+  +Motorcycle(brand: String, year: int, hasPassengerSeat: boolean)
+  +displayInfo(): void
+}
+
+Vehicle <|-- Car
+Vehicle <|-- Motorcycle
+
+
+
+@enduml

@@ -1,0 +1,54 @@
+@startuml vehicle-complete-example
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+abstract class Vehicle {
+  # brand: String
+  # model: String
+  # year: int
+  # fuelLevel: double
+  --
+  + Vehicle(brand: String, model: String, year: int)
+  + getBrand(): String
+  + getModel(): String
+  + getYear(): int
+  + getFuelLevel(): double
+  + setFuelLevel(fuelLevel: double): void
+  + refuel(amount: double): void
+  + {abstract} start(): void
+  + {abstract} getVehicleType(): String
+}
+
+class Car {
+  - numberOfDoors: int
+  --
+  + Car(brand: String, model: String, year: int, numberOfDoors: int)
+  + getNumberOfDoors(): int
+  + start(): void
+  + getVehicleType(): String
+}
+
+class Motorcycle {
+  - hasSidecar: boolean {final}
+  --
+  + Motorcycle(brand: String, model: String, year: int, hasSidecar: boolean)
+  + hasSidecar(): boolean
+  + start(): void
+  + getVehicleType(): String
+}
+
+class VehicleDemo {
+  + {static} main(args: String[]): void
+}
+
+Vehicle <|-- Car
+Vehicle <|-- Motorcycle
+VehicleDemo ..> Vehicle
+VehicleDemo ..> Car
+VehicleDemo ..> Motorcycle
+
+
+
+@enduml

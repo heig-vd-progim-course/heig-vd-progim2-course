@@ -1,8 +1,12 @@
 # Programmation orientée objet : Encapsulation et héritage - Mini-projet (partie 2)
 
-Ce mini-projet est conçu pour vous permettre de mettre en pratique les concepts
-théoriques vus dans le contenu
-_["Programmation orientée objet : Encapsulation et héritage"](../)_.
+Bienvenue dans la deuxième partie du mini-projet sur la gestion de jardin
+communautaire !
+
+> [!TIP]
+>
+> Toutes les informations relatives à ce contenu sont décrites dans le
+> [support de cours principal](../).
 
 ## Table des matières
 
@@ -29,22 +33,38 @@ _["Programmation orientée objet : Encapsulation et héritage"](../)_.
 - [Diagramme de classes](#diagramme-de-classes)
 - [Solution](#solution)
 - [Conclusion](#conclusion)
-- [Aller plus loin](#aller-plus-loin)
+  - [Prochaine étape](#prochaine-étape)
 
 ## Présentation du mini-projet
 
-Dans cette deuxième partie du mini-projet fil rouge, nous allons améliorer
-l'application de gestion de jardin communautaire créée lors de la première
-session.
+Dans cette deuxième partie du mini-projet, nous allons améliorer l'application
+de gestion de jardin communautaire créée lors de la première session.
 
-Nous allons appliquer les principes d'**encapsulation** pour protéger les
-données et garantir leur cohérence, puis introduire l'**héritage** pour créer
-une hiérarchie de classes de plantes avec des comportements spécifiques.
+Lors de la première session, nous avons créé des classes simples avec des
+attributs publics. Cela fonctionnait, mais posait plusieurs problèmes :
+
+- N'importe qui peut modifier directement les attributs, même avec des valeurs
+  invalides.
+- Il n'y a pas de contrôle sur les données.
+- Le code n'est pas réutilisable si nous voulons créer différents types de
+  plantes.
+
+Nous allons résoudre ces problèmes en appliquant deux principes fondamentaux de
+la programmation orientée objet :
+
+1. L'**encapsulation** : protéger les données et contrôler leur accès.
+2. L'**héritage** : réutiliser du code et créer des hiérarchies de classes.
 
 > [!TIP]
 >
 > Le [support de cours](../) est disponible pour vous aider à comprendre les
 > concepts théoriques abordés dans ce mini-projet si besoin !
+
+> [!NOTE]
+>
+> Cette session vous permettra de comprendre pourquoi l'encapsulation et
+> l'héritage sont essentiels en programmation orientée objet. Vous verrez
+> concrètement les avantages qu'ils apportent !
 
 ## Objectifs de cette session
 
@@ -67,6 +87,8 @@ une hiérarchie de classes de plantes avec des comportements spécifiques.
 
 ## Structure du projet
 
+Avant de commencer, voyons comment nous allons organiser notre projet.
+
 Pour cette partie du mini-projet, nous allons étendre la structure existante :
 
 ```text
@@ -82,22 +104,75 @@ Pour cette partie du mini-projet, nous allons étendre la structure existante :
         └── GardenManagementSystem.java (mise à jour)
 ```
 
+> [!NOTE]
+>
+> Vous remarquerez que nous allons créer plusieurs nouveaux fichiers. Ne vous
+> inquiétez pas, nous allons les créer ensemble, étape par étape !
+
 > [!IMPORTANT]
 >
 > Cette partie fait suite à la première session. Si vous n'avez pas terminé la
 > partie 1, récupérez le code de la solution avant de continuer.
+>
+> Assurez-vous d'avoir votre projet de la partie 1 ouvert dans votre éditeur de
+> code préféré (VS Code, IntelliJ IDEA, etc.).
 
 ## Amélioration de l'encapsulation
 
-Nous allons commencer par améliorer l'encapsulation de nos classes existantes
-(`Plot` et `Gardener`).
+Commencons par améliorer l'encapsulation de nos classes existantes (`Plot` et
+`Gardener`).
+
+Mais avant de commencer à modifier le code, prenons un moment pour comprendre ce
+que nous allons faire et pourquoi.
+
+> [!NOTE]
+>
+> L'**encapsulation** est l'un des quatre piliers de la programmation orientée
+> objet (avec l'abstraction, l'héritage et le polymorphisme). Elle consiste à
+> cacher les détails internes d'une classe et à contrôler l'accès aux données.
+
+Actuellement, si vous regardez vos classes `Plot` et `Gardener`, les attributs
+sont probablement déclarés comme `public`. Cela signifie que n'importe quelle
+autre classe peut les modifier directement, sans contrôle.
+
+Par exemple, quelqu'un pourrait écrire :
+
+```java
+Plot plot = new Plot(1, 25.5, "Section Nord");
+plot.size = -100; // Oups ! Une taille négative !
+```
+
+Ce code compilerait sans erreur, mais cela n'a aucun sens d'avoir une parcelle
+de taille négative. C'est exactement le type de problème que l'encapsulation
+permet de résoudre.
+
+Nous allons procéder en trois étapes :
+
+1. Rendre les attributs privés (empecher l'accès direct).
+2. Créer des getters et setters (permettre l'accès contrôlé).
+3. Ajouter de la validation dans les setters (garantir la cohérence des
+   données).
+
+> [!TIP]
+>
+> Ces trois étapes forment la base de l'encapsulation. Vous les retrouverez dans
+> presque tous les projets Java professionnels !
 
 ### Étape 1 : rendre les attributs privés
 
-L'encapsulation consiste à cacher l'implémentation interne d'une classe et à
-contrôler l'accès aux données.
+La première étape de l'encapsulation consiste à rendre les attributs privés.
+Cela signifie que seule la classe elle-même pourra accéder directement à ces
+attributs.
 
-Modifiez la classe `Plot` pour rendre tous les attributs privés :
+> [!NOTE]
+>
+> En Java, le mot-clé `private` rend un attribut ou une méthode accessible
+> uniquement depuis l'intérieur de la classe où il est déclaré.
+
+Commencez par ouvrir le fichier `Plot.java` dans votre éditeur.
+
+Modifiez la classe `Plot` pour rendre tous les attributs privés en remplaçant
+`public` par `private` devant chaque attribut :
 
 ```java
 public class Plot {
@@ -124,12 +199,29 @@ public class Plot {
 }
 ```
 
-> [!NOTE]
+> [!IMPORTANT]
 >
-> En rendant les attributs `private`, on empêche l'accès direct depuis
-> l'extérieur de la classe. C'est le premier principe de l'encapsulation.
+> Après avoir rendu les attributs `private`, vous remarquerez probablement que
+> votre code ne compile plus si vous essayez d'accéder directement aux attributs
+> depuis d'autres classes (comme `GardenManagementSystem`). C'est normal et
+> attendu ! Nous allons régler cela à l'étape suivante.
 
-Faites de même pour la classe `Gardener` :
+Prenez un moment pour observer ce changement. Qu'est-ce qui a changé ?
+
+- Les attributs sont maintenant `private` au lieu de `public`.
+- Le constructeur et la méthode `displayInfo()` restent `public` car nous
+  voulons qu'ils soient accessibles de l'extérieur.
+- À l'intérieur de la classe, nous pouvons toujours accéder aux attributs
+  directement (c'est pourquoi `displayInfo()` fonctionne toujours).
+
+> [!TIP]
+>
+> Une règle générale en Java : les attributs sont presque toujours `private`, et
+> les méthodes sont `public` (sauf cas particuliers).
+
+Maintenant, faites la même chose pour la classe `Gardener`.
+
+Ouvrez maintenant le fichier `Gardener.java` et appliquez le même changement :
 
 ```java
 public class Gardener {
@@ -156,11 +248,37 @@ public class Gardener {
 }
 ```
 
+Parfait ! Vous venez de franchir la première étape de l'encapsulation. Les
+données sont maintenant protégées.
+
+Mais il y a un problème : comment peut-on maintenant lire ou modifier ces
+attributs depuis l'extérieur de la classe ? C'est exactement ce que nous allons
+résoudre à l'étape suivante !
+
 ### Étape 2 : créer les getters et setters
 
 Maintenant que les attributs sont privés, nous devons créer des méthodes
-publiques pour y accéder : les **getters** (pour lire) et les **setters** (pour
-modifier).
+publiques pour y accéder depuis l'extérieur de la classe. Ce sont les
+**getters** (pour lire les valeurs) et les **setters** (pour les modifier).
+
+> [!NOTE]
+>
+> Les **getters** et **setters** sont des méthodes publiques qui permettent
+> d'accéder aux attributs privés de manière contrôlée.
+>
+> - Un **getter** retourne la valeur d'un attribut (commence généralement par
+>   `get`).
+> - Un **setter** modifie la valeur d'un attribut (commence généralement par
+>   `set`).
+
+Revenons à notre classe `Plot`. Nous allons ajouter un getter et un setter pour
+chaque attribut.
+
+Pour l'attribut `number`, voici comment faire :
+
+- **Getter** : `public int getNumber()` qui retourne `number`.
+- **Setter** : `public void setNumber(int number)` qui affecte une nouvelle
+  valeur à `number`.
 
 Ajoutez les getters et setters à la classe `Plot` :
 
@@ -213,7 +331,27 @@ public class Plot {
 }
 ```
 
-Faites de même pour la classe `Gardener` :
+> [!TIP]
+>
+> La plupart des éditeurs de code peuvent générer automatiquement les getters et
+> setters ! Dans IntelliJ IDEA : clic droit > Generate > Getters and Setters.
+> Dans VS Code avec l'extension Java : clic droit > Source Action > Generate
+> Getters and Setters.
+
+Observez la structure des getters et setters :
+
+- Les **getters** retournent simplement la valeur de l'attribut.
+- Les **setters** prennent un paramètre et l'affectent à l'attribut.
+- Ils utilisent le mot-clé `this` pour distinguer l'attribut du paramètre
+  lorsqu'ils ont le même nom.
+
+Mais attendez... ces setters ne valident rien ! On peut toujours passer des
+valeurs invalides. Nous allons corriger cela à l'étape suivante, mais d'abord,
+créons les getters et setters pour la classe `Gardener`.
+
+Ajoutez maintenant les getters et setters à la classe `Gardener` :
+
+Ajoutez maintenant les getters et setters à la classe `Gardener` :
 
 ```java
 public class Gardener {
@@ -264,12 +402,48 @@ public class Gardener {
 }
 ```
 
+Excellent ! Maintenant, tout code extérieur à la classe peut accéder aux
+attributs via les getters et setters :
+
+```java
+Gardener gardener = new Gardener("Marie", "marie@email.com", 5);
+System.out.println(gardener.getName()); // Lire avec un getter
+gardener.setYearsOfExperience(6);        // Modifier avec un setter
+```
+
+> [!NOTE]
+>
+> Vous venez de comprendre un concept fondamental : l'encapsulation ne consiste
+> pas à _empêcher_ l'accès aux données, mais à le _contrôler_. Les getters et
+> setters sont le point de contrôle !
+
+Mais il reste un problème... nos setters acceptent n'importe quelle valeur, même
+des valeurs absurdes. Corrigeons cela maintenant !
+
 ### Étape 3 : ajouter la validation dans les setters
 
-L'un des avantages de l'encapsulation est de pouvoir **valider les données**
-avant de les affecter à un attribut.
+Voici où l'encapsulation révèle toute sa puissance ! Nous allons maintenant
+ajouter de la **validation** dans les setters pour garantir que les données
+restent cohérentes.
 
-Améliorez les setters de la classe `Plot` pour ajouter de la validation :
+> [!IMPORTANT]
+>
+> La validation dans les setters est l'un des avantages principaux de
+> l'encapsulation. Elle permet de s'assurer qu'un objet ne peut jamais se
+> retrouver dans un état invalide.
+
+Pensez aux valeurs qui n'ont pas de sens pour une parcelle :
+
+- Un numéro de parcelle négatif ou nul.
+- Une taille négative ou trop grande (> 1000 m² semble irréaliste pour un jardin
+  communautaire).
+- Une localisation vide.
+
+Nous allons ajouter des vérifications pour chacun de ces cas.
+
+Améliorez les setters de la classe `Plot` avec la validation suivante :
+
+Améliorez les setters de la classe `Plot` avec la validation suivante :
 
 ```java
 // Setters avec validation
@@ -302,12 +476,45 @@ public void setLocation(String location) {
 }
 ```
 
+Observez attentivement ce code. Que fait chaque setter ?
+
+1. **setNumber** : vérifie que le numéro est positif. Si ce n'est pas le cas,
+   affiche une erreur et sort de la méthode sans modifier l'attribut.
+2. **setSize** : vérifie que la taille est positive ET inférieure à 1000. Deux
+   vérifications pour garantir une valeur réaliste.
+3. **setLocation** : vérifie que la localisation n'est ni `null`, ni vide (après
+   suppression des espaces avec `trim()`).
+
+> [!NOTE]
+>
+> Le mot-clé `return` permet de sortir immédiatement de la méthode. Si la
+> validation échoue, on affiche une erreur et on ne modifie **pas** l'attribut.
+> L'objet conserve sa valeur précédente (ou initiale).
+
 > [!TIP]
 >
-> La validation dans les setters garantit que les objets restent dans un état
-> cohérent. C'est une pratique essentielle en programmation orientée objet !
+> Dans un projet professionnel, on pourrait lancer une exception plutôt que
+> d'afficher un message. Nous verrons les exceptions dans une session future !
+> Pour l'instant, un simple message d'erreur suffit.
 
-Faites de même pour la classe `Gardener` :
+Maintenant, faites de même pour la classe `Gardener`. Quelles validations
+pourraient avoir du sens pour un.e jardinière ?
+
+Prenez un moment pour réfléchir avant de regarder la solution ci-dessous.
+
+<details>
+<summary>Indices pour les validations de Gardener</summary>
+
+- **name** : ne doit pas être vide ou null.
+- **email** : devrait au minimum contenir un `@`.
+- **yearsOfExperience** : ne peut pas être négatif, et probablement pas
+  supérieur à 100 ans.
+
+</details>
+
+Améliorez maintenant les setters de la classe `Gardener` :
+
+Améliorez maintenant les setters de la classe `Gardener` :
 
 ```java
 // Setters avec validation
@@ -340,17 +547,89 @@ public void setYearsOfExperience(int yearsOfExperience) {
 }
 ```
 
+Félicitations ! Vous venez de compléter l'encapsulation de vos classes.
+
+Récapitulons ce que nous avons fait :
+
+1. ✅ Rendu les attributs privés (protection des données).
+2. ✅ Créé des getters et setters (accès contrôlé).
+3. ✅ Ajouté de la validation (garantie de cohérence).
+
+> [!TIP]
+>
+> Essayez maintenant de créer un objet `Plot` ou `Gardener` dans votre méthode
+> `main` et testez les setters avec des valeurs invalides. Vous verrez les
+> messages d'erreur s'afficher et les valeurs ne seront pas modifiées !
+
+> [!NOTE]
+>
+> L'encapsulation que vous venez d'appliquer est une pratique standard dans tous
+> les projets Java. Vous la retrouverez dans presque toutes les classes que vous
+> rencontrerez ou créerez professionnellement.
+
 ## Introduction de l'héritage
 
-Nous allons maintenant utiliser l'héritage pour créer différents types de
-plantes avec des caractéristiques spécifiques.
+Maintenant que nous avons sécurisé nos classes avec l'encapsulation, passons au
+deuxième grand concept : l'**héritage**.
+
+Actuellement, si nous voulons représenter différents types de plantes (légumes,
+fleurs, arbres), nous serions tentés de créer trois classes complètement
+indépendantes. Mais cela poserait un problème : beaucoup de code dupliqué !
+
+Toutes les plantes ont des caractéristiques communes :
+
+- Un nom.
+- Une espèce.
+- Une date de plantation.
+- Une taille.
+- Un statut (récoltée ou non).
+
+Mais elles ont aussi des caractéristiques spécifiques :
+
+- Les **légumes** ont un rendement attendu (en kg).
+- Les **fleurs** ont une couleur.
+- Les **arbres** peuvent être fruitiers ou ornementaux.
+
+C'est exactement le type de problème que l'héritage résout !
+
+> [!NOTE]
+>
+> L'**héritage** permet de créer une hiérarchie de classes où une classe
+> "enfant" (sous-classe) hérite des attributs et méthodes d'une classe "parent"
+> (superclasse).
+
+Nous allons créer :
+
+1. Une **classe abstraite** `PlantBase` qui contient tout ce qui est commun à
+   toutes les plantes.
+2. Trois **sous-classes** concrètes : `VegetablePlant`, `FlowerPlant` et
+   `TreePlant` qui héritent de `PlantBase` et ajoutent leurs spécificités.
+
+> [!TIP]
+>
+> Une classe abstraite est une classe qui ne peut pas être instanciée
+> directement (on ne peut pas faire `new PlantBase()`). Elle sert uniquement de
+> modèle pour ses sous-classes.
+
+Commençons !
 
 ### Étape 4 : créer une classe abstraite PlantBase
 
 Au lieu d'avoir une seule classe `Plant`, nous allons créer une classe abstraite
-`PlantBase` qui servira de base pour différents types de plantes.
+`PlantBase` qui servira de base (d'où son nom !) pour différents types de
+plantes.
 
-Créez un fichier `PlantBase.java` dans le dossier `src/` :
+> [!NOTE]
+>
+> Le mot-clé `abstract` devant une classe signifie qu'on ne pourra pas créer
+> d'instances directement (`new PlantBase()` ne fonctionnera pas). Cette classe
+> sert de **modèle** pour ses sous-classes.
+
+Créez un nouveau fichier nommé `PlantBase.java` dans le dossier `src/` de votre
+projet.
+
+Voici le code complet de la classe `PlantBase`. Nous allons l'analyser ensemble
+après :
 
 ```java
 public abstract class PlantBase {
@@ -443,20 +722,106 @@ public abstract class PlantBase {
 }
 ```
 
+Prenez un moment pour observer cette classe. Elle est longue, mais sa structure
+devrait vous sembler familière : elle ressemble beaucoup aux classes `Plot` et
+`Gardener` que nous venons d'améliorer !
+
+Analysons les éléments importants :
+
+**1. Le mot-clé `abstract`**
+
+```java
+public abstract class PlantBase {
+```
+
+Cela indique qu'on ne pourra pas créer directement un objet `PlantBase`. On
+devra obligatoirement passer par une sous-classe.
+
+**2. Les attributs `protected`**
+
+```java
+protected String name;
+protected String species;
+// ...
+```
+
+Le modificateur `protected` est un compromis entre `private` et `public` :
+
+- Les attributs ne sont **pas** accessibles de l'extérieur (comme`private`).
+- Mais ils **sont** accessibles dans les sous-classes (contrairement à
+  `private`).
+
+> [!NOTE]
+>
+> On utilise `protected` quand on veut que les sous-classes puissent accéder
+> directement aux attributs sans passer par les getters. C'est pratique pour
+> l'héritage !
+
+**3. Les méthodes abstraites**
+
+```java
+public abstract void displayInfo();
+public abstract String getPlantType();
+```
+
+Une méthode abstraite n'a **pas de corps** (pas de `{...}`). Elle se termine par
+un point-virgule.
+
 > [!IMPORTANT]
 >
-> Une classe abstraite ne peut pas être instanciée directement. Elle sert de
-> modèle pour les sous-classes. Les méthodes abstraites doivent être
-> implémentées par toutes les sous-classes concrètes.
+> Toute classe qui hérite de `PlantBase` **devra obligatoirement** implémenter
+> ces méthodes abstraites. C'est une sorte de "contrat" : "Si tu veux être une
+> plante, tu dois savoir t'afficher et dire ton type !
+
+**4. Les méthodes concrètes**
+
+```java
+public void harvest() {
+    if (isHarvested) {
+        System.out.println(name + " a déjà été récoltée.");
+    } else {
+        isHarvested = true;
+        System.out.println(name + " a été récoltée avec succès !");
+    }
+}
+```
+
+Certaines méthodes ont un corps complet. Toutes les sous-classes hériteront de
+ce comportement automatiquement, sans avoir à le réécrire !
+
+> [!TIP]
+>
+> Si vous avez des erreurs de compilation pour l'instant, c'est normal ! Nous
+> n'avons pas encore créé les sous-classes. Continuons, et tout se mettra en
+> place.
 
 ### Étape 5 : créer des sous-classes de plantes
 
-Nous allons créer trois types de plantes : des légumes, des fleurs et des
-arbres.
+Maintenant vient la partie excitante : nous allons créer trois types de plantes
+qui **héritent** de `PlantBase`.
+
+Nous allons créer :
+
+- `VegetablePlant` : pour les légumes (avec un rendement attendu).
+- `FlowerPlant` : pour les fleurs (avec une couleur).
+- `TreePlant` : pour les arbres (fruitiers ou ornementaux).
+
+Chacune de ces classes va :
+
+1. **Hériter** tous les attributs et méthodes de `PlantBase`.
+2. **Ajouter** ses propres attributs spécifiques.
+3. **Implémenter** les méthodes abstraites obligatoires.
+
+> [!TIP]
+>
+> Le mot-clé `extends` est utilisé pour indiquer qu'une classe hérite d'une
+> autre : `public class VegetablePlant extends PlantBase`.
+
+Commençons avec les légumes !
 
 #### Classe VegetablePlant
 
-Créez un fichier `VegetablePlant.java` :
+Créez un nouveau fichier nommé `VegetablePlant.java` dans le dossier `src/` :
 
 ```java
 public class VegetablePlant extends PlantBase {
@@ -505,7 +870,10 @@ public class VegetablePlant extends PlantBase {
 
 #### Classe FlowerPlant
 
-Créez un fichier `FlowerPlant.java` :
+Maintenant que vous avez compris le principe avec `VegetablePlant`, créons la
+classe pour les fleurs.
+
+Créez un nouveau fichier nommé `FlowerPlant.java` :
 
 ```java
 public class FlowerPlant extends PlantBase {
@@ -551,6 +919,26 @@ public class FlowerPlant extends PlantBase {
     }
 }
 ```
+
+Vous remarquez la similitude avec `VegetablePlant` ? C'est le pouvoir de
+l'héritage !
+
+- Même structure générale.
+- Hérite de `PlantBase` avec `extends`.
+- Attribut spécifique : `color` (une couleur au lieu d'un rendement).
+- Implémente les deux méthodes abstraites obligatoires.
+
+La différence principale est dans les détails spécifiques : une fleur a une
+couleur, et son statut est "Fanée" ou "En floraison" au lieu de "Récoltée" ou
+"En croissance".
+
+> [!TIP]
+>
+> Remarquez comme il est facile de créer un nouveau type de plante une fois que
+> la classe de base existe ! C'est la puissance de l'héritage : réutilisation du
+> code et extension facile.
+
+Créons maintenant notre dernière classe : les arbres.
 
 #### Classe TreePlant
 
@@ -610,16 +998,69 @@ appeler le constructeur de la classe parent.
 
 ## Surcharge (overloading)
 
-La surcharge (overloading) permet de créer plusieurs versions d'un constructeur
-ou d'une méthode avec le même nom mais des paramètres différents. C'est un
-concept important en Java qui améliore la flexibilité du code.
+Nous avons maintenant une belle hiérarchie de classes avec l'héritage. Mais il y
+a encore un aspect qui peut rendre notre code plus flexible et plus facile à
+utiliser : la **surcharge** (overloading en anglais).
+
+> [!NOTE]
+>
+> La **surcharge** permet de créer plusieurs versions d'un constructeur ou d'une
+> méthode avec le **même nom** mais des **paramètres différents** (nombre ou
+> type).
+
+Imaginez la situation suivante : vous voulez créer une tomate, mais vous ne
+connaissez pas encore le rendement attendu. Avec notre code actuel, vous êtes
+obligé de fournir **tous** les paramètres :
+
+```java
+VegetablePlant tomato = new VegetablePlant(
+    "Tomate",
+    "Solanum lycopersicum",
+    "2024-03-15",
+    45.0,
+    0  // Je dois mettre 0 même si je ne connais pas le rendement
+);
+```
+
+Ce serait plus pratique de pouvoir écrire simplement :
+
+```java
+VegetablePlant tomato = new VegetablePlant(
+    "Tomate",
+    "Solanum lycopersicum",
+    "2024-03-15",
+    45.0
+    // Pas besoin de spécifier le rendement
+);
+```
+
+C'est exactement ce que la surcharge permet de faire ! Nous allons créer
+plusieurs constructeurs avec le même nom mais des listes de paramètres
+différentes.
+
+> [!TIP]
+>
+> La surcharge améliore l'ergonomie de votre code. Elle permet aux utilisateurs
+> de vos classes de choisir le niveau de détail qu'ils souhaitent fournir.
 
 ### Étape 7 : ajouter la surcharge de constructeurs
 
-Nous allons ajouter des constructeurs surchargés à nos classes de plantes pour
-permettre différentes façons de les créer.
+Commençons par ajouter des constructeurs surchargés à notre classe
+`VegetablePlant`. L'idée est d'offrir plusieurs façons de créer un légume, selon
+les informations disponibles.
+
+Nous allons créer trois constructeurs :
+
+1. **Constructeur complet** : tous les paramètres (celui qui existe déjà).
+2. **Constructeur sans rendement** : on ne spécifie pas le rendement (valeur par
+   défaut : 0).
+3. **Constructeur minimal** : juste le nom et l'espèce (valeurs par défaut pour
+   le reste).
 
 #### Surcharge dans VegetablePlant
+
+Ouvrez votre fichier `VegetablePlant.java` et ajoutons les nouveaux
+constructeurs.
 
 Modifiez la classe `VegetablePlant` pour ajouter des constructeurs surchargés :
 
@@ -680,19 +1121,47 @@ public class VegetablePlant extends PlantBase {
 }
 ```
 
+Prenez un moment pour observer ces nouveaux constructeurs.
+
+**Comment Java sait-il quel constructeur utiliser ?**
+
+Java choisit automatiquement le bon constructeur en fonction du **nombre** et du
+**type** des arguments que vous passez lors de la création de l'objet.
+
+Exemples :
+
+```java
+// Utilise le constructeur complet (5 paramètres)
+VegetablePlant tomato1 = new VegetablePlant("Tomate", "Solanum", "2024-03-15", 45.0, 5);
+
+// Utilise le constructeur sans rendement (4 paramètres)
+VegetablePlant tomato2 = new VegetablePlant("Tomate", "Solanum", "2024-03-15", 45.0);
+
+// Utilise le constructeur minimal (2 paramètres)
+VegetablePlant tomato3 = new VegetablePlant("Tomate", "Solanum");
+```
+
 > [!NOTE]
 >
-> Les constructeurs surchargés permettent de créer des objets de différentes
-> manières selon les informations disponibles. Par exemple :
+> C'est le compilateur Java qui décide quel constructeur appeler, en fonction de
+> la **signature** (nom + liste des paramètres). Deux constructeurs ne peuvent
+> pas avoir exactement la même signature.
+
+> [!TIP]
 >
-> - `new VegetablePlant("Tomate", "Solanum", "2024-03-15", 45.0, 5)` : complet
-> - `new VegetablePlant("Tomate", "Solanum", "2024-03-15", 45.0)` : sans
->   rendement
-> - `new VegetablePlant("Tomate", "Solanum")` : minimal
+> Remarquez comment les constructeurs plus simples initialisent les paramètres
+> manquants avec des valeurs par défaut sensées : `0` pour le rendement,
+> `"2024-01-01"` pour la date, `0.0` pour la taille. C'est une bonne pratique !
+
+Appliquons maintenant le même principe à une autre classe pour bien comprendre.
 
 #### Surcharge dans Plot
 
-Ajoutons également des constructeurs surchargés à la classe `Plot` :
+La même logique s'applique aux parcelles. Parfois, vous connaissez la
+localisation d'une parcelle, parfois non. Parfois vous voulez juste créer une
+parcelle rapidement avec juste un numéro.
+
+Ouvrez `Plot.java` et ajoutons des constructeurs surchargés :
 
 ```java
 public class Plot {
@@ -727,14 +1196,53 @@ public class Plot {
 }
 ```
 
+Vous pouvez maintenant créer des parcelles de différentes façons :
+
+```java
+Plot plot1 = new Plot(1, 25.5, "Section Nord");  // Complet
+Plot plot2 = new Plot(2, 30.0);                   // Sans localisation
+Plot plot3 = new Plot(3);                         // Juste le numéro
+```
+
+Chaque version initialise les valeurs manquantes avec des valeurs par défaut
+raisonnables (`"Non spécifiée"` pour la localisation, `20.0` pour une taille
+standard).
+
+> [!IMPORTANT]
+>
+> La surcharge de constructeurs est une des utilisations les plus courantes de
+> la surcharge en Java. Vous la retrouverez dans presque toutes les classes
+> standard de Java (String, ArrayList, etc.).
+
+Maintenant que nous avons compris la surcharge pour les constructeurs, voyons
+comment elle s'applique aussi aux méthodes ordinaires.
+
 ### Étape 8 : ajouter la surcharge de méthodes
 
-La surcharge de méthodes permet d'avoir plusieurs versions d'une même méthode
-avec des paramètres différents.
+La surcharge ne s'applique pas qu'aux constructeurs ! Elle fonctionne aussi avec
+les méthodes normales. Cela permet d'offrir différentes façons d'utiliser une
+fonctionnalité.
+
+> [!NOTE]
+>
+> La **surcharge de méthodes** consiste à créer plusieurs versions d'une méthode
+> avec le même nom mais des paramètres différents. Tout comme pour les
+> constructeurs, Java choisit automatiquement la bonne version en fonction des
+> arguments fournis.
+
+Imaginez que vous voulez faire pousser vos plantes. Parfois, vous voulez juste
+les faire pousser un peu (croissance standard), parfois vous voulez spécifier
+exactement de combien, et parfois vous voulez ajouter un message pour noter les
+conditions de croissance.
+
+Au lieu de créer trois méthodes différentes (`growNormal()`, `growBy()`,
+`growWithMessage()`), nous allons créer trois versions de la même méthode
+`grow()` avec des paramètres différents.
 
 #### Surcharge de la méthode grow() dans PlantBase
 
-Ajoutons une méthode `grow()` surchargée à la classe `PlantBase` :
+Ouvrez le fichier `PlantBase.java` et ajoutons trois versions de la méthode
+`grow()` :
 
 ```java
 public abstract class PlantBase {
@@ -793,16 +1301,42 @@ public abstract class PlantBase {
 }
 ```
 
+Observez comment les trois versions travaillent ensemble :
+
+1. **`grow()`** : version simple sans paramètre, appelle `grow(5.0)` avec une
+   valeur par défaut.
+2. **`grow(double increment)`** : version détaillée qui fait le vrai travail.
+3. **`grow(double increment, String message)`** : version encore plus détaillée
+   qui ajoute un message.
+
+Remarquez la réutilisation : la version 1 appelle la version 2, et la version 3
+appelle aussi la version 2. C'est une bonne pratique pour éviter la duplication
+de code !
+
+Vous pouvez maintenant utiliser `grow()` de trois façons différentes :
+
+```java
+rose.grow();                              // Croissance standard de 5 cm
+rose.grow(10.0);                          // Croissance de 10 cm
+rose.grow(8.0, "Engrais bio appliqué");   // Croissance de 8 cm avec note
+```
+
 > [!TIP]
 >
-> La surcharge de méthodes améliore l'ergonomie de l'API. Une méthode simple
-> `grow()` pour une utilisation rapide, et des versions plus détaillées
-> `grow(double)` et `grow(double, String)` pour plus de contrôle.
+> Cette approche rend votre code plus facile à utiliser : les utilisateurs
+> débutants peuvent utiliser la version simple `grow()`, tandis que les
+> utilisateurs avancés peuvent utiliser les versions plus détaillées pour un
+> contrôle précis.
+
+Voyons un autre exemple avec `displayInfo()`.
 
 #### Surcharge de displayInfo() dans VegetablePlant
 
-Nous pouvons également surcharger `displayInfo()` pour offrir différents niveaux
-de détail :
+Parfois, vous voulez afficher toutes les informations d'une plante, et parfois
+vous voulez juste un résumé rapide. Au lieu de créer deux méthodes différentes,
+surchargeons `displayInfo()` !
+
+Ouvrez `VegetablePlant.java` et modifiez la méthode `displayInfo()` :
 
 ```java
 public class VegetablePlant extends PlantBase {
@@ -837,21 +1371,56 @@ public class VegetablePlant extends PlantBase {
 }
 ```
 
-> [!NOTE]
+Parfait ! Maintenant vous pouvez afficher les informations de deux façons :
+
+```java
+carrot.displayInfo();        // Affichage détaillé (appelle displayInfo(true))
+carrot.displayInfo(false);   // Affichage simplifié
+carrot.displayInfo(true);    // Affichage détaillé explicite
+```
+
+> [!IMPORTANT]
 >
-> La différence clé entre **surcharge (overloading)** et **redéfinition
-> (overriding)** :
+> **Ne confondez pas surcharge (overloading) et redéfinition (overriding) !**
 >
-> - **Overloading** : même nom, paramètres différents, dans la même classe
-> - **Overriding** : même signature, implémentation différente, dans une
->   sous-classe (utilise `@Override`)
+> - **Surcharge (overloading)** : même nom, **paramètres différents**, dans la
+>   **même classe**. Java choisit quelle version appeler en fonction des
+>   arguments.
+> - **Redéfinition (overriding)** : même nom, **mêmes paramètres**, dans une
+>   **sous-classe**. La version de la sous-classe remplace celle de la classe
+>   parent. Utilise `@Override`.
+>
+> Exemple : `VegetablePlant.displayInfo()` **redéfinit** (override)
+> `PlantBase.displayInfo()`, mais `VegetablePlant.displayInfo(boolean)` est une
+> **surcharge** (overload) de `displayInfo()`.
+
+Vous venez de maîtriser la surcharge ! C'est un outil puissant pour rendre votre
+code plus flexible et plus facile à utiliser.
+
+Récapitulons ce que vous avez appris :
+
+1. ✅ La surcharge permet plusieurs versions d'un constructeur ou d'une méthode.
+2. ✅ Chaque version a des paramètres différents (nombre ou type).
+3. ✅ Java choisit automatiquement la bonne version en fonction des arguments.
+4. ✅ C'est utile pour offrir différents niveaux de détail ou de contrôle.
+
+Maintenant, mettons tout cela en pratique dans notre classe principale !
 
 ## Mise à jour de la classe principale
 
-### Étape 9 : adapter GardenManagementSystem
+Maintenant que nous avons construit toute notre hiérarchie de classes avec
+l'encapsulation, l'héritage et la surcharge, il est temps de tout rassembler et
+de voir notre système en action !
 
-Maintenant que nous avons une hiérarchie de classes, mettons à jour notre classe
-principale pour utiliser les nouveaux types de plantes.
+Nous allons mettre à jour la classe `GardenManagementSystem` pour démontrer tous
+les concepts que nous avons appris.
+
+> [!TIP]
+>
+> Cette classe `main` est comme une "démonstration" de votre système. C'est là
+> que vous montrez comment toutes les pièces fonctionnent ensemble.
+
+### Étape 9 : adapter GardenManagementSystem
 
 Créez ou modifiez le fichier `GardenManagementSystem.java` :
 
@@ -969,26 +1538,84 @@ public class GardenManagementSystem {
 }
 ```
 
+Prenez le temps de lire ce code et d'observer ce qu'il fait. Vous remarquerez
+qu'il est organisé en sections pour tester différents aspects de notre système :
+
+1. **Création d'objets** : jardinières, parcelles, et différents types de
+   plantes.
+2. **Affichage des informations** : test de la méthode `displayInfo()` pour
+   chaque type.
+3. **Test de récolte** : vérification que la récolte fonctionne (et qu'on ne
+   peut pas récolter deux fois).
+4. **Test de surcharge de constructeurs** : démonstration des différentes façons
+   de créer des objets.
+5. **Test de surcharge de méthodes** : démonstration des versions de `grow()` et
+   `displayInfo()`.
+6. **Test de validation** : vérification que nos validations empêchent les
+   valeurs invalides.
+
+> [!NOTE]
+>
+> Organiser votre méthode `main` par sections avec des commentaires clairs rend
+> le code plus facile à comprendre et à maintenir.
+
+Maintenant, compilons et exécutons le projet pour voir tout cela en action !
+
 ## Test du projet
+
+Le moment est venu de voir notre travail en action ! Nous allons compiler et
+exécuter le projet pour vérifier que tout fonctionne correctement.
+
+> [!IMPORTANT]
+>
+> Si vous rencontrez des erreurs de compilation, relisez attentivement les
+> messages d'erreur. Ils vous indiquent généralement exactement ce qui ne va pas
+> et dans quel fichier.
 
 ### Compilation et exécution en ligne de commande
 
-Pour compiler et exécuter le projet :
+Si vous utilisez la ligne de commande, voici comment compiler et exécuter le
+projet.
+
+Ouvrez un terminal et naviguez jusqu'au répertoire contenant le dossier `src/`.
+
+Pour compiler tous les fichiers Java :
 
 ```bash
 # Depuis le répertoire contenant src/
 javac src/*.java
+```
+
+Cette commande compile tous les fichiers `.java` dans le dossier `src/`.
+
+Si la compilation réussit, vous ne verrez aucun message ("no news is good news
+!"). Si des erreurs apparaissent, corrigez-les avant de continuer.
+
+Pour exécuter le programme :
+
+```bash
 java -cp src GardenManagementSystem
 ```
 
+Cette commande exécute la classe `GardenManagementSystem` en utilisant le
+dossier `src/` comme classpath.
+
 > [!TIP]
 >
-> Si vous utilisez un IDE comme IntelliJ IDEA ou VS Code, vous pouvez exécuter
-> directement depuis l'éditeur.
+> Si vous utilisez un IDE comme **IntelliJ IDEA** ou **VS Code avec l'extension
+> Java**, vous pouvez simplement cliquer sur le bouton "Run" à côté de la
+> méthode `main`. C'est plus simple !
 
 ### Sortie attendue
 
-Voici un exemple de sortie attendue :
+Si tout fonctionne correctement, vous devriez voir une sortie similaire à celle
+ci-dessous.
+
+Prenez le temps de lire la sortie et de la comparer au code de
+`GardenManagementSystem.java`. Voyez-vous comment chaque ligne de sortie
+correspond à une instruction dans le code ?
+
+Voici ce que vous devriez voir :
 
 ```text
 === Système de Gestion de Jardin Communautaire ===
@@ -1098,110 +1725,56 @@ Erreur: l'email doit contenir un @.
 Erreur: le rendement ne peut pas être négatif.
 ```
 
+> [!NOTE]
+>
+> Si votre sortie ne correspond pas exactement, c'est peut-être parce que vous
+> avez modifié certains messages ou valeurs. Ce n'est pas grave tant que le
+> comportement général est correct !
+
+Observez les dernières lignes de la sortie. Ce sont les erreurs de validation
+que nous avons programmées ! Elles montrent que notre encapsulation fonctionne
+correctement : les valeurs invalides sont rejetées.
+
+> [!TIP]
+>
+> Essayez de modifier `GardenManagementSystem.java` pour tester d'autres
+> scénarios ! Par exemple :
+>
+> - Créez un arbre non-fruitier.
+> - Faites pousser plusieurs plantes avec différents incréments.
+> - Testez d'autres validations (taille négative, nom vide, etc.).
+
+Félicitations ! Votre système fonctionne !
+
 ## Diagramme de classes
+
+Pour mieux visualiser la structure de notre système, voici un diagramme UML
+représentant la hiérarchie des classes que nous avons créées.
+
+> [!NOTE]
+>
+> Un diagramme de classes UML (Unified Modeling Language) est une représentation
+> graphique standard des classes et de leurs relations. Les flèches indiquent
+> l'héritage (flèche pleine) et les dépendances (flèche en pointillés).
 
 Voici le diagramme UML représentant la hiérarchie des classes après cette
 session :
 
-```plantuml
-@startuml
+![Diagramme de classes du système de gestion de jardin](../images/class-diagram-garden-system.svg)
 
-abstract class PlantBase {
-  # name: String
-  # species: String
-  # plantingDate: String
-  # size: double
-  # isHarvested: boolean
-  --
-  + PlantBase(name, species, plantingDate, size)
-  + getName(): String
-  + getSpecies(): String
-  + getPlantingDate(): String
-  + getSize(): double
-  + isHarvested(): boolean
-  + setName(name): void
-  + setSpecies(species): void
-  + setSize(size): void
-  + setPlantingDate(plantingDate): void
-  + harvest(): void
-  + {abstract} displayInfo(): void
-  + {abstract} getPlantType(): String
-}
+Ce diagramme montre :
 
-class VegetablePlant {
-  - expectedYield: int
-  --
-  + VegetablePlant(name, species, plantingDate, size, expectedYield)
-  + getExpectedYield(): int
-  + setExpectedYield(expectedYield): void
-  + displayInfo(): void
-  + getPlantType(): String
-}
+- **PlantBase** (classe abstraite) : la classe parent de toutes les plantes.
+- **VegetablePlant**, **FlowerPlant**, **TreePlant** : les trois sous-classes
+  qui héritent de `PlantBase`.
+- **Plot** et **Gardener** : deux classes indépendantes avec encapsulation.
+- **GardenManagementSystem** : la classe principale qui utilise toutes les
+  autres.
 
-class FlowerPlant {
-  - color: String
-  --
-  + FlowerPlant(name, species, plantingDate, size, color)
-  + getColor(): String
-  + setColor(color): void
-  + displayInfo(): void
-  + getPlantType(): String
-}
-
-class TreePlant {
-  - isFruitTree: boolean
-  --
-  + TreePlant(name, species, plantingDate, size, isFruitTree)
-  + isFruitTree(): boolean
-  + setFruitTree(isFruitTree): void
-  + displayInfo(): void
-  + getPlantType(): String
-}
-
-class Plot {
-  - number: int
-  - size: double
-  - location: String
-  --
-  + Plot(number, size, location)
-  + getNumber(): int
-  + getSize(): double
-  + getLocation(): String
-  + setNumber(number): void
-  + setSize(size): void
-  + setLocation(location): void
-  + displayInfo(): void
-}
-
-class Gardener {
-  - name: String
-  - email: String
-  - yearsOfExperience: int
-  --
-  + Gardener(name, email, yearsOfExperience)
-  + getName(): String
-  + getEmail(): String
-  + getYearsOfExperience(): int
-  + setName(name): void
-  + setEmail(email): void
-  + setYearsOfExperience(yearsOfExperience): void
-  + displayInfo(): void
-}
-
-class GardenManagementSystem {
-  + {static} main(args: String[]): void
-}
-
-PlantBase <|-- VegetablePlant
-PlantBase <|-- FlowerPlant
-PlantBase <|-- TreePlant
-
-GardenManagementSystem ..> PlantBase
-GardenManagementSystem ..> Plot
-GardenManagementSystem ..> Gardener
-
-@enduml
-```
+> [!TIP]
+>
+> Dans un projet professionnel, maintenir un diagramme de classes à jour aide
+> toute l'équipe à comprendre rapidement l'architecture du système.
 
 ## Solution
 
@@ -1214,42 +1787,24 @@ Une solution complète est disponible dans le dossier [`solution/`](./solution/)
 
 ## Conclusion
 
-Dans cette deuxième partie du mini-projet, vous avez appris à :
+Félicitations ! Vous avez terminé cette deuxième partie du mini-projet.
 
-- Appliquer le principe d'**encapsulation** en rendant les attributs privés et
-  en créant des getters/setters.
-- Ajouter de la **validation** dans les setters pour garantir la cohérence des
-  données.
-- Créer une **hiérarchie de classes** avec une classe abstraite `PlantBase`.
-- Utiliser le mot-clé `extends` pour créer des **sous-classes**.
-- Utiliser le mot-clé `super` pour appeler le constructeur parent.
-- Définir des **méthodes abstraites** à implémenter dans les sous-classes.
-- Utiliser le modificateur `protected` pour les membres accessibles aux
-  sous-classes.
-- Appliquer la **surcharge de constructeurs** pour offrir plusieurs façons de
-  créer des objets.
-- Appliquer la **surcharge de méthodes** pour fournir différentes versions d'une
-  fonctionnalité.
-
-Ces concepts sont fondamentaux en programmation orientée objet et vous seront
-utiles dans tous vos futurs projets Java !
+### Prochaine étape
 
 Dans la prochaine session, nous introduirons le **polymorphisme** avec des
-interfaces pour rendre notre système encore plus flexible.
+interfaces. Cela rendra notre système encore plus flexible en permettant à
+différents types d'objets d'être traités de manière uniforme.
 
-## Aller plus loin
+Vous découvrirez comment créer des "contrats" que les classes doivent respecter,
+et comment cela permet d'écrire du code plus générique et réutilisable.
 
-Si vous souhaitez approfondir vos connaissances, voici quelques suggestions :
+> [!TIP]
+>
+> Avant de passer à la suite, assurez-vous d'avoir bien compris les concepts de
+> cette session. Relisez les sections qui vous semblent floues, expérimentez
+> avec le code, et n'hésitez pas à poser des questions !
 
-- **Validation avancée** : utilisez des expressions régulières pour valider les
-  emails de manière plus robuste.
-- **Gestion des dates** : utilisez la classe `LocalDate` au lieu de `String`
-  pour les dates de plantation.
-- **Classes sealed** : explorez les classes scellées (Java 17+) pour restreindre
-  quelles classes peuvent hériter de `PlantBase`.
-- **Méthode toString()** : redéfinissez la méthode `toString()` héritée de
-  `Object` pour faciliter l'affichage.
-- **Plus de types de plantes** : créez d'autres types de plantes (herbes
-  aromatiques, plantes grimpantes, etc.).
-- **Attributs final** : utilisez le mot-clé `final` sur certains attributs qui
-  ne doivent pas changer après l'initialisation.
+> [!NOTE]
+>
+> Gardez ce projet précieusement ! Il vous servira de base pour les prochaines
+> sessions et de référence pour vos futurs projets Java.

@@ -26,8 +26,11 @@ XX-topic-name/
 └── images/
    ├── illustration.jpg
    ├── diagram-name.puml
-   └── diagram-name.png
+   └── diagram-name.svg
 ```
+
+PlantUML source files (`.puml`) are converted to SVG format for display in
+course materials.
 
 ## PlantUML best practices
 
@@ -48,11 +51,16 @@ For this programming course, commonly used PlantUML diagram types include:
 - Component diagrams: for explaining program structure and modules.
 - State diagrams: for demonstrating state transitions.
 
-## Example PlantUML structure
+## Standard PlantUML file format
+
+All PlantUML files must follow this standard format for consistency:
 
 ```plantuml
-@startuml
+@startuml filename
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 ' Diagram content in French
 start
@@ -68,24 +76,50 @@ stop
 @enduml
 ```
 
-Key elements:
+**Required header elements (in order):**
 
-- Always use `!theme plain` for consistent styling.
-- Use French for all labels and conditions.
-- Keep the diagram focused on the main concept.
-- Use clear, concise labels.
+1. `@startuml filename` : Include the filename (without .puml extension) for
+   proper diagram identification
+2. `!theme plain` : Use plain theme for consistent styling across all diagrams
+3. Empty line
+4. `skinparam classAttributeIconSize 0` : Remove icons from class attributes for
+   cleaner diagrams
+5. `skinparam classFontStyle bold` : Make class names bold for better visibility
+6. Empty line
+7. Diagram content
+
+**Key elements:**
+
+- Always include the filename in `@startuml` directive
+- Apply both skinparam settings for visual consistency
+- Use French for all labels and conditions
+- Keep the diagram focused on the main concept
+- Use clear, concise labels
 
 ## Integration with course materials
 
 - Reference diagrams in `README.md` using:
-  `![Description](./images/diagram-name.png)`.
+  `![Description](./images/diagram-name.svg)`.
 - Reference diagrams in `PRESENTATION.md` using the same syntax.
-- Always provide alt text for accessibility.
+- Always provide alt text for accessibility (use French descriptions).
 - Ensure diagrams complement the textual explanations.
+- The build script generates SVG files from `.puml` sources.
 
 ## Maintenance
 
 - When updating a diagram, modify the `.puml` source file.
-- Re-run the build script to regenerate the PNG.
-- Commit both the updated source and the new PNG.
+- Ensure the file header follows the standard format (see above).
+- Re-run `./build-all-diagrams.sh` to regenerate the SVG.
+- Commit both the updated source (`.puml`) and the new SVG file.
 - Verify that all references to the diagram still work correctly.
+
+## Creating new diagrams
+
+When creating a new PlantUML diagram:
+
+1. Create the `.puml` file in the `images/` subfolder with a descriptive name
+2. Start with the standard header format (including filename in `@startuml`)
+3. Add your diagram content in French
+4. End with `@enduml`
+5. Run `./build-all-diagrams.sh` to generate the SVG
+6. Reference the SVG file in your markdown documents

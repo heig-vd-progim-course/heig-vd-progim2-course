@@ -1,0 +1,103 @@
+@startuml class-diagram-garden-system
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+abstract class PlantBase {
+  # name: String
+  # species: String
+  # plantingDate: String
+  # size: double
+  # isHarvested: boolean
+  --
+  + PlantBase(name, species, plantingDate, size)
+  + getName(): String
+  + getSpecies(): String
+  + getPlantingDate(): String
+  + getSize(): double
+  + isHarvested(): boolean
+  + setName(name): void
+  + setSpecies(species): void
+  + setSize(size): void
+  + setPlantingDate(plantingDate): void
+  + harvest(): void
+  + {abstract} displayInfo(): void
+  + {abstract} getPlantType(): String
+}
+
+class VegetablePlant {
+  - expectedYield: int
+  --
+  + VegetablePlant(name, species, plantingDate, size, expectedYield)
+  + getExpectedYield(): int
+  + setExpectedYield(expectedYield): void
+  + displayInfo(): void
+  + getPlantType(): String
+}
+
+class FlowerPlant {
+  - color: String
+  --
+  + FlowerPlant(name, species, plantingDate, size, color)
+  + getColor(): String
+  + setColor(color): void
+  + displayInfo(): void
+  + getPlantType(): String
+}
+
+class TreePlant {
+  - isFruitTree: boolean
+  --
+  + TreePlant(name, species, plantingDate, size, isFruitTree)
+  + isFruitTree(): boolean
+  + setFruitTree(isFruitTree): void
+  + displayInfo(): void
+  + getPlantType(): String
+}
+
+class Plot {
+  - number: int
+  - size: double
+  - location: String
+  --
+  + Plot(number, size, location)
+  + getNumber(): int
+  + getSize(): double
+  + getLocation(): String
+  + setNumber(number): void
+  + setSize(size): void
+  + setLocation(location): void
+  + displayInfo(): void
+}
+
+class Gardener {
+  - name: String
+  - email: String
+  - yearsOfExperience: int
+  --
+  + Gardener(name, email, yearsOfExperience)
+  + getName(): String
+  + getEmail(): String
+  + getYearsOfExperience(): int
+  + setName(name): void
+  + setEmail(email): void
+  + setYearsOfExperience(yearsOfExperience): void
+  + displayInfo(): void
+}
+
+class GardenManagementSystem {
+  + {static} main(args: String[]): void
+}
+
+PlantBase <|-- VegetablePlant
+PlantBase <|-- FlowerPlant
+PlantBase <|-- TreePlant
+
+GardenManagementSystem ..> PlantBase
+GardenManagementSystem ..> Plot
+GardenManagementSystem ..> Gardener
+
+
+
+@enduml

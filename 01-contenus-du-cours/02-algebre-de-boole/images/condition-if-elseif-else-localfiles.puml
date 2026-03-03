@@ -1,5 +1,8 @@
-@startuml
+@startuml condition-if-elseif-else-localfiles
 !theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
 
 start
 if (hasLocalFiles && !hasInternetConnection ) then (true)

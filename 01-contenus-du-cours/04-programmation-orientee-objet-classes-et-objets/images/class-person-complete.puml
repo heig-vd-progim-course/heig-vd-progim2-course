@@ -1,4 +1,4 @@
-@startuml
+@startuml class-person-complete
 !theme plain
 
 skinparam classAttributeIconSize 0

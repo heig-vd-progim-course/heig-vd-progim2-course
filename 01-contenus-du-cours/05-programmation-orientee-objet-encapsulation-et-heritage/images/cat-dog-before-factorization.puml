@@ -1,0 +1,27 @@
+@startuml cat-dog-before-factorization
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Cat {
+  - name: String
+  - age: int
+  --
+  + eat(): void
+  + sleep(): void
+  + meow(): void
+}
+
+class Dog {
+  - name: String
+  - age: int
+  --
+  + eat(): void
+  + sleep(): void
+  + bark(): void
+}
+
+
+
+@enduml

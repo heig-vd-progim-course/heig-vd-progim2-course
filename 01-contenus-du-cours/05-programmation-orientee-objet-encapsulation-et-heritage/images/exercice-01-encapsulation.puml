@@ -1,0 +1,26 @@
+@startuml exercice-01-encapsulation
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Person {
+  -name: String
+  -age: int
+  -email: String
+  +getName(): String
+  +getAge(): int
+  +getEmail(): String
+  +setName(name: String): void
+  +setEmail(email: String): void
+}
+
+note right of Person
+  Attributs privés avec
+  getters et setters.
+  Pas de setter pour age.
+end note
+
+
+
+@enduml

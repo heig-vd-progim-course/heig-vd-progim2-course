@@ -58,6 +58,8 @@ document._
 - Simplifier des expressions booléennes en utilisant les lois de De Morgan.
 - Construire des conditions complexes pour contrôler le flux d'un programme.
 
+![bg right:40%][illustration-objectifs]
+
 ## Introduction à l'algèbre de Boole
 
 L'algèbre de Boole manipule des valeurs de vérité : **vrai** (`true`) ou

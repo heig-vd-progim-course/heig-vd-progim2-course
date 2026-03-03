@@ -1,0 +1,31 @@
+@startuml vehicles-with-inheritance
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Vehicle {
+  - brand: String
+  - model: String
+  - year: int
+}
+
+class Car {
+  - numberOfDoors: int
+}
+
+class Motorcycle {
+  - hasSidecar: boolean
+}
+
+class Truck {
+  - maxLoad: double
+}
+
+Vehicle <|-- Car
+Vehicle <|-- Motorcycle
+Vehicle <|-- Truck
+
+
+
+@enduml
