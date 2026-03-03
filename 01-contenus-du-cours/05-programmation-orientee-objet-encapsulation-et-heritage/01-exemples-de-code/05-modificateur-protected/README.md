@@ -24,6 +24,10 @@ Le modificateur `protected` permet de :
 | `protected`  |      ✓      |      ✓       |      ✓      |              |
 | `public`     |      ✓      |      ✓       |      ✓      |      ✓       |
 
+## Diagramme UML
+
+![Hiérarchie Vehicle montrant les niveaux d'accès](../../images/exemple-05-modificateur-protected.svg)
+
 ## Code complet
 
 Créez un fichier `Main.java` avec le code suivant :

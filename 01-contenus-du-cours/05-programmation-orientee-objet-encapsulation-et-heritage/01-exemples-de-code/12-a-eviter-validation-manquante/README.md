@@ -11,9 +11,13 @@ Encapsulation sans validation :
 
 - ✓ Attributs privés (bon début)
 - ✓ Getters et setters (bon début)
-- ❌ Mais aucune validation !
-- ❌ États invalides toujours possibles
-- ❌ Fausse sécurité
+- Mais aucune validation !
+- États invalides toujours possibles
+- Fausse sécurité
+
+## Diagramme UML
+
+![Diagramme Product avec encapsulation mais sans validation](../../images/exemple-12-a-eviter-validation-manquante.svg)
 
 ## Code problématique
 

@@ -1,0 +1,59 @@
+@startuml
+!theme plain
+
+class Animal {
+  # name: String
+  --
+  + Animal(name: String)
+  + makeSound(): void
+  + sleep(): void
+  + introduce(): void
+}
+
+class Dog {
+  --
+  + Dog(name: String)
+  + makeSound(): void
+  + fetch(): void
+}
+
+class Cat {
+  --
+  + Cat(name: String)
+  + makeSound(): void
+  + sleep(): void
+}
+
+class Bird {
+  --
+  + Bird(name: String)
+  + makeSound(): void
+  + introduce(): void
+}
+
+Animal <|-- Dog
+Animal <|-- Cat
+Animal <|-- Bird
+
+note right of Dog
+  Redéfinit makeSound()
+  Hérite sleep()
+end note
+
+note right of Cat
+  Redéfinit makeSound()
+  Redéfinit sleep()
+end note
+
+note right of Bird
+  Redéfinit makeSound()
+  Redéfinit introduce()
+end note
+
+note bottom of Animal
+  Polymorphisme :
+  makeSound() appelle
+  la version appropriée
+end note
+
+@enduml

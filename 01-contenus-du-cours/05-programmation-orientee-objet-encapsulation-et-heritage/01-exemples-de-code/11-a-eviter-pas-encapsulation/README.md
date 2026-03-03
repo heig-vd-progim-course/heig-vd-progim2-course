@@ -9,11 +9,15 @@ directement accessibles sans protection.
 
 Sans encapsulation :
 
-- ❌ Aucun contrôle sur les valeurs affectées
-- ❌ États invalides possibles
-- ❌ Pas de validation des données
-- ❌ Difficile de changer l'implémentation plus tard
-- ❌ Pas de trace des modifications
+- Aucun contrôle sur les valeurs affectées
+- États invalides possibles
+- Pas de validation des données
+- Difficile de changer l'implémentation plus tard
+- Pas de trace des modifications
+
+## Diagramme UML
+
+![Diagramme montrant les attributs sans encapsulation](../../images/exemple-11-a-eviter-pas-encapsulation.svg)
 
 ## Code problématique
 

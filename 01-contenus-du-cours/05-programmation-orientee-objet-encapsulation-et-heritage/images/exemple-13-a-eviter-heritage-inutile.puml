@@ -1,0 +1,73 @@
+@startuml
+!theme plain
+
+' Exemple 1 : Stack hérite de ArrayList
+class ArrayList {
+  - size: int
+  - capacity: int
+  --
+  + add(): void
+  + clear(): void
+  + getSize(): int
+}
+
+class Stack {
+  --
+  + push(): void
+  + pop(): void
+}
+
+ArrayList <|-- Stack
+
+' Exemple 2 : Square hérite de Rectangle
+class Rectangle {
+  # width: double
+  # height: double
+  --
+  + setWidth(width: double): void
+  + setHeight(height: double): void
+  + getArea(): double
+}
+
+class Square {
+  --
+  + setWidth(width: double): void
+  + setHeight(height: double): void
+}
+
+Rectangle <|-- Square
+
+' Exemple 3 : Car hérite de Engine
+class Engine {
+  --
+  + start(): void
+  + stop(): void
+}
+
+class Car {
+  - brand: String
+  --
+  + drive(): void
+}
+
+Engine <|-- Car
+
+note right of Stack
+  Un Stack N'EST PAS
+  un ArrayList
+  → Utiliser composition
+end note
+
+note right of Square
+  Viole le principe
+  de substitution
+  → Modèles séparés
+end note
+
+note right of Car
+  Une Car N'EST PAS
+  un Engine, elle EN A un
+  → Utiliser composition
+end note
+
+@enduml

@@ -25,6 +25,10 @@ La **redéfinition** (override) permet de :
 | Type de retour | Identique (ou covariant)        | Peut être différent  |
 | Paramètres     | Identiques                      | Différents           |
 
+## Diagramme UML
+
+![Hiérarchie Animal avec Dog, Cat et Bird illustrant la redéfinition](../../images/exemple-06-redefinition-methode.svg)
+
 ## Code complet
 
 Créez un fichier `Main.java` avec le code suivant :

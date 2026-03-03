@@ -15,6 +15,10 @@ Une **classe abstraite** permet de :
 - Créer une hiérarchie cohérente avec un comportement garanti
 - Empêcher l'instanciation directe de la classe parent
 
+## Diagramme UML
+
+![Classe abstraite Shape avec Rectangle, Circle et Triangle](../../images/exemple-04-heritage-abstract.svg)
+
 ## Code complet
 
 Créez un fichier `Main.java` avec le code suivant :

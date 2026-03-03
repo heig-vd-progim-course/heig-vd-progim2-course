@@ -37,6 +37,10 @@ Cet exemple contient **5 fichiers** :
 └── Main.java           (point d'entrée)
 ```
 
+## Diagramme UML
+
+![Hiérarchie Employee avec Developer et Manager](../../images/exemple-07-organisation-fichiers.svg)
+
 ## Code complet
 
 ### Fichier : Employee.java

@@ -9,11 +9,15 @@ courants.
 
 Héritage mal utilisé :
 
-- ❌ Héritage pour réutiliser du code sans relation logique
-- ❌ Violation du principe "est-un" (is-a relationship)
-- ❌ Hiérarchies trop profondes ou trop larges
-- ❌ Héritage quand la composition serait meilleure
-- ❌ Classes qui héritent de classes concrètes pour commodité
+- Héritage pour réutiliser du code sans relation logique
+- Violation du principe "est-un" (is-a relationship)
+- Hiérarchies trop profondes ou trop larges
+- Héritage quand la composition serait meilleure
+- Classes qui héritent de classes concrètes pour commodité
+
+## Diagramme UML
+
+![Exemples d'héritage mal utilisé : Stack, Square, Car](../../images/exemple-13-a-eviter-heritage-inutile.svg)
 
 ## Code problématique
 
@@ -35,7 +39,7 @@ class ArrayList {
     public void clear() { size = 0; }
 }
 
-// ❌ ERREUR : Un Stack n'EST PAS un ArrayList !
+// ERREUR : Un Stack n'EST PAS un ArrayList !
 // On hérite juste pour réutiliser le code
 class Stack extends ArrayList {
     public void push() {
@@ -65,7 +69,7 @@ class Rectangle {
     }
 }
 
-// ❌ ERREUR : Un carré n'EST PAS vraiment un rectangle en POO
+// ERREUR : Un carré n'EST PAS vraiment un rectangle en POO
 // (Problème du carré-rectangle classique)
 class Square extends Rectangle {
     public Square(double side) {
@@ -97,7 +101,7 @@ class Engine {
     }
 }
 
-// ❌ ERREUR : Une voiture n'EST PAS un moteur !
+// ERREUR : Une voiture n'EST PAS un moteur !
 // Elle A un moteur (composition, pas héritage)
 class Car extends Engine {
     private String brand;
@@ -122,7 +126,7 @@ public class ErrorExample {
         stack.push();
         stack.push();
 
-        // ❌ On peut appeler des méthodes d'ArrayList qui n'ont pas de sens pour un Stack !
+        // On peut appeler des méthodes d'ArrayList qui n'ont pas de sens pour un Stack !
         stack.clear();  // Un Stack devrait avoir pop(), pas clear() !
         System.out.println("Taille du stack: " + stack.getSize());
         System.out.println("^ On peut accéder à des méthodes qui violent l'abstraction Stack !\n");
@@ -140,7 +144,7 @@ public class ErrorExample {
         rectRef.setWidth(5);         // On change seulement la largeur...
         rectRef.setHeight(3);        // Puis la hauteur...
 
-        // ❌ Comportement inattendu : les deux changent ensemble !
+        // Comportement inattendu : les deux changent ensemble !
         System.out.println("Après setWidth(5) et setHeight(3):");
         System.out.println("Largeur: " + square.width + ", Hauteur: " + square.height);
         System.out.println("^ Le carré ne maintient pas width == height comme prévu !\n");
@@ -150,7 +154,7 @@ public class ErrorExample {
         Car car = new Car("Tesla");
         car.drive();
 
-        // ❌ On peut traiter une Car comme un Engine !
+        // On peut traiter une Car comme un Engine !
         Engine engine = car;
         engine.start();
         System.out.println("^ Une voiture n'est pas un moteur, elle EN A un !\n");
@@ -160,9 +164,9 @@ public class ErrorExample {
         System.out.println("L'héritage doit respecter la relation 'est-un' (is-a):");
         System.out.println("✓ Un Dog EST un Animal → héritage approprié");
         System.out.println("✓ Un Developer EST un Employee → héritage approprié");
-        System.out.println("❌ Un Stack N'EST PAS un ArrayList → composition");
-        System.out.println("❌ Une Car N'EST PAS un Engine → composition");
-        System.out.println("❌ Un Square pose problème avec Rectangle → modèles séparés");
+        System.out.println("Un Stack N'EST PAS un ArrayList → composition");
+        System.out.println("Une Car N'EST PAS un Engine → composition");
+        System.out.println("Un Square pose problème avec Rectangle → modèles séparés");
     }
 }
 ```
@@ -246,9 +250,9 @@ Moteur démarré
 L'héritage doit respecter la relation 'est-un' (is-a):
 ✓ Un Dog EST un Animal → héritage approprié
 ✓ Un Developer EST un Employee → héritage approprié
-❌ Un Stack N'EST PAS un ArrayList → composition
-❌ Une Car N'EST PAS un Engine → composition
-❌ Un Square pose problème avec Rectangle → modèles séparés
+Un Stack N'EST PAS un ArrayList → composition
+Une Car N'EST PAS un Engine → composition
+Un Square pose problème avec Rectangle → modèles séparés
 ```
 
 ## Pourquoi c'est problématique

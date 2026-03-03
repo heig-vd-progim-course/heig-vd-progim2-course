@@ -1,0 +1,23 @@
+@startuml
+!theme plain
+
+class BankAccount {
+  - accountNumber: String
+  - balance: double
+  --
+  + BankAccount(accountNumber: String)
+  + getAccountNumber(): String
+  + getBalance(): double
+  + setBalance(balance: double): void
+  + deposit(amount: double): void
+  + displayInfo(): void
+}
+
+note right of BankAccount
+  Encapsulation basique :
+  - Attributs privés
+  - Getters/setters publics
+  - Accès contrôlé
+end note
+
+@enduml

@@ -15,6 +15,10 @@ permet de :
 - Contrôler l'accès aux attributs
 - Faciliter la maintenance du code
 
+## Diagramme UML
+
+![Diagramme de classe BankAccount avec encapsulation basique](../../images/exemple-01-encapsulation-basic.svg)
+
 ## Code complet
 
 Créez un fichier `Main.java` avec le code suivant :

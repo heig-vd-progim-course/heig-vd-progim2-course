@@ -1,0 +1,51 @@
+@startuml
+!theme plain
+
+abstract class Employee {
+  # name: String
+  # employeeId: String
+  # baseSalary: double
+  --
+  + Employee(name: String, employeeId: String, baseSalary: double)
+  + getName(): String
+  + getEmployeeId(): String
+  + getBaseSalary(): double
+  + {abstract} calculateSalary(): double
+  + displayInfo(): void
+}
+
+class Developer {
+  - programmingLanguage: String
+  - projectsCompleted: int
+  --
+  + Developer(name: String, employeeId: String, baseSalary: double, programmingLanguage: String)
+  + getProgrammingLanguage(): String
+  + completeProject(): void
+  + calculateSalary(): double
+  + displayInfo(): void
+}
+
+class Manager {
+  - teamSize: int
+  - bonus: double
+  --
+  + Manager(name: String, employeeId: String, baseSalary: double, teamSize: int)
+  + getTeamSize(): int
+  + setBonus(bonus: double): void
+  + calculateSalary(): double
+  + displayInfo(): void
+}
+
+Employee <|-- Developer
+Employee <|-- Manager
+
+note top of Employee
+  Organisation professionnelle :
+  - Un fichier par classe
+  - Employee.java
+  - Developer.java
+  - Manager.java
+  - Main.java
+end note
+
+@enduml

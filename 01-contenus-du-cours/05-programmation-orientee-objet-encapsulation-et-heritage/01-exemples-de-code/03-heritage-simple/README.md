@@ -14,6 +14,10 @@ L'**héritage** permet de :
 - Ajouter des fonctionnalités spécifiques dans les classes enfants
 - Éviter la duplication de code
 
+## Diagramme UML
+
+![Hiérarchie de classes avec BankAccount, SavingsAccount et CheckingAccount](../../images/exemple-03-heritage-simple.svg)
+
 ## Code complet
 
 Créez un fichier `Main.java` avec le code suivant :

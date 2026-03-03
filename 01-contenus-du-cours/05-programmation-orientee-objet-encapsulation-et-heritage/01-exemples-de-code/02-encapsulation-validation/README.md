@@ -14,6 +14,10 @@ L'**encapsulation avec validation** permet de :
 - Garantir que l'objet reste toujours dans un état cohérent
 - Centraliser les règles métier dans la classe
 
+## Diagramme UML
+
+![Diagramme de classe BankAccount avec validation](../../images/exemple-02-encapsulation-validation.svg)
+
 ## Code complet
 
 Créez un fichier `Main.java` avec le code suivant :
