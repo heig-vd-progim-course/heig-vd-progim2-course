@@ -1,0 +1,76 @@
+@startuml bike-interfaces
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+interface Electric {
+  +getBatteryLevel(): int
+  +charge(): void
+  +needsCharging(): boolean
+}
+
+interface Rideable {
+  +getMaxSpeed(): double
+  +ride(): void
+}
+
+interface Loadable {
+  +getMaxLoad(): int
+  +loadCargo(): void
+  +unloadCargo(): void
+}
+
+class Bike {
+  -brand: String
+  -model: String
+  +repair(): void
+  +displayInfo(): void
+}
+
+class HumanPoweredBike {
+  -numberOfGears: int
+}
+
+class ElectricBike {
+  -batteryCapacity: int
+  -batteryLevel: int
+}
+
+class CargoBike {
+  -maxLoad: int
+}
+
+class BikeCaravan {
+  -sleepingSpots: int
+}
+
+Bike <|-- HumanPoweredBike
+Bike <|-- ElectricBike
+Bike <|-- CargoBike
+Bike <|-- BikeCaravan
+
+HumanPoweredBike ..|> Rideable
+ElectricBike ..|> Electric
+ElectricBike ..|> Rideable
+CargoBike ..|> Loadable
+CargoBike ..|> Rideable
+BikeCaravan ..|> Loadable
+
+note right of Electric
+  Tous les vélos électriques
+  doivent implémenter cette
+  interface
+end note
+
+note right of Rideable
+  La plupart des vélos
+  peuvent être conduits
+end note
+
+note right of Loadable
+  Les vélos cargo et caravanes
+  peuvent transporter des charges
+end note
+
+@enduml
