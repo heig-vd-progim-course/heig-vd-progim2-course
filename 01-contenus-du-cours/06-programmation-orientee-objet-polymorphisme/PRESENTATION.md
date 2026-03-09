@@ -74,7 +74,7 @@ document._
 
 ![bg right:40%][illustration-objectifs]
 
-## Objectifs (3/4)
+## Objectifs (4/4)
 
 - Justifier l'utilisation d'interfaces pour le polymorphisme.
 - Redéfinir la méthode `toString()` pour représenter un objet sous forme de
@@ -84,6 +84,10 @@ document._
 
 ![bg right:40%][illustration-objectifs]
 
+## Hiérarchie des classes de vélos
+
+![w:1100](./images/bike-class-hierarchy-simple.svg)
+
 ## L'opérateur instanceof
 
 L'opérateur `instanceof` permet de vérifier si un objet est une instance d'un
@@ -92,9 +96,9 @@ type particulier.
 ```java
 Bike bike = new ElectricBike("VanMoof", "S3", 500);
 
-boolean isElectric = bike instanceof ElectricBike;  // true
-boolean isCargo = bike instanceof CargoBike;         // false
-boolean isBike = bike instanceof Bike;               // true
+boolean isElectric = bike instanceof ElectricBike;      // true
+boolean isHumanPowered = bike instanceof HumanPoweredBike; // false
+boolean isBike = bike instanceof Bike;                  // true
 ```
 
 **Important** : `instanceof` retourne `false` si l'objet est `null` (pas
@@ -109,12 +113,10 @@ accéder aux méthodes spécifiques.
 public void manageBike(Bike bike) {
     if (bike instanceof ElectricBike) {
         ElectricBike electric = (ElectricBike) bike;
-        if (electric.needsCharging()) {
-            electric.charge();
-        }
-    } else if (bike instanceof CargoBike) {
-        CargoBike cargo = (CargoBike) bike;
-        cargo.loadCargo();
+        electric.charge();
+    } else if (bike instanceof HumanPoweredBike) {
+        HumanPoweredBike classic = (HumanPoweredBike) bike;
+        System.out.println("Vitesses : " + classic.getNumberOfGears());
     }
 }
 ```
@@ -152,21 +154,6 @@ différents de manière uniforme.
 Au lieu de :
 
 ```java
-if (bike instanceof ElectricBike) { ... }
-else if (bike instanceof CargoBike) { ... }
-```
-
-On écrit simplement :
-
-```java
-bike.repair();  // Appelle la bonne méthode automatiquement
-```
-
-## Du instanceof au polymorphisme
-
-**Avant (verbeux)** :
-
-```java
 if (bike instanceof HumanPoweredBike) {
     ((HumanPoweredBike) bike).repair();
 } else if (bike instanceof ElectricBike) {
@@ -174,14 +161,11 @@ if (bike instanceof HumanPoweredBike) {
 }
 ```
 
-**Après (élégant)** :
+On écrit simplement :
 
 ```java
-bike.repair();  // Java sait quelle version appeler
+bike.repair();  // Appelle la bonne méthode automatiquement
 ```
-
-Grâce à la liaison dynamique, Java détermine automatiquement quelle méthode
-exécuter.
 
 ## Les trois piliers de la POO
 
@@ -203,8 +187,6 @@ qu'elle référence.
 ```java
 Bike bike1 = new HumanPoweredBike("Decathlon", "Riverside", 21);
 Bike bike2 = new ElectricBike("VanMoof", "S3", 500);
-Bike bike3 = new CargoBike("Urban Arrow", "Family", 100);
-Bike bike4 = new BikeCaravan("WidePath", "Camper", 2);
 ```
 
 Tous les types héritent de `Bike`, donc ils **sont** des vélos.
@@ -217,7 +199,6 @@ Cette capacité permet de stocker différents types dans une même collection :
 ArrayList<Bike> fleet = new ArrayList<>();
 fleet.add(new HumanPoweredBike("Decathlon", "Riverside", 21));
 fleet.add(new ElectricBike("VanMoof", "S3", 500));
-fleet.add(new CargoBike("Urban Arrow", "Family", 100));
 
 for (Bike bike : fleet) {
     bike.displayInfo();  // Méthode appropriée pour chaque type
@@ -317,8 +298,6 @@ public void repair() {
 }
 ```
 
-**Avantages** :
-
 - Vérification à la compilation (détecte les fautes de frappe).
 - Documentation claire de l'intention.
 - Protection contre les changements de signature.
@@ -334,7 +313,6 @@ définir comment.
 public interface Electric {
     int getBatteryLevel();
     void charge();
-    boolean needsCharging();
 }
 ```
 
@@ -347,7 +325,6 @@ Caractéristiques d'une interface :
 ```java
 public interface Rideable {
     double getMaxSpeed();
-    void ride();
 }
 ```
 
@@ -371,13 +348,7 @@ class ElectricBike extends Bike implements Electric, Rideable {
     public void charge() { batteryLevel = 100; }
 
     @Override
-    public boolean needsCharging() { return batteryLevel < 20; }
-
-    @Override
     public double getMaxSpeed() { return 25.0; }
-
-    @Override
-    public void ride() { /* ... */ }
 }
 ```
 
@@ -387,8 +358,8 @@ Contrairement à l'héritage (une seule classe parent), une classe peut
 implémenter **plusieurs interfaces**.
 
 ```java
-class CargoBike extends Bike implements Loadable, Rideable {
-    // Implémente toutes les méthodes de Loadable et Rideable
+class ElectricBike extends Bike implements Electric, Rideable {
+    // Implémente toutes les méthodes de Electric et Rideable
 }
 ```
 
@@ -401,16 +372,10 @@ Une variable de type interface peut référencer tout objet qui implémente cett
 interface.
 
 ```java
-Electric bike1 = new ElectricBike("VanMoof", "S3", 500);
-Electric bike2 = new CargoBike("Urban Arrow", "Family", 100);
+Electric bike = new ElectricBike("VanMoof", "S3", 500);
 
 // Traitement uniforme
-if (bike1.getBatteryLevel() < 20) {
-    bike1.charge();
-}
-if (bike2.getBatteryLevel() < 20) {
-    bike2.charge();
-}
+bike.charge();
 ```
 
 ## Collections polymorphes avec interfaces
@@ -420,73 +385,28 @@ Les interfaces permettent de regrouper les objets par capacités.
 ```java
 ArrayList<Electric> electricBikes = new ArrayList<>();
 electricBikes.add(new ElectricBike("VanMoof", "S3", 500));
-electricBikes.add(new CargoBike("Urban Arrow", "Family", 100));
+electricBikes.add(new ElectricBike("Stromer", "ST5", 983));
 
 for (Electric bike : electricBikes) {
-    if (bike.getBatteryLevel() < 50) {
-        bike.charge();
-    }
+    bike.charge();
 }
 ```
 
 Traitement basé sur ce qu'ils **peuvent faire**, pas ce qu'ils **sont**.
 
-## Interface vs classe abstraite : points communs
+## Interface vs classe abstraite
 
-Interfaces et classes abstraites :
+**Interface** : définit des capacités ("peut faire").
 
-**1.** Ne peuvent pas être instanciées directement.
+- Pour des classes non liées.
+- Héritage multiple possible.
+- Pas de code commun.
 
-**2.** Définissent des contrats que les classes doivent respecter.
+**Classe abstraite** : définit une nature ("est un").
 
-**3.** Permettent le polymorphisme.
-
-**4.** Servent de types pour variables, paramètres, retours.
-
-## Interface vs classe abstraite : différences (1/2)
-
-| Aspect            | Interface                   | Classe abstraite         |
-| :---------------- | :-------------------------- | :----------------------- |
-| Héritage multiple | Une classe peut implémenter | Une classe ne peut       |
-|                   | plusieurs interfaces        | hériter que d'une classe |
-| Méthodes          | Abstraites (par défaut)     | Abstraites et concrètes  |
-| Attributs         | Constantes seulement        | Attributs d'instance     |
-|                   | (`public static final`)     | possibles                |
-
-## Interface vs classe abstraite : différences (2/2)
-
-| Aspect   | Interface                    | Classe abstraite             |
-| :------- | :--------------------------- | :--------------------------- |
-| Relation | Définit "ce que l'objet peut | Définit "ce que l'objet est" |
-|          | faire" (capacités)           | (nature)                     |
-| Mot-clé  | `implements`                 | `extends`                    |
-| Usage    | Contrats de comportement     | Hiérarchie avec code commun  |
-
-## Quand utiliser une interface ?
-
-**Utilisez une interface quand** :
-
-**1.** Vous définissez des capacités pour des classes non liées.
-
-**2.** Une classe doit adopter plusieurs rôles.
-
-**3.** Vous voulez un contrat sans imposer de structure d'héritage.
-
-**4.** Vous concevez une API publique flexible.
-
-## Quand utiliser une classe abstraite ?
-
-**Utilisez une classe abstraite quand** :
-
-**1.** Vous avez du code commun à partager.
-
-**2.** Vous définissez une hiérarchie avec relation "est un".
-
-**3.** Vous avez besoin d'attributs d'instance partagés.
-
-**4.** Vous voulez contrôler la construction des objets (constructeurs).
-
-**En pratique** : utilisez souvent les deux ensemble.
+- Pour une hiérarchie de classes.
+- Héritage simple uniquement.
+- Partage de code commun.
 
 ## La méthode toString()
 
@@ -507,39 +427,31 @@ Appelée automatiquement par `System.out.println(object)`.
 
 ## Les méthodes equals() et hashCode()
 
-Ces méthodes travaillent ensemble pour la comparaison d'objets et les
-collections basées sur le hachage.
+Ces méthodes travaillent ensemble pour la comparaison d'objets.
 
 ```java
 @Override
 public boolean equals(Object obj) {
     if (this == obj) return true;
-    if (obj == null || getClass() != obj.getClass()) return false;
+    if (obj == null) return false;
     Bike that = (Bike) obj;
     return brand.equals(that.brand) && model.equals(that.model);
 }
 
 @Override
 public int hashCode() {
-    int result = brand.hashCode();
-    result = 31 * result + model.hashCode();
-    return result;
+    return brand.hashCode() + 31 * model.hashCode();
 }
 ```
 
-## Pourquoi redéfinir equals() et hashCode() ensemble ?
+## Pourquoi equals() et hashCode() ensemble ?
 
-**Règle fondamentale** : si vous redéfinissez `equals()`, vous **devez** aussi
-redéfinir `hashCode()`.
+**Règle** : si vous redéfinissez `equals()`, vous **devez** redéfinir
+`hashCode()`.
 
-**Contrat** :
+**Pourquoi** : deux objets égaux doivent avoir le même `hashCode()`.
 
-- Si deux objets sont égaux selon `equals()`, ils doivent avoir le même
-  `hashCode()`.
-- Si deux objets ont des `hashCode()` différents, ils ne peuvent pas être égaux.
-
-Sans respect de ce contrat, `HashSet` et `HashMap` ne fonctionnent plus
-correctement.
+Sans cela, `HashSet` et `HashMap` ne fonctionnent pas correctement.
 
 ## Collections polymorphes en pratique
 
@@ -549,7 +461,6 @@ Stocker et manipuler différents types dans une même collection :
 ArrayList<Bike> fleet = new ArrayList<>();
 fleet.add(new HumanPoweredBike("Decathlon", "Riverside", 21));
 fleet.add(new ElectricBike("VanMoof", "S3", 500));
-fleet.add(new CargoBike("Urban Arrow", "Family", 100));
 
 for (Bike bike : fleet) {
     bike.displayInfo();  // Chaque vélo affiche ses infos
@@ -562,11 +473,9 @@ for (Bike bike : fleet) {
 
 ```java
 public void repairFleet(ArrayList<HumanPoweredBike> classic,
-                        ArrayList<ElectricBike> electric,
-                        ArrayList<CargoBike> cargo) {
+                        ArrayList<ElectricBike> electric) {
     for (HumanPoweredBike bike : classic) bike.repair();
     for (ElectricBike bike : electric) bike.repair();
-    for (CargoBike bike : cargo) bike.repair();
 }
 ```
 
@@ -587,25 +496,6 @@ public void repairFleet(ArrayList<Bike> bikes) {
 Ajouter un nouveau type ne nécessite **aucune modification**.
 
 **Principe ouvert/fermé** : ouvert à l'extension, fermé à la modification.
-
-## Récapitulatif (1/2)
-
-**1. Polymorphisme d'héritage** : exploite les relations parent-enfant avec
-liaison dynamique.
-
-**2. Redéfinition de méthodes** : adapte le comportement aux sous-classes avec
-`@Override`.
-
-**3. Interfaces** : définissent des contrats indépendants de la hiérarchie.
-
-## Récapitulatif (2/2)
-
-**4. Interfaces vs classes abstraites** : capacités vs nature + code commun.
-
-**5. Méthodes de Object** : redéfinir `toString()`, `equals()` et `hashCode()`
-ensemble.
-
-**6. Pratique** : code plus court, plus clair, plus extensible.
 
 ## Questions
 
