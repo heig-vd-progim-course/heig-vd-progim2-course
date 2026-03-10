@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * Exemple d'interface simple
  * 
@@ -79,10 +77,10 @@ class InterfaceDemo {
         HumanPoweredBike bike3 = new HumanPoweredBike("Decathlon", "Riverside", 21);
         
         // Collection d'objets électriques (polymorphisme d'interface)
-        ArrayList<Electric> electricDevices = new ArrayList<>();
-        electricDevices.add(bike1);
-        electricDevices.add(bike2);
-        // electricDevices.add(bike3);  // ERREUR : HumanPoweredBike n'est pas Electric
+        Electric[] electricDevices = new Electric[2];
+        electricDevices[0] = bike1;
+        electricDevices[1] = bike2;
+        // electricDevices[2] = bike3;  // ERREUR : HumanPoweredBike n'est pas Electric
         
         // Vérification des batteries
         System.out.println("=== Vérification des batteries ===");
@@ -90,14 +88,14 @@ class InterfaceDemo {
         
         // Statistiques
         System.out.println("\n=== Statistiques ===");
-        System.out.println("Nombre d'appareils électriques : " + electricDevices.size());
+        System.out.println("Nombre d'appareils électriques : " + electricDevices.length);
     }
     
     /**
      * Vérifie et charge les batteries si nécessaire
      * Fonctionne avec TOUT objet implémentant Electric
      */
-    static void checkBatteries(ArrayList<Electric> devices) {
+    static void checkBatteries(Electric[] devices) {
         for (Electric device : devices) {
             // Affichage (cast pour accéder aux attributs Bike)
             if (device instanceof ElectricBike) {

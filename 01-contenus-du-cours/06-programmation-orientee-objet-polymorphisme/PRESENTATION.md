@@ -196,9 +196,9 @@ Tous les types héritent de `Bike`, donc ils **sont** des vélos.
 Cette capacité permet de stocker différents types dans une même collection :
 
 ```java
-ArrayList<Bike> fleet = new ArrayList<>();
-fleet.add(new HumanPoweredBike("Decathlon", "Riverside", 21));
-fleet.add(new ElectricBike("VanMoof", "S3", 500));
+Bike[] fleet = new Bike[2];
+fleet[0] = new HumanPoweredBike("Decathlon", "Riverside", 21);
+fleet[1] = new ElectricBike("VanMoof", "S3", 500);
 
 for (Bike bike : fleet) {
     bike.displayInfo();  // Méthode appropriée pour chaque type
@@ -383,9 +383,9 @@ bike.charge();
 Les interfaces permettent de regrouper les objets par capacités.
 
 ```java
-ArrayList<Electric> electricBikes = new ArrayList<>();
-electricBikes.add(new ElectricBike("VanMoof", "S3", 500));
-electricBikes.add(new ElectricBike("Stromer", "ST5", 983));
+Electric[] electricBikes = new Electric[2];
+electricBikes[0] = new ElectricBike("VanMoof", "S3", 500);
+electricBikes[1] = new ElectricBike("Stromer", "ST5", 983);
 
 for (Electric bike : electricBikes) {
     bike.charge();
@@ -396,21 +396,30 @@ Traitement basé sur ce qu'ils **peuvent faire**, pas ce qu'ils **sont**.
 
 ## Interface vs classe abstraite
 
-**Interface** : définit des capacités ("peut faire").
+<div class="two-columns">
+<div>
 
+**Interface**
+
+- définit des capacités ("peut faire").
 - Pour des classes non liées.
 - Héritage multiple possible.
 - Pas de code commun.
 
-**Classe abstraite** : définit une nature ("est un").
+</div>
+<div>
 
+**Classe abstraite**
+
+- définit une nature ("est un").
 - Pour une hiérarchie de classes.
 - Héritage simple uniquement.
 - Partage de code commun.
 
-## La méthode toString()
+</div>
+</div>
 
-`toString()` retourne une représentation textuelle d'un objet.
+## La méthode toString()
 
 ```java
 @Override
@@ -419,7 +428,8 @@ public String toString() {
 }
 ```
 
-Appelée automatiquement par `System.out.println(object)`.
+Appelée automatiquement par `System.out.println(object)`. `toString()` retourne
+une représentation textuelle d'un objet.
 
 **Par défaut** : `ElectricBike@15db9742` (peu utile).
 
@@ -458,9 +468,9 @@ Sans cela, `HashSet` et `HashMap` ne fonctionnent pas correctement.
 Stocker et manipuler différents types dans une même collection :
 
 ```java
-ArrayList<Bike> fleet = new ArrayList<>();
-fleet.add(new HumanPoweredBike("Decathlon", "Riverside", 21));
-fleet.add(new ElectricBike("VanMoof", "S3", 500));
+Bike[] fleet = new Bike[2];
+fleet[0] = new HumanPoweredBike("Decathlon", "Riverside", 21);
+fleet[1] = new ElectricBike("VanMoof", "S3", 500);
 
 for (Bike bike : fleet) {
     bike.displayInfo();  // Chaque vélo affiche ses infos
@@ -472,8 +482,8 @@ for (Bike bike : fleet) {
 **Sans polymorphisme (rigide)** :
 
 ```java
-public void repairFleet(ArrayList<HumanPoweredBike> classic,
-                        ArrayList<ElectricBike> electric) {
+public void repairFleet(HumanPoweredBike[] classic,
+                        ElectricBike[] electric) {
     for (HumanPoweredBike bike : classic) bike.repair();
     for (ElectricBike bike : electric) bike.repair();
 }
@@ -486,7 +496,7 @@ Ajouter un type oblige à modifier cette méthode.
 **Avec polymorphisme (flexible)** :
 
 ```java
-public void repairFleet(ArrayList<Bike> bikes) {
+public void repairFleet(Bike[] bikes) {
     for (Bike bike : bikes) {
         bike.repair();
     }
