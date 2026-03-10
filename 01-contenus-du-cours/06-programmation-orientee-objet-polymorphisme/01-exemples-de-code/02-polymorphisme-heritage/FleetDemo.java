@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * Exemple de polymorphisme d'héritage
  * 
@@ -65,10 +63,10 @@ class ElectricBike extends Bike {
 class FleetDemo {
     public static void main(String[] args) {
         // Collection polymorphe : stocke différents types de vélos
-        ArrayList<Bike> fleet = new ArrayList<>();
-        fleet.add(new HumanPoweredBike("Decathlon", "Riverside", 21));
-        fleet.add(new ElectricBike("VanMoof", "S3", 75));
-        fleet.add(new ElectricBike("Stromer", "ST5", 50));
+        Bike[] fleet = new Bike[3];
+        fleet[0] = new HumanPoweredBike("Decathlon", "Riverside", 21);
+        fleet[1] = new ElectricBike("VanMoof", "S3", 75);
+        fleet[2] = new ElectricBike("Stromer", "ST5", 50);
         
         // Réparation de tous les vélos
         // Polymorphisme : chaque vélo utilise SA méthode repair()
@@ -87,14 +85,14 @@ class FleetDemo {
             bike.displayAvailability();  // Même méthode pour tous
         }
         
-        System.out.println("\nTotal de vélos : " + fleet.size());
+        System.out.println("\nTotal de vélos : " + fleet.length);
     }
     
     /**
      * Répare tous les vélos de la flotte
      * Grâce au polymorphisme, pas besoin de instanceof !
      */
-    static void repairAllBikes(ArrayList<Bike> bikes) {
+    static void repairAllBikes(Bike[] bikes) {
         for (Bike bike : bikes) {
             // La bonne méthode repair() est appelée automatiquement
             // selon le type réel de l'objet (liaison dynamique)
@@ -106,7 +104,7 @@ class FleetDemo {
      * Exemple d'une nouvelle méthode qui fonctionne pour TOUS les types
      * Sans modification même si on ajoute de nouveaux types !
      */
-    static int countBikes(ArrayList<Bike> bikes) {
-        return bikes.size();
+    static int countBikes(Bike[] bikes) {
+        return bikes.length;
     }
 }

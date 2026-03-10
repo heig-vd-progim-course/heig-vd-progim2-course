@@ -395,9 +395,9 @@ class Laptop implements Chargeable {
 }
 
 // Programme principal
-ArrayList<Chargeable> devices = new ArrayList<>();
-devices.add(new Smartphone());
-devices.add(new Laptop());
+Chargeable[] devices = new Chargeable[2];
+devices[0] = new Smartphone();
+devices[1] = new Laptop();
 
 for (Chargeable device : devices) {
     device.charge();
@@ -911,10 +911,10 @@ class Tram extends PublicTransport implements Schedulable {
 class TransportDemo {
     public static void main(String[] args) {
         // Création des véhicules
-        ArrayList<PublicTransport> vehicles = new ArrayList<>();
-        vehicles.add(new Bus("12", 80, true));
-        vehicles.add(new Tram("T1", 200, 3));
-        vehicles.add(new Bus("25", 60, false));
+        PublicTransport[] vehicles = new PublicTransport[3];
+        vehicles[0] = new Bus("12", 80, true);
+        vehicles[1] = new Tram("T1", 200, 3);
+        vehicles[2] = new Bus("25", 60, false);
 
         // Affichage des informations
         System.out.println("=== Tous les véhicules ===");
@@ -940,7 +940,7 @@ class TransportDemo {
 
 **Points clés :**
 
-- Polymorphisme d'héritage avec `ArrayList<PublicTransport>`
+- Polymorphisme d'héritage avec `PublicTransport[]`
 - Polymorphisme d'interface avec `Schedulable`
 - Utilisation de `instanceof` pour traitement spécifique
 - Méthodes abstraites et concrètes dans la classe parent
@@ -1126,10 +1126,10 @@ class Tablet extends ElectronicDevice {
 class ElectronicsDemo {
     public static void main(String[] args) {
         // Création des appareils
-        ArrayList<ElectronicDevice> devices = new ArrayList<>();
-        devices.add(new Smartphone("Apple", "iPhone 15", 256));
-        devices.add(new Laptop("Dell", "XPS 15", 32));
-        devices.add(new Tablet("Samsung", "Galaxy Tab", 10.5));
+        ElectronicDevice[] devices = new ElectronicDevice[3];
+        devices[0] = new Smartphone("Apple", "iPhone 15", 256);
+        devices[1] = new Laptop("Dell", "XPS 15", 32);
+        devices[2] = new Tablet("Samsung", "Galaxy Tab", 10.5);
 
         // Test des fonctionnalités
         System.out.println("=== Test de l'alimentation ===");

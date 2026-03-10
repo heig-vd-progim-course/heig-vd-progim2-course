@@ -576,11 +576,11 @@ Cette capacité est fondamentale pour le polymorphisme. Elle nous permet de
 stocker différents types d'objets dans une même collection :
 
 ```java
-ArrayList<Bike> fleet = new ArrayList<>();
-fleet.add(new HumanPoweredBike("Decathlon", "Riverside", 21));
-fleet.add(new ElectricBike("VanMoof", "S3", 500));
-fleet.add(new CargoBike("Urban Arrow", "Family", 100));
-fleet.add(new BikeCaravan("WidePath", "Camper", 2));
+Bike[] fleet = new Bike[4];
+fleet[0] = new HumanPoweredBike("Decathlon", "Riverside", 21);
+fleet[1] = new ElectricBike("VanMoof", "S3", 500);
+fleet[2] = new CargoBike("Urban Arrow", "Family", 100);
+fleet[3] = new BikeCaravan("WidePath", "Camper", 2);
 
 for (Bike bike : fleet) {
     bike.displayInfo();  // Appelle la méthode appropriée pour chaque type
@@ -1030,10 +1030,10 @@ tant qu'il implémente l'interface `Electric`. Nous pouvons même créer une
 collection d'objets électriques :
 
 ```java
-ArrayList<Electric> electricBikes = new ArrayList<>();
-electricBikes.add(new ElectricBike("VanMoof", "S3", 500));
-electricBikes.add(new CargoBike("Urban Arrow", "Family", 100));
-// Mais pas : electricBikes.add(new HumanPoweredBike(...))  car HumanPoweredBike n'implémente pas Electric
+Electric[] electricBikes = new Electric[2];
+electricBikes[0] = new ElectricBike("VanMoof", "S3", 500);
+electricBikes[1] = new CargoBike("Urban Arrow", "Family", 100);
+// Mais pas : electricBikes[2] = new HumanPoweredBike(...)  car HumanPoweredBike n'implémente pas Electric
 
 for (Electric bike : electricBikes) {
     if (bike.getBatteryLevel() < 50) {
@@ -1295,11 +1295,11 @@ L'un des usages les plus courants du polymorphisme est de stocker et manipuler
 des objets de types différents dans une même collection :
 
 ```java
-ArrayList<Bike> fleet = new ArrayList<>();
-fleet.add(new HumanPoweredBike("Decathlon", "Riverside", 21));
-fleet.add(new ElectricBike("VanMoof", "S3", 500));
-fleet.add(new CargoBike("Urban Arrow", "Family", 100));
-fleet.add(new BikeCaravan("WidePath", "Camper", 2));
+Bike[] fleet = new Bike[4];
+fleet[0] = new HumanPoweredBike("Decathlon", "Riverside", 21);
+fleet[1] = new ElectricBike("VanMoof", "S3", 500);
+fleet[2] = new CargoBike("Urban Arrow", "Family", 100);
+fleet[3] = new BikeCaravan("WidePath", "Camper", 2);
 
 // Traitement uniforme
 for (Bike bike : fleet) {
@@ -1310,17 +1310,19 @@ for (Bike bike : fleet) {
 Nous pouvons aussi organiser les objets selon leurs capacités :
 
 ```java
-ArrayList<Electric> electricBikes = new ArrayList<>();
-ArrayList<Rideable> rideableBikes = new ArrayList<>();
+Electric[] electricBikes = new Electric[10];
+Rideable[] rideableBikes = new Rideable[10];
+int electricCount = 0;
+int rideableCount = 0;
 
 Bike bike = new ElectricBike("VanMoof", "S3", 500);
 
 // Un vélo électrique est à la fois électrique et conduisible
 if (bike instanceof Electric) {
-    electricBikes.add((Electric) bike);
+    electricBikes[electricCount++] = (Electric) bike;
 }
 if (bike instanceof Rideable) {
-    rideableBikes.add((Rideable) bike);
+    rideableBikes[rideableCount++] = (Rideable) bike;
 }
 ```
 
@@ -1337,9 +1339,9 @@ l'extension mais fermé à la modification.
 **Exemple sans polymorphisme (rigide) :**
 
 ```java
-public void repairFleet(ArrayList<HumanPoweredBike> classicBikes,
-                        ArrayList<ElectricBike> electricBikes,
-                        ArrayList<CargoBike> cargoBikes) {
+public void repairFleet(HumanPoweredBike[] classicBikes,
+                        ElectricBike[] electricBikes,
+                        CargoBike[] cargoBikes) {
     for (HumanPoweredBike bike : classicBikes) {
         bike.repair();
     }
@@ -1358,7 +1360,7 @@ pour ajouter une nouvelle boucle. C'est fragile et peu maintenable.
 **Exemple avec polymorphisme (flexible) :**
 
 ```java
-public void repairFleet(ArrayList<Bike> bikes) {
+public void repairFleet(Bike[] bikes) {
     for (Bike bike : bikes) {
         bike.repair();
     }
