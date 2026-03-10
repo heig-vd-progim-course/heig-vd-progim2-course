@@ -1,0 +1,171 @@
+@startuml class-diagram
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+' Interfaces
+interface Harvestable <<interface>> {
+  + harvest(): double
+  + isReadyToHarvest(): boolean
+}
+
+interface Waterable <<interface>> {
+  + water(liters: double): void
+  + getWaterNeedsPerWeek(): double
+}
+
+interface Growable <<interface>> {
+  + grow(centimeters: double): void
+  + getGrowthRate(): double
+}
+
+' Classe abstraite de base
+abstract class PlantBase {
+  - name: String
+  - species: String
+  - plantingDate: String
+  - size: double
+  
+  + PlantBase(name: String, species: String, plantingDate: String, size: double)
+  + getName(): String
+  + setName(name: String): void
+  + getSpecies(): String
+  + setSpecies(species: String): void
+  + getPlantingDate(): String
+  + setPlantingDate(plantingDate: String): void
+  + getSize(): double
+  + setSize(size: double): void
+  + toString(): String
+  + equals(obj: Object): boolean
+  + hashCode(): int
+  + displayInfo(): void
+}
+
+' Classes concrètes
+class VegetablePlant {
+  - daysUntilHarvest: int
+  - hasBeenHarvested: boolean
+  
+  + VegetablePlant(name: String, species: String, plantingDate: String, size: double, daysUntilHarvest: int)
+  + getDaysUntilHarvest(): int
+  + setDaysUntilHarvest(daysUntilHarvest: int): void
+  + harvest(): double
+  + isReadyToHarvest(): boolean
+  + water(liters: double): void
+  + getWaterNeedsPerWeek(): double
+  + grow(centimeters: double): void
+  + getGrowthRate(): double
+  + displayInfo(): void
+  + toString(): String
+}
+
+class FlowerPlant {
+  - color: String
+  - isInBloom: boolean
+  
+  + FlowerPlant(name: String, species: String, plantingDate: String, size: double, color: String)
+  + getColor(): String
+  + setColor(color: String): void
+  + isInBloom(): boolean
+  + bloom(): void
+  + water(liters: double): void
+  + getWaterNeedsPerWeek(): double
+  + grow(centimeters: double): void
+  + getGrowthRate(): double
+  + displayInfo(): void
+  + toString(): String
+}
+
+class TreePlant {
+  - ageInYears: int
+  - minimumHarvestAge: int
+  
+  + TreePlant(name: String, species: String, plantingDate: String, size: double, ageInYears: int, minimumHarvestAge: int)
+  + getAgeInYears(): int
+  + setAgeInYears(ageInYears: int): void
+  + getMinimumHarvestAge(): int
+  + harvest(): double
+  + isReadyToHarvest(): boolean
+  + water(liters: double): void
+  + getWaterNeedsPerWeek(): double
+  + grow(centimeters: double): void
+  + getGrowthRate(): double
+  + displayInfo(): void
+  + toString(): String
+}
+
+' Classe utilitaire
+class GardenTask <<utility>> {
+  + {static} waterAllPlants(plants: Waterable[]): void
+  + {static} harvestAllReadyPlants(plants: Harvestable[]): double
+  + {static} simulateWeekGrowth(plants: Growable[]): void
+  + {static} generatePlantReport(plants: PlantBase[]): void
+}
+
+' Autres classes du système
+class Plot {
+  - number: int
+  - size: double
+  - location: String
+  
+  + Plot(number: int, size: double, location: String)
+  + getNumber(): int
+  + setNumber(number: int): void
+  + getSize(): double
+  + setSize(size: double): void
+  + getLocation(): String
+  + setLocation(location: String): void
+  + displayInfo(): void
+}
+
+class Gardener {
+  - name: String
+  - email: String
+  - yearsOfExperience: int
+  
+  + Gardener(name: String, email: String, yearsOfExperience: int)
+  + getName(): String
+  + setName(name: String): void
+  + getEmail(): String
+  + setEmail(email: String): void
+  + getYearsOfExperience(): int
+  + setYearsOfExperience(yearsOfExperience: int): void
+  + displayInfo(): void
+}
+
+class GardenManagementSystem {
+  + {static} main(args: String[]): void
+}
+
+' Relations d'héritage
+PlantBase <|-- VegetablePlant
+PlantBase <|-- FlowerPlant
+PlantBase <|-- TreePlant
+
+' Implémentation des interfaces
+VegetablePlant ..|> Harvestable
+VegetablePlant ..|> Waterable
+VegetablePlant ..|> Growable
+
+FlowerPlant ..|> Waterable
+FlowerPlant ..|> Growable
+
+TreePlant ..|> Harvestable
+TreePlant ..|> Waterable
+TreePlant ..|> Growable
+
+' Relations d'utilisation
+GardenTask ..> Harvestable : uses
+GardenTask ..> Waterable : uses
+GardenTask ..> Growable : uses
+GardenTask ..> PlantBase : uses
+
+GardenManagementSystem ..> VegetablePlant : creates
+GardenManagementSystem ..> FlowerPlant : creates
+GardenManagementSystem ..> TreePlant : creates
+GardenManagementSystem ..> Plot : creates
+GardenManagementSystem ..> Gardener : creates
+GardenManagementSystem ..> GardenTask : uses
+
+@enduml

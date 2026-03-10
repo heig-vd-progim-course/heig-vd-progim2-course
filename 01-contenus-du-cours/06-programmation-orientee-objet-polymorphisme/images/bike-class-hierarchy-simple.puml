@@ -1,0 +1,37 @@
+@startuml bike-class-hierarchy-simple
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Bike {
+  -brand: String
+  -model: String
+  +Bike(brand: String, model: String)
+  +getBrand(): String
+  +getModel(): String
+  +displayInfo(): void
+  +repair(): void
+}
+
+class HumanPoweredBike {
+  -numberOfGears: int
+  +HumanPoweredBike(brand: String, model: String, gears: int)
+  +getNumberOfGears(): int
+  +repair(): void
+}
+
+class ElectricBike {
+  -batteryCapacity: int
+  -batteryLevel: int
+  +ElectricBike(brand: String, model: String, capacity: int)
+  +getBatteryCapacity(): int
+  +getBatteryLevel(): int
+  +charge(): void
+  +repair(): void
+}
+
+Bike <|-- HumanPoweredBike
+Bike <|-- ElectricBike
+
+@enduml

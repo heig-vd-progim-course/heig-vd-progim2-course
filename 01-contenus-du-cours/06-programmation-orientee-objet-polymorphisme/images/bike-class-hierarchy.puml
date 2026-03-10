@@ -1,0 +1,55 @@
+@startuml bike-class-hierarchy
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Bike {
+  -brand: String
+  -model: String
+  +Bike(brand: String, model: String)
+  +getBrand(): String
+  +getModel(): String
+  +displayInfo(): void
+  +repair(): void
+}
+
+class HumanPoweredBike {
+  -numberOfGears: int
+  +HumanPoweredBike(brand: String, model: String, gears: int)
+  +getNumberOfGears(): int
+  +repair(): void
+}
+
+class ElectricBike {
+  -batteryCapacity: int
+  -maxSpeed: int
+  +ElectricBike(brand: String, model: String, capacity: int)
+  +getBatteryCapacity(): int
+  +getMaxSpeed(): int
+  +charge(): void
+  +repair(): void
+}
+
+class CargoBike {
+  -maxLoad: int
+  +CargoBike(brand: String, model: String, load: int)
+  +getMaxLoad(): int
+  +loadCargo(): void
+  +repair(): void
+}
+
+class BikeCaravan {
+  -sleepingSpots: int
+  +BikeCaravan(brand: String, model: String, spots: int)
+  +getSleepingSpots(): int
+  +setupCamp(): void
+  +repair(): void
+}
+
+Bike <|-- HumanPoweredBike
+Bike <|-- ElectricBike
+Bike <|-- CargoBike
+Bike <|-- BikeCaravan
+
+@enduml
