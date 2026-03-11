@@ -285,7 +285,6 @@ class Child extends Parent {
     void display() {              // Méthode 1
         System.out.println("Child");
     }
-
     void display(String msg) {     // Méthode 2
         System.out.println(msg);
     }
@@ -315,8 +314,6 @@ class Child extends Parent {
 - **Surcharge** : même nom mais paramètres différents
 
 ## Question 10 - Donnée
-
-**Modification : Classe abstraite manquante**
 
 Ce code ne compile pas. Pourquoi ?
 
@@ -350,20 +347,9 @@ class Shape {
 abstract class Shape {
     abstract double getArea();
 }
-
-class Circle extends Shape {
-    double radius;
-
-    @Override
-    double getArea() {
-        return Math.PI * radius * radius;
-    }
-}
 ```
 
 ## Question 11 - Donnée
-
-**Modification : Utilisation du mot-clé final**
 
 Quel modificateur empêche une méthode d'être redéfinie dans une sous-classe ?
 
@@ -373,7 +359,6 @@ class Vehicle {
         System.out.println("Starting...");
     }
 }
-
 class Car extends Vehicle {
     void start() {  // Devrait être impossible
         System.out.println("Car starting...");
@@ -391,7 +376,6 @@ class Vehicle {
         System.out.println("Starting...");
     }
 }
-
 class Car extends Vehicle {
     @Override
     void start() {  // ERREUR : ne compile pas
@@ -400,12 +384,7 @@ class Car extends Vehicle {
 }
 ```
 
-**Explications :** `final` sur une méthode empêche sa redéfinition dans les
-sous-classes.
-
 ## Question 12 - Donnée
-
-**Prédiction : Hiérarchie de classes**
 
 Combien de classes peuvent hériter directement de `Animal` ?
 
@@ -417,10 +396,20 @@ class Cat extends Animal { }
 class Bird extends Animal { }
 ```
 
+<div class="two-columns">
+<div>
+
 - **A.** Aucune limite
 - **B.** Maximum 3 classes
+
+</div>
+<div>
+
 - **C.** Une seule classe
 - **D.** Maximum 10 classes
+
+</div>
+</div>
 
 ## Question 12 - Réponse
 
@@ -435,11 +424,6 @@ class Bird extends Animal { }
 class Fish extends Animal { }
 // ... autant de sous-classes que nécessaire
 ```
-
-**Explications :**
-
-- Une classe parent peut avoir **plusieurs sous-classes**
-- Une sous-classe ne peut avoir qu'**un seul parent** (pas d'héritage multiple)
 
 ## Questions
 

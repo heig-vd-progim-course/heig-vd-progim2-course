@@ -400,7 +400,7 @@ class FullTimeEmployee extends Employee {
     public double calculateSalary() { return baseSalary; }
 }
 
-/Employee e = new Employee(); // ERREUR !
+Employee e = new Employee(); // ERREUR !
 FullTimeEmployee e = new FullTimeEmployee(); // OK
 ```
 
