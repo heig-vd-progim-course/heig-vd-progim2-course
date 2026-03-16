@@ -75,22 +75,23 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 - [Table des matières](#table-des-matières)
 - [Objectifs](#objectifs)
 - [Introduction : le problème de la recherche d'informations](#introduction--le-problème-de-la-recherche-dinformations)
-	- [Chercher dans une base de données](#chercher-dans-une-base-de-données)
-	- [Le tri comme solution](#le-tri-comme-solution)
+  - [Chercher dans une base de données](#chercher-dans-une-base-de-données)
+  - [Le tri comme solution](#le-tri-comme-solution)
 - [Comprendre le tri avec des cartes à jouer](#comprendre-le-tri-avec-des-cartes-à-jouer)
-	- [Observer avant d'agir](#observer-avant-dagir)
-	- [Définir un critère de tri](#définir-un-critère-de-tri)
+  - [Observer avant d'agir](#observer-avant-dagir)
+  - [Définir un critère de tri](#définir-un-critère-de-tri)
+  - [La notion de tri stable](#la-notion-de-tri-stable)
 - [Les algorithmes de tri simples](#les-algorithmes-de-tri-simples)
-	- [Tri par sélection (selection sort)](#tri-par-sélection-selection-sort)
-	- [Tri par insertion (insertion sort)](#tri-par-insertion-insertion-sort)
-	- [Tri à bulles (bubble sort)](#tri-à-bulles-bubble-sort)
+  - [Tri par sélection (selection sort)](#tri-par-sélection-selection-sort)
+  - [Tri par insertion (insertion sort)](#tri-par-insertion-insertion-sort)
+  - [Tri à bulles (bubble sort)](#tri-à-bulles-bubble-sort)
 - [Les algorithmes de tri avancés](#les-algorithmes-de-tri-avancés)
-	- [Tri rapide (quicksort)](#tri-rapide-quicksort)
-	- [Tri fusion (mergesort)](#tri-fusion-mergesort)
+  - [Tri rapide (quicksort)](#tri-rapide-quicksort)
+  - [Tri fusion (mergesort)](#tri-fusion-mergesort)
 - [Comparer des objets en Java](#comparer-des-objets-en-java)
-	- [L'interface Comparable\<T\>](#linterface-comparablet)
-	- [L'interface Comparator\<T\>](#linterface-comparatort)
-	- [Quand utiliser Comparable ou Comparator ?](#quand-utiliser-comparable-ou-comparator-)
+  - [L'interface Comparable\<T\>](#linterface-comparablet)
+  - [L'interface Comparator\<T\>](#linterface-comparatort)
+  - [Quand utiliser Comparable ou Comparator ?](#quand-utiliser-comparable-ou-comparator-)
 - [Conclusion](#conclusion)
 - [Exemples de code](#exemples-de-code)
 - [Exercices](#exercices)
@@ -215,6 +216,58 @@ Voici le résultat attendu après un tri par valeur croissante :
 
 Cette progression naturelle du plus petit au plus grand est facile à vérifier
 visuellement et correspond à notre intuition du tri.
+
+### La notion de tri stable
+
+Avant d'explorer les différents algorithmes de tri, il est important de
+comprendre une propriété que certains algorithmes possèdent : la **stabilité**.
+
+Un algorithme de tri est dit **stable** si deux éléments égaux (selon le critère
+de tri) conservent leur ordre relatif d'origine après le tri. Autrement dit, si
+l'élément A apparaît avant l'élément B dans la liste initiale, et que A et B
+sont considérés comme égaux pour le tri, alors A apparaîtra toujours avant B
+dans la liste triée.
+
+**Pourquoi est-ce important ?**
+
+Imaginons que nous ayons des cartes avec à la fois une valeur et une couleur, et
+que nous voulions les trier uniquement par valeur. Si nous avons deux 5 (un 5♠
+et un 5♣), dans quel ordre doivent-ils apparaître dans le résultat ?
+
+Liste initiale :
+
+|            Carte 1             |            Carte 2             |            Carte 3            |            Carte 4             |
+| :----------------------------: | :----------------------------: | :---------------------------: | :----------------------------: |
+| ![7](./images/7_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![5](./images/5_of_clubs.svg) | ![3](./images/3_of_spades.svg) |
+
+Avec un **tri stable** (par valeur croissante) :
+
+|            Carte 1             |            Carte 2             |            Carte 3            |            Carte 4             |
+| :----------------------------: | :----------------------------: | :---------------------------: | :----------------------------: |
+| ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![5](./images/5_of_clubs.svg) | ![7](./images/7_of_spades.svg) |
+
+Les deux 5 restent dans leur ordre d'origine : le 5♠ (qui était en position 2)
+reste avant le 5♣ (qui était en position 3).
+
+Avec un **tri non-stable**, le résultat pourrait être :
+
+|            Carte 1             |            Carte 2            |            Carte 3             |            Carte 4             |
+| :----------------------------: | :---------------------------: | :----------------------------: | :----------------------------: |
+| ![3](./images/3_of_spades.svg) | ![5](./images/5_of_clubs.svg) | ![5](./images/5_of_spades.svg) | ![7](./images/7_of_spades.svg) |
+
+L'ordre des deux 5 a changé par rapport à la liste initiale.
+
+**Cas d'usage pratique**
+
+La stabilité devient cruciale quand on trie des objets complexes. Imaginons une
+liste de personnes que l'on trie d'abord par ville, puis par nom :
+
+1. Tri initial par ville : Paris, Lyon, Paris.
+2. Tri par nom : si le tri est stable, les personnes de Paris resteront dans
+   leur ordre relatif d'origine.
+
+Sans stabilité, l'ordre établi par le premier tri serait perdu lors du second
+tri.
 
 ## Les algorithmes de tri simples
 
@@ -354,10 +407,10 @@ nécessite peu de déplacements. C'est pourquoi cet algorithme est souvent utili
 comme étape finale d'algorithmes plus complexes, ou pour trier de petites
 listes.
 
-Une autre qualité du tri par insertion est qu'il est **stable** : deux éléments
-égaux conservent leur ordre relatif après le tri. Cette propriété est importante
-lorsqu'on trie des objets complexes où l'égalité ne signifie pas identité
-complète.
+Une autre qualité du tri par insertion est qu'il est **stable** (voir la section
+sur la notion de tri stable) : deux éléments égaux conservent leur ordre relatif
+après le tri. Cette propriété est importante quand on effectue des tris
+successifs ou quand on trie des objets complexes selon un seul critère.
 
 ### Tri à bulles (bubble sort)
 
@@ -470,10 +523,11 @@ déjà triée) peut conduire à de très mauvaises performances. C'est pourquoi 
 existe différentes stratégies pour choisir le pivot : élément du milieu, élément
 aléatoire, médiane de trois éléments, etc.
 
-Le tri rapide n'est pas stable : deux éléments égaux peuvent changer d'ordre
-relatif pendant le tri. Cependant, il a l'avantage de trier "sur place" (in-
-place), c'est-à-dire qu'il ne nécessite pas de copier tous les éléments dans une
-nouvelle structure de données, ce qui économise de la mémoire.
+Le tri rapide n'est pas stable (voir la section sur la notion de tri stable) :
+deux éléments égaux peuvent changer d'ordre relatif pendant le tri. Cependant,
+il a l'avantage de trier "sur place" (in-place), c'est-à-dire qu'il ne nécessite
+pas de copier tous les éléments dans une nouvelle structure de données, ce qui
+économise de la mémoire.
 
 ### Tri fusion (mergesort)
 
@@ -545,8 +599,8 @@ obtenir une seule pile complètement triée.
 
 Le tri fusion a des performances très prévisibles : il trie toujours à la même
 vitesse, quelle que soit la distribution initiale des données. Contrairement au
-tri rapide, il est stable et garantit de bonnes performances même dans le pire
-cas.
+tri rapide, il est stable (voir la section sur la notion de tri stable) et
+garantit de bonnes performances même dans le pire cas.
 
 Son principal inconvénient est qu'il nécessite de la mémoire supplémentaire pour
 créer les piles temporaires lors de la fusion. Dans l'exemple ci-dessus, nous
