@@ -210,9 +210,9 @@ comparaison.
 
 Voici le résultat attendu après un tri par valeur croissante :
 
-|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![9](./images/9_of_spades.svg) |
+|                Carte 1                |                Carte 2                |                Carte 3                |                Carte 4                |                Carte 5                |                Carte 6                |                Carte 7                |                Carte 8                |
+| :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: |
+| ![2](./images/2_of_spades_sorted.svg) | ![3](./images/3_of_spades_sorted.svg) | ![4](./images/4_of_spades_sorted.svg) | ![5](./images/5_of_spades_sorted.svg) | ![6](./images/6_of_spades_sorted.svg) | ![7](./images/7_of_spades_sorted.svg) | ![8](./images/8_of_spades_sorted.svg) | ![9](./images/9_of_spades_sorted.svg) |
 
 Cette progression naturelle du plus petit au plus grand est facile à vérifier
 visuellement et correspond à notre intuition du tri.
@@ -242,18 +242,18 @@ Liste initiale :
 
 Avec un **tri stable** (par valeur croissante) :
 
-|            Carte 1             |            Carte 2             |            Carte 3            |            Carte 4             |
-| :----------------------------: | :----------------------------: | :---------------------------: | :----------------------------: |
-| ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![5](./images/5_of_clubs.svg) | ![7](./images/7_of_spades.svg) |
+|                Carte 1                |                Carte 2                |               Carte 3                |                Carte 4                |
+| :-----------------------------------: | :-----------------------------------: | :----------------------------------: | :-----------------------------------: |
+| ![3](./images/3_of_spades_sorted.svg) | ![5](./images/5_of_spades_sorted.svg) | ![5](./images/5_of_clubs_sorted.svg) | ![7](./images/7_of_spades_sorted.svg) |
 
 Les deux 5 restent dans leur ordre d'origine : le 5♠ (qui était en position 2)
 reste avant le 5♣ (qui était en position 3).
 
 Avec un **tri non-stable**, le résultat pourrait être :
 
-|            Carte 1             |            Carte 2            |            Carte 3             |            Carte 4             |
-| :----------------------------: | :---------------------------: | :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_spades.svg) | ![5](./images/5_of_clubs.svg) | ![5](./images/5_of_spades.svg) | ![7](./images/7_of_spades.svg) |
+|                Carte 1                |               Carte 2                |                Carte 3                |                Carte 4                |
+| :-----------------------------------: | :----------------------------------: | :-----------------------------------: | :-----------------------------------: |
+| ![3](./images/3_of_spades_sorted.svg) | ![5](./images/5_of_clubs_sorted.svg) | ![5](./images/5_of_spades_sorted.svg) | ![7](./images/7_of_spades_sorted.svg) |
 
 L'ordre des deux 5 a changé par rapport à la liste initiale.
 
@@ -267,6 +267,16 @@ quantités de données.
 Ces algorithmes ont néanmoins une grande valeur pédagogique : ils permettent de
 comprendre les principes de base du tri et illustrent différentes façons
 d'aborder le même problème.
+
+**Conventions visuelles**
+
+Dans les visualisations qui suivent, nous utilisons un code couleur pour aider à
+comprendre l'état des cartes :
+
+- **Carte normale** (sans bordure) : carte pas encore triée.
+- **Carte avec bordure orange et rayures** : carte actuellement sélectionnée ou
+  comparée dans l'algorithme.
+- **Carte avec bordure verte** : carte déjà à sa position finale et définitive.
 
 ### Tri par sélection (selection sort)
 
@@ -298,29 +308,29 @@ Partons de nos cartes désordonnées :
 restent (positions 2 à 8). C'est le 3 (position 2), qui est déjà à la bonne
 place. Aucun échange nécessaire.
 
-|            Carte 1             |                 Carte 2                 |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :----------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_spades.svg) | ![3](./images/3_of_spades_selected.svg) | ![5](./images/5_of_spades.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
+|                Carte 1                |                 Carte 2                 |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :-----------------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![2](./images/2_of_spades_sorted.svg) | ![3](./images/3_of_spades_selected.svg) | ![5](./images/5_of_spades.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Étape 3** : on cherche la plus petite carte parmi les positions 3 à 8. C'est
 le 4 (position 6). On l'échange avec la carte en position 3 (le 5).
 
-|            Carte 1             |            Carte 2             |                 Carte 3                 |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :----------------------------: | :----------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![4](./images/4_of_spades_selected.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
+|                Carte 1                |                Carte 2                |                 Carte 3                 |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :-----------------------------------: | :-----------------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![2](./images/2_of_spades_sorted.svg) | ![3](./images/3_of_spades_sorted.svg) | ![4](./images/4_of_spades_selected.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Étape 4** : on cherche la plus petite carte parmi les positions 4 à 8. C'est
 le 5 (position 6). On l'échange avec la carte en position 4 (le 7).
 
-|            Carte 1             |            Carte 2             |            Carte 3             |                 Carte 4                 |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![5](./images/5_of_spades_selected.svg) | ![8](./images/8_of_spades.svg) | ![7](./images/7_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
+|                Carte 1                |                Carte 2                |                Carte 3                |                 Carte 4                 |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![2](./images/2_of_spades_sorted.svg) | ![3](./images/3_of_spades_sorted.svg) | ![4](./images/4_of_spades_sorted.svg) | ![5](./images/5_of_spades_selected.svg) | ![8](./images/8_of_spades.svg) | ![7](./images/7_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 En continuant ce processus, on obtient finalement :
 
-|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![9](./images/9_of_spades.svg) |
+|                Carte 1                |                Carte 2                |                Carte 3                |                Carte 4                |                Carte 5                |                Carte 6                |                Carte 7                |                Carte 8                |
+| :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: |
+| ![2](./images/2_of_spades_sorted.svg) | ![3](./images/3_of_spades_sorted.svg) | ![4](./images/4_of_spades_sorted.svg) | ![5](./images/5_of_spades_sorted.svg) | ![6](./images/6_of_spades_sorted.svg) | ![7](./images/7_of_spades_sorted.svg) | ![8](./images/8_of_spades_sorted.svg) | ![9](./images/9_of_spades_sorted.svg) |
 
 **Réflexion sur le tri par sélection**
 
@@ -384,8 +394,12 @@ le plus petit, donc on le place tout au début.
 | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
 | ![2](./images/2_of_spades_selected.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
-En continuant ce processus avec les cartes restantes, on obtient finalement la
-liste triée.
+**Étape 5** : on prend le 8 (position 5) et on l'insère au bon endroit. Le 8 est
+plus grand que le 7 mais plus petit que le 9, donc on le place entre les deux.
+
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |                 Carte 5                 |            Carte 6             |            Carte 7             |            Carte 8             |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![2](./images/2_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades_selected.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Réflexion sur le tri par insertion**
 
@@ -440,9 +454,24 @@ plus grand que le 2, donc on les échange.
 | :----------------------------: | :----------------------------: | :-------------------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
 | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades_selected.svg) | ![7](./images/7_of_spades_selected.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
-En continuant ce processus sur toute la liste, le 8 (la plus grande valeur)
-finira par "remonter" à la dernière position. Puis on recommence le processus,
-et ainsi de suite jusqu'à ce que la liste soit complètement triée.
+|    Étape     |                 Carte 1                 |                 Carte 2                 |                 Carte 3                 |                 Carte 4                 |                 Carte 5                 |                 Carte 6                 |                 Carte 7                 |                 Carte 8                 |
+| :----------: | :-------------------------------------: | :-------------------------------------: | :-------------------------------------: | :-------------------------------------: | :-------------------------------------: | :-------------------------------------: | :-------------------------------------: | :-------------------------------------: |
+| Comparer 7-8 |     ![3](./images/3_of_spades.svg)      |     ![5](./images/5_of_spades.svg)      |     ![2](./images/2_of_spades.svg)      | ![7](./images/7_of_spades_selected.svg) | ![8](./images/8_of_spades_selected.svg) |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![9](./images/9_of_spades.svg)      |
+| Comparer 8-4 |     ![3](./images/3_of_spades.svg)      |     ![5](./images/5_of_spades.svg)      |     ![2](./images/2_of_spades.svg)      |     ![7](./images/7_of_spades.svg)      | ![4](./images/4_of_spades_selected.svg) | ![8](./images/8_of_spades_selected.svg) |     ![6](./images/6_of_spades.svg)      |     ![9](./images/9_of_spades.svg)      |
+| Comparer 8-6 |     ![3](./images/3_of_spades.svg)      |     ![5](./images/5_of_spades.svg)      |     ![2](./images/2_of_spades.svg)      |     ![7](./images/7_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      | ![6](./images/6_of_spades_selected.svg) | ![8](./images/8_of_spades_selected.svg) |     ![9](./images/9_of_spades.svg)      |
+| Comparer 8-9 |     ![3](./images/3_of_spades.svg)      |     ![5](./images/5_of_spades.svg)      |     ![2](./images/2_of_spades.svg)      |     ![7](./images/7_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      | ![8](./images/8_of_spades_selected.svg) | ![9](./images/9_of_spades_selected.svg) |
+| Comparer 3-5 | ![3](./images/3_of_spades_selected.svg) | ![5](./images/5_of_spades_selected.svg) |     ![2](./images/2_of_spades.svg)      |     ![7](./images/7_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![8](./images/8_of_spades.svg)      |  ![9](./images/9_of_spades_sorted.svg)  |
+| Comparer 5-2 |     ![3](./images/3_of_spades.svg)      | ![5](./images/2_of_spades_selected.svg) | ![2](./images/5_of_spades_selected.svg) |     ![7](./images/7_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![8](./images/8_of_spades.svg)      |  ![9](./images/9_of_spades_sorted.svg)  |
+| Comparer 5-7 |     ![3](./images/3_of_spades.svg)      |     ![2](./images/2_of_spades.svg)      | ![5](./images/5_of_spades_selected.svg) | ![7](./images/7_of_spades_selected.svg) |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![8](./images/8_of_spades.svg)      |  ![9](./images/9_of_spades_sorted.svg)  |
+| Comparer 7-4 |     ![3](./images/3_of_spades.svg)      |     ![2](./images/2_of_spades.svg)      |     ![5](./images/5_of_spades.svg)      | ![7](./images/4_of_spades_selected.svg) | ![4](./images/7_of_spades_selected.svg) |     ![6](./images/6_of_spades.svg)      |     ![8](./images/8_of_spades.svg)      |  ![9](./images/9_of_spades_sorted.svg)  |
+| Comparer 7-6 |     ![3](./images/3_of_spades.svg)      |     ![2](./images/2_of_spades.svg)      |     ![5](./images/5_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      | ![6](./images/6_of_spades_selected.svg) | ![7](./images/7_of_spades_selected.svg) |     ![8](./images/8_of_spades.svg)      |  ![9](./images/9_of_spades_sorted.svg)  |
+| Comparer 7-8 |     ![3](./images/3_of_spades.svg)      |     ![2](./images/2_of_spades.svg)      |     ![5](./images/5_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      | ![7](./images/7_of_spades_selected.svg) | ![8](./images/8_of_spades_selected.svg) |  ![9](./images/9_of_spades_sorted.svg)  |
+| Comparer 3-2 | ![2](./images/2_of_spades_selected.svg) | ![3](./images/3_of_spades_selected.svg) |     ![5](./images/5_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![7](./images/7_of_spades.svg)      |  ![8](./images/8_of_spades_sorted.svg)  |  ![9](./images/9_of_spades_sorted.svg)  |
+| Comparer 3-5 |     ![2](./images/2_of_spades.svg)      | ![3](./images/3_of_spades_selected.svg) | ![5](./images/5_of_spades_selected.svg) |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![7](./images/7_of_spades.svg)      |  ![8](./images/8_of_spades_sorted.svg)  |  ![9](./images/9_of_spades_sorted.svg)  |
+| Comparer 5-4 |     ![2](./images/2_of_spades.svg)      |     ![3](./images/3_of_spades.svg)      | ![4](./images/4_of_spades_selected.svg) | ![5](./images/5_of_spades_selected.svg) |     ![6](./images/6_of_spades.svg)      |     ![7](./images/7_of_spades.svg)      |  ![8](./images/8_of_spades_sorted.svg)  |  ![9](./images/9_of_spades_sorted.svg)  |
+| Comparer 5-6 |     ![2](./images/2_of_spades.svg)      |     ![3](./images/3_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      | ![5](./images/5_of_spades_selected.svg) | ![6](./images/6_of_spades_selected.svg) |     ![7](./images/7_of_spades.svg)      |  ![8](./images/8_of_spades_sorted.svg)  |  ![9](./images/9_of_spades_sorted.svg)  |
+| Comparer 6-7 |     ![2](./images/2_of_spades.svg)      |     ![3](./images/3_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      |     ![5](./images/5_of_spades.svg)      | ![6](./images/6_of_spades_selected.svg) | ![7](./images/7_of_spades_selected.svg) |  ![8](./images/8_of_spades_sorted.svg)  |  ![9](./images/9_of_spades_sorted.svg)  |
+| Comparer 2-3 | ![2](./images/2_of_spades_selected.svg) | ![3](./images/3_of_spades_selected.svg) |     ![4](./images/4_of_spades.svg)      |     ![5](./images/5_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |  ![7](./images/7_of_spades_sorted.svg)  |  ![8](./images/8_of_spades_sorted.svg)  |  ![9](./images/9_of_spades_sorted.svg)  |
 
 **Réflexion sur le tri à bulles**
 
