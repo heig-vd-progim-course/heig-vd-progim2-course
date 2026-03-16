@@ -169,10 +169,10 @@ comme étape préliminaire. Le tri peut transformer un problème difficile en un
 problème simple à résoudre.
 
 Cependant, le tri a un coût. Trier des millions d'éléments demande du temps et
-des ressources. C'est pourquoi les informaticien.nes ont développé de nombreux
-algorithmes de tri, chacun avec ses avantages et ses inconvénients selon le
-contexte d'utilisation. Le choix de l'algorithme peut faire la différence entre
-une application réactive et une application lente.
+des ressources. C'est pourquoi les personnes en informatique ont développé de
+nombreux algorithmes de tri, chacun avec ses avantages et ses inconvénients
+selon le contexte d'utilisation. Le choix de l'algorithme peut faire la
+différence entre une application réactive et une application lente.
 
 ## Comprendre le tri avec des cartes à jouer
 
@@ -186,7 +186,7 @@ Voici un exemple de cartes désordonnées :
 
 |            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![7](./images/7_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![7](./images/7_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 Cette représentation visuelle nous permet de voir immédiatement que les cartes
 sont actuellement dans un ordre qui ne suit aucune logique apparente : 7, 3, 5,
@@ -211,7 +211,7 @@ Voici le résultat attendu après un tri par valeur croissante :
 
 |            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![2](./images/2_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 Cette progression naturelle du plus petit au plus grand est facile à vérifier
 visuellement et correspond à notre intuition du tri.
@@ -244,14 +244,14 @@ Partons de nos cartes désordonnées :
 
 |            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![7](./images/7_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![7](./images/7_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Étape 1** : on cherche la plus petite carte dans toute la liste. C'est le 2
 (position 4). On l'échange avec la première carte (le 7).
 
 |                 Carte 1                 |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_hearts_selected.svg) | ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![2](./images/2_of_spades_selected.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Étape 2** : on cherche maintenant la plus petite carte parmi celles qui
 restent (positions 2 à 8). C'est le 3 (position 2), qui est déjà à la bonne
@@ -259,27 +259,27 @@ place. Aucun échange nécessaire.
 
 |            Carte 1             |                 Carte 2                 |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts_selected.svg) | ![5](./images/5_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![2](./images/2_of_spades.svg) | ![3](./images/3_of_spades_selected.svg) | ![5](./images/5_of_spades.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Étape 3** : on cherche la plus petite carte parmi les positions 3 à 8. C'est
 le 4 (position 6). On l'échange avec la carte en position 3 (le 5).
 
 |            Carte 1             |            Carte 2             |                 Carte 3                 |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :----------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![4](./images/4_of_hearts_selected.svg) | ![7](./images/7_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![2](./images/2_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![4](./images/4_of_spades_selected.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Étape 4** : on cherche la plus petite carte parmi les positions 4 à 8. C'est
 le 5 (position 6). On l'échange avec la carte en position 4 (le 7).
 
 |            Carte 1             |            Carte 2             |            Carte 3             |                 Carte 4                 |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![5](./images/5_of_hearts_selected.svg) | ![8](./images/8_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![2](./images/2_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![5](./images/5_of_spades_selected.svg) | ![8](./images/8_of_spades.svg) | ![7](./images/7_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 En continuant ce processus, on obtient finalement :
 
 |            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![2](./images/2_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Réflexion sur le tri par sélection**
 
@@ -314,34 +314,34 @@ Partons à nouveau de nos cartes désordonnées :
 
 |            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![7](./images/7_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![7](./images/7_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Étape 1** : le 7 de cœur (position 1) est considéré comme déjà trié.
 
 |            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![7](./images/7_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![7](./images/7_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Étape 2** : on prend le 3 (position 2) et on l'insère au bon endroit. Le 3 est
 plus petit que le 7, donc on le place avant.
 
 |                 Carte 1                 |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_hearts_selected.svg) | ![7](./images/7_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![3](./images/3_of_spades_selected.svg) | ![7](./images/7_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Étape 3** : on prend le 5 (position 3) et on l'insère au bon endroit. Le 5 est
 plus grand que le 3 mais plus petit que le 7, donc on le place entre les deux.
 
 |            Carte 1             |                 Carte 2                 |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts_selected.svg) | ![7](./images/7_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades_selected.svg) | ![7](./images/7_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Étape 4** : on prend le 2 (position 4) et on l'insère au bon endroit. Le 2 est
 le plus petit, donc on le place tout au début.
 
 |                 Carte 1                 |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_hearts_selected.svg) | ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![2](./images/2_of_spades_selected.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 En continuant ce processus avec les cartes restantes, on obtient finalement la
 liste triée.
@@ -376,28 +376,28 @@ Partons à nouveau de nos cartes désordonnées :
 
 |            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![7](./images/7_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![7](./images/7_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Premier passage - Étape 1** : on compare les cartes 1 et 2 (7 et 3). Le 7 est
 plus grand que le 3, donc on les échange.
 
 |                 Carte 1                 |                 Carte 2                 |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :-------------------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_hearts_selected.svg) | ![7](./images/7_of_hearts_selected.svg) | ![5](./images/5_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![3](./images/3_of_spades_selected.svg) | ![7](./images/7_of_spades_selected.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Premier passage - Étape 2** : on compare les cartes 2 et 3 (7 et 5). Le 7 est
 plus grand que le 5, donc on les échange.
 
 |            Carte 1             |                 Carte 2                 |                 Carte 3                 |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :-------------------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts_selected.svg) | ![7](./images/7_of_hearts_selected.svg) | ![2](./images/2_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades_selected.svg) | ![7](./images/7_of_spades_selected.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Premier passage - Étape 3** : on compare les cartes 3 et 4 (7 et 2). Le 7 est
 plus grand que le 2, donc on les échange.
 
 |            Carte 1             |            Carte 2             |                 Carte 3                 |                 Carte 4                 |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :----------------------------: | :-------------------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![2](./images/2_of_hearts_selected.svg) | ![7](./images/7_of_hearts_selected.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades_selected.svg) | ![7](./images/7_of_spades_selected.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 En continuant ce processus sur toute la liste, le 8 (la plus grande valeur)
 finira par "remonter" à la dernière position. Puis on recommence le processus,
@@ -441,7 +441,7 @@ Partons de nos cartes désordonnées :
 
 |            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![7](./images/7_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![7](./images/7_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Étape 1** : choisissons le 5 (carte au milieu) comme pivot. On réorganise la
 liste pour placer les cartes plus petites que 5 à gauche, et les cartes plus
@@ -449,7 +449,7 @@ grandes ou égales à 5 à droite.
 
 |            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |                 Carte 5                 |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![5](./images/5_of_hearts_selected.svg) | ![7](./images/7_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![6](./images/6_of_hearts.svg) |
+| ![3](./images/3_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![9](./images/9_of_spades.svg) | ![5](./images/5_of_spades_selected.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![6](./images/6_of_spades.svg) |
 
 Le pivot (5) est maintenant à sa position finale. On a deux sous-listes à trier
 :
@@ -500,13 +500,13 @@ Pile gauche :
 
 |            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |
 | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![7](./images/7_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![2](./images/2_of_hearts.svg) |
+| ![7](./images/7_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) |
 
 Pile droite :
 
 |            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |
 | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) |
+| ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
 
 **Étape 2 - Subdivision** : on continue à diviser jusqu'à avoir des piles d'une
 seule carte (une carte seule est toujours triée).
@@ -520,13 +520,13 @@ Pile gauche triée :
 
 |            Carte 1             |            Carte 2             |
 | :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) |
+| ![3](./images/3_of_spades.svg) | ![7](./images/7_of_spades.svg) |
 
 Pile droite triée :
 
 |            Carte 1             |            Carte 2             |
 | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_hearts.svg) | ![5](./images/5_of_hearts.svg) |
+| ![2](./images/2_of_spades.svg) | ![5](./images/5_of_spades.svg) |
 
 On compare les premières cartes de chaque pile (3 et 2), on prend la plus petite
 (2) et on la place dans la nouvelle pile. Puis on compare à nouveau (3 et 5), on
@@ -536,7 +536,7 @@ Résultat de la fusion :
 
 |            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |
 | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![7](./images/7_of_hearts.svg) |
+| ![2](./images/2_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![7](./images/7_of_spades.svg) |
 
 **Étape 4** : on continue à fusionner les piles de plus en plus grandes jusqu'à
 obtenir une seule pile complètement triée.
