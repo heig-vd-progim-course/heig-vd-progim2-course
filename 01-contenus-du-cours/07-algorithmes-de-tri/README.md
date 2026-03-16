@@ -124,6 +124,18 @@ approche, appelée recherche linéaire, fonctionne mais devient très lente quan
 la quantité de données augmente. Pour trouver un élément parmi un million
 d'entrées, il faudrait dans le pire cas examiner un million d'éléments.
 
+Imaginez un jeu simple : une personne choisit un nombre entre 1 et 100, et vous
+devez le deviner. À chaque tentative, la personne répond uniquement "c'est plus"
+ou "c'est moins". Si vous essayez les nombres dans l'ordre (1, 2, 3, 4...), vous
+aurez besoin de jusqu'à 100 tentatives dans le pire cas. C'est la recherche
+linéaire : lente et prévisible.
+
+Mais si vous utilisez une stratégie différente - commencer à 50, puis selon la
+réponse aller à 25 ou 75, puis à 12 ou 37 ou 62 ou 87, et ainsi de suite - vous
+trouverez le nombre en maximum 7 tentatives. Cette stratégie, appelée recherche
+binaire ou dichotomique, est exponentiellement plus rapide. Cependant, elle
+nécessite que les nombres soient ordonnés.
+
 Historiquement, ce problème a toujours préoccupé l'humanité. Les bibliothèques
 médiévales organisaient leurs manuscrits selon un système de classement, les
 comptables tenaient des registres ordonnés, les botanistes cataloguaient leurs
