@@ -315,5 +315,14 @@
      inkscape:connector-curvature="0"
      id="hl-8-8-8"
      d="M 3.676,-9 C 0.433,-9 0,-5.523 0,-5.523 0,-5.523 -0.433,-9 -3.676,-9 -5.946,-9 -8,-7.441 -8,-4.5 -8,-0.614 -1.4208493,3.2938141 0,9 1.35201,3.2985969 8,-0.614 8,-4.5 8,-7.441 5.946,-9 3.676,-9 z"
-     sodipodi:nodetypes="scsscss" /></g>  <rect x="0" y="0" width="167.0869141" height="242.6669922" fill="none" stroke="#00AA00" stroke-width="5"/>
+     sodipodi:nodetypes="scsscss" /></g>  <!-- Checkmark icon -->
+  <path d="M 53.54 121.33 L 73.54 141.33 L 113.54 91.33" 
+        fill="none" 
+        stroke="#00AA00" 
+        stroke-width="12" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        opacity="0.8"/>
+  
+    <rect x="0" y="0" width="167.0869141" height="242.6669922" fill="none" stroke="#00AA00" stroke-width="5"/>
 </svg>
