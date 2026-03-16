@@ -39,3 +39,7 @@
   [@Ovich](https://github.com/Ovich), Vincent Guidoux
   [@Nortalle](https://github.com/Nortalle) and
   [other](https://github.com/orgs/web-classroom/people)
+- [vector-playing-cards](https://code.google.com/archive/p/vector-playing-cards/)
+  by Bryon Knoll [@byronknoll](https://byronknoll.blogspot.com/) is licensed
+  under a
+  [Public Domain](https://code.google.com/archive/p/vector-playing-cards/wikis/License.wiki).
