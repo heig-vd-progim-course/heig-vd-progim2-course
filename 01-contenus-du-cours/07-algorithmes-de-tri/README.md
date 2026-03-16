@@ -75,23 +75,23 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 - [Table des matières](#table-des-matières)
 - [Objectifs](#objectifs)
 - [Introduction : le problème de la recherche d'informations](#introduction--le-problème-de-la-recherche-dinformations)
-  - [Chercher dans une base de données](#chercher-dans-une-base-de-données)
-  - [Le tri comme solution](#le-tri-comme-solution)
+	- [Chercher dans une base de données](#chercher-dans-une-base-de-données)
+	- [Le tri comme solution](#le-tri-comme-solution)
 - [Comprendre le tri avec des cartes à jouer](#comprendre-le-tri-avec-des-cartes-à-jouer)
-  - [Observer avant d'agir](#observer-avant-dagir)
-  - [Définir un critère de tri](#définir-un-critère-de-tri)
-  - [La notion de tri stable](#la-notion-de-tri-stable)
+	- [Observer avant d'agir](#observer-avant-dagir)
+	- [Définir un critère de tri](#définir-un-critère-de-tri)
+	- [La notion de tri stable](#la-notion-de-tri-stable)
 - [Les algorithmes de tri simples](#les-algorithmes-de-tri-simples)
-  - [Tri par sélection (selection sort)](#tri-par-sélection-selection-sort)
-  - [Tri par insertion (insertion sort)](#tri-par-insertion-insertion-sort)
-  - [Tri à bulles (bubble sort)](#tri-à-bulles-bubble-sort)
+	- [Tri par sélection (selection sort)](#tri-par-sélection-selection-sort)
+	- [Tri par insertion (insertion sort)](#tri-par-insertion-insertion-sort)
+	- [Tri à bulles (bubble sort)](#tri-à-bulles-bubble-sort)
 - [Les algorithmes de tri avancés](#les-algorithmes-de-tri-avancés)
-  - [Tri rapide (quicksort)](#tri-rapide-quicksort)
-  - [Tri fusion (mergesort)](#tri-fusion-mergesort)
+	- [Tri rapide (quicksort)](#tri-rapide-quicksort)
+	- [Tri fusion (mergesort)](#tri-fusion-mergesort)
 - [Comparer des objets en Java](#comparer-des-objets-en-java)
-  - [L'interface Comparable\<T\>](#linterface-comparablet)
-  - [L'interface Comparator\<T\>](#linterface-comparatort)
-  - [Quand utiliser Comparable ou Comparator ?](#quand-utiliser-comparable-ou-comparator-)
+	- [L'interface Comparable\<T\>](#linterface-comparablet)
+	- [L'interface Comparator\<T\>](#linterface-comparatort)
+	- [Quand utiliser Comparable ou Comparator ?](#quand-utiliser-comparable-ou-comparator-)
 - [Conclusion](#conclusion)
 - [Exemples de code](#exemples-de-code)
 - [Exercices](#exercices)
@@ -256,18 +256,6 @@ Avec un **tri non-stable**, le résultat pourrait être :
 | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_clubs.svg) | ![5](./images/5_of_spades.svg) | ![7](./images/7_of_spades.svg) |
 
 L'ordre des deux 5 a changé par rapport à la liste initiale.
-
-**Cas d'usage pratique**
-
-La stabilité devient cruciale quand on trie des objets complexes. Imaginons une
-liste de personnes que l'on trie d'abord par ville, puis par nom :
-
-1. Tri initial par ville : Paris, Lyon, Paris.
-2. Tri par nom : si le tri est stable, les personnes de Paris resteront dans
-   leur ordre relatif d'origine.
-
-Sans stabilité, l'ordre établi par le premier tri serait perdu lors du second
-tri.
 
 ## Les algorithmes de tri simples
 
