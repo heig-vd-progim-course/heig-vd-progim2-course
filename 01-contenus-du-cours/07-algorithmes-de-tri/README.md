@@ -597,58 +597,187 @@ résoudre ces sous-problèmes, puis combiner les solutions.
 
 ### Tri rapide (quicksort)
 
-Le tri rapide est l'un des algorithmes de tri les plus utilisés en pratique. Son
-nom vient du fait qu'il est généralement très rapide, bien que sa performance
-puisse varier selon les données.
+Le tri rapide est l'un des algorithmes de tri les plus utilisés en pratique.
+Quand vous pensez au tri rapide, pensez au mot **pivot**.
 
-Le principe :
+#### Comprendre le pivot
 
-1. Choisir un élément appelé "pivot".
-2. Réorganiser la liste pour que tous les éléments plus petits que le pivot
-   soient à gauche et tous les éléments plus grands soient à droite.
-3. Appliquer récursivement le même processus aux sous-listes de gauche et de
-   droite.
+Un pivot est simplement l'un des éléments du tableau qui respecte trois
+conditions après le partitionnement :
 
-**Visualisation avec des cartes**
+1. **Le pivot est à sa position finale** dans le tableau trié.
+2. **Tous les éléments à gauche sont plus petits** que le pivot.
+3. **Tous les éléments à droite sont plus grands** que le pivot.
 
-Partons de nos cartes désordonnées :
+Le tri rapide fonctionne ainsi : on choisit un pivot, on réorganise le tableau
+pour respecter ces trois conditions, puis on applique récursivement le même
+processus aux sous-tableaux de gauche et de droite.
+
+#### Algorithme de partitionnement détaillé
+
+Regardons un exemple complet. Voici notre tableau initial :
 
 |            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
 | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![7](./images/7_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
+| ![2](./images/2_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) |
 
-**Étape 1** : choisissons le 5 (carte au milieu) comme pivot. On réorganise la
-liste pour placer les cartes plus petites que 5 à gauche, et les cartes plus
-grandes ou égales à 5 à droite.
+**Étape 1 : Choix du pivot**
 
-|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |                 Carte 5                 |            Carte 6             |            Carte 7             |            Carte 8             |
-| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![9](./images/9_of_spades.svg) | ![5](./images/5_of_spades_selected.svg) | ![7](./images/7_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![6](./images/6_of_spades.svg) |
+Choisissons le dernier élément comme pivot : le 4. C'est une stratégie simple et
+courante. Le pivot reste à sa position pour le moment.
 
-Le pivot (5) est maintenant à sa position finale. On a deux sous-listes à trier
-:
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |                 Carte 8                 |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts_selected.svg) |
 
-- À gauche du pivot (< 5) : 3, 2, 4, 3.
-- À droite du pivot (≥ 5) : 7, 8, 6.
+**Étape 2 : Chercher l'élément de gauche et l'élément de droite**
 
-**Étape 2** : on applique récursivement le processus à chaque sous-liste. Pour
-la sous-liste de gauche, on choisit le 4 comme pivot, pour la sous-liste de
-droite, on choisit le 8 comme pivot. Et ainsi de suite jusqu'à obtenir une liste
-complètement triée.
+Nous allons chercher **deux éléments** :
 
-**Réflexion sur le tri rapide**
+- **L'élément de gauche** : le premier élément en partant de la gauche qui est
+  **plus grand** que le pivot (4).
+- **L'élément de droite** : le premier élément en partant de la droite (sans
+  compter le pivot) qui est **plus petit** que le pivot (4).
 
-Le choix du pivot est crucial pour les performances du tri rapide. Un mauvais
-choix de pivot (par exemple, toujours choisir le premier élément d'une liste
-déjà triée) peut conduire à de très mauvaises performances. C'est pourquoi il
-existe différentes stratégies pour choisir le pivot : élément du milieu, élément
-aléatoire, médiane de trois éléments, etc.
+En partant de la gauche : 2 est < 4, on continue. Le 6 est > 4, c'est notre
+**élément de gauche** !
 
-Le tri rapide n'est pas stable (voir la section sur la notion de tri stable) :
-deux éléments égaux peuvent changer d'ordre relatif pendant le tri. Cependant,
-il a l'avantage de trier "sur place" (in-place), c'est-à-dire qu'il ne nécessite
-pas de copier tous les éléments dans une nouvelle structure de données, ce qui
-économise de la mémoire.
+En partant de la droite : 9 est > 4, on continue. Le 3 est < 4, c'est notre
+**élément de droite** !
+
+|            Carte 1             |                 Carte 2                 |            Carte 3             |            Carte 4             |            Carte 5             |                 Carte 6                 |            Carte 7             |                 Carte 8                 |
+| :----------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: | :----------------------------: | :-------------------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![6](./images/6_of_hearts_selected.svg) | ![5](./images/5_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![3](./images/3_of_hearts_selected.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts_selected.svg) |
+
+**Étape 3 : Échanger l'élément de gauche avec l'élément de droite**
+
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |                 Carte 8                 |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts_selected.svg) |
+
+**Étape 4 : Répéter le processus**
+
+Cherchons à nouveau :
+
+- **Élément de gauche** : en partant après le 3, le 5 est > 4, c'est notre
+  élément de gauche.
+- **Élément de droite** : en partant avant le 6, on ne trouve rien de < 4.
+
+Quand les indices se croisent, on arrête la recherche !
+
+|            Carte 1             |            Carte 2             |                 Carte 3                 |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |                 Carte 8                 |
+| :----------------------------: | :----------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![5](./images/5_of_hearts_selected.svg) | ![8](./images/8_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts_selected.svg) |
+
+**Étape 5 : Placer le pivot à sa position finale**
+
+Quand les indices se croisent, on échange le pivot avec l'élément de gauche :
+
+|            Carte 1             |            Carte 2             |                Carte 3                |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :----------------------------: | :----------------------------: | :-----------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![4](./images/4_of_hearts_sorted.svg) | ![8](./images/8_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![5](./images/5_of_hearts.svg) |
+
+**Le 4 est maintenant à sa position finale !** Vérifions nos trois conditions :
+
+- ✓ Le 4 est dans sa position finale (index 2).
+- ✓ Tous les éléments à gauche (2, 3) sont plus petits que 4.
+- ✓ Tous les éléments à droite (8, 7, 6, 9, 5) sont plus grands que 4.
+
+Nous avons maintenant deux sous-tableaux à trier : [2, 3] et [8, 7, 6, 9, 5].
+
+#### Application récursive : Sous-tableau de droite [8, 7, 6, 9, 5]
+
+Répétons le processus avec la partition plus grande. Pivot : le 5 (dernier
+élément).
+
+|            Carte 1             |            Carte 2             |                Carte 3                |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |                 Carte 8                 |
+| :----------------------------: | :----------------------------: | :-----------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![4](./images/4_of_hearts_sorted.svg) | ![8](./images/8_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![5](./images/5_of_hearts_selected.svg) |
+
+**Chercher éléments de gauche et droite** :
+
+- Élément de gauche : 8 est > 5.
+- Élément de droite : aucun élément < 5 avant le 8.
+
+Les indices se croisent immédiatement !
+
+**Placer le pivot** : échanger le 5 avec le 8.
+
+|            Carte 1             |            Carte 2             |                Carte 3                |                Carte 4                |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :----------------------------: | :----------------------------: | :-----------------------------------: | :-----------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![4](./images/4_of_hearts_sorted.svg) | ![5](./images/5_of_hearts_sorted.svg) | ![7](./images/7_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![8](./images/8_of_hearts.svg) |
+
+Le 5 est à sa position finale ! Maintenant nous avons le 4 et le 5 correctement
+placés. Sous-tableaux restants : [2, 3] et [7, 6, 9, 8].
+
+#### Continuons avec [7, 6, 9, 8]
+
+Pivot : le 8 (dernier élément).
+
+|            Carte 1             |            Carte 2             |                Carte 3                |                Carte 4                |            Carte 5             |            Carte 6             |            Carte 7             |                 Carte 8                 |
+| :----------------------------: | :----------------------------: | :-----------------------------------: | :-----------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![4](./images/4_of_hearts_sorted.svg) | ![5](./images/5_of_hearts_sorted.svg) | ![7](./images/7_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![8](./images/8_of_hearts_selected.svg) |
+
+**Chercher** :
+
+- Élément de gauche : 9 est > 8.
+- Élément de droite : 6 est < 8.
+
+**Échanger le 9 et le 6** :
+
+|            Carte 1             |            Carte 2             |                Carte 3                |                Carte 4                |            Carte 5             |            Carte 6             |                Carte 7                |            Carte 8             |
+| :----------------------------: | :----------------------------: | :-----------------------------------: | :-----------------------------------: | :----------------------------: | :----------------------------: | :-----------------------------------: | :----------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![4](./images/4_of_hearts_sorted.svg) | ![5](./images/5_of_hearts_sorted.svg) | ![7](./images/7_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![8](./images/8_of_hearts_sorted.svg) | ![9](./images/9_of_hearts.svg) |
+
+Les indices se croisent, on place le pivot. Le 8 est déjà à sa position !
+
+Sous-tableaux : [7, 6] et [9]. Le 9 est seul, donc trié.
+
+|            Carte 1             |            Carte 2             |                Carte 3                |                Carte 4                |            Carte 5             |            Carte 6             |                Carte 7                |                Carte 8                |
+| :----------------------------: | :----------------------------: | :-----------------------------------: | :-----------------------------------: | :----------------------------: | :----------------------------: | :-----------------------------------: | :-----------------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![4](./images/4_of_hearts_sorted.svg) | ![5](./images/5_of_hearts_sorted.svg) | ![7](./images/7_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![8](./images/8_of_hearts_sorted.svg) | ![9](./images/9_of_hearts_sorted.svg) |
+
+#### Trions [7, 6]
+
+Pivot : le 6 (dernier élément). Le 7 est > 6, il devient l'élément de gauche.
+Pas d'élément de droite. Indices croisés !
+
+**Échanger le pivot avec l'élément de gauche** :
+
+|            Carte 1             |            Carte 2             |                Carte 3                |                Carte 4                |                Carte 5                |                Carte 6                |                Carte 7                |                Carte 8                |
+| :----------------------------: | :----------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![4](./images/4_of_hearts_sorted.svg) | ![5](./images/5_of_hearts_sorted.svg) | ![6](./images/6_of_hearts_sorted.svg) | ![7](./images/7_of_hearts_sorted.svg) | ![8](./images/8_of_hearts_sorted.svg) | ![9](./images/9_of_hearts_sorted.svg) |
+
+#### Trions [2, 3]
+
+Pivot : le 3 (dernier élément). Le 2 est < 3, aucun élément de gauche. Indices
+croisés ! Le pivot reste en place.
+
+|                Carte 1                |                Carte 2                |                Carte 3                |                Carte 4                |                Carte 5                |                Carte 6                |                Carte 7                |                Carte 8                |
+| :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: |
+| ![2](./images/2_of_hearts_sorted.svg) | ![3](./images/3_of_hearts_sorted.svg) | ![4](./images/4_of_hearts_sorted.svg) | ![5](./images/5_of_hearts_sorted.svg) | ![6](./images/6_of_hearts_sorted.svg) | ![7](./images/7_of_hearts_sorted.svg) | ![8](./images/8_of_hearts_sorted.svg) | ![9](./images/9_of_hearts_sorted.svg) |
+
+**Terminé !** Le tableau est maintenant complètement trié.
+
+#### Réflexion sur le tri rapide
+
+**Stratégies de choix du pivot** : Le choix du pivot est crucial pour les
+performances. Une méthode populaire est la **médiane de trois** : on examine le
+premier, le milieu et le dernier élément, on les trie, et on choisit celui du
+milieu comme pivot. Cette méthode donne généralement un pivot proche de la
+médiane réelle du tableau.
+
+**Stabilité** : Le tri rapide n'est **pas stable** (voir la section sur la
+notion de tri stable) : deux éléments égaux peuvent changer d'ordre relatif
+pendant le tri.
+
+**Complexité** : Dans le pire cas (pivot toujours le plus petit ou le plus
+grand), la complexité est O(n²). Mais avec un bon choix de pivot, la complexité
+moyenne est O(n log n).
+
+**Avantage** : Le tri rapide trie "sur place" (in-place), c'est-à-dire qu'il ne
+nécessite pas de copier tous les éléments dans une nouvelle structure de
+données, ce qui économise de la mémoire.
 
 ### Tri fusion (mergesort)
 
