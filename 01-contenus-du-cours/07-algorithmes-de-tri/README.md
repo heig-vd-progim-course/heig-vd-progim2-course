@@ -273,10 +273,10 @@ d'aborder le même problème.
 Dans les visualisations qui suivent, nous utilisons un code couleur pour aider à
 comprendre l'état des cartes :
 
-- **Carte normale** (sans bordure) : carte pas encore triée.
-- **Carte avec bordure orange et rayures** : carte actuellement sélectionnée ou
-  comparée dans l'algorithme.
-- **Carte avec bordure verte** : carte déjà à sa position finale et définitive.
+|         Carte normale          |          Carte avec bordure orange et rayures orange           |    Carte avec bordure verte et coche verte     |
+| :----------------------------: | :------------------------------------------------------------: | :--------------------------------------------: |
+| ![6](./images/6_of_spades.svg) |            ![6](./images/6_of_spades_selected.svg)             |     ![6](./images/6_of_spades_sorted.svg)      |
+|    Carte pas encore triée.     | Carte actuellement sélectionnée ou comparée dans l'algorithme. | Carte déjà à sa position finale et définitive. |
 
 ### Tri par sélection (selection sort)
 
