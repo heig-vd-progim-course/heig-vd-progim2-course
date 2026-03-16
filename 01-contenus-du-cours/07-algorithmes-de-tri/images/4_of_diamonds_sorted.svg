@@ -324,11 +324,18 @@
      sodipodi:nodetypes="ccccccccc" /></g>  <!-- Checkmark icon -->
   <path d="M 53.54 121.33 L 73.54 141.33 L 113.54 91.33" 
         fill="none" 
+        stroke="#ffffff" 
+        stroke-width="18" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        />
+  <path d="M 53.54 121.33 L 73.54 141.33 L 113.54 91.33" 
+        fill="none" 
         stroke="#00AA00" 
         stroke-width="12" 
         stroke-linecap="round" 
         stroke-linejoin="round"
-        opacity="0.8"/>
+        />
   
-    <rect x="0" y="0" width="167.0869141" height="242.6669922" fill="none" stroke="#00AA00" stroke-width="5"/>
+  <rect x="0" y="0" width="167.0869141" height="242.6669922" fill="none" stroke="#00AA00" stroke-width="5"/>
 </svg>
