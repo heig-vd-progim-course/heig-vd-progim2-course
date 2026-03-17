@@ -44,8 +44,8 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 >
 > **Méthodes d'évaluation**
 >
-> L'évaluation prend la forme d'exercices et d'un mini-projet à réaliser en
-> autonomie en classe ou à la maison.
+> L'évaluation prend la forme d'exercices à réaliser en autonomie en classe ou à
+> la maison.
 >
 > L'évaluation se fait en utilisant les critères suivants :
 >
@@ -58,7 +58,6 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 > Les retours se font de la manière suivante :
 >
 > - Corrigé des exercices.
-> - Corrigé du mini-projet.
 >
 > L'évaluation ne donne pas lieu à une note.
 
@@ -1058,7 +1057,7 @@ valeur d'une bonne abstraction pour rendre notre code flexible et maintenable.
 >
 > Cette section contient des informations complémentaires pour les personnes qui
 > souhaitent approfondir leurs connaissances. Ces notions ne sont pas requises
-> pour les exercices et le mini-projet.
+> pour les exercices.
 
 ### Complexité algorithmique et notation Big O
 
@@ -1237,7 +1236,6 @@ il est recommandé pour la prochaine séance de :
 - Relire les exemples de code et leur description pour bien comprendre les
   concepts.
 - Finaliser les exercices qui n'ont pas été terminés en classe.
-- Finaliser la partie du mini-projet qui n'a pas été terminée en classe.
 
 <!-- URLs -->
 

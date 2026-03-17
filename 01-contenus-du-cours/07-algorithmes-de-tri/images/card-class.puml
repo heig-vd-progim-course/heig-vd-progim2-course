@@ -1,0 +1,16 @@
+@startuml card-class
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Card {
+  - value: int
+  - suit: char
+  + Card(value: int, suit: char)
+  + getValue(): int
+  + getSuit(): char
+  + toString(): String
+}
+
+@enduml
