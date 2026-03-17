@@ -33,13 +33,6 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 > - Expliquer le fonctionnement du tri à bulles.
 > - Expliquer le fonctionnement du tri rapide (quicksort).
 > - Expliquer le fonctionnement du tri fusion (mergesort).
-> - Reconnaître les situations nécessitant un tri personnalisé.
-> - Implémenter l'interface `Comparable<T>` dans une classe.
-> - Définir la méthode `compareTo()` pour établir un ordre naturel.
-> - Utiliser `compareTo()` pour comparer des objets.
-> - Trier des collections d'objets implémentant `Comparable`.
-> - Créer des objets `Comparator<T>` pour définir des ordres de tri alternatifs.
-> - Différencier `Comparable` et `Comparator`.
 >
 > **Méthodes d'enseignement et d'apprentissage**
 >
@@ -75,23 +68,19 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 - [Table des matières](#table-des-matières)
 - [Objectifs](#objectifs)
 - [Introduction : le problème de la recherche d'informations](#introduction--le-problème-de-la-recherche-dinformations)
-  - [Chercher dans une base de données](#chercher-dans-une-base-de-données)
-  - [Le tri comme solution](#le-tri-comme-solution)
+	- [Chercher dans une base de données](#chercher-dans-une-base-de-données)
+	- [Le tri comme solution](#le-tri-comme-solution)
 - [Comprendre le tri avec des cartes à jouer](#comprendre-le-tri-avec-des-cartes-à-jouer)
-  - [Observer avant d'agir](#observer-avant-dagir)
-  - [Définir un critère de tri](#définir-un-critère-de-tri)
-  - [La notion de tri stable](#la-notion-de-tri-stable)
+	- [Observer avant d'agir](#observer-avant-dagir)
+	- [Définir un critère de tri](#définir-un-critère-de-tri)
+	- [La notion de tri stable](#la-notion-de-tri-stable)
 - [Les algorithmes de tri simples](#les-algorithmes-de-tri-simples)
-  - [Tri par sélection (selection sort)](#tri-par-sélection-selection-sort)
-  - [Tri par insertion (insertion sort)](#tri-par-insertion-insertion-sort)
-  - [Tri à bulles (bubble sort)](#tri-à-bulles-bubble-sort)
+	- [Tri par sélection (selection sort)](#tri-par-sélection-selection-sort)
+	- [Tri par insertion (insertion sort)](#tri-par-insertion-insertion-sort)
+	- [Tri à bulles (bubble sort)](#tri-à-bulles-bubble-sort)
 - [Les algorithmes de tri avancés](#les-algorithmes-de-tri-avancés)
-  - [Tri rapide (quicksort)](#tri-rapide-quicksort)
-  - [Tri fusion (mergesort)](#tri-fusion-mergesort)
-- [Comparer des objets en Java](#comparer-des-objets-en-java)
-  - [L'interface Comparable\<T\>](#linterface-comparablet)
-  - [L'interface Comparator\<T\>](#linterface-comparatort)
-  - [Quand utiliser Comparable ou Comparator ?](#quand-utiliser-comparable-ou-comparator-)
+	- [Tri rapide (quicksort)](#tri-rapide-quicksort)
+	- [Tri fusion (mergesort)](#tri-fusion-mergesort)
 - [Conclusion](#conclusion)
 - [Exemples de code](#exemples-de-code)
 - [Exercices](#exercices)
@@ -1051,104 +1040,6 @@ stable et prévisible, ou quand on trie des données accessibles séquentielleme
 (par exemple, des données stockées sur disque dur ou provenant d'un flux
 réseau).
 
-## Comparer des objets en Java
-
-Jusqu'à présent, nous avons trié des cartes selon leur valeur numérique. Mais
-comment Java sait-il comment comparer deux objets ? Comment peut-on définir
-plusieurs façons de trier la même collection ?
-
-### L'interface Comparable\<T\>
-
-L'interface `Comparable<T>` permet de définir un **ordre naturel** pour une
-classe. Lorsqu'une classe implémente `Comparable<T>`, elle déclare qu'il existe
-une façon évidente et naturelle de comparer ses instances.
-
-Par exemple, pour des cartes à jouer, l'ordre naturel pourrait être l'ordre par
-valeur :
-
-```java
-public class Card implements Comparable<Card> {
-    private int value;
-    private String suit;
-
-    @Override
-    public int compareTo(Card other) {
-        return Integer.compare(this.value, other.value);
-    }
-}
-```
-
-La méthode `compareTo()` doit retourner :
-
-- Un nombre négatif si `this` est plus petit que `other`.
-- Zéro si `this` est égal à `other`.
-- Un nombre positif si `this` est plus grand que `other`.
-
-Une fois que la classe implémente `Comparable<T>`, on peut simplement trier une
-liste de cartes avec `Collections.sort(cards)` ou `cards.sort(null)`. Java
-utilisera automatiquement la méthode `compareTo()` pour déterminer l'ordre.
-
-### L'interface Comparator\<T\>
-
-Mais que faire si on veut trier les mêmes cartes de différentes façons ? Par
-exemple, parfois par valeur, parfois par couleur ? C'est là qu'intervient
-l'interface `Comparator<T>`.
-
-Un `Comparator<T>` est un objet externe qui définit une façon de comparer deux
-objets. On peut créer autant de comparateurs qu'on veut pour la même classe :
-
-```java
-// Comparateur par valeur
-Comparator<Card> byValue = (card1, card2) ->
-    Integer.compare(card1.getValue(), card2.getValue());
-
-// Comparateur par couleur
-Comparator<Card> bySuit = (card1, card2) ->
-    card1.getSuit().compareTo(card2.getSuit());
-
-// Comparateur par couleur puis par valeur
-Comparator<Card> bySuitThenValue = (card1, card2) -> {
-    int suitComparison = card1.getSuit().compareTo(card2.getSuit());
-    if (suitComparison != 0) {
-        return suitComparison;
-    }
-    return Integer.compare(card1.getValue(), card2.getValue());
-};
-```
-
-Pour utiliser un comparateur :
-
-```java
-cards.sort(byValue);      // Trier par valeur
-cards.sort(bySuit);       // Trier par couleur
-cards.sort(bySuitThenValue);  // Trier par couleur puis valeur
-```
-
-### Quand utiliser Comparable ou Comparator ?
-
-**Utilisez `Comparable<T>` quand :**
-
-- Il existe un ordre naturel évident pour votre classe.
-- Cet ordre sera utilisé la plupart du temps.
-- Vous contrôlez le code source de la classe.
-
-Par exemple : des nombres, des dates, des chaînes de caractères ont tous un
-ordre naturel.
-
-**Utilisez `Comparator<T>` quand :**
-
-- Vous voulez plusieurs façons de trier la même classe.
-- L'ordre n'est pas naturel mais dépend du contexte.
-- Vous ne contrôlez pas le code source de la classe.
-- Vous voulez créer des ordres de tri complexes ou composés.
-
-Par exemple : trier des personnes par nom, par âge, par salaire, ou par une
-combinaison de ces critères.
-
-**Dans la pratique**, il est courant d'avoir les deux : une classe implémente
-`Comparable<T>` pour son ordre naturel le plus courant, et on crée des
-`Comparator<T>` pour les ordres alternatifs selon les besoins.
-
 ## Conclusion
 
 Le tri de données est une opération fondamentale en programmation, omniprésente
@@ -1166,11 +1057,6 @@ plus sophistiqués comme le principe de "diviser pour régner". Ils nous
 enseignent qu'investir du temps dans une stratégie plus complexe peut se
 traduire par des gains significatifs en performance, surtout pour de grandes
 quantités de données.
-
-Enfin, les interfaces `Comparable<T>` et `Comparator<T>` en Java nous rappellent
-qu'en programmation orientée objet, la flexibilité est essentielle. Pouvoir
-définir plusieurs façons de comparer et de trier les mêmes objets est une
-capacité puissante qui rend nos programmes plus adaptables et réutilisables.
 
 Au-delà des algorithmes eux-mêmes, le tri nous enseigne des leçons plus
 générales : l'importance de choisir le bon outil pour le bon contexte, la
