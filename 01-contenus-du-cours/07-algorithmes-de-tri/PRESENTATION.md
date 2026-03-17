@@ -70,6 +70,34 @@ document._
 
 ![bg right:40%][illustration-objectifs]
 
+## Introduction : le problème de la recherche d'informations
+
+### Chercher dans une base de données
+
+### Le tri comme solution
+
+## Comprendre le tri avec des cartes à jouer
+
+### Observer avant d'agir
+
+### Définir un critère de tri
+
+### La notion de tri stable
+
+## Les algorithmes de tri simples
+
+### Tri par sélection (selection sort)
+
+### Tri par insertion (insertion sort)
+
+### Tri à bulles (bubble sort)
+
+## Les algorithmes de tri avancés
+
+### Tri rapide (quicksort)
+
+### Tri fusion (mergesort)
+
 ## Questions
 
 <!-- _class: lead -->
