@@ -11,8 +11,8 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 >
 > **Ressources annexes**
 >
-> - Support de cours : [Retour au contenu principal](../README.md)
-> - Exemples de code : [Accéder aux exemples](../01-exemples-de-code/)
+> - Support de cours : [Retour au contenu principal](../README.md).
+> - Exemples de code : [Accéder aux exemples](../01-exemples-de-code/).
 
 ## Table des matières
 
@@ -33,9 +33,11 @@ de tri vus en cours. Contrairement aux exemples qui trient des entiers, ces
 exercices vous demandent de trier des **cartes à jouer**.
 
 **Objectifs** :
-- Créer une classe `Card` pour représenter une carte à jouer
-- Implémenter chaque algorithme de tri pour trier des tableaux de cartes
-- Comprendre comment adapter un algorithme de tri à un type d'objet personnalisé
+
+- Créer une classe `Card` pour représenter une carte à jouer.
+- Implémenter chaque algorithme de tri pour trier des tableaux de cartes.
+- Comprendre comment adapter un algorithme de tri à un type d'objet
+  personnalisé.
 
 ## La classe Card
 
@@ -47,11 +49,14 @@ suivants :
 ![Diagramme UML de la classe Card](../images/card-class.svg)
 
 **Attributs** :
-- `value` (int) : la valeur de la carte (1 = As, 2-10 = chiffres, 11 = Valet, 12 = Dame, 13 = Roi)
-- `suit` (char) : la couleur de la carte (♠ ♥ ♦ ♣)
+
+- `value` (int) : la valeur de la carte (1 = As, 2-10 = chiffres, 11 = Valet, 12
+  = Dame, 13 = Roi).
+- `suit` (char) : la couleur de la carte (♠ ♥ ♦ ♣).
 
 **Méthode** :
-- `toString()` : retourne une représentation textuelle de la carte (ex: "7♥")
+
+- `toString()` : retourne une représentation textuelle de la carte (ex: "7♥").
 
 **Ordre de tri** : Les cartes sont triées **par valeur croissante uniquement**.
 La couleur n'est pas prise en compte pour le tri.

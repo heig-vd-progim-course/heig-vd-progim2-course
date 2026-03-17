@@ -10,37 +10,37 @@ public class Main {
     
     /**
      * Trie un tableau d'entiers par sélection
-     * @param tableau le tableau à trier
+     * @param array le tableau à trier
      */
-    public static void triSelection(int[] tableau) {
-        int n = tableau.length;
+    public static void selectionSort(int[] array) {
+        int n = array.length;
         
         // Pour chaque position
         for (int i = 0; i < n - 1; i++) {
             // Chercher le minimum dans la partie non triée
-            int indexMin = i;
+            int minIndex = i;
             for (int j = i + 1; j < n; j++) {
-                if (tableau[j] < tableau[indexMin]) {
-                    indexMin = j;
+                if (array[j] < array[minIndex]) {
+                    minIndex = j;
                 }
             }
             
             // Échanger le minimum trouvé avec l'élément à la position i
-            int temp = tableau[i];
-            tableau[i] = tableau[indexMin];
-            tableau[indexMin] = temp;
+            int temp = array[i];
+            array[i] = array[minIndex];
+            array[minIndex] = temp;
         }
     }
     
     /**
      * Affiche un tableau d'entiers
-     * @param tableau le tableau à afficher
+     * @param array le tableau à afficher
      */
-    public static void afficherTableau(int[] tableau) {
+    public static void displayArray(int[] array) {
         System.out.print("[");
-        for (int i = 0; i < tableau.length; i++) {
-            System.out.print(tableau[i]);
-            if (i < tableau.length - 1) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]);
+            if (i < array.length - 1) {
                 System.out.print(", ");
             }
         }
@@ -49,16 +49,16 @@ public class Main {
     
     public static void main(String[] args) {
         // Créer un tableau non trié
-        int[] nombres = {7, 3, 9, 2, 8};
+        int[] numbers = {7, 3, 9, 2, 8};
         
         System.out.println("=== Tri par sélection ===");
         System.out.print("Avant le tri : ");
-        afficherTableau(nombres);
+        displayArray(numbers);
         
         // Trier le tableau
-        triSelection(nombres);
+        selectionSort(numbers);
         
         System.out.print("Après le tri : ");
-        afficherTableau(nombres);
+        displayArray(numbers);
     }
 }

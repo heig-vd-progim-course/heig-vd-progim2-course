@@ -2,8 +2,8 @@
  * Classe représentant une carte à jouer
  */
 class Card {
-    private int value;    // Valeur de la carte (1-13)
-    private char suit;    // Couleur : ♠ ♥ ♦ ♣
+    private final int value;    // Valeur de la carte (1-13)
+    private final char suit;    // Couleur : ♠ ♥ ♦ ♣
     
     /**
      * Constructeur
@@ -48,36 +48,36 @@ public class Main {
     
     /**
      * Trie un tableau de cartes par insertion (par valeur croissante)
-     * @param cartes le tableau de cartes à trier
+     * @param cards le tableau de cartes à trier
      */
-    public static void triInsertion(Card[] cartes) {
-        int n = cartes.length;
+    public static void insertionSort(Card[] cards) {
+        int n = cards.length;
         
         // Pour chaque carte à partir de la deuxième
         for (int i = 1; i < n; i++) {
-            Card carteAInserer = cartes[i];
+            Card cardToInsert = cards[i];
             int j = i - 1;
             
             // Décaler les cartes plus grandes vers la droite
-            while (j >= 0 && cartes[j].getValue() > carteAInserer.getValue()) {
-                cartes[j + 1] = cartes[j];
+            while (j >= 0 && cards[j].getValue() > cardToInsert.getValue()) {
+                cards[j + 1] = cards[j];
                 j--;
             }
             
             // Insérer la carte à sa place
-            cartes[j + 1] = carteAInserer;
+            cards[j + 1] = cardToInsert;
         }
     }
     
     /**
      * Affiche un tableau de cartes
-     * @param cartes le tableau à afficher
+     * @param cards le tableau à afficher
      */
-    public static void afficherCartes(Card[] cartes) {
+    public static void displayCards(Card[] cards) {
         System.out.print("[");
-        for (int i = 0; i < cartes.length; i++) {
-            System.out.print(cartes[i]);
-            if (i < cartes.length - 1) {
+        for (int i = 0; i < cards.length; i++) {
+            System.out.print(cards[i]);
+            if (i < cards.length - 1) {
                 System.out.print(", ");
             }
         }
@@ -86,7 +86,7 @@ public class Main {
     
     public static void main(String[] args) {
         // Créer un tableau de cartes mélangées
-        Card[] cartes = {
+        Card[] cards = {
             new Card(7, '♥'),
             new Card(3, '♠'),
             new Card(9, '♦'),
@@ -96,12 +96,12 @@ public class Main {
         
         System.out.println("=== Tri par insertion de cartes ===");
         System.out.print("Avant le tri : ");
-        afficherCartes(cartes);
+        displayCards(cards);
         
         // Trier les cartes
-        triInsertion(cartes);
+        insertionSort(cards);
         
         System.out.print("Après le tri : ");
-        afficherCartes(cartes);
+        displayCards(cards);
     }
 }

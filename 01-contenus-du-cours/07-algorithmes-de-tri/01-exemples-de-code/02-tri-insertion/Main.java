@@ -10,36 +10,36 @@ public class Main {
     
     /**
      * Trie un tableau d'entiers par insertion
-     * @param tableau le tableau à trier
+     * @param array le tableau à trier
      */
-    public static void triInsertion(int[] tableau) {
-        int n = tableau.length;
+    public static void insertionSort(int[] array) {
+        int n = array.length;
         
         // Pour chaque élément à partir du deuxième
         for (int i = 1; i < n; i++) {
-            int elementAInserer = tableau[i];
+            int elementToInsert = array[i];
             int j = i - 1;
             
             // Décaler les éléments plus grands vers la droite
-            while (j >= 0 && tableau[j] > elementAInserer) {
-                tableau[j + 1] = tableau[j];
+            while (j >= 0 && array[j] > elementToInsert) {
+                array[j + 1] = array[j];
                 j--;
             }
             
             // Insérer l'élément à sa place
-            tableau[j + 1] = elementAInserer;
+            array[j + 1] = elementToInsert;
         }
     }
     
     /**
      * Affiche un tableau d'entiers
-     * @param tableau le tableau à afficher
+     * @param array le tableau à afficher
      */
-    public static void afficherTableau(int[] tableau) {
+    public static void displayArray(int[] array) {
         System.out.print("[");
-        for (int i = 0; i < tableau.length; i++) {
-            System.out.print(tableau[i]);
-            if (i < tableau.length - 1) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]);
+            if (i < array.length - 1) {
                 System.out.print(", ");
             }
         }
@@ -48,16 +48,16 @@ public class Main {
     
     public static void main(String[] args) {
         // Créer un tableau non trié
-        int[] nombres = {7, 3, 9, 2, 8};
+        int[] numbers = {7, 3, 9, 2, 8};
         
         System.out.println("=== Tri par insertion ===");
         System.out.print("Avant le tri : ");
-        afficherTableau(nombres);
+        displayArray(numbers);
         
         // Trier le tableau
-        triInsertion(nombres);
+        insertionSort(numbers);
         
         System.out.print("Après le tri : ");
-        afficherTableau(nombres);
+        displayArray(numbers);
     }
 }

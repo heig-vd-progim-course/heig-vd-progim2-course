@@ -524,7 +524,7 @@ Est-ce que vous avez des questions ?
 
 ➡️ [Visualiser le contenu complet sur GitHub.][contenu-complet-sur-github]
 
-**N'hésitez pas à vous entraidez si vous avez des difficultés !**
+**N'hésitez pas à vous entraider si vous avez des difficultés !**
 
 ![bg right:40%][illustration-a-vous-de-jouer]
 

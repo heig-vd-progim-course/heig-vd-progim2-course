@@ -875,11 +875,11 @@ Est-ce que vous avez des questions ?
 - Poser des questions si nécessaire. ➡️ [Visualiser le contenu complet sur
   GitHub.][contenu-complet-sur-github]
 
-**N'hésitez pas à vous entraidez si vous avez des difficultés !**
+  **N'hésitez pas à vous entraider si vous avez des difficultés !**
 
 ![bg right:40%][illustration-a-vous-de-jouer]
 
-## Sources
+## Sources (1/2)
 
 - [Illustration principale][illustration-principale] par
   [Amanda Jones](https://unsplash.com/fr/@amandagraphc) sur
@@ -888,7 +888,7 @@ Est-ce que vous avez des questions ?
   [Aline de Nadai](https://unsplash.com/@alinedenadai) sur
   [Unsplash](https://unsplash.com/photos/low-angle-view-of-ball-shoots-in-the-ring-j6brni7fpvs)
 
----
+## Sources (2/2)
 
 - [Illustration][illustration-a-vous-de-jouer] par
   [Nikita Kachanovsky](https://unsplash.com/@nkachanovskyyy) sur

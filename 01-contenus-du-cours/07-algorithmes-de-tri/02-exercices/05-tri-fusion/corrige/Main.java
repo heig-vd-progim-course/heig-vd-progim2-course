@@ -2,8 +2,8 @@
  * Classe représentant une carte à jouer
  */
 class Card {
-    private int value;    // Valeur de la carte (1-13)
-    private char suit;    // Couleur : ♠ ♥ ♦ ♣
+    private final int value;    // Valeur de la carte (1-13)
+    private final char suit;    // Couleur : ♠ ♥ ♦ ♣
     
     /**
      * Constructeur
@@ -48,74 +48,74 @@ public class Main {
     
     /**
      * Trie un tableau de cartes par tri fusion (par valeur croissante)
-     * @param cartes le tableau de cartes à trier
-     * @param debut l'index de début
-     * @param fin l'index de fin
+     * @param cards le tableau de cartes à trier
+     * @param start l'index de début
+     * @param end l'index de fin
      */
-    public static void triFusion(Card[] cartes, int debut, int fin) {
-        if (debut < fin) {
+    public static void mergeSort(Card[] cards, int start, int end) {
+        if (start < end) {
             // Trouver le milieu
-            int milieu = (debut + fin) / 2;
+            int middle = (start + end) / 2;
             
             // Trier récursivement les deux moitiés
-            triFusion(cartes, debut, milieu);
-            triFusion(cartes, milieu + 1, fin);
+            mergeSort(cards, start, middle);
+            mergeSort(cards, middle + 1, end);
             
             // Fusionner les deux moitiés triées
-            fusionner(cartes, debut, milieu, fin);
+            merge(cards, start, middle, end);
         }
     }
     
     /**
      * Fusionne deux parties triées d'un tableau
-     * @param cartes le tableau contenant les deux parties
-     * @param debut l'index de début de la première partie
-     * @param milieu l'index de fin de la première partie
-     * @param fin l'index de fin de la deuxième partie
+     * @param cards le tableau contenant les deux parties
+     * @param start l'index de début de la première partie
+     * @param middle l'index de fin de la première partie
+     * @param end l'index de fin de la deuxième partie
      */
-    private static void fusionner(Card[] cartes, int debut, int milieu, int fin) {
+    private static void merge(Card[] cards, int start, int middle, int end) {
         // Calculer les tailles des deux parties
-        int tailleGauche = milieu - debut + 1;
-        int tailleDroite = fin - milieu;
+        int leftSize = middle - start + 1;
+        int rightSize = end - middle;
         
         // Créer des tableaux temporaires
-        Card[] gauche = new Card[tailleGauche];
-        Card[] droite = new Card[tailleDroite];
+        Card[] left = new Card[leftSize];
+        Card[] right = new Card[rightSize];
         
         // Copier les données dans les tableaux temporaires
-        for (int i = 0; i < tailleGauche; i++) {
-            gauche[i] = cartes[debut + i];
+        for (int i = 0; i < leftSize; i++) {
+            left[i] = cards[start + i];
         }
-        for (int j = 0; j < tailleDroite; j++) {
-            droite[j] = cartes[milieu + 1 + j];
+        for (int j = 0; j < rightSize; j++) {
+            right[j] = cards[middle + 1 + j];
         }
         
         // Fusionner les tableaux temporaires dans le tableau original
         int i = 0; // Index du tableau gauche
         int j = 0; // Index du tableau droite
-        int k = debut; // Index du tableau fusionné
+        int k = start; // Index du tableau fusionné
         
-        while (i < tailleGauche && j < tailleDroite) {
-            if (gauche[i].getValue() <= droite[j].getValue()) {
-                cartes[k] = gauche[i];
+        while (i < leftSize && j < rightSize) {
+            if (left[i].getValue() <= right[j].getValue()) {
+                cards[k] = left[i];
                 i++;
             } else {
-                cartes[k] = droite[j];
+                cards[k] = right[j];
                 j++;
             }
             k++;
         }
         
         // Copier les cartes restantes de gauche, s'il y en a
-        while (i < tailleGauche) {
-            cartes[k] = gauche[i];
+        while (i < leftSize) {
+            cards[k] = left[i];
             i++;
             k++;
         }
         
         // Copier les cartes restantes de droite, s'il y en a
-        while (j < tailleDroite) {
-            cartes[k] = droite[j];
+        while (j < rightSize) {
+            cards[k] = right[j];
             j++;
             k++;
         }
@@ -123,13 +123,13 @@ public class Main {
     
     /**
      * Affiche un tableau de cartes
-     * @param cartes le tableau à afficher
+     * @param cards le tableau à afficher
      */
-    public static void afficherCartes(Card[] cartes) {
+    public static void displayCards(Card[] cards) {
         System.out.print("[");
-        for (int i = 0; i < cartes.length; i++) {
-            System.out.print(cartes[i]);
-            if (i < cartes.length - 1) {
+        for (int i = 0; i < cards.length; i++) {
+            System.out.print(cards[i]);
+            if (i < cards.length - 1) {
                 System.out.print(", ");
             }
         }
@@ -138,7 +138,7 @@ public class Main {
     
     public static void main(String[] args) {
         // Créer un tableau de cartes mélangées
-        Card[] cartes = {
+        Card[] cards = {
             new Card(7, '♥'),
             new Card(3, '♠'),
             new Card(9, '♦'),
@@ -148,12 +148,12 @@ public class Main {
         
         System.out.println("=== Tri fusion de cartes ===");
         System.out.print("Avant le tri : ");
-        afficherCartes(cartes);
+        displayCards(cards);
         
         // Trier les cartes
-        triFusion(cartes, 0, cartes.length - 1);
+        mergeSort(cards, 0, cards.length - 1);
         
         System.out.print("Après le tri : ");
-        afficherCartes(cartes);
+        displayCards(cards);
     }
 }

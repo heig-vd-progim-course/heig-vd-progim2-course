@@ -11,42 +11,42 @@ public class Main {
     
     /**
      * Trie un tableau d'entiers par bulles
-     * @param tableau le tableau à trier
+     * @param array le tableau à trier
      */
-    public static void triBulles(int[] tableau) {
-        int n = tableau.length;
-        boolean echange;
+    public static void bubbleSort(int[] array) {
+        int n = array.length;
+        boolean swapped;
         
         // Répéter jusqu'à ce qu'aucun échange ne soit fait
         do {
-            echange = false;
+            swapped = false;
             
             // Parcourir le tableau
             for (int i = 0; i < n - 1; i++) {
                 // Si deux éléments adjacents sont dans le mauvais ordre
-                if (tableau[i] > tableau[i + 1]) {
+                if (array[i] > array[i + 1]) {
                     // Les échanger
-                    int temp = tableau[i];
-                    tableau[i] = tableau[i + 1];
-                    tableau[i + 1] = temp;
-                    echange = true;
+                    int temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                    swapped = true;
                 }
             }
             
             // Réduire la zone à parcourir (le dernier élément est trié)
             n--;
-        } while (echange);
+        } while (swapped);
     }
     
     /**
      * Affiche un tableau d'entiers
-     * @param tableau le tableau à afficher
+     * @param array le tableau à afficher
      */
-    public static void afficherTableau(int[] tableau) {
+    public static void displayArray(int[] array) {
         System.out.print("[");
-        for (int i = 0; i < tableau.length; i++) {
-            System.out.print(tableau[i]);
-            if (i < tableau.length - 1) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]);
+            if (i < array.length - 1) {
                 System.out.print(", ");
             }
         }
@@ -55,16 +55,16 @@ public class Main {
     
     public static void main(String[] args) {
         // Créer un tableau non trié
-        int[] nombres = {7, 3, 9, 2, 8};
+        int[] numbers = {7, 3, 9, 2, 8};
         
         System.out.println("=== Tri à bulles ===");
         System.out.print("Avant le tri : ");
-        afficherTableau(nombres);
+        displayArray(numbers);
         
         // Trier le tableau
-        triBulles(nombres);
+        bubbleSort(numbers);
         
         System.out.print("Après le tri : ");
-        afficherTableau(nombres);
+        displayArray(numbers);
     }
 }

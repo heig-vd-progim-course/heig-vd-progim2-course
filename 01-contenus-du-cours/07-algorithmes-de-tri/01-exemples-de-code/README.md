@@ -11,11 +11,12 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 >
 > **Ressources annexes**
 >
-> - Support de cours : [Retour au contenu principal](../README.md)
-> - Exercices : [Accéder aux exercices](../02-exercices/)
+> - Support de cours : [Retour au contenu principal](../README.md).
+> - Exercices : [Accéder aux exercices](../02-exercices/).
 
 ## Table des matières
 
+- [Table des matières](#table-des-matières)
 - [Introduction](#introduction)
 - [Liste des exemples](#liste-des-exemples)
   - [01 - Tri par sélection](#01---tri-par-sélection)

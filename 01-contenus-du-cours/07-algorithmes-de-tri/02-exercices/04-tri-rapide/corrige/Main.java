@@ -2,8 +2,8 @@
  * Classe représentant une carte à jouer
  */
 class Card {
-    private int value;    // Valeur de la carte (1-13)
-    private char suit;    // Couleur : ♠ ♥ ♦ ♣
+    private final int value;    // Valeur de la carte (1-13)
+    private final char suit;    // Couleur : ♠ ♥ ♦ ♣
     
     /**
      * Constructeur
@@ -48,61 +48,61 @@ public class Main {
     
     /**
      * Trie un tableau de cartes par tri rapide (par valeur croissante)
-     * @param cartes le tableau de cartes à trier
-     * @param debut l'index de début
-     * @param fin l'index de fin
+     * @param cards le tableau de cartes à trier
+     * @param start l'index de début
+     * @param end l'index de fin
      */
-    public static void triRapide(Card[] cartes, int debut, int fin) {
-        if (debut < fin) {
+    public static void quickSort(Card[] cards, int start, int end) {
+        if (start < end) {
             // Partitionner et obtenir l'index du pivot
-            int indexPivot = partitionner(cartes, debut, fin);
+            int pivotIndex = partition(cards, start, end);
             
             // Trier récursivement les deux parties
-            triRapide(cartes, debut, indexPivot - 1);
-            triRapide(cartes, indexPivot + 1, fin);
+            quickSort(cards, start, pivotIndex - 1);
+            quickSort(cards, pivotIndex + 1, end);
         }
     }
     
     /**
      * Partitionne le tableau autour d'un pivot
-     * @param cartes le tableau de cartes à partitionner
-     * @param debut l'index de début
-     * @param fin l'index de fin
+     * @param cards le tableau de cartes à partitionner
+     * @param start l'index de début
+     * @param end l'index de fin
      * @return l'index final du pivot
      */
-    private static int partitionner(Card[] cartes, int debut, int fin) {
+    private static int partition(Card[] cards, int start, int end) {
         // Choisir la dernière carte comme pivot
-        int valeurPivot = cartes[fin].getValue();
-        int i = debut - 1;
+        int pivotValue = cards[end].getValue();
+        int i = start - 1;
         
         // Placer les cartes avec valeur < pivot à gauche
-        for (int j = debut; j < fin; j++) {
-            if (cartes[j].getValue() < valeurPivot) {
+        for (int j = start; j < end; j++) {
+            if (cards[j].getValue() < pivotValue) {
                 i++;
-                // Échanger cartes[i] et cartes[j]
-                Card temp = cartes[i];
-                cartes[i] = cartes[j];
-                cartes[j] = temp;
+                // Échanger cards[i] et cards[j]
+                Card temp = cards[i];
+                cards[i] = cards[j];
+                cards[j] = temp;
             }
         }
         
         // Placer le pivot à sa position finale
-        Card temp = cartes[i + 1];
-        cartes[i + 1] = cartes[fin];
-        cartes[fin] = temp;
+        Card temp = cards[i + 1];
+        cards[i + 1] = cards[end];
+        cards[end] = temp;
         
         return i + 1;
     }
     
     /**
      * Affiche un tableau de cartes
-     * @param cartes le tableau à afficher
+     * @param cards le tableau à afficher
      */
-    public static void afficherCartes(Card[] cartes) {
+    public static void displayCards(Card[] cards) {
         System.out.print("[");
-        for (int i = 0; i < cartes.length; i++) {
-            System.out.print(cartes[i]);
-            if (i < cartes.length - 1) {
+        for (int i = 0; i < cards.length; i++) {
+            System.out.print(cards[i]);
+            if (i < cards.length - 1) {
                 System.out.print(", ");
             }
         }
@@ -111,7 +111,7 @@ public class Main {
     
     public static void main(String[] args) {
         // Créer un tableau de cartes mélangées
-        Card[] cartes = {
+        Card[] cards = {
             new Card(7, '♥'),
             new Card(3, '♠'),
             new Card(9, '♦'),
@@ -121,12 +121,12 @@ public class Main {
         
         System.out.println("=== Tri rapide de cartes ===");
         System.out.print("Avant le tri : ");
-        afficherCartes(cartes);
+        displayCards(cards);
         
         // Trier les cartes
-        triRapide(cartes, 0, cartes.length - 1);
+        quickSort(cards, 0, cards.length - 1);
         
         System.out.print("Après le tri : ");
-        afficherCartes(cartes);
+        displayCards(cards);
     }
 }

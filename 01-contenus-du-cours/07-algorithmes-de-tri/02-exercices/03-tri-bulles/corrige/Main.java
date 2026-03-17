@@ -2,8 +2,8 @@
  * Classe représentant une carte à jouer
  */
 class Card {
-    private int value;    // Valeur de la carte (1-13)
-    private char suit;    // Couleur : ♠ ♥ ♦ ♣
+    private final int value;    // Valeur de la carte (1-13)
+    private final char suit;    // Couleur : ♠ ♥ ♦ ♣
     
     /**
      * Constructeur
@@ -48,42 +48,42 @@ public class Main {
     
     /**
      * Trie un tableau de cartes par bulles (par valeur croissante)
-     * @param cartes le tableau de cartes à trier
+     * @param cards le tableau de cartes à trier
      */
-    public static void triBulles(Card[] cartes) {
-        int n = cartes.length;
-        boolean echange;
+    public static void bubbleSort(Card[] cards) {
+        int n = cards.length;
+        boolean swapped;
         
         // Répéter jusqu'à ce qu'aucun échange ne soit fait
         do {
-            echange = false;
+            swapped = false;
             
             // Parcourir le tableau
             for (int i = 0; i < n - 1; i++) {
                 // Si deux cartes adjacentes sont dans le mauvais ordre
-                if (cartes[i].getValue() > cartes[i + 1].getValue()) {
+                if (cards[i].getValue() > cards[i + 1].getValue()) {
                     // Les échanger
-                    Card temp = cartes[i];
-                    cartes[i] = cartes[i + 1];
-                    cartes[i + 1] = temp;
-                    echange = true;
+                    Card temp = cards[i];
+                    cards[i] = cards[i + 1];
+                    cards[i + 1] = temp;
+                    swapped = true;
                 }
             }
             
             // Réduire la zone à parcourir (la dernière carte est triée)
             n--;
-        } while (echange);
+        } while (swapped);
     }
     
     /**
      * Affiche un tableau de cartes
-     * @param cartes le tableau à afficher
+     * @param cards le tableau à afficher
      */
-    public static void afficherCartes(Card[] cartes) {
+    public static void displayCards(Card[] cards) {
         System.out.print("[");
-        for (int i = 0; i < cartes.length; i++) {
-            System.out.print(cartes[i]);
-            if (i < cartes.length - 1) {
+        for (int i = 0; i < cards.length; i++) {
+            System.out.print(cards[i]);
+            if (i < cards.length - 1) {
                 System.out.print(", ");
             }
         }
@@ -92,7 +92,7 @@ public class Main {
     
     public static void main(String[] args) {
         // Créer un tableau de cartes mélangées
-        Card[] cartes = {
+        Card[] cards = {
             new Card(7, '♥'),
             new Card(3, '♠'),
             new Card(9, '♦'),
@@ -102,12 +102,12 @@ public class Main {
         
         System.out.println("=== Tri à bulles de cartes ===");
         System.out.print("Avant le tri : ");
-        afficherCartes(cartes);
+        displayCards(cards);
         
         // Trier les cartes
-        triBulles(cartes);
+        bubbleSort(cards);
         
         System.out.print("Après le tri : ");
-        afficherCartes(cartes);
+        displayCards(cards);
     }
 }

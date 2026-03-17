@@ -10,74 +10,74 @@ public class Main {
     
     /**
      * Trie un tableau d'entiers par tri fusion
-     * @param tableau le tableau à trier
-     * @param debut l'index de début
-     * @param fin l'index de fin
+     * @param array le tableau à trier
+     * @param start l'index de début
+     * @param end l'index de fin
      */
-    public static void triFusion(int[] tableau, int debut, int fin) {
-        if (debut < fin) {
+    public static void mergeSort(int[] array, int start, int end) {
+        if (start < end) {
             // Trouver le milieu
-            int milieu = (debut + fin) / 2;
+            int middle = (start + end) / 2;
             
             // Trier récursivement les deux moitiés
-            triFusion(tableau, debut, milieu);
-            triFusion(tableau, milieu + 1, fin);
+            mergeSort(array, start, middle);
+            mergeSort(array, middle + 1, end);
             
             // Fusionner les deux moitiés triées
-            fusionner(tableau, debut, milieu, fin);
+            merge(array, start, middle, end);
         }
     }
     
     /**
      * Fusionne deux parties triées d'un tableau
-     * @param tableau le tableau contenant les deux parties
-     * @param debut l'index de début de la première partie
-     * @param milieu l'index de fin de la première partie
-     * @param fin l'index de fin de la deuxième partie
+     * @param array le tableau contenant les deux parties
+     * @param start l'index de début de la première partie
+     * @param middle l'index de fin de la première partie
+     * @param end l'index de fin de la deuxième partie
      */
-    private static void fusionner(int[] tableau, int debut, int milieu, int fin) {
+    private static void merge(int[] array, int start, int middle, int end) {
         // Calculer les tailles des deux parties
-        int tailleGauche = milieu - debut + 1;
-        int tailleDroite = fin - milieu;
+        int leftSize = middle - start + 1;
+        int rightSize = end - middle;
         
         // Créer des tableaux temporaires
-        int[] gauche = new int[tailleGauche];
-        int[] droite = new int[tailleDroite];
+        int[] left = new int[leftSize];
+        int[] right = new int[rightSize];
         
         // Copier les données dans les tableaux temporaires
-        for (int i = 0; i < tailleGauche; i++) {
-            gauche[i] = tableau[debut + i];
+        for (int i = 0; i < leftSize; i++) {
+            left[i] = array[start + i];
         }
-        for (int j = 0; j < tailleDroite; j++) {
-            droite[j] = tableau[milieu + 1 + j];
+        for (int j = 0; j < rightSize; j++) {
+            right[j] = array[middle + 1 + j];
         }
         
         // Fusionner les tableaux temporaires dans le tableau original
         int i = 0; // Index du tableau gauche
         int j = 0; // Index du tableau droite
-        int k = debut; // Index du tableau fusionné
+        int k = start; // Index du tableau fusionné
         
-        while (i < tailleGauche && j < tailleDroite) {
-            if (gauche[i] <= droite[j]) {
-                tableau[k] = gauche[i];
+        while (i < leftSize && j < rightSize) {
+            if (left[i] <= right[j]) {
+                array[k] = left[i];
                 i++;
             } else {
-                tableau[k] = droite[j];
+                array[k] = right[j];
                 j++;
             }
             k++;
         }
         
         // Copier les éléments restants de gauche, s'il y en a
-        while (i < tailleGauche) {
-            tableau[k] = gauche[i];
+        while (i < leftSize) {
+            array[k] = left[i];
             i++;
             k++;
         }
         
         // Copier les éléments restants de droite, s'il y en a
-        while (j < tailleDroite) {
-            tableau[k] = droite[j];
+        while (j < rightSize) {
+            array[k] = right[j];
             j++;
             k++;
         }
@@ -85,13 +85,13 @@ public class Main {
     
     /**
      * Affiche un tableau d'entiers
-     * @param tableau le tableau à afficher
+     * @param array le tableau à afficher
      */
-    public static void afficherTableau(int[] tableau) {
+    public static void displayArray(int[] array) {
         System.out.print("[");
-        for (int i = 0; i < tableau.length; i++) {
-            System.out.print(tableau[i]);
-            if (i < tableau.length - 1) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]);
+            if (i < array.length - 1) {
                 System.out.print(", ");
             }
         }
@@ -100,16 +100,16 @@ public class Main {
     
     public static void main(String[] args) {
         // Créer un tableau non trié
-        int[] nombres = {7, 3, 9, 2, 8};
+        int[] numbers = {7, 3, 9, 2, 8};
         
         System.out.println("=== Tri fusion ===");
         System.out.print("Avant le tri : ");
-        afficherTableau(nombres);
+        displayArray(numbers);
         
         // Trier le tableau
-        triFusion(nombres, 0, nombres.length - 1);
+        mergeSort(numbers, 0, numbers.length - 1);
         
         System.out.print("Après le tri : ");
-        afficherTableau(nombres);
+        displayArray(numbers);
     }
 }
