@@ -75,23 +75,23 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 - [Table des matières](#table-des-matières)
 - [Objectifs](#objectifs)
 - [Introduction : le problème de la recherche d'informations](#introduction--le-problème-de-la-recherche-dinformations)
-	- [Chercher dans une base de données](#chercher-dans-une-base-de-données)
-	- [Le tri comme solution](#le-tri-comme-solution)
+  - [Chercher dans une base de données](#chercher-dans-une-base-de-données)
+  - [Le tri comme solution](#le-tri-comme-solution)
 - [Comprendre le tri avec des cartes à jouer](#comprendre-le-tri-avec-des-cartes-à-jouer)
-	- [Observer avant d'agir](#observer-avant-dagir)
-	- [Définir un critère de tri](#définir-un-critère-de-tri)
-	- [La notion de tri stable](#la-notion-de-tri-stable)
+  - [Observer avant d'agir](#observer-avant-dagir)
+  - [Définir un critère de tri](#définir-un-critère-de-tri)
+  - [La notion de tri stable](#la-notion-de-tri-stable)
 - [Les algorithmes de tri simples](#les-algorithmes-de-tri-simples)
-	- [Tri par sélection (selection sort)](#tri-par-sélection-selection-sort)
-	- [Tri par insertion (insertion sort)](#tri-par-insertion-insertion-sort)
-	- [Tri à bulles (bubble sort)](#tri-à-bulles-bubble-sort)
+  - [Tri par sélection (selection sort)](#tri-par-sélection-selection-sort)
+  - [Tri par insertion (insertion sort)](#tri-par-insertion-insertion-sort)
+  - [Tri à bulles (bubble sort)](#tri-à-bulles-bubble-sort)
 - [Les algorithmes de tri avancés](#les-algorithmes-de-tri-avancés)
-	- [Tri rapide (quicksort)](#tri-rapide-quicksort)
-	- [Tri fusion (mergesort)](#tri-fusion-mergesort)
+  - [Tri rapide (quicksort)](#tri-rapide-quicksort)
+  - [Tri fusion (mergesort)](#tri-fusion-mergesort)
 - [Comparer des objets en Java](#comparer-des-objets-en-java)
-	- [L'interface Comparable\<T\>](#linterface-comparablet)
-	- [L'interface Comparator\<T\>](#linterface-comparatort)
-	- [Quand utiliser Comparable ou Comparator ?](#quand-utiliser-comparable-ou-comparator-)
+  - [L'interface Comparable\<T\>](#linterface-comparablet)
+  - [L'interface Comparator\<T\>](#linterface-comparatort)
+  - [Quand utiliser Comparable ou Comparator ?](#quand-utiliser-comparable-ou-comparator-)
 - [Conclusion](#conclusion)
 - [Exemples de code](#exemples-de-code)
 - [Exercices](#exercices)
@@ -782,85 +782,274 @@ données, ce qui économise de la mémoire.
 ### Tri fusion (mergesort)
 
 Le tri fusion est un algorithme élégant qui illustre parfaitement le principe de
-"diviser pour régner". Historiquement, il a été inventé par John von Neumann en
-1945, l'un des pionniers de l'informatique.
+**diviser pour régner** (divide and conquer). Nous allons décomposer notre
+problème en sous-problèmes plus petits pour le résoudre. Historiquement, il a
+été inventé par John von Neumann en 1945, l'un des pionniers de l'informatique.
 
 Le principe :
 
-1. Diviser la liste en deux moitiés.
-2. Trier récursivement chaque moitié.
-3. Fusionner les deux moitiés triées pour obtenir une liste triée complète.
+1. **Diviser** : couper continuellement le tableau en deux jusqu'à avoir des
+   éléments individuels.
+2. **Conquérir** : fusionner les petits tableaux triés en tableaux plus grands,
+   toujours triés.
+3. Une fois tous les éléments fusionnés, le tableau est complètement trié.
 
-**Visualisation conceptuelle avec des cartes**
+#### Étape 1 : Division (Divide)
 
-Contrairement aux autres algorithmes, le tri fusion est plus difficile à
-visualiser avec des cartes physiques car il nécessite de créer temporairement de
-nouvelles piles de cartes. Voici néanmoins comment cela fonctionne :
+Nous allons continuellement diviser notre tableau en deux jusqu'à avoir des
+éléments individuels. Voici notre tableau de départ :
 
-**Étape 1 - Division** : on divise notre pile de 8 cartes en deux piles de 4
-cartes.
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![7](./images/7_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![5](./images/5_of_hearts.svg) |
 
-Pile gauche :
+**Division 1** : couper en deux moitiés de 4 cartes.
 
-|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |
-| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![7](./images/7_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) |
+**Division 2** : couper chaque moitié en deux groupes de 2 cartes.
 
-Pile droite :
+**Division 3** : couper chaque groupe en éléments individuels.
 
-|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |
-| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
+Nos cartes sont maintenant décomposées en éléments individuels :
 
-**Étape 2 - Subdivision** : on continue à diviser jusqu'à avoir des piles d'une
-seule carte (une carte seule est toujours triée).
+| 7 | 3 | 9 | 2 | 8 | 4 | 6 | 5 |
 
-**Étape 3 - Fusion** : on commence à fusionner les petites piles triées pour
-former des piles plus grandes mais toujours triées.
+**Note importante** : en pratique, lors de l'implémentation en code, ces étapes
+se font dans un ordre différent à cause de la récursion. Mais cet ordre est plus
+clair pour l'apprentissage.
 
-Par exemple, pour fusionner deux piles :
+#### Étape 2 : Fusion (Conquer) - Premiers niveaux
 
-Pile gauche triée :
+Nous sommes maintenant prêts à trier ! Nous allons examiner les éléments
+individuels, comparer leurs valeurs, et les fusionner dans des tableaux
+temporaires triés.
 
-|            Carte 1             |            Carte 2             |
-| :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_spades.svg) | ![7](./images/7_of_spades.svg) |
+**Fusion 1 : Fusionner [7] et [3]**
 
-Pile droite triée :
+Source :
 
-|            Carte 1             |            Carte 2             |
-| :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_spades.svg) | ![5](./images/5_of_spades.svg) |
+|                 Carte 1                 |                 Carte 2                 |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :-------------------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![7](./images/7_of_hearts_selected.svg) | ![3](./images/3_of_hearts_selected.svg) | ![9](./images/9_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![5](./images/5_of_hearts.svg) |
 
-On compare les premières cartes de chaque pile (3 et 2), on prend la plus petite
-(2) et on la place dans la nouvelle pile. Puis on compare à nouveau (3 et 5), on
-prend la plus petite (3), et ainsi de suite.
+Comparer 7 et 3 : 3 < 7, donc 3 en premier.
 
-Résultat de la fusion :
+Résultat :
 
-|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |
-| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![7](./images/7_of_spades.svg) |
+|            Carte 1             |            Carte 2             |         Carte 3         |         Carte 4         |         Carte 5         |         Carte 6         |         Carte 7         |         Carte 8         |
+| :----------------------------: | :----------------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: |
+| ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
 
-**Étape 4** : on continue à fusionner les piles de plus en plus grandes jusqu'à
-obtenir une seule pile complètement triée.
+**Fusion 2 : Fusionner [9] et [2]**
 
-**Réflexion sur le tri fusion**
+Source :
 
-Le tri fusion a des performances très prévisibles : il trie toujours à la même
-vitesse, quelle que soit la distribution initiale des données. Contrairement au
-tri rapide, il est stable (voir la section sur la notion de tri stable) et
-garantit de bonnes performances même dans le pire cas.
+|            Carte 1             |            Carte 2             |                 Carte 3                 |                 Carte 4                 |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :----------------------------: | :----------------------------: | :-------------------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts_selected.svg) | ![2](./images/2_of_hearts_selected.svg) | ![8](./images/8_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![5](./images/5_of_hearts.svg) |
 
-Son principal inconvénient est qu'il nécessite de la mémoire supplémentaire pour
-créer les piles temporaires lors de la fusion. Dans l'exemple ci-dessus, nous
-avons dû créer de nouvelles piles pour fusionner les résultats. Ce n'est pas
-toujours un problème en pratique, mais cela peut le devenir pour de très grandes
-listes ou dans des environnements avec peu de mémoire disponible.
+Comparer 9 et 2 : 2 < 9, donc 2 en premier.
 
-Le tri fusion est souvent utilisé quand on a besoin d'un tri stable et
-prévisible, ou quand on trie des données accessibles séquentiellement (par
-exemple, des données stockées sur disque dur ou provenant d'un flux réseau).
+Résultat :
+
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |         Carte 5         |         Carte 6         |         Carte 7         |         Carte 8         |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: |
+| ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+
+**Fusion 3 : Fusionner [8] et [4]**
+
+Source :
+
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |                 Carte 5                 |                 Carte 6                 |            Carte 7             |            Carte 8             |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: |
+| ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![8](./images/8_of_hearts_selected.svg) | ![4](./images/4_of_hearts_selected.svg) | ![6](./images/6_of_hearts.svg) | ![5](./images/5_of_hearts.svg) |
+
+Comparer 8 et 4 : 4 < 8, donc 4 en premier.
+
+Résultat :
+
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |         Carte 7         |         Carte 8         |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :---------------------: | :---------------------: |
+| ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+
+**Fusion 4 : Fusionner [6] et [5]**
+
+Source :
+
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |                 Carte 7                 |                 Carte 8                 |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: | :-------------------------------------: |
+| ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![6](./images/6_of_hearts_selected.svg) | ![5](./images/5_of_hearts_selected.svg) |
+
+Comparer 6 et 5 : 5 < 6, donc 5 en premier.
+
+Résultat :
+
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![6](./images/6_of_hearts.svg) |
+
+Nous avons maintenant quatre paires triées : [3, 7], [2, 9], [4, 8], [5, 6].
+
+#### Étape 3 : Fusion - Niveau intermédiaire
+
+Les tableaux temporaires de paires sont triés, mais il reste du travail.
+Remontons la pile de récursion et continuons. Nous allons fusionner nos petits
+tableaux en tableaux plus grands, en insérant les éléments dans l'ordre correct.
+
+**Fusion 5 : Fusionner [3, 7] et [2, 9]**
+
+Source :
+
+|                 Carte 1                 |            Carte 2             |                 Carte 3                 |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :-------------------------------------: | :----------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![3](./images/3_of_hearts_selected.svg) | ![7](./images/7_of_hearts.svg) | ![2](./images/2_of_hearts_selected.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![6](./images/6_of_hearts.svg) |
+
+Comparer 3 et 2 : 2 < 3, donc 2 en premier.
+
+Résultat :
+
+|            Carte 1             |         Carte 2         |         Carte 3         |         Carte 4         |         Carte 5         |         Carte 6         |         Carte 7         |         Carte 8         |
+| :----------------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: |
+| ![2](./images/2_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+
+Source :
+
+|                 Carte 1                 |            Carte 2             |         Carte 3         |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :-------------------------------------: | :----------------------------: | :---------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![3](./images/3_of_hearts_selected.svg) | ![7](./images/7_of_hearts.svg) | ![](./images/blank.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![6](./images/6_of_hearts.svg) |
+
+Le 2 est placé. Comparer 3 et 9 : 3 < 9, donc 3 ensuite.
+
+Résultat :
+
+|            Carte 1             |            Carte 2             |         Carte 3         |         Carte 4         |         Carte 5         |         Carte 6         |         Carte 7         |         Carte 8         |
+| :----------------------------: | :----------------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+
+Source :
+
+|         Carte 1         |                 Carte 2                 |         Carte 3         |                 Carte 4                 |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :---------------------: | :-------------------------------------: | :---------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![](./images/blank.svg) | ![7](./images/7_of_hearts_selected.svg) | ![](./images/blank.svg) | ![9](./images/9_of_hearts_selected.svg) | ![4](./images/4_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![6](./images/6_of_hearts.svg) |
+
+Comparer 7 et 9 : 7 < 9, donc 7 ensuite. Puis le 9 reste.
+
+Résultat :
+
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |         Carte 5         |         Carte 6         |         Carte 7         |         Carte 8         |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+
+**Fusion 6 : Fusionner [4, 8] et [5, 6]**
+
+Source :
+
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |                 Carte 5                 |            Carte 6             |                 Carte 7                 |            Carte 8             |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: | :----------------------------: | :-------------------------------------: | :----------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts_selected.svg) | ![8](./images/8_of_hearts.svg) | ![5](./images/5_of_hearts_selected.svg) | ![6](./images/6_of_hearts.svg) |
+
+Comparer 4 et 5 : 4 < 5, donc 4 en premier.
+
+Résultat :
+
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |         Carte 6         |         Carte 7         |         Carte 8         |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :---------------------: | :---------------------: | :---------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+
+Source :
+
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |         Carte 5         |                 Carte 6                 |                 Carte 7                 |            Carte 8             |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :---------------------: | :-------------------------------------: | :-------------------------------------: | :----------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![](./images/blank.svg) | ![8](./images/8_of_hearts_selected.svg) | ![5](./images/5_of_hearts_selected.svg) | ![6](./images/6_of_hearts.svg) |
+
+Comparer 8 et 5 : 5 < 8, donc 5 ensuite.
+
+Résultat :
+
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |         Carte 7         |         Carte 8         |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :---------------------: | :---------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+
+Source :
+
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |         Carte 5         |         Carte 6         |                 Carte 7                 |                 Carte 8                 |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :---------------------: | :---------------------: | :-------------------------------------: | :-------------------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![6](./images/6_of_hearts_selected.svg) | ![8](./images/8_of_hearts_selected.svg) |
+
+Comparer 6 et 8 : 6 < 8, donc 6. Puis 8 reste.
+
+Résultat :
+
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![8](./images/8_of_hearts.svg) |
+
+Nous avons maintenant deux groupes triés : [2, 3, 7, 9] et [4, 5, 6, 8].
+
+#### Étape 4 : Fusion finale
+
+Une dernière fusion et nous aurons notre tableau trié ! Fusionnons [2, 3, 7, 9]
+et [4, 5, 6, 8].
+
+Source :
+
+|                 Carte 1                 |            Carte 2             |            Carte 3             |            Carte 4             |                 Carte 5                 |            Carte 6             |            Carte 7             |            Carte 8             |
+| :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![2](./images/2_of_hearts_selected.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts_selected.svg) | ![5](./images/5_of_hearts.svg) | ![6](./images/6_of_hearts.svg) | ![8](./images/8_of_hearts.svg) |
+
+Comparer 2 et 4 : 2 < 4, prendre le 2. Comparer 3 et 4 : 3 < 4, prendre le 3.
+Comparer 7 et 4 : 4 < 7, prendre le 4. Comparer 7 et 5 : 5 < 7, prendre le 5.
+Comparer 7 et 6 : 6 < 7, prendre le 6. Comparer 7 et 8 : 7 < 8, prendre le 7.
+Prendre le 8. Prendre le 9.
+
+Résultat final :
+
+|                Carte 1                |                Carte 2                |                Carte 3                |                Carte 4                |                Carte 5                |                Carte 6                |                Carte 7                |                Carte 8                |
+| :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: |
+| ![2](./images/2_of_hearts_sorted.svg) | ![3](./images/3_of_hearts_sorted.svg) | ![4](./images/4_of_hearts_sorted.svg) | ![5](./images/5_of_hearts_sorted.svg) | ![6](./images/6_of_hearts_sorted.svg) | ![7](./images/7_of_hearts_sorted.svg) | ![8](./images/8_of_hearts_sorted.svg) | ![9](./images/9_of_hearts_sorted.svg) |
+
+**C'est terminé !** Notre tableau est maintenant trié.
+
+#### Visualisation de la récursion
+
+```
+[7, 3, 9, 2, 8, 4, 6, 5]
+       /              \
+[7, 3, 9, 2]      [8, 4, 6, 5]
+   /      \          /      \
+[7, 3]  [9, 2]    [8, 4]  [6, 5]
+ /  \    /  \      /  \    /  \
+[7] [3] [9] [2]  [8] [4] [6] [5]
+ \  /    \  /      \  /    \  /
+[3, 7]  [2, 9]    [4, 8]  [5, 6]
+   \      /          \      /
+[2, 3, 7, 9]      [4, 5, 6, 8]
+       \              /
+    [2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+#### Réflexion sur le tri fusion
+
+**Stabilité** : Le tri fusion est **stable** (voir la section sur la notion de
+tri stable) : deux éléments égaux conservent leur ordre relatif d'origine.
+
+**Complexité** : Le tri fusion a une complexité de O(n log n) dans tous les cas
+(meilleur, moyen, et pire cas). Cette prévisibilité est un grand avantage. Pour
+comprendre : l'étape de fusion visite n éléments, et la hauteur maximale de
+l'arbre binaire que nous créons est de l'ordre de log n.
+
+**Performances prévisibles** : Contrairement au tri rapide, le tri fusion trie
+toujours à la même vitesse, quelle que soit la distribution initiale des
+données.
+
+**Inconvénient** : Le tri fusion nécessite de la mémoire supplémentaire pour
+créer les tableaux temporaires lors de la fusion. Ce n'est pas un tri "sur
+place" (in-place). Cela peut être problématique pour de très grandes listes ou
+dans des environnements avec peu de mémoire disponible.
+
+**Utilisation** : Le tri fusion est souvent utilisé quand on a besoin d'un tri
+stable et prévisible, ou quand on trie des données accessibles séquentiellement
+(par exemple, des données stockées sur disque dur ou provenant d'un flux
+réseau).
 
 ## Comparer des objets en Java
 
