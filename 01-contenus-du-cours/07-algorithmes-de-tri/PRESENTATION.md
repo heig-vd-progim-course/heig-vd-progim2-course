@@ -670,26 +670,67 @@ gauche, tous les éléments > 8 sont à droite. **Le partitionnement est termin�
 
 Gauche : [7, 3, 2] - Droite : [9]
 
-### Tri rapide (quicksort) - Récursion gauche
+### Tri rapide (quicksort) - Sous-tableau gauche
 
-**Appliquer le tri à [7, 3, 2]**. Pivot : le 2. Le 7 et le 3 sont > 2. Placer le
-2 au début.
+**Appliquer le tri à [7, 3, 2]**. Choisir le dernier élément comme pivot : le 2.
 
-|                  1                   |                      2                      |                  3                   |                      4                      |                  5                   |
-| :----------------------------------: | :-----------------------------------------: | :----------------------------------: | :-----------------------------------------: | :----------------------------------: |
-| ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts.svg) |
+|                       1                       |                  2                   |                       3                       |                      4                      |                  5                   |
+| :-------------------------------------------: | :----------------------------------: | :-------------------------------------------: | :-----------------------------------------: | :----------------------------------: |
+| ![h:180px](./images/7_of_hearts_selected.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/2_of_hearts_selected.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts.svg) |
+
+### Tri rapide (quicksort) - Chercher depuis la gauche
+
+**Chercher depuis la gauche** un élément > pivot (2). Le 7 > 2, **trouvé** en
+position 1 !
+
+|                       1                       |                  2                   |                       3                       |                      4                      |                  5                   |
+| :-------------------------------------------: | :----------------------------------: | :-------------------------------------------: | :-----------------------------------------: | :----------------------------------: |
+| ![h:180px](./images/7_of_hearts_selected.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/2_of_hearts_selected.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts.svg) |
+
+### Tri rapide (quicksort) - Chercher depuis la droite
+
+**Chercher depuis la droite** (avant le pivot) un élément < pivot (2). Le 3 > 2,
+continuer. **Pas d'élément < 2**. Les indices se croisent.
+
+|                       1                       |                       2                       |                       3                       |                      4                      |                  5                   |
+| :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :-----------------------------------------: | :----------------------------------: |
+| ![h:180px](./images/7_of_hearts_selected.svg) | ![h:180px](./images/3_of_hearts_selected.svg) | ![h:180px](./images/2_of_hearts_selected.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts.svg) |
+
+### Tri rapide (quicksort) - Placer le pivot [7, 3, 2]
+
+**Indices croisés**. Placer le pivot à sa position : échanger le 2 et le 7.
+
+|                       1                       |                  2                   |                       3                       |                      4                      |                  5                   |
+| :-------------------------------------------: | :----------------------------------: | :-------------------------------------------: | :-----------------------------------------: | :----------------------------------: |
+| ![h:180px](./images/2_of_hearts_selected.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/7_of_hearts_selected.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts.svg) |
+
+### Tri rapide (quicksort) - Le 2 est placé
+
+**Le 2 est maintenant à sa position finale**. Le 2 < tous les éléments à droite.
+
+|                      1                      |                  2                   |                  3                   |                      4                      |                  5                   |
+| :-----------------------------------------: | :----------------------------------: | :----------------------------------: | :-----------------------------------------: | :----------------------------------: |
+| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts.svg) |
 
 Reste à trier : [3, 7]
 
-### Tri rapide (quicksort) - Continuer [3, 7]
+### Tri rapide (quicksort) - Sous-tableau [3, 7]
 
-**Trier [3, 7]**. Pivot : le 7. Le 3 est < 7, déjà en position correcte.
+**Appliquer le tri à [3, 7]**. Choisir le pivot : le 7. Chercher depuis la
+gauche : 3 < 7. Les indices se croisent immédiatement.
 
-|                      1                      |                      2                      |                      3                      |                      4                      |                  5                   |
-| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :----------------------------------: |
-| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts.svg) |
+|                      1                      |                       2                       |                       3                       |                      4                      |                  5                   |
+| :-----------------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :-----------------------------------------: | :----------------------------------: |
+| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/3_of_hearts_selected.svg) | ![h:180px](./images/7_of_hearts_selected.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts.svg) |
 
-Le 9 est seul, donc trié.
+### Tri rapide (quicksort) - Le 3 et le 7 placés
+
+**Le 3 et le 7 sont à leur position finale**. Gauche trié : [2, 3, 7]. Le 9 est
+seul, donc trié.
+
+|                      1                      |                      2                      |                      3                      |                      4                      |                      5                      |
+| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
+| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts_sorted.svg) |
 
 ### Tri rapide (quicksort) - Terminé
 
