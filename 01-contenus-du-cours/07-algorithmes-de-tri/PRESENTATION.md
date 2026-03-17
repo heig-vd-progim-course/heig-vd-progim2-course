@@ -615,10 +615,28 @@ courante.
 | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :-------------------------------------------: |
 | ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
 
-### Tri rapide (quicksort)
+### Tri rapide (quicksort) - Chercher depuis la gauche
 
-**Élément de gauche** : premier > pivot (8). Le 9 en position 3. **Élément de
-droite** : premier < pivot (8) en partant de la droite. Le 2 en position 4.
+**Parcourir depuis la gauche** pour trouver un élément **> pivot (8)**. Le 7 <
+8, continuer.
+
+|                       1                       |                  2                   |                  3                   |                  4                   |                       5                       |
+| :-------------------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :-------------------------------------------: |
+| ![h:180px](./images/7_of_hearts_selected.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
+
+### Tri rapide (quicksort) - Continuer la recherche
+
+**Continuer**. Le 3 < 8, continuer. Le 9 > 8, **trouvé** ! C'est l'élément de
+gauche à échanger.
+
+|                  1                   |                  2                   |                       3                       |                  4                   |                       5                       |
+| :----------------------------------: | :----------------------------------: | :-------------------------------------------: | :----------------------------------: | :-------------------------------------------: |
+| ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/9_of_hearts_selected.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
+
+### Tri rapide (quicksort) - Chercher depuis la droite
+
+**Parcourir depuis la droite** (avant le pivot) pour trouver un élément **<
+pivot (8)**. Le 2 < 8, **trouvé** ! C'est l'élément de droite à échanger.
 
 |                  1                   |                  2                   |                       3                       |                       4                       |                       5                       |
 | :----------------------------------: | :----------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
@@ -632,19 +650,19 @@ droite** : premier < pivot (8) en partant de la droite. Le 2 en position 4.
 | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :-------------------------------------------: |
 | ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
 
-### Tri rapide (quicksort) - Chercher à nouveau
+### Tri rapide (quicksort)
 
-**Continuer la recherche**. Le 7 est > 8, c'est un nouvel élément de gauche. Pas
-d'élément de droite < 8 avant le 7. Les indices se croisent !
+**Les indices se croisent** entre le 2 et le 9. Tous les éléments < 8 sont à
+gauche, tous les éléments > 8 sont à droite. **Le partitionnement est terminé**.
 
-|                       1                       |                  2                   |                  3                   |                  4                   |                       5                       |
-| :-------------------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :-------------------------------------------: |
-| ![h:180px](./images/7_of_hearts_selected.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
+|                  1                   |                  2                   |                  3                   |                  4                   |                       5                       |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :-------------------------------------------: |
+| ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
 
 ### Tri rapide (quicksort) - Placer le pivot
 
-**Indices croisés : échanger le pivot avec l'élément de gauche**. Le 8 est
-maintenant à sa position finale !
+**Placer le pivot à sa position finale**. Échanger le 8 (pivot) avec le 9
+(première position de la partie droite).
 
 |                  1                   |                  2                   |                  3                   |                      4                      |                  5                   |
 | :----------------------------------: | :----------------------------------: | :----------------------------------: | :-----------------------------------------: | :----------------------------------: |
