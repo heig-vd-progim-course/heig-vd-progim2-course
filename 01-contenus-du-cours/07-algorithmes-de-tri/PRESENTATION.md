@@ -183,8 +183,6 @@ valeur mais de couleurs différentes ?
 | :----------------------------------: | :----------------------------------: | :---------------------------------: | :----------------------------------: |
 | ![h:180px](./images/7_of_spades.svg) | ![h:180px](./images/5_of_spades.svg) | ![h:180px](./images/5_of_clubs.svg) | ![h:180px](./images/3_of_spades.svg) |
 
-Ordre : **7♠, 5♠, 5♣, 3♠**
-
 ### La notion de tri stable (3/3)
 
 **Avec un tri stable** :
@@ -192,8 +190,6 @@ Ordre : **7♠, 5♠, 5♣, 3♠**
 |                      1                      |                      2                      |                     3                      |                      4                      |
 | :-----------------------------------------: | :-----------------------------------------: | :----------------------------------------: | :-----------------------------------------: |
 | ![h:180px](./images/3_of_spades_sorted.svg) | ![h:180px](./images/5_of_spades_sorted.svg) | ![h:180px](./images/5_of_clubs_sorted.svg) | ![h:180px](./images/7_of_spades_sorted.svg) |
-
-Ordre : **3♠, 5♠, 5♣, 7♠**
 
 ## Les algorithmes de tri simples
 
@@ -206,7 +202,7 @@ cartes :
 
 |               Normale                |                 Sélectionnée                  |                    Triée                    |
 | :----------------------------------: | :-------------------------------------------: | :-----------------------------------------: |
-| ![h:180px](./images/6_of_spades.svg) | ![h:180px](./images/6_of_spades_selected.svg) | ![h:180px](./images/6_of_spades_sorted.svg) |
+| ![h:180px](./images/6_of_spades.svg) | ![h:180px](./images/7_of_spades_selected.svg) | ![h:180px](./images/6_of_spades_sorted.svg) |
 |           Pas encore triée           |             Actuellement comparée             |            À sa position finale             |
 
 ### Tri par sélection (selection sort) (1/2)
@@ -238,8 +234,6 @@ la liste.
 |                  1                   |                  2                   |                  3                   |                  4                   |                  5                   |
 | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
 | ![h:180px](./images/7_of_spades.svg) | ![h:180px](./images/3_of_spades.svg) | ![h:180px](./images/9_of_spades.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/8_of_spades.svg) |
-
-Ordre : **7, 3, 9, 2, 8**
 
 ### Tri par sélection (selection sort) - Passage 1 : chercher
 
@@ -418,8 +412,6 @@ triée.
 |                      1                      |                      2                      |                      3                      |                      4                      |                      5                      |
 | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
 | ![h:180px](./images/2_of_spades_sorted.svg) | ![h:180px](./images/3_of_spades_sorted.svg) | ![h:180px](./images/7_of_spades_sorted.svg) | ![h:180px](./images/8_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades_sorted.svg) |
-
-**Résultat final** : **2, 3, 7, 8, 9** ✓
 
 ### Tri à bulles (bubble sort) (1/2)
 
@@ -603,8 +595,6 @@ rapidité moyenne.
 |                  1                   |                  2                   |                  3                   |                  4                   |                  5                   |
 | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
 | ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/8_of_hearts.svg) |
-
-Ordre : **7, 3, 9, 2, 8**
 
 ### Tri rapide (quicksort) - Choix du pivot
 
@@ -802,13 +792,10 @@ Divisions : [7, 3, 9, 2, 8] → [7, 3] + [9, 2, 8] → [7] + [3] + [9] + [2, 8] 
 
 ### Tri fusion (mergesort) - Fusion 2 : [2] et [8]
 
-**Fusionner [2] et [8]**. Comparer 2 et 8 : 2 < 8, donc 2 en premier.
-
-| ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/2_of_hearts_selected.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
+|                      1                      |                      2                      |                  3                   |                       4                       |                       5                       |
 | :-----------------------------------------: | :-----------------------------------------: | :----------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+| ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/2_of_hearts_selected.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
 |       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |    ![h:180px](./images/blank.svg)    |  ![h:180px](./images/2_of_hearts_sorted.svg)  |  ![h:180px](./images/8_of_hearts_sorted.svg)  |
-
-Résultat : [2, 8]
 
 ### Tri fusion (mergesort) - État intermédiaire
 
@@ -817,39 +804,60 @@ Résultat : [2, 8]
 **Prochaine étape** : fusionner [3, 7] avec [9, 2, 8] mais d'abord fusionner [9]
 avec [2, 8].
 
-### Tri fusion (mergesort) - Fusion 3 : [9] et [2, 8]
+### Tri fusion (mergesort) - Fus. 3 : [9] et [2, 8]
 
-**Fusionner [9] et [2, 8]**. Comparer 9 et 2 : 2 < 9. Puis 9 et 8 : 8 < 9.
+|                      1                      |                      2                      |                       3                       |                       4                       |                       5                       |
+| :-----------------------------------------: | :-----------------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+| ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts_selected.svg) | ![h:180px](./images/2_of_hearts_selected.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
+|       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |
 
-| ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) |                       3                       | ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) |
-| :-----------------------------------------: | :-----------------------------------------: | :-------------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
-|       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        | ![h:180px](./images/9_of_hearts_selected.svg) |       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |
-| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) |  ![h:180px](./images/9_of_hearts_sorted.svg)  |       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |
+### Tri fusion (mergesort) - Fus. 3 : [9] et [2, 8]
 
-Résultat : [2, 8, 9]
+|                      1                      |                      2                      |                       3                       |               4                |                       5                       |
+| :-----------------------------------------: | :-----------------------------------------: | :-------------------------------------------: | :----------------------------: | :-------------------------------------------: |
+| ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts_selected.svg) | ![h:180px](./images/blank.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
+| ![h:180px](./images/2_of_hearts_sorted.svg) |       ![h:180px](./images/blank.svg)        |        ![h:180px](./images/blank.svg)         | ![h:180px](./images/blank.svg) |        ![h:180px](./images/blank.svg)         |
 
-### Tri fusion (mergesort) - Fusion finale : [3, 7] et [2, 8, 9] (1/3)
+### Tri fusion (mergesort) - Fus. 3 : [9] et [2, 8]
 
-**Fusionner [3, 7] et [2, 8, 9]**. Comparer 3 et 2 : 2 < 3, donc 2 en premier.
+|                      1                      |                      2                      |                       3                       |               4                |               5                |
+| :-----------------------------------------: | :-----------------------------------------: | :-------------------------------------------: | :----------------------------: | :----------------------------: |
+| ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts_selected.svg) | ![h:180px](./images/blank.svg) | ![h:180px](./images/blank.svg) |
+| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) |        ![h:180px](./images/blank.svg)         | ![h:180px](./images/blank.svg) | ![h:180px](./images/blank.svg) |
 
-| ![h:180px](./images/3_of_hearts_selected.svg) | ![h:180px](./images/7_of_hearts_selected.svg) | ![h:180px](./images/2_of_hearts_selected.svg) | ![h:180px](./images/8_of_hearts_selected.svg) | ![h:180px](./images/9_of_hearts_selected.svg) |
-| :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
-|  ![h:180px](./images/2_of_hearts_sorted.svg)  |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |
+### Tri fusion (mergesort) - Fus. 3 : [9] et [2, 8]
 
-### Tri fusion (mergesort) - Fusion finale : [3, 7] et [2, 8, 9] (2/3)
+|                      1                      |                      2                      |                      3                      |               4                |               5                |
+| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :----------------------------: | :----------------------------: |
+| ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) |       ![h:180px](./images/blank.svg)        | ![h:180px](./images/blank.svg) | ![h:180px](./images/blank.svg) |
+| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts_sorted.svg) | ![h:180px](./images/blank.svg) | ![h:180px](./images/blank.svg) |
 
-**Continuer**. Comparer 3 et 8 : 3 < 8, donc 3 ensuite. Puis 7 et 8 : 7 < 8.
+### Tri fusion (mergesort) - [3, 7] et [2, 8, 9]
 
-| ![h:180px](./images/3_of_hearts_selected.svg) | ![h:180px](./images/7_of_hearts_selected.svg) |       ![h:180px](./images/blank.svg)        | ![h:180px](./images/8_of_hearts_selected.svg) | ![h:180px](./images/9_of_hearts_selected.svg) |
-| :-------------------------------------------: | :-------------------------------------------: | :-----------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
-|  ![h:180px](./images/2_of_hearts_sorted.svg)  |  ![h:180px](./images/3_of_hearts_sorted.svg)  | ![h:180px](./images/7_of_hearts_sorted.svg) |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |
+|                       1                       |                       2                       |               3                |                       4                       |                       5                       |
+| :-------------------------------------------: | :-------------------------------------------: | :----------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+| ![h:180px](./images/3_of_hearts_selected.svg) | ![h:180px](./images/7_of_hearts_selected.svg) | ![h:180px](./images/blank.svg) | ![h:180px](./images/8_of_hearts_selected.svg) | ![h:180px](./images/9_of_hearts_selected.svg) |
+|  ![h:180px](./images/2_of_hearts_sorted.svg)  |        ![h:180px](./images/blank.svg)         | ![h:180px](./images/blank.svg) |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |
 
-### Tri fusion (mergesort) - Fusion finale : [3, 7] et [2, 8, 9] (3/3)
+### Tri fusion (mergesort) - [3, 7] et [2, 8, 9]
 
-**Terminer**. Ajouter 8 puis 9. Tous les éléments sont maintenant fusionnés.
+|                      1                      |                       2                       |               3                |                       4                       |                       5                       |
+| :-----------------------------------------: | :-------------------------------------------: | :----------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+|       ![h:180px](./images/blank.svg)        | ![h:180px](./images/7_of_hearts_selected.svg) | ![h:180px](./images/blank.svg) | ![h:180px](./images/8_of_hearts_selected.svg) | ![h:180px](./images/9_of_hearts_selected.svg) |
+| ![h:180px](./images/2_of_hearts_sorted.svg) |  ![h:180px](./images/3_of_hearts_sorted.svg)  | ![h:180px](./images/blank.svg) |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |
 
-|       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        | ![h:180px](./images/8_of_hearts_selected.svg) | ![h:180px](./images/9_of_hearts_selected.svg) |
+### Tri fusion (mergesort) - [3, 7] et [2, 8, 9]
+
+|                      1                      |                      2                      |                      3                      |                       4                       |                       5                       |
 | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+|       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        | ![h:180px](./images/8_of_hearts_selected.svg) | ![h:180px](./images/9_of_hearts_selected.svg) |
+| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |
+
+### Tri fusion (mergesort) - [3, 7] et [2, 8, 9]
+
+|                      1                      |                      2                      |                      3                      |                       4                       |                       5                       |
+| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+|       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        | ![h:180px](./images/8_of_hearts_selected.svg) | ![h:180px](./images/9_of_hearts_selected.svg) |
 | ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) |  ![h:180px](./images/8_of_hearts_sorted.svg)  |  ![h:180px](./images/9_of_hearts_sorted.svg)  |
 
 ### Tri fusion (mergesort) - Terminé
@@ -859,8 +867,6 @@ Résultat : [2, 8, 9]
 |                      1                      |                      2                      |                      3                      |                      4                      |                      5                      |
 | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
 | ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts_sorted.svg) |
-
-**Résultat final** : **2, 3, 7, 8, 9** ✓
 
 ## Questions
 
