@@ -51,8 +51,9 @@ public class Main {
      * @param cards le tableau de cartes à trier
      * @param start l'index de début
      * @param end l'index de fin
+     * @return le tableau trié
      */
-    public static void mergeSort(Card[] cards, int start, int end) {
+    public static Card[] mergeSort(Card[] cards, int start, int end) {
         if (start < end) {
             // Trouver le milieu
             int middle = (start + end) / 2;
@@ -64,6 +65,8 @@ public class Main {
             // Fusionner les deux moitiés triées
             merge(cards, start, middle, end);
         }
+        
+        return cards;
     }
     
     /**
@@ -151,7 +154,7 @@ public class Main {
         displayCards(cards);
         
         // Trier les cartes
-        mergeSort(cards, 0, cards.length - 1);
+        cards = mergeSort(cards, 0, cards.length - 1);
         
         System.out.print("Après le tri : ");
         displayCards(cards);

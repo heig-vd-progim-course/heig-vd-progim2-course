@@ -13,8 +13,9 @@ public class Main {
      * @param array le tableau à trier
      * @param start l'index de début
      * @param end l'index de fin
+     * @return le tableau trié
      */
-    public static void quickSort(int[] array, int start, int end) {
+    public static int[] quickSort(int[] array, int start, int end) {
         if (start < end) {
             // Partitionner et obtenir l'index du pivot
             int pivotIndex = partition(array, start, end);
@@ -23,6 +24,8 @@ public class Main {
             quickSort(array, start, pivotIndex - 1);
             quickSort(array, pivotIndex + 1, end);
         }
+        
+        return array;
     }
     
     /**
@@ -80,7 +83,7 @@ public class Main {
         displayArray(numbers);
         
         // Trier le tableau
-        quickSort(numbers, 0, numbers.length - 1);
+        numbers = quickSort(numbers, 0, numbers.length - 1);
         
         System.out.print("Après le tri : ");
         displayArray(numbers);

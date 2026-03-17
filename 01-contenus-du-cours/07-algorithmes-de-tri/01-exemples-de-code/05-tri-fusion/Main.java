@@ -13,8 +13,9 @@ public class Main {
      * @param array le tableau à trier
      * @param start l'index de début
      * @param end l'index de fin
+     * @return le tableau trié
      */
-    public static void mergeSort(int[] array, int start, int end) {
+    public static int[] mergeSort(int[] array, int start, int end) {
         if (start < end) {
             // Trouver le milieu
             int middle = (start + end) / 2;
@@ -26,6 +27,8 @@ public class Main {
             // Fusionner les deux moitiés triées
             merge(array, start, middle, end);
         }
+        
+        return array;
     }
     
     /**
@@ -107,7 +110,7 @@ public class Main {
         displayArray(numbers);
         
         // Trier le tableau
-        mergeSort(numbers, 0, numbers.length - 1);
+        numbers = mergeSort(numbers, 0, numbers.length - 1);
         
         System.out.print("Après le tri : ");
         displayArray(numbers);

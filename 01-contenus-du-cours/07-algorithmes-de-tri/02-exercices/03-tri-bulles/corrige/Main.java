@@ -49,8 +49,9 @@ public class Main {
     /**
      * Trie un tableau de cartes par bulles (par valeur croissante)
      * @param cards le tableau de cartes à trier
+     * @return le tableau trié
      */
-    public static void bubbleSort(Card[] cards) {
+    public static Card[] bubbleSort(Card[] cards) {
         int n = cards.length;
         boolean swapped;
         
@@ -73,6 +74,8 @@ public class Main {
             // Réduire la zone à parcourir (la dernière carte est triée)
             n--;
         } while (swapped);
+        
+        return cards;
     }
     
     /**
@@ -105,7 +108,7 @@ public class Main {
         displayCards(cards);
         
         // Trier les cartes
-        bubbleSort(cards);
+        cards = bubbleSort(cards);
         
         System.out.print("Après le tri : ");
         displayCards(cards);

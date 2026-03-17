@@ -49,8 +49,9 @@ public class Main {
     /**
      * Trie un tableau de cartes par insertion (par valeur croissante)
      * @param cards le tableau de cartes à trier
+     * @return le tableau trié
      */
-    public static void insertionSort(Card[] cards) {
+    public static Card[] insertionSort(Card[] cards) {
         int n = cards.length;
         
         // Pour chaque carte à partir de la deuxième
@@ -67,6 +68,8 @@ public class Main {
             // Insérer la carte à sa place
             cards[j + 1] = cardToInsert;
         }
+        
+        return cards;
     }
     
     /**
@@ -99,7 +102,7 @@ public class Main {
         displayCards(cards);
         
         // Trier les cartes
-        insertionSort(cards);
+        cards = insertionSort(cards);
         
         System.out.print("Après le tri : ");
         displayCards(cards);

@@ -11,8 +11,9 @@ public class Main {
     /**
      * Trie un tableau d'entiers par sélection
      * @param array le tableau à trier
+     * @return le tableau trié
      */
-    public static void selectionSort(int[] array) {
+    public static int[] selectionSort(int[] array) {
         int n = array.length;
         
         // Pour chaque position
@@ -30,6 +31,8 @@ public class Main {
             array[i] = array[minIndex];
             array[minIndex] = temp;
         }
+        
+        return array;
     }
     
     /**
@@ -56,7 +59,7 @@ public class Main {
         displayArray(numbers);
         
         // Trier le tableau
-        selectionSort(numbers);
+        numbers = selectionSort(numbers);
         
         System.out.print("Après le tri : ");
         displayArray(numbers);

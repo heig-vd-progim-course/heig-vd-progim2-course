@@ -11,8 +11,9 @@ public class Main {
     /**
      * Trie un tableau d'entiers par insertion
      * @param array le tableau à trier
+     * @return le tableau trié
      */
-    public static void insertionSort(int[] array) {
+    public static int[] insertionSort(int[] array) {
         int n = array.length;
         
         // Pour chaque élément à partir du deuxième
@@ -29,6 +30,8 @@ public class Main {
             // Insérer l'élément à sa place
             array[j + 1] = elementToInsert;
         }
+        
+        return array;
     }
     
     /**
@@ -55,7 +58,7 @@ public class Main {
         displayArray(numbers);
         
         // Trier le tableau
-        insertionSort(numbers);
+        numbers = insertionSort(numbers);
         
         System.out.print("Après le tri : ");
         displayArray(numbers);

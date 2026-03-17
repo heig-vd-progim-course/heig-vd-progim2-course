@@ -51,8 +51,9 @@ public class Main {
      * @param cards le tableau de cartes à trier
      * @param start l'index de début
      * @param end l'index de fin
+     * @return le tableau trié
      */
-    public static void quickSort(Card[] cards, int start, int end) {
+    public static Card[] quickSort(Card[] cards, int start, int end) {
         if (start < end) {
             // Partitionner et obtenir l'index du pivot
             int pivotIndex = partition(cards, start, end);
@@ -61,6 +62,8 @@ public class Main {
             quickSort(cards, start, pivotIndex - 1);
             quickSort(cards, pivotIndex + 1, end);
         }
+        
+        return cards;
     }
     
     /**
@@ -124,7 +127,7 @@ public class Main {
         displayCards(cards);
         
         // Trier les cartes
-        quickSort(cards, 0, cards.length - 1);
+        cards = quickSort(cards, 0, cards.length - 1);
         
         System.out.print("Après le tri : ");
         displayCards(cards);

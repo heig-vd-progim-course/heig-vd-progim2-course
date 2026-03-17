@@ -12,8 +12,9 @@ public class Main {
     /**
      * Trie un tableau d'entiers par bulles
      * @param array le tableau à trier
+     * @return le tableau trié
      */
-    public static void bubbleSort(int[] array) {
+    public static int[] bubbleSort(int[] array) {
         int n = array.length;
         boolean swapped;
         
@@ -36,6 +37,8 @@ public class Main {
             // Réduire la zone à parcourir (le dernier élément est trié)
             n--;
         } while (swapped);
+        
+        return array;
     }
     
     /**
@@ -62,7 +65,7 @@ public class Main {
         displayArray(numbers);
         
         // Trier le tableau
-        bubbleSort(numbers);
+        numbers = bubbleSort(numbers);
         
         System.out.print("Après le tri : ");
         displayArray(numbers);
