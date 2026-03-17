@@ -615,7 +615,7 @@ courante.
 | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :-------------------------------------------: |
 | ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
 
-### Tri rapide (quicksort) - Chercher les éléments
+### Tri rapide (quicksort)
 
 **Élément de gauche** : premier > pivot (8). Le 9 en position 3. **Élément de
 droite** : premier < pivot (8) en partant de la droite. Le 2 en position 4.
@@ -736,23 +736,18 @@ Divisions : [7, 3, 9, 2, 8] → [7, 3] + [9, 2, 8] → [7] + [3] + [9] + [2, 8] 
 
 ### Tri fusion (mergesort) - Fusion 1 : [7] et [3]
 
-**Fusionner [7] et [3]**. Comparer 7 et 3 : 3 < 7, donc 3 en premier.
-
 |                       1                       |                       2                       |                  3                   |                  4                   |                  5                   |
 | :-------------------------------------------: | :-------------------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
 | ![h:180px](./images/7_of_hearts_selected.svg) | ![h:180px](./images/3_of_hearts_selected.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/8_of_hearts.svg) |
 |  ![h:180px](./images/3_of_hearts_sorted.svg)  |  ![h:180px](./images/7_of_hearts_sorted.svg)  |    ![h:180px](./images/blank.svg)    |    ![h:180px](./images/blank.svg)    |    ![h:180px](./images/blank.svg)    |
 
-Résultat : [3, 7]
-
 ### Tri fusion (mergesort) - Fusion 2 : [2] et [8]
 
 **Fusionner [2] et [8]**. Comparer 2 et 8 : 2 < 8, donc 2 en premier.
 
-| ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) |                  3                   |                       4                       |                       5                       |
+| ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/2_of_hearts_selected.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
 | :-----------------------------------------: | :-----------------------------------------: | :----------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
-|       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/2_of_hearts_selected.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
-| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) |    ![h:180px](./images/blank.svg)    |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |
+|       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |    ![h:180px](./images/blank.svg)    |  ![h:180px](./images/2_of_hearts_sorted.svg)  |  ![h:180px](./images/8_of_hearts_sorted.svg)  |
 
 Résultat : [2, 8]
 
