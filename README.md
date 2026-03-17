@@ -40,8 +40,8 @@ d'apprentissage, et les méthodes d'évaluation.
 |     01 | 16.02 - 20.02 | [Modalités](./01-contenus-du-cours/01-modalites-de-lunite-denseignement/) + [Algèbre de Boole](./01-contenus-du-cours/02-algebre-de-boole/)   | 🟢 Prêt     |
 |     02 | 23.02 - 27.02 | [Programmation orientée objet : Classes et objets](./01-contenus-du-cours/04-programmation-orientee-objet-classes-et-objets/)                 | 🟢 Prêt     |
 |     03 | 02.03 - 06.03 | [Programmation orientée objet : Encapsulation et héritage](./01-contenus-du-cours/05-programmation-orientee-objet-encapsulation-et-heritage/) | 🟢 Prêt     |
-|     04 | 09.03 - 13.03 | [Programmation orientée objet : Polymorphisme](./01-contenus-du-cours/06-programmation-orientee-objet-polymorphisme/)                         | 🔴 À faire  |
-|     05 | 16.03 - 20.03 | [Algorithmes de tri](./01-contenus-du-cours/07-algorithmes-de-tri/)                                                                           | 🔴 À faire  |
+|     04 | 09.03 - 13.03 | [Programmation orientée objet : Polymorphisme](./01-contenus-du-cours/06-programmation-orientee-objet-polymorphisme/)                         | 🟢 Prêt     |
+|     05 | 16.03 - 20.03 | [Algorithmes de tri](./01-contenus-du-cours/07-algorithmes-de-tri/)                                                                           | 🟢 Prêt     |
 |     06 | 23.03 - 27.03 | [Collections Java : Listes, sets et maps](./01-contenus-du-cours/08-collections-java-listes-sets-et-maps/)                                    | 🔴 À faire  |
 |     🚨 | 30.03 - 03.04 | Evaluation intermédiaire                                                                                                                      | 🔴 À faire  |
 |     07 | 13.04 - 17.04 | [Collections Java : Lambda et génériques](./01-contenus-du-cours/09-collections-java-lambda-et-generiques/)                                   | 🔴 À faire  |
