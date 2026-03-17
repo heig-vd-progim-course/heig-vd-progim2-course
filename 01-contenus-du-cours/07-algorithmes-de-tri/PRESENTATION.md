@@ -318,15 +318,495 @@ maintenant à leur position finale.
 | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
 | ![h:180px](./images/2_of_spades_sorted.svg) | ![h:180px](./images/3_of_spades_sorted.svg) | ![h:180px](./images/7_of_spades_sorted.svg) | ![h:180px](./images/8_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades_sorted.svg) |
 
-### Tri par insertion (insertion sort)
+### Tri par insertion (insertion sort) (1/2)
 
-### Tri à bulles (bubble sort)
+**Principe** : similaire au tri de cartes dans la main.
+
+1. Le premier élément est déjà trié (une liste d'un élément est toujours triée).
+2. Prendre le deuxième élément et l'insérer au bon endroit.
+3. Prendre le troisième élément et l'insérer au bon endroit.
+4. Continuer jusqu'au dernier élément.
+
+**Idée clé** : on construit progressivement une partie triée en insérant chaque
+nouvel élément à sa place.
+
+### Tri par insertion (insertion sort) (2/2)
+
+**Avantage** : particulièrement efficace quand la liste est presque triée.
+Chaque élément est proche de sa position finale.
+
+**Qualité importante** : l'algorithme est **stable**, deux éléments égaux
+conservent leur ordre relatif.
+
+### Tri par insertion (insertion sort) - Étape initiale
+
+|                  1                   |                  2                   |                  3                   |                  4                   |                  5                   |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
+| ![h:180px](./images/7_of_spades.svg) | ![h:180px](./images/3_of_spades.svg) | ![h:180px](./images/9_of_spades.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/8_of_spades.svg) |
+
+Ordre : **7, 3, 9, 2, 8**
+
+### Tri par insertion (insertion sort) - Étape 1 : 7 déjà trié
+
+**Le 7 est considéré comme déjà trié**. Une liste d'un élément est toujours
+triée.
+
+|                      1                      |                  2                   |                  3                   |                  4                   |                  5                   |
+| :-----------------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
+| ![h:180px](./images/7_of_spades_sorted.svg) | ![h:180px](./images/3_of_spades.svg) | ![h:180px](./images/9_of_spades.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/8_of_spades.svg) |
+
+### Tri par insertion (insertion sort) - Sélection du 3
+
+**Prendre le 3** pour l'insérer dans la partie triée [7].
+
+|                      1                      |                       2                       |                  3                   |                  4                   |                  5                   |
+| :-----------------------------------------: | :-------------------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
+| ![h:180px](./images/7_of_spades_sorted.svg) | ![h:180px](./images/3_of_spades_selected.svg) | ![h:180px](./images/9_of_spades.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/8_of_spades.svg) |
+
+### Tri par insertion (insertion sort) - 3 inséré
+
+**Le 3 est plus petit que le 7**, on le place avant. Partie triée : [3, 7].
+
+|                      1                      |                      2                      |                  3                   |                  4                   |                  5                   |
+| :-----------------------------------------: | :-----------------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
+| ![h:180px](./images/3_of_spades_sorted.svg) | ![h:180px](./images/7_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/8_of_spades.svg) |
+
+### Tri par insertion (insertion sort) - Sélection du 9
+
+**Prendre le 9** pour l'insérer dans la partie triée [3, 7].
+
+|                      1                      |                      2                      |                       3                       |                  4                   |                  5                   |
+| :-----------------------------------------: | :-----------------------------------------: | :-------------------------------------------: | :----------------------------------: | :----------------------------------: |
+| ![h:180px](./images/3_of_spades_sorted.svg) | ![h:180px](./images/7_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades_selected.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/8_of_spades.svg) |
+
+### Tri par insertion (insertion sort) - 9 inséré
+
+**Le 9 est plus grand que 7**, on le place après. Partie triée : [3, 7, 9].
+
+|                      1                      |                      2                      |                      3                      |                  4                   |                  5                   |
+| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :----------------------------------: | :----------------------------------: |
+| ![h:180px](./images/3_of_spades_sorted.svg) | ![h:180px](./images/7_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades_sorted.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/8_of_spades.svg) |
+
+### Tri par insertion (insertion sort) - Sélection du 2
+
+**Prendre le 2** pour l'insérer dans la partie triée [3, 7, 9].
+
+|                      1                      |                      2                      |                      3                      |                       4                       |                  5                   |
+| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-------------------------------------------: | :----------------------------------: |
+| ![h:180px](./images/3_of_spades_sorted.svg) | ![h:180px](./images/7_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades_sorted.svg) | ![h:180px](./images/2_of_spades_selected.svg) | ![h:180px](./images/8_of_spades.svg) |
+
+### Tri par insertion (insertion sort) - 2 inséré
+
+**Le 2 est le plus petit**, on le place au début. Partie triée : [2, 3, 7, 9].
+
+|                      1                      |                      2                      |                      3                      |                      4                      |                  5                   |
+| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :----------------------------------: |
+| ![h:180px](./images/2_of_spades_sorted.svg) | ![h:180px](./images/3_of_spades_sorted.svg) | ![h:180px](./images/7_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades_sorted.svg) | ![h:180px](./images/8_of_spades.svg) |
+
+### Tri par insertion (insertion sort) - Sélection du 8
+
+**Prendre le 8** pour l'insérer dans la partie triée [2, 3, 7, 9].
+
+|                      1                      |                      2                      |                      3                      |                      4                      |                       5                       |
+| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-------------------------------------------: |
+| ![h:180px](./images/2_of_spades_sorted.svg) | ![h:180px](./images/3_of_spades_sorted.svg) | ![h:180px](./images/7_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades_sorted.svg) | ![h:180px](./images/8_of_spades_selected.svg) |
+
+### Tri par insertion (insertion sort) - Terminé
+
+**Le 8 se place entre 7 et 9**. Toutes les cartes sont triées.
+
+|                      1                      |                      2                      |                      3                      |                      4                      |                      5                      |
+| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
+| ![h:180px](./images/2_of_spades_sorted.svg) | ![h:180px](./images/3_of_spades_sorted.svg) | ![h:180px](./images/7_of_spades_sorted.svg) | ![h:180px](./images/8_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades_sorted.svg) |
+
+**Résultat final** : **2, 3, 7, 8, 9** ✓
+
+### Tri à bulles (bubble sort) (1/2)
+
+**Principe** : les plus grandes valeurs "remontent" vers la fin comme des bulles
+dans l'eau.
+
+1. Parcourir la liste et comparer chaque paire d'éléments adjacents.
+2. Si deux éléments adjacents sont dans le mauvais ordre, les échanger.
+3. Répéter le processus jusqu'à ce qu'aucun échange ne soit nécessaire.
+
+### Tri à bulles (bubble sort) (2/2)
+
+**Inconvénient** : réputé comme l'algorithme le moins efficace. Effectue de
+nombreux échanges inutiles.
+
+**Rarement utilisé en pratique** pour des données réelles.
+
+**Valeur pédagogique** : très simple à comprendre et à implémenter, bon premier
+exemple d'algorithme de tri.
+
+### Tri à bulles (bubble sort) - Étape initiale
+
+|                  1                   |                  2                   |                  3                   |                  4                   |                  5                   |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
+| ![h:180px](./images/7_of_spades.svg) | ![h:180px](./images/3_of_spades.svg) | ![h:180px](./images/9_of_spades.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/8_of_spades.svg) |
+
+### Tri à bulles (bubble sort) - Pass. 1 : comparer 7 et 3
+
+**Comparer les positions 1 et 2**. 7 > 3, donc échanger.
+
+|                       1                       |                       2                       |                  3                   |                  4                   |                  5                   |
+| :-------------------------------------------: | :-------------------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
+| ![h:180px](./images/7_of_spades_selected.svg) | ![h:180px](./images/3_of_spades_selected.svg) | ![h:180px](./images/9_of_spades.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/8_of_spades.svg) |
+
+### Tri à bulles (bubble sort) - Pass. 1 : comparer 7 et 9
+
+**Comparer les positions 2 et 3**. 7 < 9, pas d'échange.
+
+|                  1                   |                       2                       |                       3                       |                  4                   |                  5                   |
+| :----------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :----------------------------------: | :----------------------------------: |
+| ![h:180px](./images/3_of_spades.svg) | ![h:180px](./images/7_of_spades_selected.svg) | ![h:180px](./images/9_of_spades_selected.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/8_of_spades.svg) |
+
+### Tri à bulles (bubble sort) - Pass. 1 : comparer 9 et 2
+
+**Comparer les positions 3 et 4**. 9 > 2, donc échanger.
+
+|                  1                   |                  2                   |                       3                       |                       4                       |                  5                   |
+| :----------------------------------: | :----------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :----------------------------------: |
+| ![h:180px](./images/3_of_spades.svg) | ![h:180px](./images/7_of_spades.svg) | ![h:180px](./images/9_of_spades_selected.svg) | ![h:180px](./images/2_of_spades_selected.svg) | ![h:180px](./images/8_of_spades.svg) |
+
+### Tri à bulles (bubble sort) - Pass. 1 : comparer 9 et 8
+
+**Comparer les positions 4 et 5**. 9 > 8, donc échanger. Le 9 est à sa position
+finale !
+
+|                  1                   |                  2                   |                  3                   |                       4                       |                       5                       |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+| ![h:180px](./images/3_of_spades.svg) | ![h:180px](./images/7_of_spades.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/9_of_spades_selected.svg) | ![h:180px](./images/8_of_spades_selected.svg) |
+
+### Tri à bulles (bubble sort) - Pass. 1 : terminé
+
+**Le plus grand élément (9) est remonté** à sa position finale.
+
+|                  1                   |                  2                   |                  3                   |                  4                   |                      5                      |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :-----------------------------------------: |
+| ![h:180px](./images/3_of_spades.svg) | ![h:180px](./images/7_of_spades.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/8_of_spades.svg) | ![h:180px](./images/9_of_spades_sorted.svg) |
+
+### Tri à bulles (bubble sort) - Pass. 2 : comparer 3 et 7
+
+**Recommencer depuis le début**. Comparer 3 et 7 : 3 < 7, pas d'échange.
+
+|                       1                       |                       2                       |                  3                   |                  4                   |                      5                      |
+| :-------------------------------------------: | :-------------------------------------------: | :----------------------------------: | :----------------------------------: | :-----------------------------------------: |
+| ![h:180px](./images/3_of_spades_selected.svg) | ![h:180px](./images/7_of_spades_selected.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/8_of_spades.svg) | ![h:180px](./images/9_of_spades_sorted.svg) |
+
+### Tri à bulles (bubble sort) - Pass. 2 : comparer 7 et 2
+
+**Comparer les positions 2 et 3**. 7 > 2, donc échanger.
+
+|                  1                   |                       2                       |                       3                       |                  4                   |                      5                      |
+| :----------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :----------------------------------: | :-----------------------------------------: |
+| ![h:180px](./images/3_of_spades.svg) | ![h:180px](./images/7_of_spades_selected.svg) | ![h:180px](./images/2_of_spades_selected.svg) | ![h:180px](./images/8_of_spades.svg) | ![h:180px](./images/9_of_spades_sorted.svg) |
+
+### Tri à bulles (bubble sort) - Pass. 2 : comparer 7 et 8
+
+**Comparer les positions 2 et 3**. 7 < 8, pas d'échange. Le 8 est à sa position
+finale !
+
+|                  1                   |                  2                   |                       3                       |                       4                       |                      5                      |
+| :----------------------------------: | :----------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :-----------------------------------------: |
+| ![h:180px](./images/3_of_spades.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/7_of_spades_selected.svg) | ![h:180px](./images/8_of_spades_selected.svg) | ![h:180px](./images/9_of_spades_sorted.svg) |
+
+### Tri à bulles (bubble sort) - Pass. 2 : terminé
+
+**Le deuxième plus grand (8) est à sa place**.
+
+|                  1                   |                  2                   |                  3                   |                      4                      |                      5                      |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
+| ![h:180px](./images/3_of_spades.svg) | ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/7_of_spades.svg) | ![h:180px](./images/8_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades_sorted.svg) |
+
+### Tri à bulles (bubble sort) - Pass. 3 : comparer 3 et 2
+
+**Continuer**. Comparer les positions 1 et 2 : 3 > 2, donc échanger.
+
+|                       1                       |                       2                       |                  3                   |                      4                      |                      5                      |
+| :-------------------------------------------: | :-------------------------------------------: | :----------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
+| ![h:180px](./images/3_of_spades_selected.svg) | ![h:180px](./images/2_of_spades_selected.svg) | ![h:180px](./images/7_of_spades.svg) | ![h:180px](./images/8_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades_sorted.svg) |
+
+### Tri à bulles (bubble sort) - Pass. 3 : comparer 3 et 7
+
+**Comparer les positions 1 et 3**. 3 < 7, pas d'échange. Le 7 est à sa position
+finale !
+
+|                  1                   |                       2                       |                       3                       |                      4                      |                      5                      |
+| :----------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
+| ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/3_of_spades_selected.svg) | ![h:180px](./images/7_of_spades_selected.svg) | ![h:180px](./images/8_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades_sorted.svg) |
+
+### Tri à bulles (bubble sort) - Pass. 3 : terminé
+
+**Le troisième plus grand (7) est à sa place**.
+
+|                  1                   |                  2                   |                      3                      |                      4                      |                      5                      |
+| :----------------------------------: | :----------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
+| ![h:180px](./images/2_of_spades.svg) | ![h:180px](./images/3_of_spades.svg) | ![h:180px](./images/7_of_spades_sorted.svg) | ![h:180px](./images/8_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades_sorted.svg) |
+
+### Tri à bulles (bubble sort) - Pass. 4 : comparer les positions 2 et 3
+
+**Dernier passage**. Comparer les positions 2 et 3 : 2 < 3, pas d'échange. Aucun
+échange : trié !
+
+|                       1                       |                       2                       |                      3                      |                      4                      |                      5                      |
+| :-------------------------------------------: | :-------------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
+| ![h:180px](./images/2_of_spades_selected.svg) | ![h:180px](./images/3_of_spades_selected.svg) | ![h:180px](./images/7_of_spades_sorted.svg) | ![h:180px](./images/8_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades_sorted.svg) |
+
+### Tri à bulles (bubble sort) - Terminé
+
+**Aucun échange effectué, le tri est terminé**. Toutes les cartes sont triées.
+
+|                      1                      |                      2                      |                      3                      |                      4                      |                      5                      |
+| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
+| ![h:180px](./images/2_of_spades_sorted.svg) | ![h:180px](./images/3_of_spades_sorted.svg) | ![h:180px](./images/7_of_spades_sorted.svg) | ![h:180px](./images/8_of_spades_sorted.svg) | ![h:180px](./images/9_of_spades_sorted.svg) |
 
 ## Les algorithmes de tri avancés
 
-### Tri rapide (quicksort)
+<!-- _class: lead -->
 
-### Tri fusion (mergesort)
+### Tri rapide (quicksort) (1/3)
+
+**Principe** : diviser pour régner avec un **pivot**.
+
+Un pivot respecte trois conditions :
+
+1. Le pivot est à sa position finale.
+2. Tous les éléments à gauche sont plus petits que le pivot.
+3. Tous les éléments à droite sont plus grands que le pivot.
+
+**Stratégie** : choisir un pivot, réorganiser le tableau, appliquer
+récursivement aux sous-tableaux.
+
+### Tri rapide (quicksort) (2/3)
+
+**Avantage** : trie "sur place" (in-place), économise la mémoire. Pas besoin de
+copier les éléments.
+
+**Inconvénient** : n'est **pas stable**, deux éléments égaux peuvent changer
+d'ordre.
+
+**Choix du pivot** : crucial pour les performances. Méthode courante : médiane
+de trois (premier, milieu, dernier).
+
+### Tri rapide (quicksort) (3/3)
+
+**Complexité** : dans le pire cas O(n²), mais avec un bon pivot la complexité
+moyenne est O(n log n).
+
+**Utilisation** : l'un des algorithmes les plus utilisés en pratique grâce à sa
+rapidité moyenne.
+
+### Tri rapide (quicksort) - Étape initiale
+
+|                  1                   |                  2                   |                  3                   |                  4                   |                  5                   |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
+| ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/8_of_hearts.svg) |
+
+Ordre : **7, 3, 9, 2, 8**
+
+### Tri rapide (quicksort) - Choix du pivot
+
+**Choisir le dernier élément comme pivot** : le 8. C'est une stratégie simple et
+courante.
+
+|                  1                   |                  2                   |                  3                   |                  4                   |                       5                       |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :-------------------------------------------: |
+| ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
+
+### Tri rapide (quicksort) - Chercher les éléments
+
+**Élément de gauche** : premier > pivot (8). Le 9 en position 3. **Élément de
+droite** : premier < pivot (8) en partant de la droite. Le 2 en position 4.
+
+|                  1                   |                  2                   |                       3                       |                       4                       |                       5                       |
+| :----------------------------------: | :----------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+| ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/9_of_hearts_selected.svg) | ![h:180px](./images/2_of_hearts_selected.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
+
+### Tri rapide (quicksort) - Échanger 9 et 2
+
+**Échanger les deux éléments trouvés**. Le 2 et le 9 inversent leurs positions.
+
+|                  1                   |                  2                   |                  3                   |                  4                   |                       5                       |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :-------------------------------------------: |
+| ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
+
+### Tri rapide (quicksort) - Chercher à nouveau
+
+**Continuer la recherche**. Le 7 est > 8, c'est un nouvel élément de gauche. Pas
+d'élément de droite < 8 avant le 7. Les indices se croisent !
+
+|                       1                       |                  2                   |                  3                   |                  4                   |                       5                       |
+| :-------------------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :-------------------------------------------: |
+| ![h:180px](./images/7_of_hearts_selected.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
+
+### Tri rapide (quicksort) - Placer le pivot
+
+**Indices croisés : échanger le pivot avec l'élément de gauche**. Le 8 est
+maintenant à sa position finale !
+
+|                  1                   |                  2                   |                  3                   |                      4                      |                  5                   |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: | :-----------------------------------------: | :----------------------------------: |
+| ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts.svg) |
+
+Gauche : [7, 3, 2] - Droite : [9]
+
+### Tri rapide (quicksort) - Récursion gauche
+
+**Appliquer le tri à [7, 3, 2]**. Pivot : le 2. Le 7 et le 3 sont > 2. Placer le
+2 au début.
+
+|                  1                   |                      2                      |                  3                   |                      4                      |                  5                   |
+| :----------------------------------: | :-----------------------------------------: | :----------------------------------: | :-----------------------------------------: | :----------------------------------: |
+| ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts.svg) |
+
+Reste à trier : [3, 7]
+
+### Tri rapide (quicksort) - Continuer [3, 7]
+
+**Trier [3, 7]**. Pivot : le 7. Le 3 est < 7, déjà en position correcte.
+
+|                      1                      |                      2                      |                      3                      |                      4                      |                  5                   |
+| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :----------------------------------: |
+| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts.svg) |
+
+Le 9 est seul, donc trié.
+
+### Tri rapide (quicksort) - Terminé
+
+**Tous les sous-tableaux sont triés**. Le tri rapide est terminé.
+
+|                      1                      |                      2                      |                      3                      |                      4                      |                      5                      |
+| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
+| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts_sorted.svg) |
+
+**Résultat final** : **2, 3, 7, 8, 9** ✓
+
+### Tri fusion (mergesort) (1/3)
+
+**Principe** : diviser pour régner (divide and conquer).
+
+1. **Diviser** : couper le tableau en deux jusqu'à avoir des éléments
+   individuels.
+2. **Conquérir** : fusionner les petits tableaux triés en tableaux plus grands,
+   toujours triés.
+3. Une fois tous fusionnés, le tableau est complètement trié.
+
+**Inventé en 1945** par John von Neumann, pionnier de l'informatique.
+
+### Tri fusion (mergesort) (2/3)
+
+**Avantage** : algorithme **stable**, conserve l'ordre relatif des éléments
+égaux.
+
+**Complexité** : toujours O(n log n), même dans le pire cas. Performance
+prévisible.
+
+**Inconvénient** : nécessite de la mémoire supplémentaire pour les tableaux
+temporaires.
+
+### Tri fusion (mergesort) (3/3)
+
+**Utilisation** : privilégié quand la stabilité est importante ou quand on a
+besoin de performances garanties.
+
+**Visualisation** : nous allons utiliser deux lignes, la ligne source et la
+ligne résultat en construction.
+
+### Tri fusion (mergesort) - Étape initiale
+
+**Tableau de départ** à diviser puis fusionner.
+
+|                  1                   |                  2                   |                  3                   |                  4                   |                  5                   |
+| :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
+| ![h:180px](./images/7_of_hearts.svg) | ![h:180px](./images/3_of_hearts.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/8_of_hearts.svg) |
+
+Ordre : **7, 3, 9, 2, 8**
+
+### Tri fusion (mergesort) - Division
+
+**Diviser continuellement en deux** jusqu'à avoir des éléments individuels. Une
+liste d'un élément est toujours triée.
+
+Divisions : [7, 3, 9, 2, 8] → [7, 3] + [9, 2, 8] → [7] + [3] + [9] + [2, 8] →
+[7] + [3] + [9] + [2] + [8]
+
+**Maintenant, remonter en fusionnant** les éléments triés.
+
+### Tri fusion (mergesort) - Fusion 1 : [7] et [3]
+
+**Fusionner [7] et [3]**. Comparer 7 et 3 : 3 < 7, donc 3 en premier.
+
+|                       1                       |                       2                       |                  3                   |                  4                   |                  5                   |
+| :-------------------------------------------: | :-------------------------------------------: | :----------------------------------: | :----------------------------------: | :----------------------------------: |
+| ![h:180px](./images/7_of_hearts_selected.svg) | ![h:180px](./images/3_of_hearts_selected.svg) | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/2_of_hearts.svg) | ![h:180px](./images/8_of_hearts.svg) |
+|  ![h:180px](./images/3_of_hearts_sorted.svg)  |  ![h:180px](./images/7_of_hearts_sorted.svg)  |    ![h:180px](./images/blank.svg)    |    ![h:180px](./images/blank.svg)    |    ![h:180px](./images/blank.svg)    |
+
+Résultat : [3, 7]
+
+### Tri fusion (mergesort) - Fusion 2 : [2] et [8]
+
+**Fusionner [2] et [8]**. Comparer 2 et 8 : 2 < 8, donc 2 en premier.
+
+| ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) |                  3                   |                       4                       |                       5                       |
+| :-----------------------------------------: | :-----------------------------------------: | :----------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+|       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        | ![h:180px](./images/9_of_hearts.svg) | ![h:180px](./images/2_of_hearts_selected.svg) | ![h:180px](./images/8_of_hearts_selected.svg) |
+| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) |    ![h:180px](./images/blank.svg)    |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |
+
+Résultat : [2, 8]
+
+### Tri fusion (mergesort) - État intermédiaire
+
+**Après premières fusions** : [3, 7], [9], [2, 8]. Le 9 est seul donc déjà trié.
+
+**Prochaine étape** : fusionner [3, 7] avec [9, 2, 8] mais d'abord fusionner [9]
+avec [2, 8].
+
+### Tri fusion (mergesort) - Fusion 3 : [9] et [2, 8]
+
+**Fusionner [9] et [2, 8]**. Comparer 9 et 2 : 2 < 9. Puis 9 et 8 : 8 < 9.
+
+| ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) |                       3                       | ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) |
+| :-----------------------------------------: | :-----------------------------------------: | :-------------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
+|       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        | ![h:180px](./images/9_of_hearts_selected.svg) |       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |
+| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) |  ![h:180px](./images/9_of_hearts_sorted.svg)  |       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |
+
+Résultat : [2, 8, 9]
+
+### Tri fusion (mergesort) - Fusion finale : [3, 7] et [2, 8, 9] (1/3)
+
+**Fusionner [3, 7] et [2, 8, 9]**. Comparer 3 et 2 : 2 < 3, donc 2 en premier.
+
+| ![h:180px](./images/3_of_hearts_selected.svg) | ![h:180px](./images/7_of_hearts_selected.svg) | ![h:180px](./images/2_of_hearts_selected.svg) | ![h:180px](./images/8_of_hearts_selected.svg) | ![h:180px](./images/9_of_hearts_selected.svg) |
+| :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+|  ![h:180px](./images/2_of_hearts_sorted.svg)  |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |
+
+### Tri fusion (mergesort) - Fusion finale : [3, 7] et [2, 8, 9] (2/3)
+
+**Continuer**. Comparer 3 et 8 : 3 < 8, donc 3 ensuite. Puis 7 et 8 : 7 < 8.
+
+| ![h:180px](./images/3_of_hearts_selected.svg) | ![h:180px](./images/7_of_hearts_selected.svg) |       ![h:180px](./images/blank.svg)        | ![h:180px](./images/8_of_hearts_selected.svg) | ![h:180px](./images/9_of_hearts_selected.svg) |
+| :-------------------------------------------: | :-------------------------------------------: | :-----------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+|  ![h:180px](./images/2_of_hearts_sorted.svg)  |  ![h:180px](./images/3_of_hearts_sorted.svg)  | ![h:180px](./images/7_of_hearts_sorted.svg) |        ![h:180px](./images/blank.svg)         |        ![h:180px](./images/blank.svg)         |
+
+### Tri fusion (mergesort) - Fusion finale : [3, 7] et [2, 8, 9] (3/3)
+
+**Terminer**. Ajouter 8 puis 9. Tous les éléments sont maintenant fusionnés.
+
+|       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        | ![h:180px](./images/8_of_hearts_selected.svg) | ![h:180px](./images/9_of_hearts_selected.svg) |
+| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
+| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) |  ![h:180px](./images/8_of_hearts_sorted.svg)  |  ![h:180px](./images/9_of_hearts_sorted.svg)  |
+
+### Tri fusion (mergesort) - Terminé
+
+**Le tri fusion est terminé**. Tous les éléments sont triés.
+
+|                      1                      |                      2                      |                      3                      |                      4                      |                      5                      |
+| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
+| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts_sorted.svg) |
+
+**Résultat final** : **2, 3, 7, 8, 9** ✓
 
 ## Questions
 
