@@ -15,7 +15,6 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 >   · [Présentation (PDF)][presentation-pdf]
 > - Exemples de code : [Accéder au contenu](./01-exemples-de-code/)
 > - Exercices : [Accéder au contenu](./02-exercices/)
-> - Mini-projet : [Accéder au contenu](./03-mini-projet/)
 > - Quiz : [Accéder au contenu][quiz-web]
 >
 > **Objectifs**
@@ -68,23 +67,25 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 - [Table des matières](#table-des-matières)
 - [Objectifs](#objectifs)
 - [Introduction : le problème de la recherche d'informations](#introduction--le-problème-de-la-recherche-dinformations)
-	- [Chercher dans une base de données](#chercher-dans-une-base-de-données)
-	- [Le tri comme solution](#le-tri-comme-solution)
+  - [Chercher dans une base de données](#chercher-dans-une-base-de-données)
+  - [Le tri comme solution](#le-tri-comme-solution)
 - [Comprendre le tri avec des cartes à jouer](#comprendre-le-tri-avec-des-cartes-à-jouer)
-	- [Observer avant d'agir](#observer-avant-dagir)
-	- [Définir un critère de tri](#définir-un-critère-de-tri)
-	- [La notion de tri stable](#la-notion-de-tri-stable)
+  - [Observer avant d'agir](#observer-avant-dagir)
+  - [Définir un critère de tri](#définir-un-critère-de-tri)
+  - [La notion de tri stable](#la-notion-de-tri-stable)
 - [Les algorithmes de tri simples](#les-algorithmes-de-tri-simples)
-	- [Tri par sélection (selection sort)](#tri-par-sélection-selection-sort)
-	- [Tri par insertion (insertion sort)](#tri-par-insertion-insertion-sort)
-	- [Tri à bulles (bubble sort)](#tri-à-bulles-bubble-sort)
+  - [Tri par sélection (selection sort)](#tri-par-sélection-selection-sort)
+  - [Tri par insertion (insertion sort)](#tri-par-insertion-insertion-sort)
+  - [Tri à bulles (bubble sort)](#tri-à-bulles-bubble-sort)
 - [Les algorithmes de tri avancés](#les-algorithmes-de-tri-avancés)
-	- [Tri rapide (quicksort)](#tri-rapide-quicksort)
-	- [Tri fusion (mergesort)](#tri-fusion-mergesort)
+  - [Tri rapide (quicksort)](#tri-rapide-quicksort)
+  - [Tri fusion (mergesort)](#tri-fusion-mergesort)
 - [Conclusion](#conclusion)
+- [Aller plus loin](#aller-plus-loin)
+  - [Complexité algorithmique et notation Big O](#complexité-algorithmique-et-notation-big-o)
+  - [Comparator et Comparable en Java](#comparator-et-comparable-en-java)
 - [Exemples de code](#exemples-de-code)
 - [Exercices](#exercices)
-- [Mini-projet](#mini-projet)
 - [À faire pour la prochaine séance](#à-faire-pour-la-prochaine-séance)
 
 ## Objectifs
@@ -250,8 +251,8 @@ L'ordre des deux 5 a changé par rapport à la liste initiale.
 
 Les algorithmes de tri simples sont appelés ainsi parce qu'ils sont faciles à
 comprendre et à implémenter. Ils fonctionnent bien pour de petites collections
-de données. Cependant, leur performance devient problématique pour de grandes
-quantités de données.
+de données. Cependant, ils deviennent moins efficaces pour de grandes quantités
+de données.
 
 Ces algorithmes ont néanmoins une grande valeur pédagogique : ils permettent de
 comprendre les principes de base du tri et illustrent différentes façons
@@ -579,10 +580,10 @@ pédagogique.
 
 ## Les algorithmes de tri avancés
 
-Les algorithmes de tri avancés utilisent des stratégies plus sophistiquées pour
-améliorer les performances. Ils reposent souvent sur le principe de "diviser
-pour régner" : diviser un problème complexe en sous-problèmes plus simples,
-résoudre ces sous-problèmes, puis combiner les solutions.
+Les algorithmes de tri avancés utilisent des stratégies plus sophistiquées. Ils
+reposent souvent sur le principe de "diviser pour régner" : diviser un problème
+complexe en sous-problèmes plus simples, résoudre ces sous-problèmes, puis
+combiner les solutions.
 
 ### Tri rapide (quicksort)
 
@@ -750,19 +751,14 @@ croisés ! Le pivot reste en place.
 
 #### Réflexion sur le tri rapide
 
-**Stratégies de choix du pivot** : Le choix du pivot est crucial pour les
-performances. Une méthode populaire est la **médiane de trois** : on examine le
-premier, le milieu et le dernier élément, on les trie, et on choisit celui du
-milieu comme pivot. Cette méthode donne généralement un pivot proche de la
-médiane réelle du tableau.
+**Stratégies de choix du pivot** : Le choix du pivot est crucial. Une méthode
+populaire est la **médiane de trois** : on examine le premier, le milieu et le
+dernier élément, on les trie, et on choisit celui du milieu comme pivot. Cette
+méthode donne généralement un pivot proche de la médiane réelle du tableau.
 
 **Stabilité** : Le tri rapide n'est **pas stable** (voir la section sur la
 notion de tri stable) : deux éléments égaux peuvent changer d'ordre relatif
 pendant le tri.
-
-**Complexité** : Dans le pire cas (pivot toujours le plus petit ou le plus
-grand), la complexité est O(n²). Mais avec un bon choix de pivot, la complexité
-moyenne est O(n log n).
 
 **Avantage** : Le tri rapide trie "sur place" (in-place), c'est-à-dire qu'il ne
 nécessite pas de copier tous les éléments dans une nouvelle structure de
@@ -1021,14 +1017,8 @@ Résultat final :
 **Stabilité** : Le tri fusion est **stable** (voir la section sur la notion de
 tri stable) : deux éléments égaux conservent leur ordre relatif d'origine.
 
-**Complexité** : Le tri fusion a une complexité de O(n log n) dans tous les cas
-(meilleur, moyen, et pire cas). Cette prévisibilité est un grand avantage. Pour
-comprendre : l'étape de fusion visite n éléments, et la hauteur maximale de
-l'arbre binaire que nous créons est de l'ordre de log n.
-
-**Performances prévisibles** : Contrairement au tri rapide, le tri fusion trie
-toujours à la même vitesse, quelle que soit la distribution initiale des
-données.
+**Efficacité prévisible** : Contrairement au tri rapide, le tri fusion trie de
+manière constante, quelle que soit la distribution initiale des données.
 
 **Inconvénient** : Le tri fusion nécessite de la mémoire supplémentaire pour
 créer les tableaux temporaires lors de la fusion. Ce n'est pas un tri "sur
@@ -1054,14 +1044,174 @@ pas forcément le plus efficace.
 
 Les algorithmes de tri avancés (quicksort, mergesort) illustrent des concepts
 plus sophistiqués comme le principe de "diviser pour régner". Ils nous
-enseignent qu'investir du temps dans une stratégie plus complexe peut se
-traduire par des gains significatifs en performance, surtout pour de grandes
-quantités de données.
+enseignent qu'investir du temps dans une stratégie plus complexe peut apporter
+des avantages, surtout pour de grandes quantités de données.
 
 Au-delà des algorithmes eux-mêmes, le tri nous enseigne des leçons plus
 générales : l'importance de choisir le bon outil pour le bon contexte, la
-nécessité de comprendre les compromis entre simplicité et performance, et la
+nécessité de comprendre les compromis entre simplicité et efficacité, et la
 valeur d'une bonne abstraction pour rendre notre code flexible et maintenable.
+
+## Aller plus loin
+
+> [!NOTE]
+>
+> Cette section contient des informations complémentaires pour les personnes qui
+> souhaitent approfondir leurs connaissances. Ces notions ne sont pas requises
+> pour les exercices et le mini-projet.
+
+### Complexité algorithmique et notation Big O
+
+La **complexité algorithmique** mesure la quantité de ressources (temps ou
+mémoire) qu'un algorithme utilise en fonction de la taille des données traitées.
+On utilise la notation **Big O** pour décrire cette complexité.
+
+#### Notation Big O
+
+La notation Big O décrit le comportement d'un algorithme dans le pire cas.
+
+**Complexités courantes** (du meilleur au pire) :
+
+- $O(1)$ : **Temps constant** - l'algorithme prend toujours le même temps,
+  quelle que soit la taille des données. Exemple : accéder à un élément d'un
+  tableau par son index.
+- $O(\log n)$ : **Temps logarithmique** - le temps augmente lentement même si
+  les données augmentent beaucoup. Exemple : recherche binaire dans un tableau
+  trié.
+- $O(n)$ : **Temps linéaire** - le temps est proportionnel à la taille des
+  données. Exemple : parcourir tous les éléments d'un tableau.
+- $O(n \log n)$ : **Temps log-linéaire** - plus lent que linéaire, mais bien
+  meilleur que quadratique. Exemple : tri fusion, tri rapide (cas moyen).
+- $O(n^2)$ : **Temps quadratique** - le temps est proportionnel au carré de la
+  taille des données. Exemple : tri par sélection, tri à bulles, tri rapide
+  (pire cas).
+- $O(2^n)$ : **Temps exponentiel** - le temps double à chaque ajout d'élément.
+  Exemple : certains problèmes de combinatoire.
+
+#### Complexité des algorithmes de tri
+
+**Algorithmes de tri simples** :
+
+- **Tri par sélection** : $O(n^2)$ dans tous les cas.
+- **Tri par insertion** : $O(n^2)$ dans le pire cas, $O(n)$ dans le meilleur cas
+  (liste déjà triée).
+- **Tri à bulles** : $O(n^2)$ dans le pire cas, $O(n)$ dans le meilleur cas
+  (liste déjà triée).
+
+**Algorithmes de tri avancés** :
+
+- **Tri rapide (quicksort)** : $O(n \log n)$ en moyenne, $O(n^2)$ dans le pire
+  cas (mauvais choix de pivot). Le choix de la médiane de trois réduit
+  considérablement les chances du pire cas.
+- **Tri fusion (mergesort)** : $O(n \log n)$ dans tous les cas (meilleur, moyen,
+  pire). Cette prévisibilité est un grand avantage.
+
+**Exemple concret** : pour trier 1 000 000 d'éléments :
+
+- Avec $O(n^2)$ : environ 1 000 000 000 000 (un trillion) d'opérations.
+- Avec $O(n \log n)$ : environ 20 000 000 (vingt millions) d'opérations.
+
+La différence est de **50 000 fois** plus rapide !
+
+### Comparator<T> et Comparable<T> en Java
+
+Java fournit deux interfaces pour définir comment comparer des objets :
+`Comparable<T>` et `Comparator<T>`.
+
+#### L'interface Comparable<T>
+
+L'interface `Comparable<T>` permet à une classe de définir son **ordre
+naturel**. Une classe qui implémente `Comparable<T>` doit définir la méthode
+`compareTo(T other)`.
+
+```java
+public class Person implements Comparable<Person> {
+    private String name;
+    private int age;
+
+    @Override
+    public int compareTo(Person other) {
+        // Comparaison par âge (ordre naturel)
+        return Integer.compare(this.age, other.age);
+    }
+}
+```
+
+La méthode `compareTo()` retourne :
+
+- **Un nombre négatif** si `this` est plus petit que `other`.
+- **Zéro** si `this` est égal à `other`.
+- **Un nombre positif** si `this` est plus grand que `other`.
+
+Avec `Comparable<T>`, on peut trier directement avec `Collections.sort(list)` ou
+`Arrays.sort(array)`.
+
+**Avantage** : l'ordre est défini dans la classe elle-même.
+
+**Inconvénient** : on ne peut définir qu'**un seul** ordre naturel.
+
+#### L'interface Comparator<T>
+
+L'interface `Comparator<T>` permet de définir des **ordres personnalisés**
+externe à la classe. On peut créer plusieurs comparateurs pour la même classe.
+
+```java
+public class Person {
+    private String name;
+    private int age;
+
+    // Getters...
+}
+
+// Comparateur par nom
+Comparator<Person> byName = new Comparator<Person>() {
+    @Override
+    public int compare(Person p1, Person p2) {
+        return p1.getName().compareTo(p2.getName());
+    }
+};
+
+// Comparateur par âge
+Comparator<Person> byAge = new Comparator<Person>() {
+    @Override
+    public int compare(Person p1, Person p2) {
+        return Integer.compare(p1.getAge(), p2.getAge());
+    }
+};
+
+// Utilisation
+Collections.sort(personList, byName);  // Tri par nom
+Collections.sort(personList, byAge);   // Tri par âge
+```
+
+**Avec les expressions lambda** (Java 8+) :
+
+```java
+Collections.sort(personList, (p1, p2) -> p1.getName().compareTo(p2.getName()));
+
+// Ou encore plus simple avec Comparator.comparing()
+Collections.sort(personList, Comparator.comparing(Person::getName));
+Collections.sort(personList, Comparator.comparing(Person::getAge));
+```
+
+**Avantage** : on peut définir **plusieurs ordres** différents.
+
+**Inconvénient** : nécessite de créer des comparateurs séparés.
+
+#### Quand utiliser l'un ou l'autre ?
+
+**Utiliser `Comparable<T>`** quand :
+
+- Il existe un ordre naturel évident pour la classe.
+- Cet ordre sera utilisé la plupart du temps.
+- Exemple : trier des nombres, des dates, des chaînes alphabétiquement.
+
+**Utiliser `Comparator<T>`** quand :
+
+- On veut plusieurs façons de trier la même classe.
+- L'ordre dépend du contexte d'utilisation.
+- On ne peut pas modifier la classe originale.
+- Exemple : trier des personnes par nom, âge, ou salaire selon les besoins.
 
 ## Exemples de code
 
@@ -1077,14 +1227,6 @@ Nous vous invitons maintenant à réaliser les exercices de la séance afin de
 mettre en pratique les concepts abordés.
 
 Vous trouverez les exercices et leur corrigé ici : [Exercices](./02-exercices/).
-
-## Mini-projet
-
-Nous vous invitons maintenant à réaliser le mini-projet de la séance afin de
-mettre en pratique les concepts abordés.
-
-Vous trouverez les détails du mini-projet ici :
-[Mini-projet](./03-mini-projet/).
 
 ## À faire pour la prochaine séance
 

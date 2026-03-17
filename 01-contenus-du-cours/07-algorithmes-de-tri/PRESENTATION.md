@@ -579,16 +579,13 @@ copier les éléments.
 **Inconvénient** : n'est **pas stable**, deux éléments égaux peuvent changer
 d'ordre.
 
-**Choix du pivot** : crucial pour les performances. Méthode courante : médiane
-de trois (premier, milieu, dernier).
+**Choix du pivot** : crucial. Méthode courante : médiane de trois (premier,
+milieu, dernier).
 
 ### Tri rapide (quicksort) (3/3)
 
-**Complexité** : dans le pire cas O(n²), mais avec un bon pivot la complexité
-moyenne est O(n log n).
-
-**Utilisation** : l'un des algorithmes les plus utilisés en pratique grâce à sa
-rapidité moyenne.
+**Utilisation** : l'un des algorithmes les plus utilisés en pratique grâce à son
+efficacité.
 
 ### Tri rapide (quicksort) - Étape initiale
 
@@ -747,18 +744,14 @@ seul, donc trié.
 ### Tri fusion (mergesort) (2/3)
 
 **Avantage** : algorithme **stable**, conserve l'ordre relatif des éléments
-égaux.
-
-**Complexité** : toujours O(n log n), même dans le pire cas. Performance
-prévisible.
+égaux. Efficacité prévisible.
 
 **Inconvénient** : nécessite de la mémoire supplémentaire pour les tableaux
 temporaires.
 
 ### Tri fusion (mergesort) (3/3)
 
-**Utilisation** : privilégié quand la stabilité est importante ou quand on a
-besoin de performances garanties.
+**Utilisation** : privilégié quand la stabilité est importante.
 
 **Visualisation** : nous allons utiliser deux lignes, la ligne source et la
 ligne résultat en construction.
