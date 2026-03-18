@@ -848,10 +848,10 @@ avec [2, 8].
 
 ### Tri fusion (mergesort) - [3, 7] et [2, 8, 9]
 
-|                      1                      |                      2                      |                      3                      |                       4                       |                       5                       |
-| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-------------------------------------------: | :-------------------------------------------: |
-|       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        | ![h:180px](./images/8_of_hearts_selected.svg) | ![h:180px](./images/9_of_hearts_selected.svg) |
-| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) |  ![h:180px](./images/8_of_hearts_sorted.svg)  |  ![h:180px](./images/9_of_hearts_sorted.svg)  |
+|                      1                      |                      2                      |                      3                      |                      4                      |                      5                      |
+| :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
+|       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |       ![h:180px](./images/blank.svg)        |
+| ![h:180px](./images/2_of_hearts_sorted.svg) | ![h:180px](./images/3_of_hearts_sorted.svg) | ![h:180px](./images/7_of_hearts_sorted.svg) | ![h:180px](./images/8_of_hearts_sorted.svg) | ![h:180px](./images/9_of_hearts_sorted.svg) |
 
 ### Tri fusion (mergesort) - Terminé
 
