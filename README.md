@@ -42,11 +42,11 @@ d'apprentissage, et les méthodes d'évaluation.
 |     03 | 02.03 - 06.03 | [Programmation orientée objet : Encapsulation et héritage](./01-contenus-du-cours/05-programmation-orientee-objet-encapsulation-et-heritage/) | 🟢 Prêt     |
 |     04 | 09.03 - 13.03 | [Programmation orientée objet : Polymorphisme](./01-contenus-du-cours/06-programmation-orientee-objet-polymorphisme/)                         | 🟢 Prêt     |
 |     05 | 16.03 - 20.03 | [Algorithmes de tri](./01-contenus-du-cours/07-algorithmes-de-tri/)                                                                           | 🟢 Prêt     |
-|     06 | 23.03 - 27.03 | [Collections Java : Listes, sets et maps](./01-contenus-du-cours/08-collections-java-listes-sets-et-maps/)                                    | 🔴 À faire  |
-|     🚨 | 30.03 - 03.04 | Evaluation intermédiaire                                                                                                                      | 🔴 À faire  |
-|     07 | 13.04 - 17.04 | [Collections Java : Lambda et génériques](./01-contenus-du-cours/09-collections-java-lambda-et-generiques/)                                   | 🔴 À faire  |
-|     08 | 20.04 - 24.04 | [Gestion des exceptions](./01-contenus-du-cours/10-gestion-des-exceptions/)                                                                   | 🔴 À faire  |
-|     09 | 27.04 - 01.05 | [Overloading et type casting](./01-contenus-du-cours/11-overloading-et-type-casting/)                                                         | 🔴 À faire  |
+|     06 | 23.03 - 27.03 | [Entraînement : Examen blanc](./01-contenus-du-cours/98-entrainement-examen-blanc/)                                                           | 🟢 Prêt     |
+|     🚨 | 30.03 - 03.04 | Evaluation intermédiaire                                                                                                                      | 🟢 Prêt     |
+|     07 | 13.04 - 17.04 | [Collections Java : Listes, sets et maps](./01-contenus-du-cours/08-collections-java-listes-sets-et-maps/)                                    | 🔴 À faire  |
+|     08 | 20.04 - 24.04 | [Collections Java : Lambda et génériques](./01-contenus-du-cours/09-collections-java-lambda-et-generiques/)                                   | 🔴 À faire  |
+|     09 | 27.04 - 01.05 | [Gestion des exceptions](./01-contenus-du-cours/10-gestion-des-exceptions/)                                                                   | 🔴 À faire  |
 |     10 | 04.05 - 08.05 | [Tests unitaires avec JUnit](./01-contenus-du-cours/12-tests-unitaires-avec-junit/)                                                           | 🔴 À faire  |
 |     11 | 11.05 - 15.05 | [JavaFX et interfaces graphiques](./01-contenus-du-cours/13-javafx-et-interfaces-graphiques/)                                                 | 🔴 À faire  |
 |     12 | 18.05 - 22.05 | [Récapitulatif et préparation à l'examen](./01-contenus-du-cours/14-recapitulatif-et-preparation-a-lexamen/)                                  | 🔴 À faire  |
