@@ -12,6 +12,10 @@
 			"jdkDistro": "tem",
 			"installMaven": true,
 			"version": 21
+		},
+		"ghcr.io/devcontainers/features/python:1": {
+			"version": "3.12",
+			"installTools": true
 		}
 	},
 	"customizations": {
@@ -22,10 +26,12 @@
 				"GitHub.copilot",
 				"jebbs.plantuml",
 				"marp-team.marp-vscode",
+				"ms-python.python",
 				"ms-vsliveshare.vsliveshare",
 				"myriad-dreamin.tinymist",
 				"redhat.java",
 				"redhat.vscode-yaml",
+				"Rickaym.manim-sideview",
 				"streetsidesoftware.code-spell-checker",
 				"streetsidesoftware.code-spell-checker-french",
 				"tomoki1207.pdf",
