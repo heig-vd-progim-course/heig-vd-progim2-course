@@ -208,12 +208,18 @@ class BubbleSortWithCards(Scene):
                 selected_card_j1.scale(1)
                 selected_card_j1.move_to(cards[j + 1].get_center())
 
+                # Remplacer les cartes avec transition rapide
                 self.play(
-                    Transform(cards[j], selected_card_j),
-                    Transform(cards[j + 1], selected_card_j1),
-                    run_time=0.3,
+                    FadeOut(cards[j], run_time=0.0001),
+                    FadeOut(cards[j + 1], run_time=0.0001),
                 )
-                self.wait(0.2)
+                cards[j] = selected_card_j
+                cards[j + 1] = selected_card_j1
+                self.play(
+                    FadeIn(cards[j], run_time=0.0001),
+                    FadeIn(cards[j + 1], run_time=0.0001),
+                )
+                self.wait(1)
 
                 # Comparer et échanger si nécessaire
                 if card_values[j] > card_values[j + 1]:
@@ -239,7 +245,7 @@ class BubbleSortWithCards(Scene):
                     # Échanger les références
                     cards[j], cards[j + 1] = cards[j + 1], cards[j]
                     borders[j], borders[j + 1] = borders[j + 1], borders[j]
-                    self.wait(0.2)
+                    self.wait(1)
 
                 # Remettre à l'état par défaut avec les cartes normales
                 default_card_j = SVGMobject(
@@ -254,10 +260,16 @@ class BubbleSortWithCards(Scene):
                 default_card_j1.scale(1)
                 default_card_j1.move_to(cards[j + 1].get_center())
 
+                # Remplacer les cartes avec transition rapide
                 self.play(
-                    Transform(cards[j], default_card_j),
-                    Transform(cards[j + 1], default_card_j1),
-                    run_time=0.2,
+                    FadeOut(cards[j], run_time=0.0001),
+                    FadeOut(cards[j + 1], run_time=0.0001),
+                )
+                cards[j] = default_card_j
+                cards[j + 1] = default_card_j1
+                self.play(
+                    FadeIn(cards[j], run_time=0.0001),
+                    FadeIn(cards[j + 1], run_time=0.0001),
                 )
 
             # Marquer le dernier élément comme trié avec la carte _sorted.svg
@@ -267,11 +279,11 @@ class BubbleSortWithCards(Scene):
             sorted_card.scale(1)
             sorted_card.move_to(cards[n - i - 1].get_center())
             
-            self.play(
-                Transform(cards[n - i - 1], sorted_card),
-                run_time=0.3
-            )
-            self.wait(0.3)
+            # Remplacer la carte avec transition rapide
+            self.play(FadeOut(cards[n - i - 1], run_time=0.0001))
+            cards[n - i - 1] = sorted_card
+            self.play(FadeIn(cards[n - i - 1], run_time=0.0001))
+            self.wait(1)
 
         # Marquer tous les éléments restants comme triés
         for j in range(n - i - 1):
@@ -281,10 +293,11 @@ class BubbleSortWithCards(Scene):
             sorted_card.scale(1)
             sorted_card.move_to(cards[j].get_center())
             
-            self.play(
-                Transform(cards[j], sorted_card),
-                run_time=0.2
-            )
+            # Remplacer la carte avec transition rapide
+            self.play(FadeOut(cards[j], run_time=0.0001))
+            cards[j] = sorted_card
+            self.play(FadeIn(cards[j], run_time=0.0001))
+            self.wait(1)
 
         # Message final
         sorted_text = Text("Cartes triées !", font_size=32, color=GREEN)
@@ -292,58 +305,3 @@ class BubbleSortWithCards(Scene):
         self.play(Write(sorted_text))
         self.wait(2)
 
-
-class BubbleSortSimple(Scene):
-    """Version simplifiée de l'animation pour une génération rapide."""
-
-    def construct(self):
-        # Tableau initial
-        array = [64, 34, 25, 12, 22]
-        
-        # Titre
-        title = Text("Tri à bulles", font_size=40)
-        title.to_edge(UP)
-        self.play(Write(title))
-        
-        # Créer les barres
-        bars = self.create_bars(array)
-        self.play(Create(bars))
-        self.wait(1)
-        
-        # Effectuer le tri
-        n = len(array)
-        for i in range(n):
-            for j in range(0, n - i - 1):
-                if array[j] > array[j + 1]:
-                    array[j], array[j + 1] = array[j + 1], array[j]
-                    new_bars = self.create_bars(array)
-                    self.play(Transform(bars, new_bars), run_time=0.3)
-        
-        self.wait(2)
-    
-    def create_bars(self, values):
-        """Crée des barres représentant les valeurs."""
-        bars = VGroup()
-        max_height = 3
-        max_value = max(values)
-        
-        for i, value in enumerate(values):
-            height = (value / max_value) * max_height
-            bar = Rectangle(
-                width=1,
-                height=height,
-                fill_color=BLUE,
-                fill_opacity=1,
-                stroke_color=WHITE,
-            )
-            bar.shift(RIGHT * (i - len(values) / 2) * 1.2)
-            bar.align_to(ORIGIN, DOWN)
-            
-            # Ajouter la valeur en texte
-            label = Text(str(value), font_size=20)
-            label.next_to(bar, UP, buff=0.1)
-            
-            bar_group = VGroup(bar, label)
-            bars.add(bar_group)
-        
-        return bars
