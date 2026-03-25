@@ -20,6 +20,8 @@
 **/animations/videos/**
 **/animations/partial/**
 **/animations/__pycache__/**
+**/media
+**/animations/texts
 *.pyc
 __pycache__/
 .cache/
