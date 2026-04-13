@@ -222,43 +222,31 @@ du cours de Programmation 2.
 
 ## Séance 06 - Collections Java : Listes, sets et maps
 
-### Framework Collections
+### Concepts fondamentaux
 
-- Identifier les principales interfaces du framework Collections (`List`, `Set`,
-  `Map`).
-- Différencier les caractéristiques de chaque type de collection.
-- Sélectionner la collection appropriée selon le besoin.
+- Expliquer ce qu'est une collection et pourquoi les tableaux ne suffisent pas
+  toujours.
+- Différencier les trois types de collections : liste, ensemble et association
+  clé-valeur (map).
+- Sélectionner le type de collection approprié selon le besoin.
 
-### Listes (`List`)
+### Listes, ensembles et maps en Java
 
-- Utiliser `ArrayList<T>` pour stocker des éléments avec ordre et doublons.
-- Utiliser `LinkedList<T>` et comprendre ses avantages/inconvénients.
-- Appliquer les méthodes de base : `add()`, `get()`, `remove()`, `size()`,
-  `contains()`.
-- Parcourir une liste avec une boucle `for-each`.
-- Différencier `ArrayList` et `LinkedList` en termes de performance.
-
-### Ensembles (`Set`)
-
-- Utiliser `HashSet<T>` pour stocker des éléments uniques sans ordre.
-- Utiliser `TreeSet<T>` pour un ensemble trié automatiquement.
-- Appliquer les opérations d'ensembles (ajout, suppression, test
-  d'appartenance).
-- Justifier l'utilisation d'un `Set` pour éliminer les doublons.
-
-### Maps (`Map`)
-
-- Utiliser `HashMap<K, V>` pour associer des clés à des valeurs.
-- Utiliser `TreeMap<K, V>` pour une map triée par clés.
-- Appliquer les méthodes : `put()`, `get()`, `remove()`, `containsKey()`,
-  `keySet()`, `values()`.
-- Parcourir une map avec différentes approches.
+- Utiliser les listes (`ArrayList`, `LinkedList`) pour stocker des éléments
+  ordonnés.
+- Utiliser les ensembles (`HashSet`, `TreeSet`) pour stocker des éléments
+  uniques.
+- Utiliser les maps (`HashMap`, `TreeMap`) pour associer des clés à des valeurs.
+- Appliquer les opérations courantes sur les collections : ajout, suppression,
+  recherche et parcours.
 
 ### Itération et parcours
 
-- Utiliser les itérateurs pour parcourir les collections.
-- Appliquer la boucle `for-each` sur différentes collections.
+- Parcourir une collection avec une boucle `for-each` et un itérateur.
+- Différencier les implémentations d'une même interface en termes de performance
+  et de comportement.
 - Modifier une collection pendant l'itération de manière sécurisée.
+- Justifier le choix d'une collection dans une situation donnée.
 
 ### Mini-projet (partie 5)
 
