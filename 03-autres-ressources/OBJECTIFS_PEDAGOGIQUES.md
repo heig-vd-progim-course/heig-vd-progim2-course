@@ -209,7 +209,6 @@ du cours de Programmation 2.
 ### Algorithmes de tri simples
 
 - Expliquer le fonctionnement du tri par sélection.
-- Expliquer le fonctionnement du tri par insertion.
 - Comparer les performances des différents algorithmes de tri (complexité).
 - Utiliser `Collections.sort()` et `Arrays.sort()` pour trier efficacement.
 

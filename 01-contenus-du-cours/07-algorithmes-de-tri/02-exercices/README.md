@@ -21,7 +21,6 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 - [La classe Card](#la-classe-card)
 - [Liste des exercices](#liste-des-exercices)
   - [Exercice 01 - Tri par sélection](#exercice-01---tri-par-sélection)
-  - [Exercice 02 - Tri par insertion](#exercice-02---tri-par-insertion)
   - [Exercice 03 - Tri à bulles](#exercice-03---tri-à-bulles)
   - [Exercice 04 - Tri rapide](#exercice-04---tri-rapide)
   - [Exercice 05 - Tri fusion](#exercice-05---tri-fusion)
@@ -68,12 +67,6 @@ La couleur n'est pas prise en compte pour le tri.
 **Dossier** : [01-tri-selection/](./01-tri-selection/)
 
 Implémentez le tri par sélection pour trier un tableau de cartes.
-
-### Exercice 02 - Tri par insertion
-
-**Dossier** : [02-tri-insertion/](./02-tri-insertion/)
-
-Implémentez le tri par insertion pour trier un tableau de cartes.
 
 ### Exercice 03 - Tri à bulles
 

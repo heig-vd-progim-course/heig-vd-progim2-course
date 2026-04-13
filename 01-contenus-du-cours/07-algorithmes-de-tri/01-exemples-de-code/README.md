@@ -20,7 +20,6 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 - [Introduction](#introduction)
 - [Liste des exemples](#liste-des-exemples)
   - [01 - Tri par sélection](#01---tri-par-sélection)
-  - [02 - Tri par insertion](#02---tri-par-insertion)
   - [03 - Tri à bulles](#03---tri-à-bulles)
   - [04 - Tri rapide](#04---tri-rapide)
   - [05 - Tri fusion](#05---tri-fusion)
@@ -45,13 +44,6 @@ après le tri pour observer le résultat.
 **Description** : Implémentation du tri par sélection. L'algorithme trouve le
 plus petit élément et le place au début, puis recommence avec les éléments
 restants.
-
-### 02 - Tri par insertion
-
-**Fichier** : [02-tri-insertion/Main.java](./02-tri-insertion/Main.java)
-
-**Description** : Implémentation du tri par insertion. L'algorithme construit
-progressivement une partie triée en insérant chaque élément à sa place.
 
 ### 03 - Tri à bulles
 

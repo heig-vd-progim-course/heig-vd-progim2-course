@@ -28,7 +28,6 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 > - Utiliser des comparateurs pour trier selon différents critères.
 > - Appliquer plusieurs stratégies de tri sur une même collection.
 > - Expliquer le fonctionnement du tri par sélection.
-> - Expliquer le fonctionnement du tri par insertion.
 > - Expliquer le fonctionnement du tri à bulles.
 > - Expliquer le fonctionnement du tri rapide (quicksort).
 > - Expliquer le fonctionnement du tri fusion (mergesort).
@@ -74,7 +73,6 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
   - [La notion de tri stable](#la-notion-de-tri-stable)
 - [Les algorithmes de tri simples](#les-algorithmes-de-tri-simples)
   - [Tri par sélection (selection sort)](#tri-par-sélection-selection-sort)
-  - [Tri par insertion (insertion sort)](#tri-par-insertion-insertion-sort)
   - [Tri à bulles (bubble sort)](#tri-à-bulles-bubble-sort)
 - [Les algorithmes de tri avancés](#les-algorithmes-de-tri-avancés)
   - [Tri rapide (quicksort)](#tri-rapide-quicksort)
@@ -363,115 +361,6 @@ ce qu'un humain ferait intuitivement. Son inconvénient est qu'il doit toujours
 parcourir tous les éléments restants pour trouver le minimum, même si la liste
 est presque triée. Le nombre de comparaisons est toujours le même, quel que soit
 l'état initial de la liste.
-
-### Tri par insertion (insertion sort)
-
-Le tri par insertion s'inspire de la façon dont on trie des cartes à jouer dans
-la main. Imaginez que vous recevez des cartes une par une et que vous les
-insérez au bon endroit dans votre main déjà triée.
-
-Le principe :
-
-1. On considère que le premier élément est déjà trié (une liste d'un élément est
-   toujours triée).
-2. On prend le deuxième élément et on l'insère au bon endroit parmi les éléments
-   déjà triés.
-3. On prend le troisième élément et on l'insère au bon endroit parmi les
-   éléments déjà triés.
-4. On continue jusqu'au dernier élément.
-
-**Visualisation avec des cartes - Premières étapes détaillées**
-
-Partons à nouveau de nos cartes désordonnées :
-
-|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![7](./images/7_of_spades.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
-
-**Étape 1** : le 7 (position 1) est considéré comme déjà trié. Une liste d'un
-élément est toujours triée.
-
-|                Carte 1                |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :-----------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![7](./images/7_of_spades_sorted.svg) | ![3](./images/3_of_spades.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
-
-**Insertion du 3 - Sélection** : on prend le 3 (position 2) pour l'insérer dans
-la partie triée.
-
-|                Carte 1                |                 Carte 2                 |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :-----------------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![7](./images/7_of_spades_sorted.svg) | ![3](./images/3_of_spades_selected.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
-
-**Insertion du 3 - Après insertion** : le 3 est plus petit que le 7, on le place
-avant. La partie triée contient maintenant [3, 7].
-
-|                Carte 1                |                Carte 2                |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :-----------------------------------: | :-----------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_spades_sorted.svg) | ![7](./images/7_of_spades_sorted.svg) | ![5](./images/5_of_spades.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
-
-**Insertion du 5 - Sélection** : on prend le 5 (position 3) pour l'insérer dans
-la partie triée [3, 7].
-
-|                Carte 1                |                Carte 2                |                 Carte 3                 |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :-----------------------------------: | :-----------------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_spades_sorted.svg) | ![7](./images/7_of_spades_sorted.svg) | ![5](./images/5_of_spades_selected.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
-
-**Insertion du 5 - Après insertion** : le 5 se place entre le 3 et le 7. La
-partie triée contient maintenant [3, 5, 7].
-
-|                Carte 1                |                Carte 2                |                Carte 3                |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_spades_sorted.svg) | ![5](./images/5_of_spades_sorted.svg) | ![7](./images/7_of_spades_sorted.svg) | ![2](./images/2_of_spades.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
-
-**Insertion du 2 - Sélection** : on prend le 2 (position 4) pour l'insérer dans
-la partie triée [3, 5, 7].
-
-|                Carte 1                |                Carte 2                |                Carte 3                |                 Carte 4                 |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_spades_sorted.svg) | ![5](./images/5_of_spades_sorted.svg) | ![7](./images/7_of_spades_sorted.svg) | ![2](./images/2_of_spades_selected.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
-
-**Insertion du 2 - Après insertion** : le 2 est le plus petit, on le place au
-début. La partie triée contient maintenant [2, 3, 5, 7].
-
-|                Carte 1                |                Carte 2                |                Carte 3                |                Carte 4                |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![2](./images/2_of_spades_sorted.svg) | ![3](./images/3_of_spades_sorted.svg) | ![5](./images/5_of_spades_sorted.svg) | ![7](./images/7_of_spades_sorted.svg) | ![8](./images/8_of_spades.svg) | ![4](./images/4_of_spades.svg) | ![6](./images/6_of_spades.svg) | ![9](./images/9_of_spades.svg) |
-
-**Visualisation complète de l'algorithme**
-
-Voici maintenant toutes les étapes du tri par insertion du début à la fin :
-
-|     Étape      |                Carte 1                |                 Carte 2                 |                 Carte 3                 |                 Carte 4                 |                 Carte 5                 |                 Carte 6                 |                 Carte 7                 |                 Carte 8                 |
-| :------------: | :-----------------------------------: | :-------------------------------------: | :-------------------------------------: | :-------------------------------------: | :-------------------------------------: | :-------------------------------------: | :-------------------------------------: | :-------------------------------------: |
-|    Initial     |    ![7](./images/7_of_spades.svg)     |     ![3](./images/3_of_spades.svg)      |     ![5](./images/5_of_spades.svg)      |     ![2](./images/2_of_spades.svg)      |     ![8](./images/8_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![9](./images/9_of_spades.svg)      |
-|  7 déjà trié   | ![7](./images/7_of_spades_sorted.svg) |     ![3](./images/3_of_spades.svg)      |     ![5](./images/5_of_spades.svg)      |     ![2](./images/2_of_spades.svg)      |     ![8](./images/8_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![9](./images/9_of_spades.svg)      |
-| Sélection du 3 | ![7](./images/7_of_spades_sorted.svg) | ![3](./images/3_of_spades_selected.svg) |     ![5](./images/5_of_spades.svg)      |     ![2](./images/2_of_spades.svg)      |     ![8](./images/8_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![9](./images/9_of_spades.svg)      |
-|    3 inséré    | ![3](./images/3_of_spades_sorted.svg) |  ![7](./images/7_of_spades_sorted.svg)  |     ![5](./images/5_of_spades.svg)      |     ![2](./images/2_of_spades.svg)      |     ![8](./images/8_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![9](./images/9_of_spades.svg)      |
-| Sélection du 5 | ![3](./images/3_of_spades_sorted.svg) |  ![7](./images/7_of_spades_sorted.svg)  | ![5](./images/5_of_spades_selected.svg) |     ![2](./images/2_of_spades.svg)      |     ![8](./images/8_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![9](./images/9_of_spades.svg)      |
-|    5 inséré    | ![3](./images/3_of_spades_sorted.svg) |  ![5](./images/5_of_spades_sorted.svg)  |  ![7](./images/7_of_spades_sorted.svg)  |     ![2](./images/2_of_spades.svg)      |     ![8](./images/8_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![9](./images/9_of_spades.svg)      |
-| Sélection du 2 | ![3](./images/3_of_spades_sorted.svg) |  ![5](./images/5_of_spades_sorted.svg)  |  ![7](./images/7_of_spades_sorted.svg)  | ![2](./images/2_of_spades_selected.svg) |     ![8](./images/8_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![9](./images/9_of_spades.svg)      |
-|    2 inséré    | ![2](./images/2_of_spades_sorted.svg) |  ![3](./images/3_of_spades_sorted.svg)  |  ![5](./images/5_of_spades_sorted.svg)  |  ![7](./images/7_of_spades_sorted.svg)  |     ![8](./images/8_of_spades.svg)      |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![9](./images/9_of_spades.svg)      |
-| Sélection du 8 | ![2](./images/2_of_spades_sorted.svg) |  ![3](./images/3_of_spades_sorted.svg)  |  ![5](./images/5_of_spades_sorted.svg)  |  ![7](./images/7_of_spades_sorted.svg)  | ![8](./images/8_of_spades_selected.svg) |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![9](./images/9_of_spades.svg)      |
-|    8 inséré    | ![2](./images/2_of_spades_sorted.svg) |  ![3](./images/3_of_spades_sorted.svg)  |  ![5](./images/5_of_spades_sorted.svg)  |  ![7](./images/7_of_spades_sorted.svg)  |  ![8](./images/8_of_spades_sorted.svg)  |     ![4](./images/4_of_spades.svg)      |     ![6](./images/6_of_spades.svg)      |     ![9](./images/9_of_spades.svg)      |
-| Sélection du 4 | ![2](./images/2_of_spades_sorted.svg) |  ![3](./images/3_of_spades_sorted.svg)  |  ![5](./images/5_of_spades_sorted.svg)  |  ![7](./images/7_of_spades_sorted.svg)  |  ![8](./images/8_of_spades_sorted.svg)  | ![4](./images/4_of_spades_selected.svg) |     ![6](./images/6_of_spades.svg)      |     ![9](./images/9_of_spades.svg)      |
-|    4 inséré    | ![2](./images/2_of_spades_sorted.svg) |  ![3](./images/3_of_spades_sorted.svg)  |  ![4](./images/4_of_spades_sorted.svg)  |  ![5](./images/5_of_spades_sorted.svg)  |  ![7](./images/7_of_spades_sorted.svg)  |  ![8](./images/8_of_spades_sorted.svg)  |     ![6](./images/6_of_spades.svg)      |     ![9](./images/9_of_spades.svg)      |
-| Sélection du 6 | ![2](./images/2_of_spades_sorted.svg) |  ![3](./images/3_of_spades_sorted.svg)  |  ![4](./images/4_of_spades_sorted.svg)  |  ![5](./images/5_of_spades_sorted.svg)  |  ![7](./images/7_of_spades_sorted.svg)  |  ![8](./images/8_of_spades_sorted.svg)  | ![6](./images/6_of_spades_selected.svg) |     ![9](./images/9_of_spades.svg)      |
-|    6 inséré    | ![2](./images/2_of_spades_sorted.svg) |  ![3](./images/3_of_spades_sorted.svg)  |  ![4](./images/4_of_spades_sorted.svg)  |  ![5](./images/5_of_spades_sorted.svg)  |  ![6](./images/6_of_spades_sorted.svg)  |  ![7](./images/7_of_spades_sorted.svg)  |  ![8](./images/8_of_spades_sorted.svg)  |     ![9](./images/9_of_spades.svg)      |
-| Sélection du 9 | ![2](./images/2_of_spades_sorted.svg) |  ![3](./images/3_of_spades_sorted.svg)  |  ![4](./images/4_of_spades_sorted.svg)  |  ![5](./images/5_of_spades_sorted.svg)  |  ![6](./images/6_of_spades_sorted.svg)  |  ![7](./images/7_of_spades_sorted.svg)  |  ![8](./images/8_of_spades_sorted.svg)  | ![9](./images/9_of_spades_selected.svg) |
-|    Terminé     | ![2](./images/2_of_spades_sorted.svg) |  ![3](./images/3_of_spades_sorted.svg)  |  ![4](./images/4_of_spades_sorted.svg)  |  ![5](./images/5_of_spades_sorted.svg)  |  ![6](./images/6_of_spades_sorted.svg)  |  ![7](./images/7_of_spades_sorted.svg)  |  ![8](./images/8_of_spades_sorted.svg)  |  ![9](./images/9_of_spades_sorted.svg)  |
-
-**Réflexion sur le tri par insertion**
-
-Le tri par insertion est particulièrement efficace quand la liste est presque
-triée. Dans ce cas, chaque élément est déjà proche de sa position finale et
-nécessite peu de déplacements. C'est pourquoi cet algorithme est souvent utilisé
-comme étape finale d'algorithmes plus complexes, ou pour trier de petites
-listes.
-
-Une autre qualité du tri par insertion est qu'il est **stable** (voir la section
-sur la notion de tri stable) : deux éléments égaux conservent leur ordre relatif
-après le tri. Cette propriété est importante quand on effectue des tris
-successifs ou quand on trie des objets complexes selon un seul critère.
 
 ### Tri à bulles (bubble sort)
 
@@ -1092,8 +981,6 @@ La notation Big O décrit le comportement d'un algorithme dans le pire cas.
 **Algorithmes de tri simples** :
 
 - **Tri par sélection** : $O(n^2)$ dans tous les cas.
-- **Tri par insertion** : $O(n^2)$ dans le pire cas, $O(n)$ dans le meilleur cas
-  (liste déjà triée).
 - **Tri à bulles** : $O(n^2)$ dans le pire cas, $O(n)$ dans le meilleur cas
   (liste déjà triée).
 
