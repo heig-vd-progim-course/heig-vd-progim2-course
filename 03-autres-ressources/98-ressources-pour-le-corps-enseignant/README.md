@@ -16,7 +16,7 @@ préparer et donner le cours.
 Pour les besoins du cours, nous allons utiliser une manette de jeu 8bitdo. Voici
 la configuration recommandée pour les boutons de la manette, qui correspond à
 l'utilisation dans le cadre du cours. Les boutons sont configurés pour faciliter
-la navigation et les interactions pendant les sessions de cours
+la navigation et les interactions pendant les sessions de cours.
 
 Il s'agit de cette manette : [8bitdo micro](https://www.8bitdo.com/micro/)
 
