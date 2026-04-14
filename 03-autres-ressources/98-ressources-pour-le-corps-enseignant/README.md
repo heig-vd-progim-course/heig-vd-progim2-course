@@ -45,22 +45,22 @@ Pour reproduire la configuration :
 
 **Légende**
 
-- Left side:
-  - L1 : <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Plus (+)</kbd>
-  - L2 : <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Minus (-)</kbd>
-  - U : <kbd>Left</kbd>
-  - L : <kbd>Page Up</kbd>
-  - R : <kbd>Page Down</kbd>
-  - D : <kbd>Right</kbd>
-- Middle:
-  - \- : <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd>
-  - \+ : <kbd>Ctrl</kbd> + <kbd>Tab</kbd>
-  - S : None
-  - H : <kbd>F</kbd>
-- Right side:
-  - R2 : <kbd>Ctrl</kbd> + <kbd>Minus (-)</kbd>
-  - R1 : <kbd>Ctrl</kbd> + <kbd>Plus (+)</kbd>
-  - X : <kbd>Left</kbd>
-  - Y : <kbd>Down</kbd>
-  - A : <kbd>Up</kbd>
-  - B : <kbd>Right</kbd>
+- Côté gauche.
+  - L1 : <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Plus (+)</kbd>.
+  - L2 : <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Minus (-)</kbd>.
+  - U : <kbd>Left</kbd>.
+  - L : <kbd>Page Up</kbd>.
+  - R : <kbd>Page Down</kbd>.
+  - D : <kbd>Right</kbd>.
+- Milieu.
+  - \- : <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd>.
+  - \+ : <kbd>Ctrl</kbd> + <kbd>Tab</kbd>.
+  - S : Aucun.
+  - H : <kbd>F</kbd>.
+- Côté droit.
+  - R2 : <kbd>Ctrl</kbd> + <kbd>Minus (-)</kbd>.
+  - R1 : <kbd>Ctrl</kbd> + <kbd>Plus (+)</kbd>.
+  - X : <kbd>Left</kbd>.
+  - Y : <kbd>Down</kbd>.
+  - A : <kbd>Up</kbd>.
+  - B : <kbd>Right</kbd>.
