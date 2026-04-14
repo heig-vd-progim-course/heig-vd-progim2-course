@@ -10,16 +10,32 @@ préparer et donner le cours.
 
 - [Table des matières](#table-des-matières)
 - [Configuration de la manette 8bitdo Micro](#configuration-de-la-manette-8bitdo-micro)
+  - [Comment utiliser le fichier de configuration](#comment-utiliser-le-fichier-de-configuration)
 
-## Configuration de la manette 8bitdo Micro
+## Configuration de la manette 8bitdo micro
 
-Pour les besoins du cours, nous allons utiliser une manette de jeu 8bitdo Micro.
+Pour les besoins du cours, nous allons utiliser une manette de jeu 8bitdo.
 Voici la configuration recommandée pour les boutons de la manette, qui
 correspond à l'utilisation dans le cadre du cours. Les boutons sont configurés
-pour faciliter la navigation et les interactions pendant les sessions de cours
+pour faciliter la navigation et les interactions pendant les sessions de
+cours.
 
-Il s'agit de cette manette : [8bitdo Micro](https://www.8bitdo.com/micro/)
+Il s'agit de cette manette : [8bitdo micro](https://www.8bitdo.com/micro/)
 
+### Comment utiliser le fichier de configuration
+
+Le fichier `./configuration-manette.gamecontroller.amgp` est un profil à
+charger dans l'application AntiMicroX.
+
+Pour reproduire la configuration :
+
+- Branchez ou associez la manette 8bitdo micro à l'ordinateur.
+- Ouvrez AntiMicroX.
+- Sélectionnez la manette détectée dans l'application.
+- Chargez le profil `./configuration-manette.gamecontroller.amgp` depuis le
+  menu d'ouverture de profil de l'application.
+- Vérifiez que les boutons correspondent bien au schéma ci-dessous, puis
+  enregistrez si vous devez adapter localement la configuration.
 ```
  L1 L2            R2 R1
    U      -  +      X
