@@ -39,8 +39,8 @@ Il s'agit de cette manette : [8bitdo micro](https://www.8bitdo.com/micro/)
 - Middle:
   - \- : <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd>
   - \+ : <kbd>Ctrl</kbd> + <kbd>Tab</kbd>
-  - S : <kbd>F</kbd>
-  - H : None
+  - S : None
+  - H : <kbd>F</kbd>
 - Right side:
   - R2 : <kbd>Ctrl</kbd> + <kbd>Minus (-)</kbd>
   - R1 : <kbd>Ctrl</kbd> + <kbd>Plus (+)</kbd>
