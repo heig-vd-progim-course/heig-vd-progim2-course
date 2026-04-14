@@ -9,16 +9,16 @@ préparer et donner le cours.
 ## Table des matières
 
 - [Table des matières](#table-des-matières)
-- [Configuration de la manette 8bitdo micro](#configuration-de-la-manette-8bitdo-micro)
+- [Configuration de la manette 8bitdo Micro](#configuration-de-la-manette-8bitdo-micro)
 
-## Configuration de la manette 8bitdo micro
+## Configuration de la manette 8bitdo Micro
 
-Pour les besoins du cours, nous allons utiliser une manette de jeu 8bitdo. Voici
-la configuration recommandée pour les boutons de la manette, qui correspond à
-l'utilisation dans le cadre du cours. Les boutons sont configurés pour faciliter
-la navigation et les interactions pendant les sessions de cours.
+Pour les besoins du cours, nous allons utiliser une manette de jeu 8bitdo Micro.
+Voici la configuration recommandée pour les boutons de la manette, qui
+correspond à l'utilisation dans le cadre du cours. Les boutons sont configurés
+pour faciliter la navigation et les interactions pendant les sessions de cours
 
-Il s'agit de cette manette : [8bitdo micro](https://www.8bitdo.com/micro/)
+Il s'agit de cette manette : [8bitdo Micro](https://www.8bitdo.com/micro/)
 
 ```
  L1 L2            R2 R1
