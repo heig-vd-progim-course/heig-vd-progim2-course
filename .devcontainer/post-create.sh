@@ -13,6 +13,10 @@ tee -a ~/.bashrc > /dev/null <<"EOF"
 shopt -s globstar nullglob
 EOF
 
+## Configure Git
+# Set pull strategy to rebase (instead of requiring manual specification)
+git config pull.rebase true
+
 ## Install required packages
 # Update packages list
 sudo apt update
