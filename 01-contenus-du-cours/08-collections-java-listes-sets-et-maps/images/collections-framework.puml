@@ -1,0 +1,47 @@
+@startuml collections-framework
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+interface Collection<E> {
+  +add(e: E): boolean
+  +remove(o: Object): boolean
+  +contains(o: Object): boolean
+  +size(): int
+  +iterator(): Iterator<E>
+}
+
+interface List<E> {
+  +get(index: int): E
+  +add(index: int, e: E): void
+}
+
+interface Set<E>
+
+interface Map<K, V> {
+  +put(key: K, value: V): V
+  +get(key: Object): V
+  +containsKey(key: Object): boolean
+  +remove(key: Object): V
+  +keySet(): Set<K>
+  +values(): Collection<V>
+}
+
+class ArrayList<E>
+class LinkedList<E>
+class HashSet<E>
+class TreeSet<E>
+class HashMap<K, V>
+class TreeMap<K, V>
+
+Collection <|-- List
+Collection <|-- Set
+List <|.. ArrayList
+List <|.. LinkedList
+Set <|.. HashSet
+Set <|.. TreeSet
+Map <|.. HashMap
+Map <|.. TreeMap
+
+@enduml
