@@ -76,30 +76,30 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 - [Table des matières](#table-des-matières)
 - [Objectifs](#objectifs)
 - [Introduction : au-delà des tableaux](#introduction--au-delà-des-tableaux)
-	- [Ce que les tableaux font bien](#ce-que-les-tableaux-font-bien)
-	- [Les limites des tableaux](#les-limites-des-tableaux)
-	- [Les collections : une réponse flexible](#les-collections--une-réponse-flexible)
+  - [Ce que les tableaux font bien](#ce-que-les-tableaux-font-bien)
+  - [Les limites des tableaux](#les-limites-des-tableaux)
+  - [Les collections : une réponse flexible](#les-collections--une-réponse-flexible)
 - [Le framework Collections de Java](#le-framework-collections-de-java)
-	- [Trois grandes familles](#trois-grandes-familles)
-	- [Comment choisir ?](#comment-choisir-)
+  - [Trois grandes familles](#trois-grandes-familles)
+  - [Comment choisir ?](#comment-choisir-)
 - [Les listes : des éléments ordonnés](#les-listes--des-éléments-ordonnés)
-	- [Le concept de liste](#le-concept-de-liste)
-	- [ArrayList : le choix courant](#arraylist--le-choix-courant)
-	- [LinkedList : une autre approche](#linkedlist--une-autre-approche)
-	- [ArrayList ou LinkedList ?](#arraylist-ou-linkedlist-)
+  - [Le concept de liste](#le-concept-de-liste)
+  - [ArrayList : le choix courant](#arraylist--le-choix-courant)
+  - [LinkedList : une autre approche](#linkedlist--une-autre-approche)
+  - [ArrayList ou LinkedList ?](#arraylist-ou-linkedlist-)
 - [Les ensembles : des éléments uniques](#les-ensembles--des-éléments-uniques)
-	- [Le concept d'ensemble](#le-concept-densemble)
-	- [HashSet : rapide et sans ordre](#hashset--rapide-et-sans-ordre)
-	- [TreeSet : trié automatiquement](#treeset--trié-automatiquement)
-	- [Pourquoi utiliser un ensemble ?](#pourquoi-utiliser-un-ensemble-)
+  - [Le concept d'ensemble](#le-concept-densemble)
+  - [HashSet : rapide et sans ordre](#hashset--rapide-et-sans-ordre)
+  - [TreeSet : trié automatiquement](#treeset--trié-automatiquement)
+  - [Pourquoi utiliser un ensemble ?](#pourquoi-utiliser-un-ensemble-)
 - [Les maps : des associations clé-valeur](#les-maps--des-associations-clé-valeur)
-	- [Le concept de map](#le-concept-de-map)
-	- [HashMap : accès rapide par clé](#hashmap--accès-rapide-par-clé)
-	- [TreeMap : triée par clés](#treemap--triée-par-clés)
+  - [Le concept de map](#le-concept-de-map)
+  - [HashMap : accès rapide par clé](#hashmap--accès-rapide-par-clé)
+  - [TreeMap : triée par clés](#treemap--triée-par-clés)
 - [Parcourir les collections](#parcourir-les-collections)
-	- [La boucle for-each](#la-boucle-for-each)
-	- [Les itérateurs](#les-itérateurs)
-	- [Modifier une collection pendant l'itération](#modifier-une-collection-pendant-litération)
+  - [La boucle for-each](#la-boucle-for-each)
+  - [Les itérateurs](#les-itérateurs)
+  - [Modifier une collection pendant l'itération](#modifier-une-collection-pendant-litération)
 - [Choisir la bonne collection](#choisir-la-bonne-collection)
 - [Conclusion](#conclusion)
 - [Aller plus loin](#aller-plus-loin)
@@ -179,9 +179,9 @@ plants[2] = new TreePlant("Pommier", "Malus", "2026-02-01", 0, 4);
 
 Déclaration et initialisation d'un tableau de type `PlantBase` nommé `plants`
 avec une taille fixe de 10 éléments. Affectation d'un nouvel objet
-`VegetablePlant` à l'index `0` et d'un nouvel objet `FlowerPlant` à l'index
-`1`. Déclaration d'un nouveau tableau `newPlants` de taille 20. Boucle `for`
-pour copier chaque élément de `plants` vers `newPlants`. Réaffectation de la
+`VegetablePlant` à l'index `0` et d'un nouvel objet `FlowerPlant` à l'index `1`.
+Déclaration d'un nouveau tableau `newPlants` de taille 20. Boucle `for` pour
+copier chaque élément de `plants` vers `newPlants`. Réaffectation de la
 référence `plants` vers le nouveau tableau `newPlants`. Affectation d'un nouvel
 objet `TreePlant` à l'index `2`.
 
@@ -224,11 +224,11 @@ framework Collections fonctionne exactement de la même manière.
 Le framework organise les collections en trois grandes familles, chacune
 répondant à un besoin différent :
 
-| Famille          | Interface | Ce qu'elle fait                          | Exemple concret                                    |
-| :--------------- | :-------- | :--------------------------------------- | :------------------------------------------------- |
-| Liste            | `List`    | Stocke des éléments dans un ordre précis | La liste des plantes d'une parcelle.               |
-| Ensemble         | `Set`     | Stocke des éléments uniques              | Les espèces de plantes disponibles dans le jardin. |
-| Association (map) | `Map`    | Associe des clés à des valeurs           | Le nom d'une jardinière associé à sa parcelle.     |
+| Famille           | Interface | Ce qu'elle fait                          | Exemple concret                                    |
+| :---------------- | :-------- | :--------------------------------------- | :------------------------------------------------- |
+| Liste             | `List`    | Stocke des éléments dans un ordre précis | La liste des plantes d'une parcelle.               |
+| Ensemble          | `Set`     | Stocke des éléments uniques              | Les espèces de plantes disponibles dans le jardin. |
+| Association (map) | `Map`     | Associe des clés à des valeurs           | Le nom d'une jardinière associé à sa parcelle.     |
 
 > [!NOTE]
 >
@@ -236,14 +236,18 @@ répondant à un besoin différent :
 > de Java, mais elle fait partie du framework Collections au sens large. La
 > distinction est subtile et principalement technique.
 
+Le diagramme de classes ci-dessous illustre la hiérarchie des principales
+interfaces et implémentations du framework Collections :
+
+![Diagramme de classes du framework Collections de Java](./images/collections-framework.svg)
+
 ### Comment choisir ?
 
 Avant de plonger dans le code, posons-nous les bonnes questions :
 
-- Les éléments doivent-ils être ordonnés ? Si oui, une liste est probablement
-  le bon choix.
-- Les éléments doivent-ils être uniques ? Si oui, un ensemble est plus
-  adapté.
+- Les éléments doivent-ils être ordonnés ? Si oui, une liste est probablement le
+  bon choix.
+- Les éléments doivent-ils être uniques ? Si oui, un ensemble est plus adapté.
 - Faut-il retrouver un élément à partir d'une clé ? Si oui, une map est la
   solution.
 
@@ -259,11 +263,11 @@ Une liste est une collection ordonnée d'éléments. Chaque élément a une posi
 (un index) et les doublons sont autorisés. On peut accéder à un élément par son
 index, ajouter des éléments n'importe où dans la liste, et en supprimer.
 
-C'est le type de collection le plus proche du tableau, mais sans ses
-limitations de taille fixe.
+C'est le type de collection le plus proche du tableau, mais sans ses limitations
+de taille fixe.
 
-En Java, l'interface `List` définit le contrat commun à toutes les listes.
-Deux implémentations principales existent : `ArrayList` et `LinkedList`.
+En Java, l'interface `List` définit le contrat commun à toutes les listes. Deux
+implémentations principales existent : `ArrayList` et `LinkedList`.
 
 ### ArrayList : le choix courant
 
@@ -304,19 +308,19 @@ System.out.println(plantNames.contains("Carotte")); // true
 <summary>Description du code</summary>
 
 Importation des classes `ArrayList` et `List` depuis le package `java.util`.
-Déclaration d'une variable `plantNames` de type `List<String>` et
-initialisation avec un nouvel objet `ArrayList<>`. L'opérateur diamant (`<>`)
-permet au compilateur d'inférer le type générique.
+Déclaration d'une variable `plantNames` de type `List<String>` et initialisation
+avec un nouvel objet `ArrayList<>`. L'opérateur diamant (`<>`) permet au
+compilateur d'inférer le type générique.
 
 Appels successifs de la méthode `add()` pour ajouter quatre éléments de type
 `String` à la liste, dont un doublon (`"Tomate"`). Appel de
 `System.out.println()` pour afficher le contenu de la liste.
 
-Appel de la méthode `get(0)` pour accéder à l'élément d'index `0` et
-affectation du résultat à la variable `first` de type `String`.
+Appel de la méthode `get(0)` pour accéder à l'élément d'index `0` et affectation
+du résultat à la variable `first` de type `String`.
 
-Appel de la méthode `remove("Basilic")` pour supprimer la première occurrence
-de `"Basilic"`. Appel de la méthode `size()` pour obtenir le nombre d'éléments.
+Appel de la méthode `remove("Basilic")` pour supprimer la première occurrence de
+`"Basilic"`. Appel de la méthode `size()` pour obtenir le nombre d'éléments.
 Appel de la méthode `contains("Carotte")` pour vérifier la présence d'un
 élément.
 
@@ -373,12 +377,12 @@ Puisque les deux implémentent la même interface `List`, le code qui les utilis
 est identique. La différence se situe dans la performance de certaines
 opérations :
 
-| Opération                     |       `ArrayList`       |       `LinkedList`       |
-| :---------------------------- | :---------------------: | :----------------------: |
-| Accès par index (`get(i)`)    | Rapide (accès direct)   | Lent (parcours depuis le début) |
-| Ajout à la fin (`add(e)`)    | Rapide (la plupart du temps) | Rapide               |
-| Ajout/suppression au milieu  | Lent (décalage des éléments) | Rapide (réarrangement des liens) |
-| Recherche (`contains(e)`)   | Lent (parcours complet) | Lent (parcours complet)  |
+| Opération                   |         `ArrayList`          |           `LinkedList`           |
+| :-------------------------- | :--------------------------: | :------------------------------: |
+| Accès par index (`get(i)`)  |    Rapide (accès direct)     | Lent (parcours depuis le début)  |
+| Ajout à la fin (`add(e)`)   | Rapide (la plupart du temps) |              Rapide              |
+| Ajout/suppression au milieu | Lent (décalage des éléments) | Rapide (réarrangement des liens) |
+| Recherche (`contains(e)`)   |   Lent (parcours complet)    |     Lent (parcours complet)      |
 
 En pratique, `ArrayList` est le choix par défaut dans la grande majorité des
 cas. `LinkedList` n'est pertinente que dans des situations très spécifiques où
@@ -438,8 +442,8 @@ Appels successifs de la méthode `add()` pour ajouter quatre éléments, dont un
 doublon (`"Tomate"`). Le doublon est ignoré silencieusement par l'ensemble.
 
 Appel de `System.out.println()` pour afficher le contenu de l'ensemble. L'ordre
-d'affichage n'est pas garanti et peut varier d'une exécution à l'autre. Appel
-de `size()` qui retourne `3` car le doublon n'a pas été ajouté. Appel de
+d'affichage n'est pas garanti et peut varier d'une exécution à l'autre. Appel de
+`size()` qui retourne `3` car le doublon n'a pas été ajouté. Appel de
 `contains("Tomate")` qui retourne `true`. Appel de `remove("Basilic")` pour
 supprimer un élément de l'ensemble.
 
@@ -452,9 +456,9 @@ simplement `false` pour indiquer que l'élément existait déjà.
 >
 > Pour que `HashSet` fonctionne correctement avec vos propres classes (comme
 > `PlantBase`), celles-ci doivent correctement redéfinir les méthodes `equals()`
-> et `hashCode()`. C'est ce que nous avons fait dans la partie 3 du
-> mini-projet. Sans cela, deux objets identiques pourraient être considérés
-> comme différents par l'ensemble.
+> et `hashCode()`. C'est ce que nous avons fait dans la partie 3 du mini-projet.
+> Sans cela, deux objets identiques pourraient être considérés comme différents
+> par l'ensemble.
 
 ### TreeSet : trié automatiquement
 
@@ -517,10 +521,10 @@ avec un `ArrayList` contenant cinq éléments dont des doublons. La méthode
 `List.of()` crée une liste immuable qui est passée au constructeur
 d'`ArrayList`.
 
-Déclaration d'une variable `noDuplicates` de type `Set<String>` initialisée
-avec un `HashSet` construit à partir de la liste `withDuplicates`. Le
-constructeur de `HashSet` ajoute chaque élément de la liste, en ignorant les
-doublons. L'affichage montre les trois éléments uniques.
+Déclaration d'une variable `noDuplicates` de type `Set<String>` initialisée avec
+un `HashSet` construit à partir de la liste `withDuplicates`. Le constructeur de
+`HashSet` ajoute chaque élément de la liste, en ignorant les doublons.
+L'affichage montre les trois éléments uniques.
 
 </details>
 
@@ -584,10 +588,10 @@ Appels successifs de la méthode `put()` pour associer trois clés à trois
 valeurs. Appel de `get("Alice")` pour retrouver la valeur associée à la clé
 `"Alice"`. Appel de `containsKey("Bob")` pour vérifier l'existence d'une clé.
 
-Appel de `put("Alice", "Parcelle C1")` qui remplace la valeur existante
-associée à la clé `"Alice"`. Si la clé existe déjà, `put()` écrase l'ancienne
-valeur. Appel de `remove("Bob")` pour supprimer l'entrée ayant la clé `"Bob"`.
-Appel de `size()` qui retourne `2`.
+Appel de `put("Alice", "Parcelle C1")` qui remplace la valeur existante associée
+à la clé `"Alice"`. Si la clé existe déjà, `put()` écrase l'ancienne valeur.
+Appel de `remove("Bob")` pour supprimer l'entrée ayant la clé `"Bob"`. Appel de
+`size()` qui retourne `2`.
 
 </details>
 
@@ -644,8 +648,8 @@ System.out.println(plantCounts); // {Basilic=8, Carotte=15, Tomate=12} (trié)
 Importation des classes `Map` et `TreeMap` depuis le package `java.util`.
 Déclaration d'une variable `plantCounts` de type `Map<String, Integer>` et
 initialisation avec un nouvel objet `TreeMap<>`. Le type des clés est `String`,
-le type des valeurs est `Integer` (la version objet de `int`, car les
-génériques ne supportent pas les types primitifs).
+le type des valeurs est `Integer` (la version objet de `int`, car les génériques
+ne supportent pas les types primitifs).
 
 Appels successifs de `put()` pour ajouter trois entrées. L'affichage montre les
 entrées triées par ordre alphabétique des clés.
@@ -681,8 +685,8 @@ variable `plant` de type `String`, puis affiché.
 
 </details>
 
-Pour une map, on peut parcourir les clés, les valeurs, ou les paires
-clé-valeur :
+Pour une map, on peut parcourir les clés, les valeurs, ou les paires clé-valeur
+:
 
 ```java
 Map<String, String> assignments = new HashMap<>();
@@ -773,10 +777,9 @@ for (String plant : plants) {
 
 Déclaration d'une variable `plants` de type `List<String>` et initialisation
 avec quatre éléments. Boucle `for-each` sur la liste. Structure conditionnelle
-`if` avec appel de la méthode `equals("Tomate")` pour tester l'égalité. Appel
-de `plants.remove(plant)` pour tenter de supprimer un élément pendant
-l'itération. Ce code lève une exception `ConcurrentModificationException` à
-l'exécution.
+`if` avec appel de la méthode `equals("Tomate")` pour tester l'égalité. Appel de
+`plants.remove(plant)` pour tenter de supprimer un élément pendant l'itération.
+Ce code lève une exception `ConcurrentModificationException` à l'exécution.
 
 </details>
 
@@ -819,25 +822,25 @@ restent.
 </details>
 
 La méthode `remove()` de l'itérateur est la seule façon sûre de supprimer des
-éléments pendant un parcours. C'est l'itérateur qui gère la cohérence interne
-de la collection.
+éléments pendant un parcours. C'est l'itérateur qui gère la cohérence interne de
+la collection.
 
 ## Choisir la bonne collection
 
 Voici un tableau récapitulatif pour guider le choix :
 
-| Besoin                                      | Collection recommandée | Pourquoi                                    |
-| :------------------------------------------ | :--------------------- | :------------------------------------------ |
-| Liste ordonnée avec accès par index.        | `ArrayList`            | Rapide pour l'accès et l'ajout en fin.      |
-| Insertions/suppressions fréquentes au milieu. | `LinkedList`         | Pas de décalage d'éléments.                 |
-| Éléments uniques, ordre non important.      | `HashSet`              | Recherche et ajout rapides.                 |
-| Éléments uniques et triés.                  | `TreeSet`              | Tri automatique maintenu.                   |
-| Associer des clés à des valeurs.            | `HashMap`              | Accès rapide par clé.                       |
-| Associations triées par clé.                | `TreeMap`              | Clés triées automatiquement.                |
+| Besoin                                        | Collection recommandée | Pourquoi                               |
+| :-------------------------------------------- | :--------------------- | :------------------------------------- |
+| Liste ordonnée avec accès par index.          | `ArrayList`            | Rapide pour l'accès et l'ajout en fin. |
+| Insertions/suppressions fréquentes au milieu. | `LinkedList`           | Pas de décalage d'éléments.            |
+| Éléments uniques, ordre non important.        | `HashSet`              | Recherche et ajout rapides.            |
+| Éléments uniques et triés.                    | `TreeSet`              | Tri automatique maintenu.              |
+| Associer des clés à des valeurs.              | `HashMap`              | Accès rapide par clé.                  |
+| Associations triées par clé.                  | `TreeMap`              | Clés triées automatiquement.           |
 
 Le choix dépend toujours du contexte. Il n'y a pas de collection universelle.
-Chaque implémentation a ses forces et ses faiblesses, et c'est en comprenant
-ces différences que l'on peut faire le bon choix.
+Chaque implémentation a ses forces et ses faiblesses, et c'est en comprenant ces
+différences que l'on peut faire le bon choix.
 
 Dans le mini-projet, nous mettrons ces choix en pratique en utilisant
 simultanément des listes, des ensembles et des maps pour gérer le jardin
@@ -856,8 +859,8 @@ Nous avons vu trois familles de collections :
 - Les ensembles (`HashSet`, `TreeSet`) pour les éléments uniques.
 - Les maps (`HashMap`, `TreeMap`) pour les associations clé-valeur.
 
-Chaque famille répond à un besoin différent. Le choix de la bonne collection
-est une décision de conception qui influence la lisibilité, la performance et la
+Chaque famille répond à un besoin différent. Le choix de la bonne collection est
+une décision de conception qui influence la lisibilité, la performance et la
 maintenabilité du code.
 
 Dans la prochaine séance, nous irons plus loin avec les expressions lambda, les
