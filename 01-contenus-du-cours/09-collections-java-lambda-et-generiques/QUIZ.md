@@ -220,8 +220,8 @@ List<Object> objects = new ArrayList<>();
 objects.add("Texte");
 objects.add(42);                     // Ligne B
 
-List<?> wildcard = names;
-wildcard.add("Bob");                 // Ligne C
+List<String> copy = names;
+Integer n = copy.get(0);             // Ligne C
 ```
 
 - **A.** Lignes A et C uniquement.
@@ -237,27 +237,34 @@ wildcard.add("Bob");                 // Ligne C
   ajouter un `int`.
 - **Ligne B** : pas d'erreur. `List<Object>` accepte `String` et `Integer` (les
   deux héritent de `Object`).
-- **Ligne C** : erreur. On ne peut pas ajouter d'éléments à une `List<?>` (sauf
-  `null`). Le compilateur ne connaît pas le type exact.
+- **Ligne C** : erreur. `copy.get(0)` retourne un `String`, pas un `Integer`. Le
+  compilateur refuse l'affectation.
 
 Les génériques détectent les erreurs de type **avant** l'exécution.
 
 ## Question 6 - Donnée
 
-**Comparaison : wildcard extends vs super**
+**Comparaison : génériques vs polymorphisme**
 
-Quelle est la différence entre ces deux signatures ?
+Quelle affirmation décrit correctement la différence entre les génériques et le
+polymorphisme de sous-typage ?
 
 ```java
-// Méthode A
-public double sum(List<? extends Number> list) { ... }
+// Code A (polymorphisme)
+PlantBase plant = new VegetablePlant(...);
+plant.toString(); // Appelle VegetablePlant.toString()
 
-// Méthode B
-public void addInts(List<? super Integer> list) { ... }
+// Code B (génériques)
+Box<String> box = new Box<>("Tomate");
+box.get(); // Retourne un String
 ```
 
-- **A.** A peut lire des `Number`, B peut écrire des `Integer`.
-- **B.** A peut écrire des `Number`, B peut lire des `Integer`.
+- **A.** Le polymorphisme varie le comportement selon le sous-type, les
+  génériques gardent un comportement identique pour tous les types.
+- **B.** Les génériques varient le comportement selon le type, le polymorphisme
+  garde un comportement identique.
+- **C.** Les deux sont identiques, seule la syntaxe change.
+- **D.** Les génériques remplacent le polymorphisme en Java.
 - **C.** Les deux sont identiques.
 - **D.** Aucune des deux ne compile.
 
@@ -265,19 +272,15 @@ public void addInts(List<? super Integer> list) { ... }
 
 **Réponse correcte : A**
 
-`<? extends Number>` (producteur) :
+- **Polymorphisme de sous-typage** : le comportement est déterminé à l'exécution
+  par le type réel de l'objet. `plant.toString()` appelle la version redéfinie
+  dans `VegetablePlant`. Chaque sous-type peut répondre différemment.
 
-- Accepte `List<Integer>`, `List<Double>`, `List<Number>`.
-- On peut **lire** les éléments comme `Number`.
-- On **ne peut pas écrire** dedans (sauf `null`).
+- **Génériques (polymorphisme paramétrique)** : le comportement est identique
+  pour tous les types. `Box<String>` et `Box<Integer>` utilisent exactement le
+  même code. Seul le type paramétré change.
 
-`<? super Integer>` (consommateur) :
-
-- Accepte `List<Integer>`, `List<Number>`, `List<Object>`.
-- On peut **écrire** des `Integer` dedans.
-- La lecture retourne `Object`.
-
-C'est le principe **PECS** : _Producer Extends, Consumer Super_.
+Les deux mécanismes sont complémentaires, pas interchangeables.
 
 ## Question 7 - Donnée
 
@@ -312,7 +315,8 @@ objects.add(42);               // Ajout d'un Integer !
 String s = names.get(1);      // ClassCastException !
 ```
 
-Pour accepter les deux, utilisez `List<?>` ou `List<? extends Object>`.
+Pour accepter les deux, il faudrait utiliser des mécanismes plus avancés comme
+les wildcards (hors du cadre de ce chapitre).
 
 ## Question 8 - Donnée
 

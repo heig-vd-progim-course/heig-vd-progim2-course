@@ -59,8 +59,7 @@ document._
 
 - Créer des classes et des méthodes génériques avec des paramètres de type.
 - Utiliser l'opérateur diamant (`<>`) pour l'inférence de type.
-- Utiliser les wildcards (`<? extends T>`, `<? super T>`) pour écrire du code
-  flexible.
+- Comparer les génériques avec le polymorphisme (sous-typage vs paramétrique).
 
 ![bg right:40%][illustration-objectifs]
 
@@ -82,7 +81,7 @@ Ces chevrons (`<>`) utilisent un mécanisme fondamental de Java : les
 
 - Pourquoi les génériques existent.
 - Comment créer nos propres classes et méthodes génériques.
-- Comment les wildcards ajoutent de la flexibilité.
+- Comment les génériques se comparent au polymorphisme.
 
 ## Les génériques
 
@@ -268,89 +267,70 @@ String firstName = GardenUtils.getFirst(names);
 // Retourne un String, sans cast
 ```
 
-### Les wildcards
+### Génériques vs polymorphisme
 
 <!-- _class: lead -->
 
-Les wildcards (jokers) rendent les génériques plus flexibles. Ils sont utilisés
-quand on ne connaît pas ou ne veut pas fixer le type exact.
+Les génériques et le polymorphisme permettent tous deux de travailler avec
+plusieurs types. Mais leurs mécanismes sont fondamentalement différents.
 
-#### Le wildcard non borné : `<?>`
+#### Le polymorphisme de sous-typage
 
-`<?>` signifie "n'importe quel type" :
+Le comportement change selon le type réel de l'objet (résolution à l'exécution)
+:
 
 ```java
-public static void printList(List<?> list) {
-    for (Object item : list) {
-        System.out.println(item);
+PlantBase plant = new VegetablePlant(
+        "Tomate", "Solanum lycopersicum",
+        "2026-03-15", 45.5, 30);
+System.out.println(plant.toString());
+// Appelle VegetablePlant.toString()
+// pas PlantBase.toString()
+```
+
+"Je ne sais pas quel sous-type tu es, mais chaque sous-type répondra
+**différemment**."
+
+#### Les génériques (polymorphisme paramétrique)
+
+Le comportement reste identique, quel que soit le type (résolution à la
+compilation) :
+
+```java
+Box<String> stringBox = new Box<>("Tomate");
+Box<Integer> intBox = new Box<>(42);
+// Les deux utilisent exactement le même code
+```
+
+"Je ne me soucie pas du type, le conteneur fonctionne de la **même manière**
+pour tous les types."
+
+#### Comparaison
+
+| Critère       | Polymorphisme              | Génériques                 |
+| :------------ | :------------------------- | :------------------------- |
+| Mécanisme.    | Héritage et redéfinition.  | Paramètre de type (`<T>`). |
+| Résolution.   | Exécution (dynamique).     | Compilation (statique).    |
+| Comportement. | Varie selon le sous-type.  | Identique pour tous.       |
+| Sécurité.     | Partielle (cast possible). | Complète (compilation).    |
+
+#### Complémentarité
+
+Les deux mécanismes se complètent. Les types bornés combinent les deux approches
+:
+
+```java
+public static <T extends PlantBase> void waterAll(
+        List<T> plants) {
+    for (T plant : plants) {
+        if (plant instanceof Waterable) {
+            ((Waterable) plant).water();
+        }
     }
 }
 ```
 
-Fonctionne avec n'importe quel type de liste :
-
-```java
-printList(plants);  // List<PlantBase> -> OK
-printList(names);   // List<String>    -> OK
-```
-
-On peut **lire** les éléments (comme `Object`), mais on ne peut pas **écrire**
-dedans (sauf `null`).
-
-#### Le wildcard borné supérieurement : `<? extends T>`
-
-`<? extends T>` signifie "un type qui est `T` ou un sous-type de `T`". On peut
-**lire** les éléments en tant que `T` :
-
-```java
-public static double totalSize(
-        List<? extends PlantBase> plants) {
-    double total = 0;
-    for (PlantBase plant : plants) {
-        total += plant.getSize();
-    }
-    return total;
-}
-```
-
-```java
-List<VegetablePlant> vegetables = new ArrayList<>();
-double total = totalSize(vegetables); // OK
-```
-
-Accepte `List<PlantBase>`, `List<VegetablePlant>`, `List<FlowerPlant>`, etc.
-
-#### Le wildcard borné inférieurement : `<? super T>`
-
-`<? super T>` signifie "un type qui est `T` ou un super-type de `T`". On peut
-**écrire** des éléments de type `T` :
-
-```java
-public static void addDefaultVegetables(
-        List<? super VegetablePlant> list) {
-    list.add(new VegetablePlant("Laitue",
-            "Lactuca sativa", "2026-05-01", 5.0, 45));
-}
-```
-
-```java
-List<PlantBase> allPlants = new ArrayList<>();
-addDefaultVegetables(allPlants); // OK
-```
-
-Accepte `List<VegetablePlant>`, `List<PlantBase>`, `List<Object>`.
-
-#### Règle PECS
-
-Règle mnémotechnique **PECS** (Producer Extends, Consumer Super) :
-
-| Opération               | Wildcard        | Exemple                 |
-| :---------------------- | :-------------- | :---------------------- |
-| **Lire** des éléments   | `<? extends T>` | `totalSize(List<...>)`  |
-| **Écrire** des éléments | `<? super T>`   | `addDefault(List<...>)` |
-| **Lire et écrire**      | Pas de wildcard | `List<T>`               |
-
-### Limitations des génériques
+### Limitations des génériques (1/2)
 
 Les génériques ont quelques restrictions liées à l'**effacement de type** (type
 erasure) :
@@ -359,13 +339,15 @@ erasure) :
 - Pas de `new T()` : on ne peut pas créer d'instance d'un paramètre de type.
 - Pas de `new T[10]` : on ne peut pas créer de tableau d'un type générique.
 
+### Limitations des génériques (1/2)
+
 Java remplace les types génériques par `Object` à la compilation. Les génériques
 n'existent qu'à la compilation, pas à l'exécution :
 
 ```java
 Box<String> box1 = new Box<>("Hello");
 Box<Integer> box2 = new Box<>(42);
-// box1.getClass() == box2.getClass() -> true !
+System.out.println(box1.getClass() == box2.getClass()); // true
 ```
 
 ## Questions

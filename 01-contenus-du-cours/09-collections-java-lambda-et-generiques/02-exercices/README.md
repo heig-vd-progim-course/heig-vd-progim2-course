@@ -25,9 +25,8 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
   - [Exercice 6 - Object vs générique](#exercice-6---object-vs-générique)
 - [Exercices de modification](#exercices-de-modification)
   - [Exercice 7 - ajout d'un paramètre de type générique](#exercice-7---ajout-dun-paramètre-de-type-générique)
-  - [Exercice 8 - ajout d'un wildcard](#exercice-8---ajout-dun-wildcard)
 - [Exercices de transfert](#exercices-de-transfert)
-  - [Exercice 9 - registre générique](#exercice-9---registre-générique)
+  - [Exercice 8 - registre générique](#exercice-8---registre-générique)
 - [Conclusion](#conclusion)
 
 ## Exercices
@@ -431,9 +430,9 @@ public class TypeSafety {
         objects.add(42);
         objects.add(3.14);                   // Ligne C
 
-        List<?> wildcard = names;
-        wildcard.add("Charlie");             // Ligne D
-        Object first = wildcard.get(0);      // Ligne E
+        List<String> copy = names;
+        Integer n = copy.get(0);             // Ligne D
+        String first = copy.get(0);          // Ligne E
     }
 }
 ```
@@ -449,10 +448,10 @@ Erreurs de compilation :
   Le compilateur refuse l'affectation.
 - **Ligne C** : pas d'erreur. `objects` est de type `List<Object>`, et `String`,
   `Integer` et `Double` héritent tous de `Object`.
-- **Ligne D** : erreur. On ne peut pas ajouter d'éléments à une `List<?>` (sauf
-  `null`). Le compilateur ne connaît pas le type exact de la liste.
-- **Ligne E** : pas d'erreur. On peut lire un élément d'une `List<?>` comme
-  `Object`.
+- **Ligne D** : erreur. `copy.get(0)` retourne un `String`, pas un `Integer`. Le
+  compilateur refuse l'affectation.
+- **Ligne E** : pas d'erreur. `copy.get(0)` retourne un `String` et la variable
+  est de type `String`.
 
 Les lignes A, B et D ne compilent pas. Les génériques détectent ces erreurs
 avant l'exécution, ce qui est l'un de leurs principaux avantages.
@@ -654,95 +653,12 @@ Modifications effectuées :
 
 </details>
 
-### Exercice 8 - ajout d'un wildcard
-
-La méthode `displayAll` suivante n'accepte qu'une `List<Object>`. Modifiez-la
-pour qu'elle accepte une liste de n'importe quel type en utilisant un wildcard.
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class WildcardExercise {
-
-    public static void displayAll(List<Object> items) {
-        for (Object item : items) {
-            System.out.println("  - " + item);
-        }
-    }
-
-    public static void main(String[] args) {
-        List<String> names = new ArrayList<>();
-        names.add("Alice");
-        names.add("Bob");
-
-        List<Integer> numbers = new ArrayList<>();
-        numbers.add(10);
-        numbers.add(20);
-
-        // Ces appels ne compilent pas ! Corrigez displayAll.
-        // displayAll(names);
-        // displayAll(numbers);
-    }
-}
-```
-
-<details>
-<summary>Solution</summary>
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class WildcardExercise {
-
-    public static void displayAll(List<?> items) {
-        for (Object item : items) {
-            System.out.println("  - " + item);
-        }
-    }
-
-    public static void main(String[] args) {
-        List<String> names = new ArrayList<>();
-        names.add("Alice");
-        names.add("Bob");
-
-        List<Integer> numbers = new ArrayList<>();
-        numbers.add(10);
-        numbers.add(20);
-
-        System.out.println("Noms :");
-        displayAll(names);
-
-        System.out.println("Nombres :");
-        displayAll(numbers);
-    }
-}
-```
-
-Sortie attendue :
-
-```text
-Noms :
-  - Alice
-  - Bob
-Nombres :
-  - 10
-  - 20
-```
-
-Le problème : `List<String>` n'est pas un sous-type de `List<Object>` en Java
-(les génériques sont invariants). En remplaçant `List<Object>` par `List<?>`
-(wildcard non borné), la méthode accepte une liste de n'importe quel type.
-
-</details>
-
 ## Exercices de transfert
 
 Ces exercices vous demandent d'appliquer les concepts des génériques dans un
 nouveau contexte.
 
-### Exercice 9 - registre générique
+### Exercice 8 - registre générique
 
 Créez une classe `Registry<T>` générique qui gère une collection d'éléments avec
 les fonctionnalités suivantes :
@@ -879,7 +795,6 @@ Vous avez pratiqué :
 
 - La création de classes génériques avec un ou deux paramètres de type.
 - La création de méthodes génériques.
-- L'utilisation de wildcards pour écrire du code flexible.
 - La comparaison entre les approches avec `Object` et avec les génériques.
 - L'application des génériques dans un nouveau contexte.
 
