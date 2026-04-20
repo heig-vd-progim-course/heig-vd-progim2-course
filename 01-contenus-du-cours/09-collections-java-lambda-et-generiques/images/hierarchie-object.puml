@@ -1,0 +1,54 @@
+@startuml hierarchie-object
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+class Object {
+    + toString() : String
+    + equals(obj : Object) : boolean
+    + hashCode() : int
+}
+
+abstract class PlantBase {
+    - name : String
+    - species : String
+}
+
+class VegetablePlant {
+    - daysUntilHarvest : int
+}
+
+class FlowerPlant {
+    - color : String
+}
+
+class TreePlant {
+    - ageInYears : int
+}
+
+class String {
+}
+
+class Integer {
+}
+
+class ArrayList {
+}
+
+Object <|-- PlantBase
+Object <|-- String
+Object <|-- Integer
+Object <|-- ArrayList
+PlantBase <|-- VegetablePlant
+PlantBase <|-- FlowerPlant
+PlantBase <|-- TreePlant
+
+note bottom of Object
+  Toutes les classes Java
+  héritent de Object.
+  C'est pourquoi une ObjectBox
+  accepte n'importe quel objet.
+end note
+
+@enduml

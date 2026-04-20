@@ -1,4 +1,4 @@
-# Collections Java : Lambda et génériques
+# Collections Java : Les génériques
 
 V. Guidoux, avec l'aide de
 [GitHub Copilot](https://github.com/features/copilot).
@@ -23,24 +23,16 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 > À l'issue de cette séance, les personnes qui étudient devraient être capables
 > de :
 >
-> - Expliquer ce qu'est une expression lambda en Java.
-> - Créer des expressions lambda pour des interfaces fonctionnelles.
-> - Utiliser les lambdas pour simplifier le code (comparateurs, filtres).
-> - Appliquer les lambdas avec les collections (forEach, removeIf, etc.).
-> - Identifier les interfaces fonctionnelles courantes (`Predicate`, `Function`,
->   `Consumer`, `Supplier`).
-> - Utiliser les interfaces fonctionnelles avec des lambdas.
-> - Créer ses propres interfaces fonctionnelles.
-> - Créer un stream à partir d'une collection.
-> - Appliquer les opérations intermédiaires (filter, map, sorted).
-> - Appliquer les opérations terminales (collect, forEach, count, reduce).
-> - Enchaîner plusieurs opérations pour traiter des données.
-> - Expliquer l'utilité des génériques en Java.
-> - Créer des classes génériques avec des paramètres de type.
-> - Créer des méthodes génériques.
-> - Utiliser les génériques avec les collections pour assurer la sécurité de
->   type.
-> - Comprendre les wildcards (`<? extends T>`, `<? super T>`).
+> - Expliquer l'utilité des génériques pour la sécurité de type et la
+>   réutilisabilité du code.
+> - Identifier les trois problèmes résolus par les génériques : code dupliqué,
+>   absence de sécurité de type et conversions de type manuelles.
+> - Créer des classes et des méthodes génériques avec des paramètres de type.
+> - Utiliser l'opérateur diamant (`<>`) pour l'inférence de type.
+> - Comparer les génériques avec le polymorphisme (sous-typage vs paramétrique).
+> - Appliquer les génériques avec les collections pour éviter les erreurs de
+>   type à la compilation.
+> - Expliquer le concept d'effacement de type (type erasure) et ses limitations.
 >
 > **Méthodes d'enseignement et d'apprentissage**
 >
@@ -70,6 +62,664 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 > - Corrigé du mini-projet.
 >
 > L'évaluation ne donne pas lieu à une note.
+
+## Table des matières
+
+- [Table des matières](#table-des-matières)
+- [Introduction : écrire du code réutilisable et sûr](#introduction--écrire-du-code-réutilisable-et-sûr)
+- [Les génériques](#les-génériques)
+  - [Le problème : trois raisons d'utiliser les génériques](#le-problème--trois-raisons-dutiliser-les-génériques)
+  - [Les classes génériques](#les-classes-génériques)
+  - [Les méthodes génériques](#les-méthodes-génériques)
+  - [Génériques vs polymorphisme](#génériques-vs-polymorphisme)
+  - [Limitations des génériques](#limitations-des-génériques)
+- [Conclusion](#conclusion)
+- [Exemples de code](#exemples-de-code)
+- [Exercices](#exercices)
+- [Mini-projet](#mini-projet)
+- [À faire pour la prochaine séance](#à-faire-pour-la-prochaine-séance)
+
+## Introduction : écrire du code réutilisable et sûr
+
+Dans le chapitre précédent, nous avons découvert les collections Java :
+`ArrayList`, `HashSet` et `HashMap`. Nous savons maintenant stocker, parcourir
+et manipuler des ensembles d'objets de manière flexible.
+
+Mais en utilisant les collections, nous avons toujours dû préciser le type des
+éléments entre chevrons : `ArrayList<PlantBase>`, `HashMap<String, Plot>`, etc.
+Ces chevrons utilisent un mécanisme fondamental de Java : les génériques.
+
+Ce chapitre explore les génériques en profondeur. Nous verrons pourquoi ils
+existent, comment créer nos propres classes et méthodes génériques, et comment
+ils se comparent au polymorphisme que nous connaissons déjà.
+
+## Les génériques
+
+### Le problème : trois raisons d'utiliser les génériques
+
+Sans les génériques, on se heurte à trois problèmes concrets : le code dupliqué,
+l'absence de sécurité de type et la nécessité de faire des conversions de type
+manuelles (source :
+[W3Schools - Java Generics](https://www.w3schools.com/java/java_generics.asp)).
+
+![Les trois problèmes résolus par les génériques](./images/generiques-trois-avantages.svg)
+
+#### Premier problème : le code dupliqué (réutilisabilité)
+
+Imaginons que nous avons besoin d'une classe qui stocke une valeur et la
+retourne. Si on veut le faire pour différents types, il faut écrire une classe
+par type :
+
+```java
+public class StringBox {
+    private String value;
+
+    public void set(String value) {
+        this.value = value;
+    }
+
+    public String get() {
+        return value;
+    }
+}
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une classe publique `StringBox` avec un champ privé `value` de
+type `String`.
+
+Déclaration d'un setter `set` qui accepte un paramètre de type `String` et
+l'assigne au champ `value`.
+
+Déclaration d'un getter `get` qui retourne la valeur de type `String`.
+
+</details>
+
+```java
+public class IntegerBox {
+    private Integer value;
+
+    public void set(Integer value) {
+        this.value = value;
+    }
+
+    public Integer get() {
+        return value;
+    }
+}
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une classe publique `IntegerBox` avec un champ privé `value` de
+type `Integer`.
+
+Déclaration d'un setter `set` qui accepte un paramètre de type `Integer` et
+l'assigne au champ `value`.
+
+Déclaration d'un getter `get` qui retourne la valeur de type `Integer`.
+
+</details>
+
+```java
+public class PlantBaseBox {
+    private PlantBase value;
+
+    public void set(PlantBase value) {
+        this.value = value;
+    }
+
+    public PlantBase get() {
+        return value;
+    }
+}
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une classe publique `PlantBaseBox` avec un champ privé `value` de
+type `PlantBase`.
+
+Déclaration d'un setter `set` qui accepte un paramètre de type `PlantBase` et
+l'assigne au champ `value`.
+
+Déclaration d'un getter `get` qui retourne la valeur de type `PlantBase`.
+
+</details>
+
+Trois classes avec exactement la même logique, seul le type change. Si on doit
+ajouter une méthode ou corriger un bug, il faut le faire dans chaque classe.
+
+![Sans et avec génériques](./images/generiques-sans-avec.svg)
+
+#### Deuxième problème : l'absence de sécurité de type
+
+On pourrait essayer de résoudre le problème de duplication en utilisant `Object`
+comme type universel. En Java, toutes les classes héritent implicitement de la
+classe `Object`. C'est la racine de la hiérarchie de classes :
+
+![Hiérarchie de la classe Object en Java](./images/hierarchie-object.svg)
+
+Puisque tout est un `Object`, on pourrait créer une seule classe qui utilise ce
+type :
+
+```java
+public class ObjectBox {
+    private Object value;
+
+    public void set(Object value) {
+        this.value = value;
+    }
+
+    public Object get() {
+        return value;
+    }
+}
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une classe publique `ObjectBox` avec un champ privé `value` de
+type `Object`.
+
+Déclaration d'un setter `set` qui accepte un paramètre de type `Object` et
+l'assigne au champ `value`.
+
+Déclaration d'un getter `get` qui retourne la valeur de type `Object`.
+
+</details>
+
+Le code n'est plus dupliqué, mais on perd la sécurité de type. On peut stocker
+n'importe quoi et le compilateur ne détecte aucune erreur :
+
+```java
+ObjectBox box = new ObjectBox();
+box.set("Tomate");
+box.set(42);        // Pas d'erreur de compilation !
+box.set(3.14);      // Pas d'erreur non plus !
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une variable `box` de type `ObjectBox` initialisée avec une
+nouvelle instance.
+
+Appel de `set` avec une `String`, puis avec un `Integer`, puis avec un `Double`.
+Les trois appels compilent sans erreur car `Object` accepte n'importe quel type.
+
+</details>
+
+Le compilateur ne peut pas vérifier que l'on utilise toujours le même type dans
+la boîte. L'erreur ne se manifeste qu'à l'exécution.
+
+![Risque sans sécurité de type](./images/generiques-securite-type.svg)
+
+#### Troisième problème : les conversions de type manuelles (casting)
+
+Comme `ObjectBox.get()` retourne un `Object`, il faut convertir (caster) le
+résultat à chaque fois qu'on le récupère :
+
+```java
+ObjectBox box = new ObjectBox();
+box.set("Tomate");
+
+// Il faut caster manuellement
+String value = (String) box.get();
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une variable `box` de type `ObjectBox` initialisée avec une
+nouvelle instance. Appel de `set` avec la `String` "Tomate".
+
+Déclaration d'une variable `value` de type `String` initialisée avec le résultat
+de `get()`, converti (casté) en `String` avec l'opérateur `(String)`.
+
+</details>
+
+Si on se trompe de type lors du cast, on obtient une `ClassCastException` à
+l'exécution :
+
+```java
+ObjectBox box = new ObjectBox();
+box.set(42);
+
+// Compile sans erreur, mais plante à l'exécution !
+String value = (String) box.get(); // ClassCastException !
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une variable `box` de type `ObjectBox` initialisée avec une
+nouvelle instance. Appel de `set` avec l'entier `42`.
+
+Tentative de cast du résultat de `get()` en `String`. Le cast compile sans
+erreur car le compilateur ne connaît pas le type réel de l'objet. À l'exécution,
+une `ClassCastException` est levée car la valeur est un `Integer` et non un
+`String`.
+
+</details>
+
+Les casts manuels rendent le code fragile et difficile à maintenir. On
+préférerait que le compilateur détecte ces erreurs avant l'exécution.
+
+Les génériques résolvent ces trois problèmes simultanément : ils permettent
+d'écrire une seule classe réutilisable, avec une vérification des types à la
+compilation et sans cast manuel.
+
+### Les classes génériques
+
+Une classe générique déclare un ou plusieurs paramètres de type entre chevrons
+(`<>`). Ce paramètre de type est un espace réservé qui sera remplacé par un type
+concret lors de l'utilisation :
+
+```java
+public class Box<T> {
+    private T value;
+
+    public void set(T value) {
+        this.value = value;
+    }
+
+    public T get() {
+        return value;
+    }
+}
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une classe publique `Box` avec un paramètre de type `T`.
+
+Déclaration d'un champ privé `value` de type `T`.
+
+Déclaration d'un setter `set` qui accepte un paramètre de type `T`.
+
+Déclaration d'un getter `get` qui retourne une valeur de type `T`.
+
+</details>
+
+`T` est un paramètre de type. Par convention, on utilise des lettres majuscules
+seules : `T` (type), `E` (element), `K` (key), `V` (value), `R` (return).
+
+À l'utilisation, on spécifie le type concret :
+
+```java
+Box<String> stringBox = new Box<>();
+stringBox.set("Tomate");
+String name = stringBox.get(); // Pas de cast nécessaire
+
+Box<Integer> intBox = new Box<>();
+intBox.set(42);
+int value = intBox.get();
+
+// Erreur de compilation (pas d'erreur à l'exécution !)
+// stringBox.set(42); // Type incompatible
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une variable `stringBox` de type `Box<String>` initialisée avec
+une nouvelle instance de `Box` (opérateur diamant `<>`).
+
+Appel de `set` avec une `String`. Appel de `get` qui retourne directement un
+`String` sans conversion de type.
+
+Déclaration d'une variable `intBox` de type `Box<Integer>` initialisée avec une
+nouvelle instance de `Box`. Appel de `set` avec un `Integer` et appel de `get`
+qui retourne un `int` (auto-unboxing).
+
+L'appel `stringBox.set(42)` provoquerait une erreur de compilation car `42`
+n'est pas un `String`.
+
+</details>
+
+> [!IMPORTANT]
+>
+> Les génériques ne fonctionnent qu'avec des types de référence (objets), pas
+> avec des types primitifs. Utilisez `Integer` au lieu de `int`, `Double` au
+> lieu de `double`, etc.
+
+On peut avoir plusieurs paramètres de type :
+
+```java
+public class Pair<K, V> {
+    private K key;
+    private V value;
+
+    public Pair(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    public K getKey() { return key; }
+    public V getValue() { return value; }
+}
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une classe publique `Pair` avec deux paramètres de type `K` et
+`V`.
+
+Déclaration de deux champs privés : `key` de type `K` et `value` de type `V`.
+
+Constructeur qui prend deux paramètres de types `K` et `V` et les assigne aux
+champs correspondants.
+
+Deux getters `getKey` et `getValue` retournant respectivement `K` et `V`.
+
+</details>
+
+Utilisation :
+
+```java
+Pair<String, Integer> plantAge = new Pair<>("Pommier", 3);
+String treeName = plantAge.getKey();    // "Pommier"
+int age = plantAge.getValue();           // 3
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une variable `plantAge` de type `Pair<String, Integer>`
+initialisée avec le constructeur en passant le nom "Pommier" et l'âge 3.
+
+Appel de `getKey()` retournant un `String` et de `getValue()` retournant un
+`Integer` (auto-unboxing vers `int`).
+
+</details>
+
+### Les méthodes génériques
+
+On peut aussi rendre une méthode générique sans que la classe entière le soit.
+Le paramètre de type est déclaré avant le type de retour :
+
+```java
+public class GardenUtils {
+
+    /**
+     * Affiche tous les éléments d'une liste.
+     */
+    public static <T> void printAll(List<T> items) {
+        for (T item : items) {
+            System.out.println(item);
+        }
+    }
+
+    /**
+     * Retourne le premier élément d'une liste ou null si vide.
+     */
+    public static <T> T getFirst(List<T> items) {
+        if (items.isEmpty()) {
+            return null;
+        }
+        return items.get(0);
+    }
+}
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une classe `GardenUtils` avec deux méthodes statiques génériques.
+
+La méthode `printAll` déclare un paramètre de type `<T>` avant le type de retour
+`void`. Elle prend une `List<T>` et parcourt les éléments avec une boucle
+`for-each` pour les afficher.
+
+La méthode `getFirst` déclare un paramètre de type `<T>` et retourne un `T`.
+Elle vérifie si la liste est vide avec `isEmpty()` et retourne `null` le cas
+échéant, sinon retourne l'élément à l'index 0.
+
+</details>
+
+Utilisation :
+
+```java
+List<PlantBase> plants = new ArrayList<>();
+// ... ajout des plantes ...
+
+GardenUtils.printAll(plants);        // T est inféré comme PlantBase
+PlantBase first = GardenUtils.getFirst(plants);
+
+List<String> names = List.of("Tomate", "Carotte");
+GardenUtils.printAll(names);         // T est inféré comme String
+String firstName = GardenUtils.getFirst(names);
+```
+
+<details>
+<summary>Description du code</summary>
+
+Appel de `GardenUtils.printAll` avec une liste de `PlantBase` : le paramètre de
+type `T` est automatiquement inféré comme `PlantBase`.
+
+Appel de `GardenUtils.getFirst` qui retourne un `PlantBase`.
+
+Appel de `GardenUtils.printAll` avec une liste de `String` : le paramètre de
+type `T` est automatiquement inféré comme `String`.
+
+Appel de `GardenUtils.getFirst` qui retourne un `String`.
+
+</details>
+
+### Génériques vs polymorphisme
+
+Nous avons déjà étudié le polymorphisme dans les chapitres précédents. Les
+génériques peuvent sembler similaires, car dans les deux cas, on écrit du code
+qui fonctionne avec plusieurs types. Mais les deux mécanismes sont
+fondamentalement différents.
+
+#### Le polymorphisme de sous-typage (héritage)
+
+Le polymorphisme que nous connaissons repose sur l'héritage et la redéfinition
+de méthodes. Le comportement change selon le type réel de l'objet :
+
+```java
+PlantBase plant = new VegetablePlant(
+        "Tomate", "Solanum lycopersicum",
+        "2026-03-15", 45.5, 30);
+System.out.println(plant.toString());
+// Appelle VegetablePlant.toString(), pas PlantBase.toString()
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une variable `plant` de type `PlantBase` initialisée avec un objet
+`VegetablePlant`. Appel de `toString()` : grâce au polymorphisme, c'est la
+version redéfinie dans `VegetablePlant` qui est exécutée, pas celle de
+`PlantBase`. Le type réel de l'objet détermine le comportement à l'exécution.
+
+</details>
+
+Le polymorphisme de sous-typage permet de traiter des objets de types différents
+de manière uniforme, tout en conservant leur comportement spécifique. On écrit
+du code qui dit : "je ne sais pas quel sous-type tu es, mais j'appelle ta
+méthode et chaque sous-type répondra différemment".
+
+#### Les génériques (polymorphisme paramétrique)
+
+Les génériques fonctionnent différemment : le comportement reste identique, quel
+que soit le type. C'est le type lui-même qui est paramétré :
+
+```java
+Box<String> stringBox = new Box<>("Tomate");
+Box<Integer> intBox = new Box<>(42);
+// Les deux utilisent exactement le même code de Box
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration de deux variables utilisant la même classe `Box<T>`, l'une avec
+`String` et l'autre avec `Integer`. Le code de la classe `Box` est identique
+dans les deux cas, seul le type change. Contrairement au polymorphisme, le
+comportement ne varie pas.
+
+</details>
+
+Les génériques permettent d'écrire du code qui dit : "je ne me soucie pas du
+type, le conteneur ou l'algorithme fonctionne de la même manière pour tous les
+types".
+
+#### Comparaison
+
+| Critère           | Polymorphisme (sous-typage)              | Génériques (paramétrique)                 |
+| :---------------- | :--------------------------------------- | :---------------------------------------- |
+| Mécanisme.        | Héritage et redéfinition de méthodes.    | Paramètre de type (`<T>`).                |
+| Résolution.       | À l'exécution (dynamique).               | À la compilation (statique).              |
+| Comportement.     | Varie selon le sous-type.                | Identique pour tous les types.            |
+| Objectif.         | Traiter différents types uniformément.   | Écrire du code réutilisable et sûr.       |
+| Exemple typique.  | `PlantBase p = new VegetablePlant(...)`. | `Box<String> b = new Box<>("...")`.       |
+| Sécurité de type. | Partielle (cast parfois nécessaire).     | Complète (vérification à la compilation). |
+
+#### Complémentarité
+
+Les deux mécanismes se complètent. On peut les combiner pour écrire du code à la
+fois flexible et sûr :
+
+```java
+public static <T extends PlantBase> void waterAll(
+        List<T> plants) {
+    for (T plant : plants) {
+        if (plant instanceof Waterable) {
+            ((Waterable) plant).water();
+        }
+    }
+}
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une méthode générique `waterAll` avec un type borné
+`<T extends PlantBase>` : le paramètre de type `T` doit être `PlantBase` ou un
+de ses sous-types.
+
+Le type borné combine les deux approches : les génériques garantissent la
+sécurité de type à la compilation, tandis que le polymorphisme permet d'utiliser
+les méthodes spécifiques de chaque sous-type (`water()` via l'interface
+`Waterable`).
+
+</details>
+
+> [!NOTE]
+>
+> Pour en savoir plus sur la distinction entre polymorphisme de sous-typage et
+> polymorphisme paramétrique, consultez l'article
+> [Polymorphism in Java](https://www.baeldung.com/java-polymorphism) de Baeldung
+> et la documentation officielle
+> [Generics, Inheritance, and Subtypes](https://dev.java/learn/generics/inheritance/)
+> de Oracle.
+
+### Limitations des génériques
+
+Les génériques ont quelques restrictions à connaître :
+
+- On ne peut pas utiliser des types primitifs : `List<int>` est interdit, il
+  faut utiliser `List<Integer>`.
+- On ne peut pas créer d'instance d'un paramètre de type : `new T()` est
+  interdit.
+- On ne peut pas créer de tableau d'un type générique : `new T[10]` est
+  interdit.
+
+Ces restrictions sont liées à l'effacement de type (type erasure) : Java
+remplace les types génériques par `Object` à la compilation. Les génériques
+n'existent qu'à la compilation, pas à l'exécution.
+
+---
+
+<details>
+<summary>Pour aller plus loin</summary>
+
+#### Les wildcards
+
+Les wildcards (jokers) permettent de rendre les génériques plus flexibles. Ils
+sont utilisés quand on ne connaît pas ou ne veut pas fixer le type exact.
+
+Le wildcard non borné `<?>` signifie "n'importe quel type" :
+
+```java
+public static void printList(List<?> list) {
+    for (Object item : list) {
+        System.out.println(item);
+    }
+}
+
+printList(plants);  // List<PlantBase> -> OK
+printList(names);   // List<String>    -> OK
+```
+
+Le wildcard borné supérieurement `<? extends T>` signifie "un type qui est `T`
+ou un sous-type de `T`". Il permet de lire les éléments en tant que `T` :
+
+```java
+public static double totalSize(
+        List<? extends PlantBase> plants) {
+    double total = 0;
+    for (PlantBase plant : plants) {
+        total += plant.getSize();
+    }
+    return total;
+}
+```
+
+Le wildcard borné inférieurement `<? super T>` signifie "un type qui est `T` ou
+un super-type de `T`". Il est surtout utile pour écrire dans une collection :
+
+```java
+public static void addDefaultVegetables(
+        List<? super VegetablePlant> list) {
+    list.add(new VegetablePlant("Laitue", "Lactuca sativa",
+            "2026-05-01", 5.0, 45));
+}
+```
+
+Règle mnémotechnique PECS (Producer Extends, Consumer Super) :
+
+- Si vous lisez des éléments de la collection : utilisez `<? extends T>`.
+- Si vous écrivez des éléments dans la collection : utilisez `<? super T>`.
+
+#### Autres concepts avancés
+
+Les génériques ouvrent la porte à d'autres concepts :
+
+- Les types bornés (`<T extends Comparable<T>>`) permettent de contraindre un
+  paramètre de type à implémenter une interface.
+- Les collections génériques et les types paramétrés sont la base de nombreuses
+  bibliothèques Java.
+
+</details>
+
+---
+
+## Conclusion
+
+Dans ce chapitre, nous avons découvert les génériques, un mécanisme fondamental
+de Java :
+
+- Les génériques résolvent trois problèmes : le code dupliqué, l'absence de
+  sécurité de type et les conversions de type manuelles.
+- Les classes génériques (`Box<T>`, `Pair<K, V>`) permettent d'écrire du code
+  réutilisable qui fonctionne avec n'importe quel type.
+- Les méthodes génériques permettent de paramétrer une méthode sans rendre toute
+  la classe générique.
+- Les génériques (polymorphisme paramétrique) et le polymorphisme de sous-typage
+  sont complémentaires : les génériques garantissent la sécurité de type, le
+  polymorphisme permet de varier le comportement.
+- L'effacement de type (type erasure) impose certaines limitations à connaître.
 
 ## Exemples de code
 

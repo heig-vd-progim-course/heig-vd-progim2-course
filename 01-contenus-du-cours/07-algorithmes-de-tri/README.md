@@ -708,9 +708,9 @@ Comparer 7 et 3 : 3 < 7, donc 3 en premier.
 
 Résultat :
 
-|            Carte 1             |            Carte 2             |         Carte 3         |         Carte 4         |         Carte 5         |         Carte 6         |         Carte 7         |         Carte 8         |
-| :----------------------------: | :----------------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: |
-| ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+|            Carte 1             |            Carte 2             |         Carte 3          |         Carte 4          |         Carte 5          |         Carte 6          |         Carte 7          |         Carte 8          |
+| :----------------------------: | :----------------------------: | :----------------------: | :----------------------: | :----------------------: | :----------------------: | :----------------------: | :----------------------: |
+| ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) |
 
 **Fusion 2 : Fusionner [9] et [2]**
 
@@ -724,9 +724,9 @@ Comparer 9 et 2 : 2 < 9, donc 2 en premier.
 
 Résultat :
 
-|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |         Carte 5         |         Carte 6         |         Carte 7         |         Carte 8         |
-| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: |
-| ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |         Carte 5          |         Carte 6          |         Carte 7          |         Carte 8          |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------: | :----------------------: | :----------------------: | :----------------------: |
+| ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) |
 
 **Fusion 3 : Fusionner [8] et [4]**
 
@@ -740,9 +740,9 @@ Comparer 8 et 4 : 4 < 8, donc 4 en premier.
 
 Résultat :
 
-|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |         Carte 7         |         Carte 8         |
-| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :---------------------: | :---------------------: |
-| ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |         Carte 7          |         Carte 8          |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------: | :----------------------: |
+| ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![2](./images/2_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) |
 
 **Fusion 4 : Fusionner [6] et [5]**
 
@@ -780,37 +780,37 @@ Comparer 3 et 2 : 2 < 3, donc 2 en premier.
 
 Résultat :
 
-|            Carte 1             |         Carte 2         |         Carte 3         |         Carte 4         |         Carte 5         |         Carte 6         |         Carte 7         |         Carte 8         |
-| :----------------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: |
-| ![2](./images/2_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+|            Carte 1             |         Carte 2          |         Carte 3          |         Carte 4          |         Carte 5          |         Carte 6          |         Carte 7          |         Carte 8          |
+| :----------------------------: | :----------------------: | :----------------------: | :----------------------: | :----------------------: | :----------------------: | :----------------------: | :----------------------: |
+| ![2](./images/2_of_hearts.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) |
 
 Source :
 
-|                 Carte 1                 |            Carte 2             |         Carte 3         |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :-------------------------------------: | :----------------------------: | :---------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![3](./images/3_of_hearts_selected.svg) | ![7](./images/7_of_hearts.svg) | ![](./images/blank.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![6](./images/6_of_hearts.svg) |
+|                 Carte 1                 |            Carte 2             |         Carte 3          |            Carte 4             |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :-------------------------------------: | :----------------------------: | :----------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![3](./images/3_of_hearts_selected.svg) | ![7](./images/7_of_hearts.svg) | ![_](./images/blank.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![6](./images/6_of_hearts.svg) |
 
 Le 2 est placé. Comparer 3 et 9 : 3 < 9, donc 3 ensuite.
 
 Résultat :
 
-|            Carte 1             |            Carte 2             |         Carte 3         |         Carte 4         |         Carte 5         |         Carte 6         |         Carte 7         |         Carte 8         |
-| :----------------------------: | :----------------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: |
-| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+|            Carte 1             |            Carte 2             |         Carte 3          |         Carte 4          |         Carte 5          |         Carte 6          |         Carte 7          |         Carte 8          |
+| :----------------------------: | :----------------------------: | :----------------------: | :----------------------: | :----------------------: | :----------------------: | :----------------------: | :----------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) |
 
 Source :
 
-|         Carte 1         |                 Carte 2                 |         Carte 3         |                 Carte 4                 |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
-| :---------------------: | :-------------------------------------: | :---------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
-| ![](./images/blank.svg) | ![7](./images/7_of_hearts_selected.svg) | ![](./images/blank.svg) | ![9](./images/9_of_hearts_selected.svg) | ![4](./images/4_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![6](./images/6_of_hearts.svg) |
+|         Carte 1          |                 Carte 2                 |         Carte 3          |                 Carte 4                 |            Carte 5             |            Carte 6             |            Carte 7             |            Carte 8             |
+| :----------------------: | :-------------------------------------: | :----------------------: | :-------------------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: |
+| ![_](./images/blank.svg) | ![7](./images/7_of_hearts_selected.svg) | ![_](./images/blank.svg) | ![9](./images/9_of_hearts_selected.svg) | ![4](./images/4_of_hearts.svg) | ![8](./images/8_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![6](./images/6_of_hearts.svg) |
 
 Comparer 7 et 9 : 7 < 9, donc 7 ensuite. Puis le 9 reste.
 
 Résultat :
 
-|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |         Carte 5         |         Carte 6         |         Carte 7         |         Carte 8         |
-| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :---------------------: | :---------------------: | :---------------------: | :---------------------: |
-| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |         Carte 5          |         Carte 6          |         Carte 7          |         Carte 8          |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------: | :----------------------: | :----------------------: | :----------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) |
 
 **Fusion 6 : Fusionner [4, 8] et [5, 6]**
 
@@ -824,29 +824,29 @@ Comparer 4 et 5 : 4 < 5, donc 4 en premier.
 
 Résultat :
 
-|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |         Carte 6         |         Carte 7         |         Carte 8         |
-| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :---------------------: | :---------------------: | :---------------------: |
-| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |         Carte 6          |         Carte 7          |         Carte 8          |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------: | :----------------------: | :----------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) |
 
 Source :
 
-|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |         Carte 5         |                 Carte 6                 |                 Carte 7                 |            Carte 8             |
-| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :---------------------: | :-------------------------------------: | :-------------------------------------: | :----------------------------: |
-| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![](./images/blank.svg) | ![8](./images/8_of_hearts_selected.svg) | ![5](./images/5_of_hearts_selected.svg) | ![6](./images/6_of_hearts.svg) |
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |         Carte 5          |                 Carte 6                 |                 Carte 7                 |            Carte 8             |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------: | :-------------------------------------: | :-------------------------------------: | :----------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![_](./images/blank.svg) | ![8](./images/8_of_hearts_selected.svg) | ![5](./images/5_of_hearts_selected.svg) | ![6](./images/6_of_hearts.svg) |
 
 Comparer 8 et 5 : 5 < 8, donc 5 ensuite.
 
 Résultat :
 
-|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |         Carte 7         |         Carte 8         |
-| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :---------------------: | :---------------------: |
-| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) |
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |            Carte 5             |            Carte 6             |         Carte 7          |         Carte 8          |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------: | :----------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![4](./images/4_of_hearts.svg) | ![5](./images/5_of_hearts.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) |
 
 Source :
 
-|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |         Carte 5         |         Carte 6         |                 Carte 7                 |                 Carte 8                 |
-| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :---------------------: | :---------------------: | :-------------------------------------: | :-------------------------------------: |
-| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![](./images/blank.svg) | ![](./images/blank.svg) | ![6](./images/6_of_hearts_selected.svg) | ![8](./images/8_of_hearts_selected.svg) |
+|            Carte 1             |            Carte 2             |            Carte 3             |            Carte 4             |         Carte 5          |         Carte 6          |                 Carte 7                 |                 Carte 8                 |
+| :----------------------------: | :----------------------------: | :----------------------------: | :----------------------------: | :----------------------: | :----------------------: | :-------------------------------------: | :-------------------------------------: |
+| ![2](./images/2_of_hearts.svg) | ![3](./images/3_of_hearts.svg) | ![7](./images/7_of_hearts.svg) | ![9](./images/9_of_hearts.svg) | ![_](./images/blank.svg) | ![_](./images/blank.svg) | ![6](./images/6_of_hearts_selected.svg) | ![8](./images/8_of_hearts_selected.svg) |
 
 Comparer 6 et 8 : 6 < 8, donc 6. Puis 8 reste.
 
@@ -884,7 +884,7 @@ Résultat final :
 
 #### Visualisation de la récursion
 
-```
+```bash
 [7, 3, 9, 2, 8, 4, 6, 5]
        /              \
 [7, 3, 9, 2]      [8, 4, 6, 5]

@@ -1,0 +1,25 @@
+@startuml generiques-trois-avantages
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+left to right direction
+
+rectangle "Problèmes sans génériques" as problemes {
+    card "Code dupliqué" as p1
+    card "Erreurs de type\nà l'exécution" as p2
+    card "Casts manuels\nnécessaires" as p3
+}
+
+rectangle "Solutions avec génériques" as solutions {
+    card "Réutilisabilité\ndu code" as s1
+    card "Sécurité de type\nà la compilation" as s2
+    card "Code plus propre\nsans cast" as s3
+}
+
+p1 --> s1
+p2 --> s2
+p3 --> s3
+
+@enduml

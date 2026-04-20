@@ -1,6 +1,6 @@
-# Collections Java : Listes, sets et maps - Mini-projet (partie 5)
+# Collections Java : Listes, sets et maps - Mini-projet (partie 4)
 
-Bienvenue dans la cinquième partie du mini-projet sur la gestion de jardin
+Bienvenue dans la quatrième partie du mini-projet sur la gestion de jardin
 communautaire !
 
 > [!TIP]
@@ -23,7 +23,7 @@ communautaire !
   - [Étape 4 : créer la classe GardenRegistry](#étape-4--créer-la-classe-gardenregistry)
 - [Parcourir et manipuler les collections](#parcourir-et-manipuler-les-collections)
   - [Étape 5 : ajouter des méthodes de recherche à GardenRegistry](#étape-5--ajouter-des-méthodes-de-recherche-à-gardenregistry)
-  - [Étape 6 : supprimer des éléments pendant l'itération](#étape-6--supprimer-des-éléments-pendant-litération)
+  - [Étape 6 : récolter et supprimer des plantes pendant l'itération](#étape-6--récolter-et-supprimer-des-plantes-pendant-litération)
 - [Mettre à jour le programme principal](#mettre-à-jour-le-programme-principal)
   - [Étape 7 : mettre à jour GardenManagementSystem](#étape-7--mettre-à-jour-gardenmanagementsystem)
 - [Test du projet](#test-du-projet)
@@ -36,7 +36,7 @@ communautaire !
 
 ## Présentation du mini-projet
 
-Dans cette cinquième partie du mini-projet, nous allons intégrer les collections
+Dans cette quatrième partie du mini-projet, nous allons intégrer les collections
 Java dans notre système de gestion de jardin communautaire.
 
 Lors des sessions précédentes, nous avons :
@@ -47,8 +47,6 @@ Lors des sessions précédentes, nous avons :
   plantes.
 - **Partie 3** : utilisé le polymorphisme avec des interfaces et la redéfinition
   de méthodes.
-- **Partie 4** : trié les plantes avec des algorithmes de tri et des
-  comparateurs.
 
 Jusqu'ici, nous avons utilisé des tableaux pour stocker nos plantes et nos
 parcelles. Les tableaux nous ont bien servi, mais ils montrent leurs limites :
@@ -102,7 +100,7 @@ en créer de nouvelles :
 > [!IMPORTANT]
 >
 > Cette partie fait suite aux sessions précédentes. Si vous n'avez pas terminé
-> la partie 4, récupérez le code de la solution avant de continuer.
+> la partie 3, récupérez le code de la solution avant de continuer.
 >
 > Votre projet doit contenir toutes les classes des parties précédentes.
 
@@ -128,19 +126,22 @@ import java.util.List;
  */
 public class Plot {
 
-    private String name;
-    private double area;
+    private int number;
+    private double size;
+    private String location;
     private List<PlantBase> plants;
 
     /**
      * Constructeur pour créer une parcelle.
      *
-     * @param name le nom de la parcelle
-     * @param area la surface en mètres carrés
+     * @param number le numéro de la parcelle
+     * @param size la taille en mètres carrés
+     * @param location la localisation
      */
-    public Plot(String name, double area) {
-        this.name = name;
-        this.area = area;
+    public Plot(int number, double size, String location) {
+        setNumber(number);
+        setSize(size);
+        setLocation(location);
         this.plants = new ArrayList<>();
     }
 
@@ -152,7 +153,7 @@ public class Plot {
     public void addPlant(PlantBase plant) {
         plants.add(plant);
         System.out.println(plant.getName() + " ajoutée à la parcelle "
-                + name + ".");
+                + number + ".");
     }
 
     /**
@@ -165,21 +166,25 @@ public class Plot {
         boolean removed = plants.remove(plant);
         if (removed) {
             System.out.println(plant.getName() + " retirée de la parcelle "
-                    + name + ".");
+                    + number + ".");
         } else {
             System.out.println(plant.getName() + " non trouvée dans la "
-                    + "parcelle " + name + ".");
+                    + "parcelle " + number + ".");
         }
         return removed;
     }
 
     // Getters
-    public String getName() {
-        return name;
+    public int getNumber() {
+        return number;
     }
 
-    public double getArea() {
-        return area;
+    public double getSize() {
+        return size;
+    }
+
+    public String getLocation() {
+        return location;
     }
 
     public List<PlantBase> getPlants() {
@@ -194,13 +199,41 @@ public class Plot {
     public int getPlantCount() {
         return plants.size();
     }
+
+    // Setters avec validation (inchangés depuis la partie 2)
+    public void setNumber(int number) {
+        if (number <= 0) {
+            System.out.println(
+                    "Erreur : le numéro de parcelle doit être positif.");
+            return;
+        }
+        this.number = number;
+    }
+
+    public void setSize(double size) {
+        if (size <= 0) {
+            System.out.println(
+                    "Erreur : la taille doit être positive.");
+            return;
+        }
+        this.size = size;
+    }
+
+    public void setLocation(String location) {
+        if (location == null || location.trim().isEmpty()) {
+            System.out.println(
+                    "Erreur : la localisation ne peut pas être vide.");
+            return;
+        }
+        this.location = location;
+    }
 }
 ```
 
 Prenez un moment pour observer les différences avec la version précédente :
 
-- Le champ `plants` est maintenant de type `List<PlantBase>` au lieu d'un
-  tableau.
+- Un nouveau champ `plants` de type `List<PlantBase>` a été ajouté. Les
+  attributs existants (`number`, `size`, `location`) restent inchangés.
 - Le constructeur initialise une `ArrayList` vide, sans besoin de spécifier une
   taille.
 - `addPlant()` utilise simplement `plants.add(plant)` sans se soucier de la
@@ -235,7 +268,8 @@ Ajoutons quelques méthodes utiles qui tirent parti de l'`ArrayList` :
      * Affiche toutes les plantes de la parcelle.
      */
     public void displayPlants() {
-        System.out.println("Parcelle " + name + " (" + area + " m2) - "
+        System.out.println("Parcelle " + number + " (" + location
+                + ", " + size + " m2) - "
                 + plants.size() + " plante(s) :");
         for (PlantBase plant : plants) {
             System.out.println("  - " + plant);
@@ -395,12 +429,12 @@ public class GardenRegistry {
         if (previous != null) {
             System.out.println(gardenerName
                     + " est maintenant assignée à la parcelle "
-                    + plot.getName() + " (ancienne : "
-                    + previous.getName() + ").");
+                    + plot.getNumber() + " (ancienne : "
+                    + previous.getNumber() + ").");
         } else {
             System.out.println(gardenerName
                     + " est assignée à la parcelle "
-                    + plot.getName() + ".");
+                    + plot.getNumber() + ".");
         }
     }
 
@@ -435,7 +469,7 @@ public class GardenRegistry {
         if (removed != null) {
             System.out.println(gardenerName
                     + " a été retirée du registre (parcelle "
-                    + removed.getName() + ").");
+                    + removed.getNumber() + ").");
         }
         return removed;
     }
@@ -447,8 +481,8 @@ public class GardenRegistry {
         System.out.println("Registre du jardin ("
                 + assignments.size() + " inscription(s)) :");
         for (Map.Entry<String, Plot> entry : assignments.entrySet()) {
-            System.out.println("  " + entry.getKey() + " -> "
-                    + entry.getValue().getName());
+            System.out.println("  " + entry.getKey() + " -> Parcelle "
+                    + entry.getValue().getNumber());
         }
     }
 }
@@ -497,7 +531,7 @@ méthodes dans la classe `GardenRegistry` :
         List<String> result = new ArrayList<>();
         for (Map.Entry<String, Plot> entry : assignments.entrySet()) {
             if (entry.getValue().containsPlant(plant)) {
-                result.add(entry.getValue().getName());
+                result.add("Parcelle " + entry.getValue().getNumber());
             }
         }
         return result;
@@ -521,11 +555,11 @@ La méthode `findPlotsWithPlant()` parcourt toutes les entrées de la map avec
 retourne une `List<String>` : une nouvelle collection créée à partir du parcours
 d'une autre collection. C'est un usage très courant.
 
-### Étape 6 : supprimer des éléments pendant l'itération
+### Étape 6 : récolter et supprimer des plantes pendant l'itération
 
-Ajoutons une méthode dans la classe `Plot` qui supprime toutes les plantes
-récoltées de la parcelle. Cette opération nécessite de modifier la liste pendant
-le parcours : nous devons utiliser un itérateur.
+Ajoutons une méthode dans la classe `Plot` qui récolte et supprime toutes les
+plantes prêtes à être récoltées. Cette opération nécessite de modifier la liste
+pendant le parcours : nous devons utiliser un itérateur.
 
 Ajoutez cette méthode dans la classe `Plot` :
 
@@ -535,28 +569,29 @@ import java.util.Iterator;
 
 ```java
     /**
-     * Supprime toutes les plantes qui ont été récoltées.
+     * Récolte et supprime toutes les plantes prêtes à être récoltées.
      *
-     * @return le nombre de plantes supprimées
+     * @return le nombre de plantes récoltées et supprimées
      */
-    public int removeHarvestedPlants() {
+    public int harvestAndRemoveReadyPlants() {
         int count = 0;
         Iterator<PlantBase> it = plants.iterator();
         while (it.hasNext()) {
             PlantBase plant = it.next();
             if (plant instanceof Harvestable) {
                 Harvestable harvestable = (Harvestable) plant;
-                if (!harvestable.isReadyToHarvest()) {
-                    continue;
+                if (harvestable.isReadyToHarvest()) {
+                    harvestable.harvest();
+                    System.out.println("Retrait de " + plant.getName()
+                            + " de la parcelle " + number + ".");
+                    it.remove();
+                    count++;
                 }
-                System.out.println("Retrait de " + plant.getName()
-                        + " (récoltée).");
-                it.remove();
-                count++;
             }
         }
-        System.out.println(count + " plante(s) récoltée(s) retirée(s) de "
-                + name + ".");
+        System.out.println(count
+                + " plante(s) récoltée(s) et retirée(s) de la parcelle "
+                + number + ".");
         return count;
     }
 ```
@@ -566,8 +601,8 @@ Cette méthode illustre le cas où l'itérateur est indispensable :
 - On parcourt la liste avec `it.hasNext()` et `it.next()`.
 - On utilise `instanceof` pour vérifier si la plante implémente `Harvestable`
   (polymorphisme).
-- On appelle `it.remove()` pour supprimer l'élément courant de manière
-  sécurisée.
+- On vérifie avec `isReadyToHarvest()` si la plante est prête, on la récolte
+  avec `harvest()`, puis on la retire avec `it.remove()`.
 - Si nous avions utilisé `plants.remove()` pendant une boucle `for-each`, une
   `ConcurrentModificationException` serait levée.
 
@@ -595,14 +630,14 @@ public class GardenManagementSystem {
     public static void main(String[] args) {
         System.out.println("=== Système de gestion de jardin "
                 + "communautaire ===");
-        System.out.println();
+        System.out.println("Partie 4 : Collections\n");
 
         // --- Créer le catalogue d'espèces ---
         System.out.println("--- Catalogue des espèces ---");
         GardenCatalog catalog = new GardenCatalog();
         catalog.addSpecies("Solanum lycopersicum");
         catalog.addSpecies("Daucus carota");
-        catalog.addSpecies("Rosa gallica");
+        catalog.addSpecies("Rosa");
         catalog.addSpecies("Malus domestica");
         catalog.addSpecies("Solanum lycopersicum"); // Doublon
         System.out.println();
@@ -611,38 +646,38 @@ public class GardenManagementSystem {
 
         // --- Créer des parcelles avec des listes ---
         System.out.println("--- Création des parcelles ---");
-        Plot plotA = new Plot("Parcelle A", 25.0);
-        Plot plotB = new Plot("Parcelle B", 30.0);
+        Plot plot1 = new Plot(1, 25.0, "Zone Nord");
+        Plot plot2 = new Plot(2, 30.0, "Zone Sud");
 
         VegetablePlant tomato = new VegetablePlant(
-                "Tomate", "Solanum lycopersicum",
-                "2026-03-15", 45.0, 0);
+                "Tomate cerise", "Solanum lycopersicum",
+                "2026-03-15", 45.5, 0);
         VegetablePlant carrot = new VegetablePlant(
                 "Carotte", "Daucus carota",
-                "2026-03-20", 20.0, 30);
+                "2026-03-20", 12.0, 30);
         FlowerPlant rose = new FlowerPlant(
-                "Rose", "Rosa gallica",
-                "2026-04-01", 60.0, "Rouge");
+                "Rose", "Rosa",
+                "2026-04-01", 35.0, "Rouge");
         TreePlant appleTree = new TreePlant(
                 "Pommier", "Malus domestica",
-                "2026-02-01", 150.0, 4);
+                "2026-02-01", 180.0, 3, 3);
 
-        plotA.addPlant(tomato);
-        plotA.addPlant(carrot);
-        plotB.addPlant(rose);
-        plotB.addPlant(appleTree);
+        plot1.addPlant(tomato);
+        plot1.addPlant(carrot);
+        plot2.addPlant(rose);
+        plot2.addPlant(appleTree);
         System.out.println();
 
-        plotA.displayPlants();
+        plot1.displayPlants();
         System.out.println();
-        plotB.displayPlants();
+        plot2.displayPlants();
         System.out.println();
 
         // --- Créer le registre jardinière-parcelle ---
         System.out.println("--- Registre du jardin ---");
         GardenRegistry registry = new GardenRegistry();
-        registry.assignPlot("Alice", plotA);
-        registry.assignPlot("Bob", plotB);
+        registry.assignPlot("Alice", plot1);
+        registry.assignPlot("Bob", plot2);
         System.out.println();
 
         registry.displayAssignments();
@@ -656,7 +691,7 @@ public class GardenManagementSystem {
         Plot alicePlot = registry.getPlot("Alice");
         if (alicePlot != null) {
             System.out.println("Parcelle d'Alice : "
-                    + alicePlot.getName());
+                    + alicePlot.getNumber());
         }
 
         System.out.println("Bob est inscrit : "
@@ -673,19 +708,17 @@ public class GardenManagementSystem {
 
         // --- Vérifier si une plante existe dans la parcelle ---
         System.out.println("--- Vérifications ---");
-        System.out.println("Parcelle A contient la tomate : "
-                + plotA.containsPlant(tomato));
-        System.out.println("Parcelle B contient la tomate : "
-                + plotB.containsPlant(tomato));
+        System.out.println("Parcelle 1 contient la tomate : "
+                + plot1.containsPlant(tomato));
+        System.out.println("Parcelle 2 contient la tomate : "
+                + plot2.containsPlant(tomato));
         System.out.println();
 
-        // --- Supprimer des plantes récoltées ---
+        // --- Récolter et supprimer des plantes ---
         System.out.println("--- Récolte et nettoyage ---");
-        tomato.harvest();
+        plot1.harvestAndRemoveReadyPlants();
         System.out.println();
-        plotA.removeHarvestedPlants();
-        System.out.println();
-        plotA.displayPlants();
+        plot1.displayPlants();
     }
 }
 ```
@@ -720,62 +753,62 @@ car les `HashSet` et `HashMap` ne garantissent pas l'ordre) :
 
 ```text
 === Système de gestion de jardin communautaire ===
+Partie 4 : Collections
 
 --- Catalogue des espèces ---
 Espèce ajoutée au catalogue : Solanum lycopersicum.
 Espèce ajoutée au catalogue : Daucus carota.
-Espèce ajoutée au catalogue : Rosa gallica.
+Espèce ajoutée au catalogue : Rosa.
 Espèce ajoutée au catalogue : Malus domestica.
 L'espèce Solanum lycopersicum est déjà dans le catalogue.
 
 Catalogue du jardin (4 espèce(s)) :
   - Daucus carota
   - Malus domestica
-  - Rosa gallica
+  - Rosa
   - Solanum lycopersicum
 
 --- Création des parcelles ---
-Tomate ajoutée à la parcelle Parcelle A.
-Carotte ajoutée à la parcelle Parcelle A.
-Rose ajoutée à la parcelle Parcelle B.
-Pommier ajoutée à la parcelle Parcelle B.
+Tomate cerise ajoutée à la parcelle 1.
+Carotte ajoutée à la parcelle 1.
+Rose ajoutée à la parcelle 2.
+Pommier ajoutée à la parcelle 2.
 
-Parcelle Parcelle A (25.0 m2) - 2 plante(s) :
-  - Tomate (Solanum lycopersicum) - 45.0 cm
-  - Carotte (Daucus carota) - 20.0 cm
+Parcelle 1 (Zone Nord, 25.0 m2) - 2 plante(s) :
+  - Tomate cerise (Solanum lycopersicum) - 45.5 cm - Planté le 2026-03-15 [Légume - Récolte dans 0 jours]
+  - Carotte (Daucus carota) - 12.0 cm - Planté le 2026-03-20 [Légume - Récolte dans 30 jours]
 
-Parcelle Parcelle B (30.0 m2) - 2 plante(s) :
-  - Rose (Rosa gallica) - 60.0 cm - Couleur : Rouge
-  - Pommier (Malus domestica) - 150.0 cm - Âge: 0 ans
+Parcelle 2 (Zone Sud, 30.0 m2) - 2 plante(s) :
+  - Rose (Rosa) - 35.0 cm - Planté le 2026-04-01 [Fleur Rouge - Pas encore en fleurs]
+  - Pommier (Malus domestica) - 180.0 cm - Planté le 2026-02-01 [Arbre - Âge: 3 ans]
 
 --- Registre du jardin ---
-Alice est assignée à la parcelle Parcelle A.
-Bob est assignée à la parcelle Parcelle B.
+Alice est assignée à la parcelle 1.
+Bob est assignée à la parcelle 2.
 
 Registre du jardin (2 inscription(s)) :
-  Alice -> Parcelle A
-  Bob -> Parcelle B
+  Alice -> Parcelle 1
+  Bob -> Parcelle 2
 
 --- Recherches ---
 Nombre total de plantes : 4
-Parcelle d'Alice : Parcelle A
+Parcelle d'Alice : 1
 Bob est inscrit : true
 Clara est inscrite : false
 
-Parcelles avec des tomates : [Parcelle A]
+Parcelles avec des tomates : [Parcelle 1]
 
 --- Vérifications ---
-Parcelle A contient la tomate : true
-Parcelle B contient la tomate : false
+Parcelle 1 contient la tomate : true
+Parcelle 2 contient la tomate : false
 
 --- Récolte et nettoyage ---
-Récolte de Tomate : 4.5 kg
+Récolte de Tomate cerise : 4.55 kg
+Retrait de Tomate cerise de la parcelle 1.
+1 plante(s) récoltée(s) et retirée(s) de la parcelle 1.
 
-Retrait de Tomate (récoltée).
-1 plante(s) récoltée(s) retirée(s) de Parcelle A.
-
-Parcelle Parcelle A (25.0 m2) - 1 plante(s) :
-  - Carotte (Daucus carota) - 20.0 cm
+Parcelle 1 (Zone Nord, 25.0 m2) - 1 plante(s) :
+  - Carotte (Daucus carota) - 12.0 cm - Planté le 2026-03-20 [Légume - Récolte dans 30 jours]
 ```
 
 > [!NOTE]
@@ -784,7 +817,7 @@ Parcelle Parcelle A (25.0 m2) - 1 plante(s) :
 > méthodes `toString()` et `harvest()` dans les classes des parties précédentes.
 > L'important est que la logique des collections fonctionne correctement : les
 > doublons sont rejetés par le catalogue, les associations jardinière-parcelle
-> sont retrouvées, et la suppression pendant l'itération s'effectue sans erreur.
+> sont retrouvées, et la récolte pendant l'itération s'effectue sans erreur.
 
 ## Solution
 
@@ -803,16 +836,16 @@ Vous pouvez trouver la solution complète du mini-projet à l'adresse suivante :
 
 ## Conclusion
 
-Dans cette cinquième partie du mini-projet, vous avez appris à :
+Dans cette quatrième partie du mini-projet, vous avez appris à :
 
-- Remplacer des tableaux par des `ArrayList` pour bénéficier d'une gestion
-  automatique de la taille.
+- Ajouter un champ `List<PlantBase>` dans la classe `Plot` pour gérer les
+  plantes avec une `ArrayList`.
 - Utiliser un `HashSet` pour maintenir un catalogue d'éléments uniques.
 - Utiliser une `HashMap` pour créer des associations clé-valeur et retrouver
   rapidement des informations.
 - Parcourir des collections avec la boucle `for-each` et avec `entrySet()`.
-- Utiliser un itérateur pour supprimer des éléments de manière sécurisée pendant
-  le parcours.
+- Utiliser un itérateur pour récolter et supprimer des éléments de manière
+  sécurisée pendant le parcours.
 - Choisir la bonne collection en fonction du besoin.
 
 Le passage des tableaux aux collections est une étape importante. Le code est
@@ -826,8 +859,6 @@ Dans la prochaine partie du mini-projet, nous explorerons :
 
 - Les expressions lambda pour simplifier le parcours et le filtrage des
   collections.
-- Les streams pour enchaîner des opérations sur les collections de manière
-  concise.
 - Les génériques pour créer des classes réutilisables avec différents types.
 
 > [!TIP]
