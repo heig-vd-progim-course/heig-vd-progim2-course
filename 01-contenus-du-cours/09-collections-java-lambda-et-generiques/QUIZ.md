@@ -46,8 +46,6 @@ GitHub][contenu-complet-sur-github]._
 
 ## Question 1 - Donnée
 
-**Complétion : classe générique**
-
 Complétez la déclaration de cette classe générique :
 
 ```java
@@ -87,13 +85,7 @@ public class Box<T> {
 }
 ```
 
-Le paramètre de type `T` est déclaré après le nom de la classe (`Box<T>`) et
-utilisé partout où le type concret sera substitué. À l'utilisation,
-`Box<String>` remplace tous les `T` par `String`.
-
 ## Question 2 - Donnée
-
-**Complétion : opérateur diamant**
 
 Quelle ligne utilise correctement l'opérateur diamant `<>` ?
 
@@ -111,11 +103,6 @@ Box<> box = new Box<String>("Hello");
 Box box = new Box<>("Hello");
 ```
 
-- **A.** Uniquement A.
-- **B.** Uniquement B.
-- **C.** A et B sont correctes.
-- **D.** A, B et D sont correctes.
-
 ## Question 2 - Réponse
 
 **Réponse correcte : C** - A et B sont correctes.
@@ -130,9 +117,6 @@ Box<String> box = new Box<>("Hello");
 // C : ERREUR - le diamant doit être à droite, pas à gauche
 // D : WARNING - type brut à gauche (perte de sécurité)
 ```
-
-L'opérateur diamant `<>` permet à Java d'inférer le type à partir de la
-déclaration. La ligne D compile avec un avertissement mais utilise un type brut.
 
 ## Question 3 - Donnée
 
@@ -149,11 +133,6 @@ public static ______ ______ getFirst(List<T> items) {
 }
 ```
 
-- **A.** `T`, `<T>`
-- **B.** `<T>`, `T`
-- **C.** `Object`, `<T>`
-- **D.** `<T>`, `Object`
-
 ## Question 3 - Réponse
 
 **Réponse correcte : B** - `<T>`, `T`
@@ -167,14 +146,7 @@ public static <T> T getFirst(List<T> items) {
 }
 ```
 
-Pour une méthode générique, le paramètre de type `<T>` est déclaré **avant** le
-type de retour. L'ordre est : modificateurs, `<T>`, type de retour, nom de la
-méthode. Le type de retour est `T` (pas `Object`), ce qui conserve la sécurité
-des types.
-
 ## Question 4 - Donnée
-
-**Prédiction : effacement de type**
 
 Quel est le résultat de ce code ?
 
@@ -184,14 +156,9 @@ Box<Integer> box2 = new Box<>(42);
 System.out.println(box1.getClass() == box2.getClass());
 ```
 
-- **A.** `true`
-- **B.** `false`
-- **C.** Erreur de compilation.
-- **D.** `ClassCastException` à l'exécution.
-
 ## Question 4 - Réponse
 
-**Réponse correcte : A** - `true`
+**Réponse correcte :** `true`
 
 ```java
 System.out.println(
@@ -206,8 +173,6 @@ Il n'existe pas de classe `Box<String>` distincte de `Box<Integer>` à
 l'exécution.
 
 ## Question 5 - Donnée
-
-**Prédiction : sécurité de type**
 
 Quelles lignes provoquent une erreur de compilation ?
 
@@ -224,11 +189,6 @@ List<String> copy = names;
 Integer n = copy.get(0);             // Ligne C
 ```
 
-- **A.** Lignes A et C uniquement.
-- **B.** Lignes A, B et C.
-- **C.** Ligne A uniquement.
-- **D.** Aucune erreur de compilation.
-
 ## Question 5 - Réponse
 
 **Réponse correcte : A** - Lignes A et C uniquement.
@@ -241,46 +201,6 @@ Integer n = copy.get(0);             // Ligne C
   compilateur refuse l'affectation.
 
 Les génériques détectent les erreurs de type **avant** l'exécution.
-
-## Question 6 - Donnée
-
-**Comparaison : génériques vs polymorphisme**
-
-Quelle affirmation décrit correctement la différence entre les génériques et le
-polymorphisme de sous-typage ?
-
-```java
-// Code A (polymorphisme)
-PlantBase plant = new VegetablePlant(...);
-plant.toString(); // Appelle VegetablePlant.toString()
-
-// Code B (génériques)
-Box<String> box = new Box<>("Tomate");
-box.get(); // Retourne un String
-```
-
-- **A.** Le polymorphisme varie le comportement selon le sous-type, les
-  génériques gardent un comportement identique pour tous les types.
-- **B.** Les génériques varient le comportement selon le type, le polymorphisme
-  garde un comportement identique.
-- **C.** Les deux sont identiques, seule la syntaxe change.
-- **D.** Les génériques remplacent le polymorphisme en Java.
-- **C.** Les deux sont identiques.
-- **D.** Aucune des deux ne compile.
-
-## Question 6 - Réponse
-
-**Réponse correcte : A**
-
-- **Polymorphisme de sous-typage** : le comportement est déterminé à l'exécution
-  par le type réel de l'objet. `plant.toString()` appelle la version redéfinie
-  dans `VegetablePlant`. Chaque sous-type peut répondre différemment.
-
-- **Génériques (polymorphisme paramétrique)** : le comportement est identique
-  pour tous les types. `Box<String>` et `Box<Integer>` utilisent exactement le
-  même code. Seul le type paramétré change.
-
-Les deux mécanismes sont complémentaires, pas interchangeables.
 
 ## Question 7 - Donnée
 
@@ -299,6 +219,7 @@ List<Object> objects = names;
 - **B.** Non, erreur de compilation.
 - **C.** Oui, mais avertissement du compilateur.
 - **D.** Oui, mais `ClassCastException` à l'exécution.
+<!--
 
 ## Question 7 - Réponse
 
@@ -426,7 +347,7 @@ Box<String>[] boxes = new Box<String>[10];
   Java. C'est une limitation de l'effacement de type.
 
 Les types primitifs et les tableaux de génériques sont deux limitations
-importantes à connaître.
+importantes à connaître. -->
 
 ## Questions
 

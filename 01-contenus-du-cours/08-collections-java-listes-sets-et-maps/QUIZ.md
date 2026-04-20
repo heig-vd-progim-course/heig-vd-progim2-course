@@ -59,28 +59,17 @@ plants.add("Tomate");
 System.out.println(plants.size());
 ```
 
-- **A.** `ArrayList`, et affiche `2`
-- **B.** `ArrayList`, et affiche `3`
-- **C.** `HashSet`, et affiche `2`
-- **D.** `HashMap`, et affiche `3`
-
 ## Question 1 - Réponse
 
-**Réponse correcte : B** - `ArrayList`, et affiche `3`
+**Réponse correcte : `List` et `ArrayList`**
 
 ```java
-ArrayList<String> plants = new ArrayList<>();
+List<String> plants = new ArrayList<>();
 plants.add("Tomate");
 plants.add("Carotte");
 plants.add("Tomate");
 System.out.println(plants.size());  // 3
 ```
-
-Une `ArrayList` est une **liste** :
-
-- Elle **préserve l'ordre** d'insertion.
-- Elle **autorise les doublons** ("Tomate" apparaît deux fois).
-- La taille est donc 3.
 
 ## Question 2 - Donnée
 
@@ -98,14 +87,9 @@ seeds.add("Carotte");
 System.out.println(seeds.size());
 ```
 
-- **A.** `5`
-- **B.** `4`
-- **C.** `3`
-- **D.** Erreur de compilation
-
 ## Question 2 - Réponse
 
-**Réponse correcte : C** - `3`
+**Réponse correcte :** - `3`
 
 ```java
 Set<String> seeds = new HashSet<>();
@@ -116,10 +100,6 @@ seeds.add("Basilic");  // ajouté
 seeds.add("Carotte");  // ignoré (doublon)
 System.out.println(seeds.size());  // 3
 ```
-
-Un `HashSet` **n'autorise pas les doublons**. Il utilise `equals()` et
-`hashCode()` pour détecter les éléments identiques. `add()` retourne `false` si
-l'élément existe déjà.
 
 ## Question 3 - Donnée
 
@@ -154,13 +134,6 @@ garden.put("Carotte", 3);  // {"Tomate": 5, "Carotte": 3}
 garden.put("Tomate", 8);   // {"Tomate": 8, "Carotte": 3}
 ```
 
-Une `HashMap` associe des **clés** à des **valeurs** :
-
-- Les clés sont **uniques** : `put()` avec une clé existante **remplace** la
-  valeur.
-- `get("Tomate")` retourne `8` (la dernière valeur).
-- La taille est `2` (deux clés distinctes).
-
 ## Question 4 - Donnée
 
 **Comparaison : ArrayList vs LinkedList**
@@ -185,10 +158,6 @@ Quelle affirmation est correcte ?
 
 \* Amorti. \*\* Si on a déjà la référence du noeud.
 
-- `ArrayList` : tableau redimensionnable, accès direct par index.
-- `LinkedList` : liste chaînée, chaque élément pointe vers le suivant.
-- Les deux autorisent les doublons et préservent l'ordre.
-
 ## Question 5 - Donnée
 
 **Prédiction : TreeSet et ordre**
@@ -204,14 +173,9 @@ herbs.add("Ciboulette");
 System.out.println(herbs);
 ```
 
-- **A.** `[Basilic, Thym, Persil, Ciboulette]`
-- **B.** `[Basilic, Ciboulette, Persil, Thym]`
-- **C.** L'ordre est aléatoire.
-- **D.** Erreur de compilation.
-
 ## Question 5 - Réponse
 
-**Réponse correcte : B** - `[Basilic, Ciboulette, Persil, Thym]`
+**Réponse correcte :** `[Basilic, Ciboulette, Persil, Thym]`
 
 Un `TreeSet` trie automatiquement les éléments en **ordre naturel** (ordre
 alphabétique pour les `String`).
@@ -239,14 +203,9 @@ for (Map.Entry<String, Integer> entry : stock.entrySet()) {
 }
 ```
 
-- **A.** L'ordre d'insertion : Tomate, Carotte, Basilic
-- **B.** L'ordre alphabétique : Basilic, Carotte, Tomate
-- **C.** L'ordre est aléatoire
-- **D.** Erreur de compilation
-
 ## Question 6 - Réponse
 
-**Réponse correcte : B** - Ordre alphabétique
+**Réponse correcte :** - Ordre alphabétique
 
 ```
 Basilic : 8
@@ -257,13 +216,7 @@ Tomate : 10
 `TreeMap` trie les entrées par **clé** en ordre naturel (alphabétique pour les
 `String`). On utilise `entrySet()` pour parcourir les paires clé-valeur.
 
-- `HashMap` : ordre imprévisible.
-- `TreeMap` : trié par clé.
-- `LinkedHashMap` : ordre d'insertion.
-
 ## Question 7 - Donnée
-
-**Prédiction : ConcurrentModificationException**
 
 Que se passe-t-il à l'exécution de ce code ?
 
@@ -280,14 +233,9 @@ for (String plant : plants) {
 }
 ```
 
-- **A.** Supprime "Mauvaise herbe" correctement.
-- **B.** Lance une `ConcurrentModificationException`.
-- **C.** Erreur de compilation.
-- **D.** Ne supprime rien.
-
 ## Question 7 - Réponse
 
-**Réponse correcte : B** - `ConcurrentModificationException`
+**Réponse correcte :** - `ConcurrentModificationException`
 
 On ne peut **pas modifier une collection pendant qu'on l'itère** avec un
 `for-each`. La solution est d'utiliser un `Iterator` :
@@ -302,11 +250,7 @@ while (iterator.hasNext()) {
 }
 ```
 
-Autre solution : `plants.removeIf(p -> p.equals("Mauvaise herbe"));`
-
 ## Question 8 - Donnée
-
-**Complétion : parcours d'une liste**
 
 Quel est le résultat de ce code ?
 
@@ -323,14 +267,9 @@ for (int n : numbers) {
 System.out.println(total);
 ```
 
-- **A.** `10`
-- **B.** `30`
-- **C.** `60`
-- **D.** Erreur de compilation
-
 ## Question 8 - Réponse
 
-**Réponse correcte : C** - `60`
+**Réponse correcte :** - `60`
 
 ```java
 // Itération 1 : total = 0 + 10 = 10
@@ -340,71 +279,6 @@ System.out.println(total);
 
 La boucle `for-each` parcourt chaque élément de la liste dans l'ordre. C'est la
 manière la plus simple et lisible de parcourir une collection en Java.
-
-## Question 9 - Donnée
-
-**Comparaison : choisir la bonne collection**
-
-Quel type de collection est le plus adapté pour chacun de ces besoins ?
-
-1. Stocker une liste de tâches **dans l'ordre** avec possibilité de doublons.
-2. Stocker des **identifiants uniques** sans ordre particulier.
-3. Associer un **nom de plante** à sa **date de plantation**.
-
-## Question 9 - Réponse
-
-**Réponses :**
-
-1. **`ArrayList`** : préserve l'ordre, autorise les doublons, accès par index.
-2. **`HashSet`** : unicité garantie, performances optimales en O(1).
-3. **`HashMap`** : association clé (nom) -> valeur (date).
-
-Résumé pour choisir :
-
-| Besoin                    | Collection  |
-| :------------------------ | :---------- |
-| Éléments ordonnés         | `ArrayList` |
-| Éléments uniques          | `HashSet`   |
-| Éléments uniques et triés | `TreeSet`   |
-| Associations clé-valeur   | `HashMap`   |
-
-## Question 10 - Donnée
-
-**Prédiction : HashMap et null**
-
-Que va afficher ce code ?
-
-```java
-Map<String, Integer> map = new HashMap<>();
-map.put("Tomate", 5);
-
-Integer quantity = map.get("Concombre");
-System.out.println(quantity);
-```
-
-- **A.** `0`
-- **B.** `null`
-- **C.** Lance une `NullPointerException`.
-- **D.** Erreur de compilation.
-
-## Question 10 - Réponse
-
-**Réponse correcte : B** - `null`
-
-```java
-Integer quantity = map.get("Concombre");  // clé absente -> null
-System.out.println(quantity);              // affiche "null"
-```
-
-`get()` retourne `null` si la clé n'existe pas. Pour éviter les surprises :
-
-```java
-// Vérifier avant d'utiliser
-if (map.containsKey("Concombre")) { ... }
-
-// Ou utiliser getOrDefault
-int qty = map.getOrDefault("Concombre", 0);
-```
 
 ## Questions
 
