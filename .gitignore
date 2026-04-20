@@ -15,6 +15,17 @@
 !02-evaluations/exam-debut-semestre-2026-partie-*-enonce.pdf
 !02-evaluations/exam-debut-semestre-2026-partie-*-avec-solutions.pdf
 
+## Manim
+# Animation outputs
+**/animations/videos/**
+**/animations/partial/**
+**/animations/__pycache__/**
+**/media
+**/animations/texts
+*.pyc
+__pycache__/
+.cache/
+
 ## Java 
 # Compiled Java class files
 *.class
@@ -31,3 +42,4 @@ tmp
 
 # Configuration files
 *.properties
+

@@ -49,5 +49,7 @@
 	"prettier.printWidth": 80,
 	"prettier.proseWrap": "always",
 	"prettier.tabWidth": 2,
-	"prettier.useTabs": true
+	"prettier.useTabs": true,
+	"python.defaultInterpreterPath": "/workspace/.venv/bin/python",
+	"manim-sideview.commandPath": "/workspace/.venv/bin/manim"
 }

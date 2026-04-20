@@ -29,3 +29,22 @@ sudo apt install --yes jpegoptim optipng
 
 # Install packages to optimize documents (ps2pdf)
 sudo apt install --yes ghostscript
+
+# Install Manim system dependencies
+sudo apt install --yes \
+	build-essential \
+	python3-dev \
+	libcairo2-dev \
+	libpango1.0-dev \
+	ffmpeg \
+	texlive \
+	texlive-latex-extra \
+	texlive-fonts-extra \
+	texlive-latex-recommended \
+	texlive-science \
+	tipa \
+	libpangocairo-1.0-0
+
+## Install Python packages
+# Install Manim Community Edition for animations
+pip3 install --user manim
