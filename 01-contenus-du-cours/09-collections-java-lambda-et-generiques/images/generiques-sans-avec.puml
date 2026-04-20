@@ -1,0 +1,49 @@
+@startuml generiques-sans-avec
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+left to right direction
+
+package "Sans génériques" as sans {
+    class StringBox {
+        - value : String
+        + set(value : String) : void
+        + get() : String
+    }
+
+    class IntegerBox {
+        - value : Integer
+        + set(value : Integer) : void
+        + get() : Integer
+    }
+
+    class PlantBaseBox {
+        - value : PlantBase
+        + set(value : PlantBase) : void
+        + get() : PlantBase
+    }
+}
+
+package "Avec génériques" as avec {
+    class "Box<T>" as BoxT {
+        - value : T
+        + set(value : T) : void
+        + get() : T
+    }
+}
+
+note bottom of sans
+  Code dupliqué :
+  3 classes identiques
+  pour 3 types différents.
+end note
+
+note bottom of avec
+  Code réutilisable :
+  1 seule classe
+  pour tous les types.
+end note
+
+@enduml

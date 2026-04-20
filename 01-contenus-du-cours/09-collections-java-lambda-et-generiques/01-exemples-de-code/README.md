@@ -1,4 +1,4 @@
-# Collections Java : Lambda et génériques - Exemples de code
+# Collections Java : Les génériques - Exemples de code
 
 V. Guidoux, avec l'aide de
 [GitHub Copilot](https://github.com/features/copilot).
@@ -16,14 +16,12 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 - [Introduction](#introduction)
 - [Structure des exemples](#structure-des-exemples)
 - [Exemples](#exemples)
-  - [Expressions lambda](#expressions-lambda)
-  - [Interfaces fonctionnelles](#interfaces-fonctionnelles)
   - [Génériques](#génériques)
 - [Navigation rapide](#navigation-rapide)
 - [Points clés à retenir](#points-clés-à-retenir)
 - [Comment travailler efficacement avec ces exemples](#comment-travailler-efficacement-avec-ces-exemples)
   - [Pour les exemples corrects (0\*)](#pour-les-exemples-corrects-0)
-  - [Pour les contre-exemples (1\*-a-eviter)](#pour-les-contre-exemples-1-a-eviter)
+  - [Pour les contre-exemples (0\*-a-eviter)](#pour-les-contre-exemples-0-a-eviter)
 - [Progression suggérée](#progression-suggérée)
 - [En cas de difficulté](#en-cas-de-difficulté)
 - [Pour aller plus loin](#pour-aller-plus-loin)
@@ -67,108 +65,27 @@ Les exemples de code sont organisés selon une numérotation claire :
 - **`0*-titre/`** : exemples de code **corrects** illustrant les bonnes
   pratiques, du plus simple au plus complexe. Ces fichiers peuvent être utilisés
   comme référence et adaptés pour vos projets.
-- **`1*-a-eviter-titre/`** : exemples de code **INCORRECTS** montrant les
+- **`0*-a-eviter-titre/`** : exemples de code **INCORRECTS** montrant les
   erreurs fréquentes, avec des commentaires expliquant le problème. **Ces
   fichiers sont uniquement à des fins pédagogiques et ne doivent jamais être
   copiés.**
 
 > [!IMPORTANT]
 >
-> - Tous les dossiers commençant par `0*` contiennent du code **correct** et
->   suivent les bonnes pratiques.
-> - Tous les dossiers commençant par `1*-a-eviter` contiennent du code
->   **volontairement incorrect** pour illustrer des erreurs à éviter.
+> - Tous les dossiers commençant par `0*` sans mention "a-eviter" contiennent du
+>   code **correct** et suivent les bonnes pratiques.
+> - Tous les dossiers contenant `a-eviter` contiennent du code **volontairement
+>   incorrect** pour illustrer des erreurs à éviter.
 
 ## Exemples
 
 Les exemples sont organisés par ordre de complexité croissante. Commencez par
 les exemples numérotés `01`, `02`, etc., puis consultez les contre-exemples
-`11-a-eviter`, `12-a-eviter`, etc. pour comprendre les erreurs à éviter.
-
-### Expressions lambda
-
-#### [01-lambda-foreach](./01-lambda-foreach/)
-
-**Objectif :** comprendre la syntaxe d'une expression lambda et son utilisation
-avec `forEach`.
-
-Cet exemple montre comment remplacer une boucle `for-each` classique par un
-appel à `forEach` avec une lambda. Illustre la forme simple et la forme bloc
-d'une lambda.
-
-**Concepts illustrés :** syntaxe lambda, `forEach`, `Consumer<T>`, forme simple
-vs bloc.
-
----
-
-#### [02-lambda-removeif](./02-lambda-removeif/)
-
-**Objectif :** comprendre comment `removeIf` simplifie la suppression
-conditionnelle.
-
-Cet exemple montre comment remplacer un itérateur avec suppression par un seul
-appel à `removeIf` avec un `Predicate`.
-
-**Concepts illustrés :** `removeIf`, `Predicate<T>`, suppression conditionnelle.
-
----
-
-#### [03-lambda-sort](./03-lambda-sort/)
-
-**Objectif :** utiliser `sort` avec une lambda pour trier selon un critère
-personnalisé.
-
-Cet exemple montre le tri par différents critères (alphabétique, longueur,
-inverse) en passant une lambda comme `Comparator`.
-
-**Concepts illustrés :** `sort`, `Comparator<T>`, tri personnalisé.
-
----
-
-### Interfaces fonctionnelles
-
-#### [04-interface-fonctionnelle-predicate](./04-interface-fonctionnelle-predicate/)
-
-**Objectif :** comprendre `Predicate<T>` et son utilisation comme paramètre de
-méthode.
-
-Cet exemple montre comment créer des prédicats réutilisables et les combiner
-avec `and()` et `or()`.
-
-**Concepts illustrés :** `Predicate<T>`, `test()`, `and()`, `or()`, passage de
-comportement en paramètre.
-
----
-
-#### [05-interface-fonctionnelle-function](./05-interface-fonctionnelle-function/)
-
-**Objectif :** comprendre `Function<T, R>` pour transformer des valeurs et
-`Consumer<T>` pour exécuter des actions.
-
-Cet exemple montre comment utiliser `Function` pour convertir des types et
-`Consumer` pour des actions sans retour.
-
-**Concepts illustrés :** `Function<T, R>`, `apply()`, `Consumer<T>`, `accept()`.
-
----
-
-#### [06-reference-de-methode](./06-reference-de-methode/)
-
-**Objectif :** comprendre les références de méthode comme raccourci syntaxique
-pour des lambdas simples.
-
-Cet exemple montre l'équivalence entre une lambda qui appelle une méthode et la
-référence de méthode correspondante (`System.out::println`,
-`String::compareTo`).
-
-**Concepts illustrés :** `Class::method`, `object::method`, comparaison avec
-lambda.
-
----
+`04-a-eviter`, `05-a-eviter`, etc. pour comprendre les erreurs à éviter.
 
 ### Génériques
 
-#### [07-classe-generique](./07-classe-generique/)
+#### [01-classe-generique](./01-classe-generique/)
 
 **Objectif :** comprendre comment créer et utiliser une classe générique.
 
@@ -180,7 +97,7 @@ l'instanciation avec différents types concrets.
 
 ---
 
-#### [08-methode-generique](./08-methode-generique/)
+#### [02-methode-generique](./02-methode-generique/)
 
 **Objectif :** comprendre comment déclarer une méthode générique indépendante de
 la classe.
@@ -193,7 +110,7 @@ statique générique.
 
 ---
 
-#### [09-wildcards](./09-wildcards/)
+#### [03-wildcards](./03-wildcards/)
 
 **Objectif :** comprendre les wildcards et les bornes pour écrire du code
 générique flexible.
@@ -206,7 +123,7 @@ pour l'écriture.
 
 ---
 
-#### [11-a-eviter-type-brut](./11-a-eviter-type-brut/)
+#### [04-a-eviter-type-brut](./04-a-eviter-type-brut/)
 
 **Objectif :** comprendre pourquoi utiliser un type brut (sans paramètre de
 type) est dangereux.
@@ -219,7 +136,7 @@ quel objet, ce qui provoque une `ClassCastException` à l'exécution.
 
 ---
 
-#### [12-a-eviter-instanceof-avec-generiques](./12-a-eviter-instanceof-avec-generiques/)
+#### [05-a-eviter-instanceof-avec-generiques](./05-a-eviter-instanceof-avec-generiques/)
 
 **Objectif :** comprendre les limitations de `instanceof` avec les génériques à
 cause de l'effacement de type.
@@ -232,29 +149,20 @@ Ce contre-exemple montre que `Box<String>` et `Box<Integer>` sont la même class
 
 ## Navigation rapide
 
-| #   | Exemple                                                 | Concept principal               |
-| :-- | :------------------------------------------------------ | :------------------------------ |
-| 01  | [lambda-foreach](./01-lambda-foreach/)                  | `forEach` avec lambda           |
-| 02  | [lambda-removeif](./02-lambda-removeif/)                | `removeIf` avec `Predicate`     |
-| 03  | [lambda-sort](./03-lambda-sort/)                        | `sort` avec `Comparator` lambda |
-| 04  | [predicate](./04-interface-fonctionnelle-predicate/)    | `Predicate`, `and()`, `or()`    |
-| 05  | [function](./05-interface-fonctionnelle-function/)      | `Function`, `Consumer`          |
-| 06  | [référence](./06-reference-de-methode/)                 | `Class::method`                 |
-| 07  | [classe générique](./07-classe-generique/)              | `Box<T>`, `Pair<K,V>`           |
-| 08  | [méthode générique](./08-methode-generique/)            | `<T> T method()`                |
-| 09  | [wildcards](./09-wildcards/)                            | `<?>`, `extends`, `super`       |
-| 11  | [type brut](./11-a-eviter-type-brut/)                   | Erreur : `List` sans `<>`       |
-| 12  | [instanceof](./12-a-eviter-instanceof-avec-generiques/) | Erreur : effacement de type     |
+| #   | Exemple                                                 | Concept principal           |
+| :-- | :------------------------------------------------------ | :-------------------------- |
+| 01  | [classe générique](./01-classe-generique/)              | `Box<T>`, `Pair<K,V>`       |
+| 02  | [méthode générique](./02-methode-generique/)            | `<T> T method()`            |
+| 03  | [wildcards](./03-wildcards/)                            | `<?>`, `extends`, `super`   |
+| 04  | [type brut](./04-a-eviter-type-brut/)                   | Erreur : `List` sans `<>`   |
+| 05  | [instanceof](./05-a-eviter-instanceof-avec-generiques/) | Erreur : effacement de type |
 
 ## Points clés à retenir
 
-- Une **expression lambda** est une fonction anonyme qui remplace une interface
-  fonctionnelle.
-- `forEach`, `removeIf` et `sort` acceptent des lambdas pour simplifier le code.
-- Les **interfaces fonctionnelles** (`Predicate`, `Function`, `Consumer`) sont
-  dans `java.util.function`.
 - Une **classe générique** utilise un paramètre de type `<T>` pour fonctionner
   avec différents types.
+- Une **méthode générique** déclare son paramètre de type avant le type de
+  retour (`<T> T method()`).
 - Les **wildcards** (`<? extends T>`, `<? super T>`) rendent les méthodes
   génériques plus flexibles.
 - L'**effacement de type** supprime les paramètres de type à la compilation : on
@@ -270,7 +178,7 @@ Ce contre-exemple montre que `Box<String>` et `Box<Integer>` sont la même class
 4. **Exécuter** le code et comparer avec votre prédiction.
 5. **Modifier** le code pour tester des variantes.
 
-### Pour les contre-exemples (1\*-a-eviter)
+### Pour les contre-exemples (0\*-a-eviter)
 
 1. **Identifier** le problème dans le code.
 2. **Comprendre** pourquoi c'est problématique.
@@ -279,11 +187,10 @@ Ce contre-exemple montre que `Box<String>` et `Box<Integer>` sont la même class
 
 ## Progression suggérée
 
-1. Commencez par les exemples 01 à 03 pour apprendre les lambdas avec les
-   collections.
-2. Continuez avec 04 à 06 pour comprendre les interfaces fonctionnelles.
-3. Passez aux exemples 07 à 09 pour apprendre les génériques.
-4. Terminez avec les contre-exemples 11 et 12 pour connaître les pièges.
+1. Commencez par l'exemple 01 pour apprendre les classes génériques.
+2. Continuez avec 02 pour les méthodes génériques.
+3. Passez à l'exemple 03 pour comprendre les wildcards.
+4. Terminez avec les contre-exemples 04 et 05 pour connaître les pièges.
 
 ## En cas de difficulté
 
@@ -294,8 +201,6 @@ Ce contre-exemple montre que `Box<String>` et `Box<Integer>` sont la même class
 
 ## Pour aller plus loin
 
-- Documentation officielle Oracle :
-  [Lambda Expressions](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
 - Documentation officielle Oracle :
   [Generics](https://docs.oracle.com/javase/tutorial/java/generics/index.html)
 

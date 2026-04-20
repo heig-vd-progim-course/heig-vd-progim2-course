@@ -1,4 +1,4 @@
-# Collections Java : Lambda et génériques - Exercices
+# Collections Java : Les génériques - Exercices
 
 V. Guidoux, avec l'aide de
 [GitHub Copilot](https://github.com/features/copilot).
@@ -15,24 +15,19 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 - [Table des matières](#table-des-matières)
 - [Exercices](#exercices)
 - [Exercices de complétion](#exercices-de-complétion)
-  - [Exercice 1 - forEach avec une lambda](#exercice-1---foreach-avec-une-lambda)
-  - [Exercice 2 - removeIf avec un prédicat](#exercice-2---removeif-avec-un-prédicat)
-  - [Exercice 3 - sort avec un Comparator](#exercice-3---sort-avec-un-comparator)
-  - [Exercice 4 - Predicate en paramètre](#exercice-4---predicate-en-paramètre)
-  - [Exercice 5 - classe générique simple](#exercice-5---classe-générique-simple)
+  - [Exercice 1 - classe générique simple](#exercice-1---classe-générique-simple)
+  - [Exercice 2 - méthode générique](#exercice-2---méthode-générique)
+  - [Exercice 3 - classe générique à deux paramètres](#exercice-3---classe-générique-à-deux-paramètres)
 - [Exercices de prédiction](#exercices-de-prédiction)
-  - [Exercice 6 - type d'une lambda](#exercice-6---type-dune-lambda)
-  - [Exercice 7 - removeIf et état](#exercice-7---removeif-et-état)
-  - [Exercice 8 - effacement de type](#exercice-8---effacement-de-type)
+  - [Exercice 4 - effacement de type](#exercice-4---effacement-de-type)
+  - [Exercice 5 - sécurité de type avec les génériques](#exercice-5---sécurité-de-type-avec-les-génériques)
 - [Exercices de comparaison](#exercices-de-comparaison)
-  - [Exercice 9 - boucle for-each vs forEach](#exercice-9---boucle-for-each-vs-foreach)
-  - [Exercice 10 - Comparator anonyme vs lambda](#exercice-10---comparator-anonyme-vs-lambda)
+  - [Exercice 6 - Object vs générique](#exercice-6---object-vs-générique)
 - [Exercices de modification](#exercices-de-modification)
-  - [Exercice 11 - remplacement par des lambdas](#exercice-11---remplacement-par-des-lambdas)
-  - [Exercice 12 - ajout d'un paramètre de type générique](#exercice-12---ajout-dun-paramètre-de-type-générique)
+  - [Exercice 7 - ajout d'un paramètre de type générique](#exercice-7---ajout-dun-paramètre-de-type-générique)
+  - [Exercice 8 - ajout d'un wildcard](#exercice-8---ajout-dun-wildcard)
 - [Exercices de transfert](#exercices-de-transfert)
-  - [Exercice 13 - filtrage de produits avec Predicate et génériques](#exercice-13---filtrage-de-produits-avec-predicate-et-génériques)
-  - [Exercice 14 - boîte générique avec transformation](#exercice-14---boîte-générique-avec-transformation)
+  - [Exercice 9 - registre générique](#exercice-9---registre-générique)
 - [Conclusion](#conclusion)
 
 ## Exercices
@@ -51,292 +46,10 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 
 ## Exercices de complétion
 
-Ces exercices vous permettent de pratiquer la syntaxe des expressions lambda et
-des génériques en complétant du code existant.
+Ces exercices vous permettent de pratiquer la syntaxe des génériques en
+complétant du code existant.
 
-### Exercice 1 - forEach avec une lambda
-
-Vous gérez une liste de plantes dans un jardin. Complétez le code pour afficher
-chaque plante en majuscules en utilisant `forEach` avec une lambda.
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class ForEachExample {
-    public static void main(String[] args) {
-        List<String> plants = new ArrayList<>();
-        plants.add("Tomate");
-        plants.add("Carotte");
-        plants.add("Basilic");
-        plants.add("Menthe");
-
-        System.out.println("Plantes en majuscules :");
-
-        // TODO: Utilisez forEach avec une lambda pour afficher
-        // chaque plante en majuscules (utilisez toUpperCase())
-
-    }
-}
-```
-
-<details>
-<summary>Solution</summary>
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class ForEachExample {
-    public static void main(String[] args) {
-        List<String> plants = new ArrayList<>();
-        plants.add("Tomate");
-        plants.add("Carotte");
-        plants.add("Basilic");
-        plants.add("Menthe");
-
-        System.out.println("Plantes en majuscules :");
-
-        plants.forEach(plant ->
-                System.out.println("  - " + plant.toUpperCase()));
-    }
-}
-```
-
-Sortie attendue :
-
-```text
-Plantes en majuscules :
-  - TOMATE
-  - CAROTTE
-  - BASILIC
-  - MENTHE
-```
-
-</details>
-
-### Exercice 2 - removeIf avec un prédicat
-
-Vous avez une liste de distances (en km) parcourues à vélo. Supprimez toutes les
-distances inférieures à 5 km en utilisant `removeIf`.
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class RemoveIfExample {
-    public static void main(String[] args) {
-        List<Double> distances = new ArrayList<>();
-        distances.add(12.5);
-        distances.add(3.2);
-        distances.add(7.8);
-        distances.add(1.5);
-        distances.add(15.0);
-        distances.add(4.9);
-
-        System.out.println("Avant : " + distances);
-
-        // TODO: Utilisez removeIf pour supprimer les distances < 5.0
-
-
-        System.out.println("Après : " + distances);
-    }
-}
-```
-
-<details>
-<summary>Solution</summary>
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class RemoveIfExample {
-    public static void main(String[] args) {
-        List<Double> distances = new ArrayList<>();
-        distances.add(12.5);
-        distances.add(3.2);
-        distances.add(7.8);
-        distances.add(1.5);
-        distances.add(15.0);
-        distances.add(4.9);
-
-        System.out.println("Avant : " + distances);
-
-        distances.removeIf(d -> d < 5.0);
-
-        System.out.println("Après : " + distances);
-    }
-}
-```
-
-Sortie attendue :
-
-```text
-Avant : [12.5, 3.2, 7.8, 1.5, 15.0, 4.9]
-Après : [12.5, 7.8, 15.0]
-```
-
-</details>
-
-### Exercice 3 - sort avec un Comparator
-
-Vous avez une liste de noms de villes. Triez-les par longueur de nom (du plus
-court au plus long) en utilisant `sort` avec une lambda.
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class SortLambdaExample {
-    public static void main(String[] args) {
-        List<String> cities = new ArrayList<>();
-        cities.add("Lausanne");
-        cities.add("Yverdon");
-        cities.add("Bex");
-        cities.add("Montreux");
-        cities.add("Nyon");
-
-        System.out.println("Avant : " + cities);
-
-        // TODO: Triez la liste par longueur de nom avec sort et
-        // une lambda
-
-
-        System.out.println("Après : " + cities);
-    }
-}
-```
-
-<details>
-<summary>Solution</summary>
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class SortLambdaExample {
-    public static void main(String[] args) {
-        List<String> cities = new ArrayList<>();
-        cities.add("Lausanne");
-        cities.add("Yverdon");
-        cities.add("Bex");
-        cities.add("Montreux");
-        cities.add("Nyon");
-
-        System.out.println("Avant : " + cities);
-
-        cities.sort((a, b) -> a.length() - b.length());
-
-        System.out.println("Après : " + cities);
-    }
-}
-```
-
-Sortie attendue :
-
-```text
-Avant : [Lausanne, Yverdon, Bex, Montreux, Nyon]
-Après : [Bex, Nyon, Yverdon, Lausanne, Montreux]
-```
-
-</details>
-
-### Exercice 4 - Predicate en paramètre
-
-Complétez la méthode `filterList` qui prend une liste et un `Predicate` en
-paramètres, et retourne une nouvelle liste contenant uniquement les éléments qui
-satisfont le prédicat.
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Predicate;
-
-public class PredicateExample {
-
-    // TODO: Complétez la méthode filterList
-    public static List<String> filterList(List<String> list,
-            Predicate<String> predicate) {
-        List<String> result = new ArrayList<>();
-
-        // TODO: Utilisez forEach avec le prédicat pour remplir result
-
-
-        return result;
-    }
-
-    public static void main(String[] args) {
-        List<String> words = new ArrayList<>();
-        words.add("Java");
-        words.add("Python");
-        words.add("C");
-        words.add("JavaScript");
-        words.add("Go");
-        words.add("Rust");
-
-        List<String> shortWords =
-                filterList(words, w -> w.length() <= 4);
-        System.out.println("Mots courts : " + shortWords);
-
-        List<String> startsWithJ =
-                filterList(words, w -> w.startsWith("J"));
-        System.out.println("Commence par J : " + startsWithJ);
-    }
-}
-```
-
-<details>
-<summary>Solution</summary>
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Predicate;
-
-public class PredicateExample {
-
-    public static List<String> filterList(List<String> list,
-            Predicate<String> predicate) {
-        List<String> result = new ArrayList<>();
-        list.forEach(item -> {
-            if (predicate.test(item)) {
-                result.add(item);
-            }
-        });
-        return result;
-    }
-
-    public static void main(String[] args) {
-        List<String> words = new ArrayList<>();
-        words.add("Java");
-        words.add("Python");
-        words.add("C");
-        words.add("JavaScript");
-        words.add("Go");
-        words.add("Rust");
-
-        List<String> shortWords =
-                filterList(words, w -> w.length() <= 4);
-        System.out.println("Mots courts : " + shortWords);
-
-        List<String> startsWithJ =
-                filterList(words, w -> w.startsWith("J"));
-        System.out.println("Commence par J : " + startsWithJ);
-    }
-}
-```
-
-Sortie attendue :
-
-```text
-Mots courts : [Java, C, Go, Rust]
-Commence par J : [Java, JavaScript]
-```
-
-</details>
-
-### Exercice 5 - classe générique simple
+### Exercice 1 - classe générique simple
 
 Complétez la classe générique `Container` qui peut stocker un élément de
 n'importe quel type. Ajoutez les méthodes manquantes.
@@ -446,124 +159,203 @@ Vide : true
 
 </details>
 
+### Exercice 2 - méthode générique
+
+Complétez la classe `ArrayUtils` en créant deux méthodes génériques :
+
+- `printAll` : affiche tous les éléments d'une liste.
+- `getFirst` : retourne le premier élément d'une liste ou `null` si la liste est
+  vide.
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArrayUtils {
+
+    // TODO: Créez une méthode générique statique printAll
+    // qui prend une List<T> et affiche chaque élément
+
+
+    // TODO: Créez une méthode générique statique getFirst
+    // qui prend une List<T> et retourne le premier élément
+    // ou null si la liste est vide
+
+
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+        names.add("Alice");
+        names.add("Bob");
+        names.add("Charlie");
+
+        System.out.println("Tous les noms :");
+        printAll(names);
+
+        String first = getFirst(names);
+        System.out.println("Premier : " + first);
+
+        List<Integer> numbers = new ArrayList<>();
+        System.out.println("Premier (liste vide) : "
+                + getFirst(numbers));
+    }
+}
+```
+
+<details>
+<summary>Solution</summary>
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class ArrayUtils {
+
+    public static <T> void printAll(List<T> items) {
+        for (T item : items) {
+            System.out.println("  - " + item);
+        }
+    }
+
+    public static <T> T getFirst(List<T> items) {
+        if (items.isEmpty()) {
+            return null;
+        }
+        return items.get(0);
+    }
+
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+        names.add("Alice");
+        names.add("Bob");
+        names.add("Charlie");
+
+        System.out.println("Tous les noms :");
+        printAll(names);
+
+        String first = getFirst(names);
+        System.out.println("Premier : " + first);
+
+        List<Integer> numbers = new ArrayList<>();
+        System.out.println("Premier (liste vide) : "
+                + getFirst(numbers));
+    }
+}
+```
+
+Sortie attendue :
+
+```text
+Tous les noms :
+  - Alice
+  - Bob
+  - Charlie
+Premier : Alice
+Premier (liste vide) : null
+```
+
+La syntaxe `<T>` avant le type de retour déclare le paramètre de type au niveau
+de la méthode. Java infère automatiquement `T` comme `String` ou `Integer` selon
+la liste passée en argument.
+
+</details>
+
+### Exercice 3 - classe générique à deux paramètres
+
+Complétez la classe `Pair<K, V>` qui associe une clé à une valeur. Ajoutez les
+attributs, le constructeur et les getters manquants.
+
+```java
+public class Pair<K, V> {
+    // TODO: Déclarez deux attributs privés : key de type K
+    // et value de type V
+
+
+    // TODO: Créez un constructeur qui prend une clé et une valeur
+
+
+    // TODO: Créez les getters getKey() et getValue()
+
+
+    @Override
+    public String toString() {
+        return key + " -> " + value;
+    }
+
+    public static void main(String[] args) {
+        Pair<String, Integer> age =
+                new Pair<>("Alice", 22);
+        System.out.println(age);
+        System.out.println("Clé : " + age.getKey());
+        System.out.println("Valeur : " + age.getValue());
+
+        Pair<Integer, String> lookup =
+                new Pair<>(404, "Non trouvé");
+        System.out.println(lookup);
+    }
+}
+```
+
+<details>
+<summary>Solution</summary>
+
+```java
+public class Pair<K, V> {
+    private K key;
+    private V value;
+
+    public Pair(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    public K getKey() {
+        return key;
+    }
+
+    public V getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return key + " -> " + value;
+    }
+
+    public static void main(String[] args) {
+        Pair<String, Integer> age =
+                new Pair<>("Alice", 22);
+        System.out.println(age);
+        System.out.println("Clé : " + age.getKey());
+        System.out.println("Valeur : " + age.getValue());
+
+        Pair<Integer, String> lookup =
+                new Pair<>(404, "Non trouvé");
+        System.out.println(lookup);
+    }
+}
+```
+
+Sortie attendue :
+
+```text
+Alice -> 22
+Clé : Alice
+Valeur : 22
+404 -> Non trouvé
+```
+
+La classe utilise deux paramètres de type `K` et `V`. Lors de l'instanciation,
+on spécifie les types concrets : `Pair<String, Integer>` pour la première
+instance et `Pair<Integer, String>` pour la seconde.
+
+</details>
+
 ## Exercices de prédiction
 
 Ces exercices vous demandent de prédire le résultat d'un programme sans
 l'exécuter.
 
-### Exercice 6 - type d'une lambda
-
-Analysez le code suivant. Quel est le type de l'interface fonctionnelle utilisée
-dans chaque cas ? Quel sera le résultat affiché ?
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.Function;
-
-public class LambdaTypes {
-    public static void main(String[] args) {
-        Predicate<String> isLong = s -> s.length() > 5;
-        Consumer<String> printer = s -> System.out.println(">> " + s);
-        Function<String, Integer> toLength = s -> s.length();
-
-        List<String> names = new ArrayList<>();
-        names.add("Alice");
-        names.add("Bob");
-        names.add("Charlotte");
-        names.add("Eve");
-
-        System.out.println("Test isLong :");
-        names.forEach(name -> {
-            if (isLong.test(name)) {
-                printer.accept(name);
-            }
-        });
-
-        System.out.println("Longueurs :");
-        names.forEach(name ->
-                System.out.println(name + " -> "
-                        + toLength.apply(name)));
-    }
-}
-```
-
-<details>
-<summary>Solution</summary>
-
-- `isLong` est un `Predicate<String>` : prend un `String`, retourne un
-  `boolean`.
-- `printer` est un `Consumer<String>` : prend un `String`, ne retourne rien.
-- `toLength` est un `Function<String, Integer>` : prend un `String`, retourne un
-  `Integer`.
-
-Sortie :
-
-```text
-Test isLong :
->> Charlotte
-Longueurs :
-Alice -> 5
-Bob -> 3
-Charlotte -> 9
-Eve -> 3
-```
-
-Le `Predicate` `isLong` teste si la longueur est strictement supérieure à 5.
-"Alice" a 5 caractères, donc `5 > 5` est `false`. Seule "Charlotte" (9
-caractères) passe le test.
-
-</details>
-
-### Exercice 7 - removeIf et état
-
-Quel sera le contenu de la liste après l'exécution de ce code ?
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class RemoveIfPrediction {
-    public static void main(String[] args) {
-        List<Integer> numbers = new ArrayList<>();
-        numbers.add(10);
-        numbers.add(25);
-        numbers.add(30);
-        numbers.add(5);
-        numbers.add(42);
-        numbers.add(18);
-
-        numbers.removeIf(n -> n % 2 == 0 && n > 20);
-
-        System.out.println(numbers);
-    }
-}
-```
-
-<details>
-<summary>Solution</summary>
-
-Le `removeIf` supprime les éléments qui sont pairs ET supérieurs à 20. Analysons
-chaque élément :
-
-- 10 : pair ET > 20 ? 10 > 20 est `false` -> conservé.
-- 25 : pair ET > 20 ? 25 % 2 == 0 est `false` -> conservé.
-- 30 : pair ET > 20 ? `true` ET `true` -> **supprimé**.
-- 5 : pair ET > 20 ? 5 % 2 == 0 est `false` -> conservé.
-- 42 : pair ET > 20 ? `true` ET `true` -> **supprimé**.
-- 18 : pair ET > 20 ? 18 > 20 est `false` -> conservé.
-
-Sortie :
-
-```text
-[10, 25, 5, 18]
-```
-
-</details>
-
-### Exercice 8 - effacement de type
+### Exercice 4 - effacement de type
 
 Le code suivant compile-t-il ? Si oui, quel est le résultat ? Si non, pourquoi ?
 
@@ -613,285 +405,150 @@ Box
 
 </details>
 
+### Exercice 5 - sécurité de type avec les génériques
+
+Analysez le code suivant. Quelles lignes provoquent une erreur de compilation ?
+Pourquoi ?
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class TypeSafety {
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+        names.add("Alice");
+        names.add("Bob");
+        names.add(42);                       // Ligne A
+
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(10);
+        numbers.add(20);
+        String s = numbers.get(0);           // Ligne B
+
+        List<Object> objects = new ArrayList<>();
+        objects.add("Texte");
+        objects.add(42);
+        objects.add(3.14);                   // Ligne C
+
+        List<?> wildcard = names;
+        wildcard.add("Charlie");             // Ligne D
+        Object first = wildcard.get(0);      // Ligne E
+    }
+}
+```
+
+<details>
+<summary>Solution</summary>
+
+Erreurs de compilation :
+
+- **Ligne A** : erreur. `names` est de type `List<String>`, on ne peut pas
+  ajouter un `int` (42). Le compilateur détecte l'incompatibilité de type.
+- **Ligne B** : erreur. `numbers.get(0)` retourne un `Integer`, pas un `String`.
+  Le compilateur refuse l'affectation.
+- **Ligne C** : pas d'erreur. `objects` est de type `List<Object>`, et `String`,
+  `Integer` et `Double` héritent tous de `Object`.
+- **Ligne D** : erreur. On ne peut pas ajouter d'éléments à une `List<?>` (sauf
+  `null`). Le compilateur ne connaît pas le type exact de la liste.
+- **Ligne E** : pas d'erreur. On peut lire un élément d'une `List<?>` comme
+  `Object`.
+
+Les lignes A, B et D ne compilent pas. Les génériques détectent ces erreurs
+avant l'exécution, ce qui est l'un de leurs principaux avantages.
+
+</details>
+
 ## Exercices de comparaison
 
 Ces exercices vous demandent de comparer deux approches pour résoudre un même
 problème.
 
-### Exercice 9 - boucle for-each vs forEach
+### Exercice 6 - Object vs générique
 
-Comparez les deux versions suivantes. Laquelle préférez-vous et pourquoi ?
-Identifiez les avantages et inconvénients de chaque approche.
+Comparez les deux versions suivantes d'une classe `Box`. Identifiez les
+avantages et inconvénients de chaque approche.
 
-**Version A : boucle for-each classique**
+**Version A : avec Object**
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
+public class ObjectBox {
+    private Object value;
 
-public class VersionA {
+    public ObjectBox(Object value) {
+        this.value = value;
+    }
+
+    public Object getValue() {
+        return value;
+    }
+
     public static void main(String[] args) {
-        List<String> fruits = new ArrayList<>();
-        fruits.add("Pomme");
-        fruits.add("Poire");
-        fruits.add("Cerise");
+        ObjectBox box = new ObjectBox("Hello");
+        String text = (String) box.getValue();
+        System.out.println(text.toUpperCase());
 
-        int count = 0;
-        for (String fruit : fruits) {
-            if (fruit.length() > 4) {
-                System.out.println(fruit);
-                count++;
-            }
-        }
-        System.out.println("Total : " + count);
+        ObjectBox box2 = new ObjectBox(42);
+        String oops = (String) box2.getValue();
     }
 }
 ```
 
-**Version B : forEach avec lambda**
+**Version B : avec générique**
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
+public class GenericBox<T> {
+    private T value;
 
-public class VersionB {
+    public GenericBox(T value) {
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
+    }
+
     public static void main(String[] args) {
-        List<String> fruits = new ArrayList<>();
-        fruits.add("Pomme");
-        fruits.add("Poire");
-        fruits.add("Cerise");
+        GenericBox<String> box = new GenericBox<>("Hello");
+        String text = box.getValue();
+        System.out.println(text.toUpperCase());
 
-        final int[] count = {0};
-        fruits.forEach(fruit -> {
-            if (fruit.length() > 4) {
-                System.out.println(fruit);
-                count[0]++;
-            }
-        });
-        System.out.println("Total : " + count[0]);
+        GenericBox<Integer> box2 = new GenericBox<>(42);
+        // String oops = box2.getValue(); // Erreur de compilation
     }
 }
 ```
 
 <details>
 <summary>Solution</summary>
-
-Les deux versions produisent le même résultat :
-
-```text
-Pomme
-Poire
-Cerise
-Total : 3
-```
 
 Comparaison :
 
-| Critère             | Version A (for-each) | Version B (forEach)   |
-| :------------------ | :------------------- | :-------------------- |
-| Lisibilité          | Claire et directe.   | Plus complexe.        |
-| Compteur            | Simple `int count`.  | Nécessite un tableau. |
-| Variables locales   | Accès libre.         | Doivent être final.   |
-| Utilisation typique | Logique complexe.    | Opérations simples.   |
-| Concision           | Plus de lignes.      | Moins de lignes.      |
+| Critère          | Version A (Object)                | Version B (générique)                  |
+| :--------------- | :-------------------------------- | :------------------------------------- |
+| Sécurité de type | Aucune. Erreurs à l'exécution.    | Complète. Erreurs à la compilation.    |
+| Cast nécessaire  | Oui, à chaque `getValue()`.       | Non, le type est connu.                |
+| Risque runtime   | `ClassCastException` possible.    | Aucun risque de cast.                  |
+| Réutilisabilité  | Accepte tout, mais sans contrôle. | Accepte tout, avec contrôle.           |
+| Lisibilité       | Le type réel n'est pas visible.   | Le type est explicite (`Box<String>`). |
 
-La version A est préférable ici car elle nécessite un compteur mutable. Les
-lambdas ne peuvent accéder qu'à des variables locales `final` ou effectivement
-finales. La version B contourne cette restriction avec un tableau `int[]`, ce
-qui rend le code moins lisible.
+La version A compile sans erreur, mais `(String) box2.getValue()` provoque une
+`ClassCastException` à l'exécution car la valeur est un `Integer`.
 
-La méthode `forEach` est idéale pour des opérations simples sur chaque élément
-(affichage, appel de méthode) sans modification de variables locales externes.
+La version B est préférable car :
 
-</details>
-
-### Exercice 10 - Comparator anonyme vs lambda
-
-Comparez ces deux versions de tri. Identifiez les différences syntaxiques.
-
-**Version A : classe anonyme**
-
-```java
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-
-public class SortAnonymous {
-    public static void main(String[] args) {
-        List<String> tools = new ArrayList<>();
-        tools.add("Bêche");
-        tools.add("Arrosoir");
-        tools.add("Sécateur");
-        tools.add("Râteau");
-
-        tools.sort(new Comparator<String>() {
-            @Override
-            public int compare(String a, String b) {
-                return a.length() - b.length();
-            }
-        });
-
-        System.out.println(tools);
-    }
-}
-```
-
-**Version B : lambda**
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class SortLambda {
-    public static void main(String[] args) {
-        List<String> tools = new ArrayList<>();
-        tools.add("Bêche");
-        tools.add("Arrosoir");
-        tools.add("Sécateur");
-        tools.add("Râteau");
-
-        tools.sort((a, b) -> a.length() - b.length());
-
-        System.out.println(tools);
-    }
-}
-```
-
-<details>
-<summary>Solution</summary>
-
-Les deux versions produisent le même résultat :
-
-```text
-[Bêche, Râteau, Arrosoir, Sécateur]
-```
-
-Différences syntaxiques :
-
-| Aspect                     |  Version A (anonyme) | Version B (lambda) |
-| :------------------------- | -------------------: | -----------------: |
-| Lignes de code pour le tri |                    5 |                  1 |
-| Import de Comparator       |           Nécessaire |     Non nécessaire |
-| Déclaration de type        | Explicite (`String`) |   Inférée par Java |
-| Nom de la méthode          |  `compare` explicite |         Pas de nom |
-| Mot-clé `new`              |                  Oui |                Non |
-
-La version B est préférée car :
-
-- La lambda remplace directement l'interface fonctionnelle `Comparator`.
-- Java infère automatiquement les types des paramètres `a` et `b`.
-- Le code est beaucoup plus concis tout en restant lisible.
-
-Les deux versions créent une implémentation de l'interface `Comparator<String>`.
-La lambda est simplement une syntaxe plus compacte pour écrire la même chose.
+- Le compilateur détecte les erreurs de type avant l'exécution.
+- Pas de cast manuel nécessaire.
+- Le code est plus lisible car le type est explicite dans la déclaration.
 
 </details>
 
 ## Exercices de modification
 
 Ces exercices vous demandent de modifier du code existant pour utiliser des
-lambdas ou des génériques.
+génériques.
 
-### Exercice 11 - remplacement par des lambdas
-
-Transformez le code suivant pour utiliser `forEach`, `removeIf` et `sort` avec
-des lambdas à la place des boucles et de la classe anonyme.
-
-```java
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-
-public class RefactorToLambda {
-    public static void main(String[] args) {
-        List<String> animals = new ArrayList<>();
-        animals.add("Chat");
-        animals.add("Chien");
-        animals.add("Poisson");
-        animals.add("Hamster");
-        animals.add("Lapin");
-
-        // 1. Afficher tous les animaux
-        for (String animal : animals) {
-            System.out.println("Animal : " + animal);
-        }
-
-        // 2. Supprimer les animaux avec un nom > 5 caractères
-        Iterator<String> it = animals.iterator();
-        while (it.hasNext()) {
-            String animal = it.next();
-            if (animal.length() > 5) {
-                it.remove();
-            }
-        }
-        System.out.println("Après suppression : " + animals);
-
-        // 3. Trier par ordre alphabétique inverse
-        animals.sort(new Comparator<String>() {
-            @Override
-            public int compare(String a, String b) {
-                return b.compareTo(a);
-            }
-        });
-        System.out.println("Après tri inverse : " + animals);
-    }
-}
-```
-
-<details>
-<summary>Solution</summary>
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-public class RefactorToLambda {
-    public static void main(String[] args) {
-        List<String> animals = new ArrayList<>();
-        animals.add("Chat");
-        animals.add("Chien");
-        animals.add("Poisson");
-        animals.add("Hamster");
-        animals.add("Lapin");
-
-        // 1. Afficher tous les animaux avec forEach
-        animals.forEach(animal ->
-                System.out.println("Animal : " + animal));
-
-        // 2. Supprimer les animaux avec un nom > 5 caractères
-        animals.removeIf(animal -> animal.length() > 5);
-        System.out.println("Après suppression : " + animals);
-
-        // 3. Trier par ordre alphabétique inverse
-        animals.sort((a, b) -> b.compareTo(a));
-        System.out.println("Après tri inverse : " + animals);
-    }
-}
-```
-
-Sortie attendue :
-
-```text
-Animal : Chat
-Animal : Chien
-Animal : Poisson
-Animal : Hamster
-Animal : Lapin
-Après suppression : [Chat, Chien, Lapin]
-Après tri inverse : [Lapin, Chien, Chat]
-```
-
-Modifications effectuées :
-
-- Boucle `for-each` remplacée par `forEach` avec lambda.
-- Itérateur avec `while`/`remove` remplacé par `removeIf`.
-- Classe anonyme `Comparator` remplacée par une lambda.
-- Import de `Comparator` et `Iterator` supprimés.
-
-</details>
-
-### Exercice 12 - ajout d'un paramètre de type générique
+### Exercice 7 - ajout d'un paramètre de type générique
 
 La classe `Pair` suivante utilise `Object` pour stocker deux valeurs.
 Modifiez-la pour utiliser des paramètres de type génériques `<K, V>` afin
@@ -997,22 +654,104 @@ Modifications effectuées :
 
 </details>
 
+### Exercice 8 - ajout d'un wildcard
+
+La méthode `displayAll` suivante n'accepte qu'une `List<Object>`. Modifiez-la
+pour qu'elle accepte une liste de n'importe quel type en utilisant un wildcard.
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class WildcardExercise {
+
+    public static void displayAll(List<Object> items) {
+        for (Object item : items) {
+            System.out.println("  - " + item);
+        }
+    }
+
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+        names.add("Alice");
+        names.add("Bob");
+
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(10);
+        numbers.add(20);
+
+        // Ces appels ne compilent pas ! Corrigez displayAll.
+        // displayAll(names);
+        // displayAll(numbers);
+    }
+}
+```
+
+<details>
+<summary>Solution</summary>
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class WildcardExercise {
+
+    public static void displayAll(List<?> items) {
+        for (Object item : items) {
+            System.out.println("  - " + item);
+        }
+    }
+
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+        names.add("Alice");
+        names.add("Bob");
+
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(10);
+        numbers.add(20);
+
+        System.out.println("Noms :");
+        displayAll(names);
+
+        System.out.println("Nombres :");
+        displayAll(numbers);
+    }
+}
+```
+
+Sortie attendue :
+
+```text
+Noms :
+  - Alice
+  - Bob
+Nombres :
+  - 10
+  - 20
+```
+
+Le problème : `List<String>` n'est pas un sous-type de `List<Object>` en Java
+(les génériques sont invariants). En remplaçant `List<Object>` par `List<?>`
+(wildcard non borné), la méthode accepte une liste de n'importe quel type.
+
+</details>
+
 ## Exercices de transfert
 
-Ces exercices vous demandent d'appliquer les concepts dans un nouveau contexte,
-en combinant lambdas et génériques.
+Ces exercices vous demandent d'appliquer les concepts des génériques dans un
+nouveau contexte.
 
-### Exercice 13 - filtrage de produits avec Predicate et génériques
+### Exercice 9 - registre générique
 
-Créez une classe `Inventory<T>` générique qui gère une liste d'éléments avec les
-fonctionnalités suivantes :
+Créez une classe `Registry<T>` générique qui gère une collection d'éléments avec
+les fonctionnalités suivantes :
 
 - `add(T item)` : ajouter un élément.
-- `displayAll()` : afficher tous les éléments avec `forEach`.
-- `removeMatching(Predicate<T> predicate)` : supprimer les éléments qui
-  satisfont le prédicat.
-- `filter(Predicate<T> predicate)` : retourner une nouvelle liste des éléments
-  qui satisfont le prédicat.
+- `get(int index)` : retourner l'élément à l'index donné.
+- `size()` : retourner le nombre d'éléments.
+- `displayAll()` : afficher tous les éléments.
+- `contains(T item)` : vérifier si un élément est présent.
 
 Testez avec une classe `Product` ayant un nom et un prix.
 
@@ -1022,12 +761,11 @@ Testez avec une classe `Product` ayant un nom et un prix.
 ```java
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 
-public class Inventory<T> {
+public class Registry<T> {
     private List<T> items;
 
-    public Inventory() {
+    public Registry() {
         this.items = new ArrayList<>();
     }
 
@@ -1035,26 +773,22 @@ public class Inventory<T> {
         items.add(item);
     }
 
-    public void displayAll() {
-        items.forEach(item -> System.out.println("  - " + item));
-    }
-
-    public void removeMatching(Predicate<T> predicate) {
-        items.removeIf(predicate);
-    }
-
-    public List<T> filter(Predicate<T> predicate) {
-        List<T> result = new ArrayList<>();
-        items.forEach(item -> {
-            if (predicate.test(item)) {
-                result.add(item);
-            }
-        });
-        return result;
+    public T get(int index) {
+        return items.get(index);
     }
 
     public int size() {
         return items.size();
+    }
+
+    public void displayAll() {
+        for (T item : items) {
+            System.out.println("  - " + item);
+        }
+    }
+
+    public boolean contains(T item) {
+        return items.contains(item);
     }
 }
 ```
@@ -1085,31 +819,31 @@ public class Product {
 ```
 
 ```java
-import java.util.List;
-
-public class InventoryTest {
+public class RegistryTest {
     public static void main(String[] args) {
-        Inventory<Product> inventory = new Inventory<>();
+        Registry<Product> inventory = new Registry<>();
         inventory.add(new Product("Terreau", 12.50));
         inventory.add(new Product("Graines de tomate", 3.90));
         inventory.add(new Product("Arrosoir", 24.00));
-        inventory.add(new Product("Gants", 8.50));
-        inventory.add(new Product("Sécateur", 19.90));
 
-        System.out.println("Inventaire complet :");
+        System.out.println("Inventaire (" + inventory.size()
+                + " produits) :");
         inventory.displayAll();
 
-        List<Product> expensive =
-                inventory.filter(p -> p.getPrice() > 15.0);
-        System.out.println("\nProduits > 15 CHF :");
-        expensive.forEach(p ->
-                System.out.println("  - " + p));
+        Product first = inventory.get(0);
+        System.out.println("\nPremier produit : " + first);
 
-        inventory.removeMatching(p -> p.getPrice() < 5.0);
-        System.out.println("\nAprès suppression des produits "
-                + "< 5 CHF :");
-        inventory.displayAll();
-        System.out.println("Taille : " + inventory.size());
+        Registry<String> tags = new Registry<>();
+        tags.add("bio");
+        tags.add("local");
+        tags.add("saison");
+
+        System.out.println("\nÉtiquettes :");
+        tags.displayAll();
+        System.out.println("Contient 'bio' : "
+                + tags.contains("bio"));
+        System.out.println("Contient 'import' : "
+                + tags.contains("import"));
     }
 }
 ```
@@ -1117,132 +851,25 @@ public class InventoryTest {
 Sortie attendue :
 
 ```text
-Inventaire complet :
+Inventaire (3 produits) :
   - Terreau (12.5 CHF)
   - Graines de tomate (3.9 CHF)
   - Arrosoir (24.0 CHF)
-  - Gants (8.5 CHF)
-  - Sécateur (19.9 CHF)
 
-Produits > 15 CHF :
-  - Arrosoir (24.0 CHF)
-  - Sécateur (19.9 CHF)
+Premier produit : Terreau (12.5 CHF)
 
-Après suppression des produits < 5 CHF :
-  - Terreau (12.5 CHF)
-  - Arrosoir (24.0 CHF)
-  - Gants (8.5 CHF)
-  - Sécateur (19.9 CHF)
-Taille : 4
+Étiquettes :
+  - bio
+  - local
+  - saison
+Contient 'bio' : true
+Contient 'import' : false
 ```
 
-</details>
-
-### Exercice 14 - boîte générique avec transformation
-
-Créez une classe générique `Box<T>` avec les fonctionnalités suivantes :
-
-- Stocker une valeur de type `T`.
-- `transform(Function<T, R> function)` : retourner une nouvelle `Box<R>`
-  contenant le résultat de la transformation.
-- `matches(Predicate<T> predicate)` : retourner `true` si la valeur satisfait le
-  prédicat.
-- `display(Consumer<T> consumer)` : appliquer une action sur la valeur.
-
-Testez en créant une `Box<String>`, en la transformant en `Box<Integer>` (la
-longueur de la chaîne), et en vérifiant des conditions.
-
-<details>
-<summary>Solution</summary>
-
-```java
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-
-public class Box<T> {
-    private T value;
-
-    public Box(T value) {
-        this.value = value;
-    }
-
-    public T getValue() {
-        return value;
-    }
-
-    public <R> Box<R> transform(Function<T, R> function) {
-        R newValue = function.apply(value);
-        return new Box<>(newValue);
-    }
-
-    public boolean matches(Predicate<T> predicate) {
-        return predicate.test(value);
-    }
-
-    public void display(Consumer<T> consumer) {
-        consumer.accept(value);
-    }
-
-    @Override
-    public String toString() {
-        return "Box[" + value + "]";
-    }
-}
-```
-
-```java
-public class BoxTest {
-    public static void main(String[] args) {
-        Box<String> nameBox = new Box<>("Jardin communautaire");
-        System.out.println("Boîte originale : " + nameBox);
-
-        // Transformer String -> Integer (longueur)
-        Box<Integer> lengthBox =
-                nameBox.transform(s -> s.length());
-        System.out.println("Après transformation : " + lengthBox);
-
-        // Vérifier une condition
-        boolean isLong =
-                nameBox.matches(s -> s.length() > 10);
-        System.out.println("Nom long (> 10) : " + isLong);
-
-        boolean isShort =
-                nameBox.matches(s -> s.length() < 5);
-        System.out.println("Nom court (< 5) : " + isShort);
-
-        // Afficher avec un Consumer
-        nameBox.display(s ->
-                System.out.println("Contenu : " + s));
-
-        // Chaîner les transformations
-        Box<String> upperBox =
-                nameBox.transform(s -> s.toUpperCase());
-        System.out.println("En majuscules : " + upperBox);
-
-        Box<Boolean> checkBox =
-                lengthBox.transform(n -> n > 15);
-        System.out.println("Longueur > 15 : " + checkBox);
-    }
-}
-```
-
-Sortie attendue :
-
-```text
-Boîte originale : Box[Jardin communautaire]
-Après transformation : Box[21]
-Nom long (> 10) : true
-Nom court (< 5) : false
-Contenu : Jardin communautaire
-En majuscules : Box[JARDIN COMMUNAUTAIRE]
-Longueur > 15 : Box[true]
-```
-
-La méthode `transform` utilise un second paramètre de type `<R>` au niveau de la
-méthode. Cela permet de retourner une `Box` d'un type différent de la `Box`
-originale. C'est un exemple de méthode générique : le paramètre de type `R` est
-déclaré sur la méthode, pas sur la classe.
+La classe `Registry<T>` est réutilisable avec n'importe quel type. Les méthodes
+`get()` et `contains()` retournent et comparent des objets du type `T` sans
+cast. On l'a testée avec `Product` et `String` pour démontrer la
+réutilisabilité.
 
 </details>
 
@@ -1250,11 +877,11 @@ déclaré sur la méthode, pas sur la classe.
 
 Vous avez pratiqué :
 
-- Les expressions lambda avec `forEach`, `removeIf` et `sort`.
-- Les interfaces fonctionnelles `Predicate`, `Consumer` et `Function`.
-- La création de classes génériques avec des paramètres de type.
-- La combinaison de lambdas et génériques pour écrire du code flexible et
-  réutilisable.
+- La création de classes génériques avec un ou deux paramètres de type.
+- La création de méthodes génériques.
+- L'utilisation de wildcards pour écrire du code flexible.
+- La comparaison entre les approches avec `Object` et avec les génériques.
+- L'application des génériques dans un nouveau contexte.
 
 <!-- URLs -->
 

@@ -1,0 +1,30 @@
+@startuml generiques-securite-type
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+start
+
+:Déclarer une liste
+sans paramètre de type;
+
+:Ajouter un VegetablePlant;
+
+:Ajouter un String
+(pas d'erreur de compilation);
+
+:Récupérer l'élément
+avec un cast (PlantBase);
+
+if (L'objet est-il du bon type ?) then (true)
+  :Cast réussi;
+else (false)
+  #pink:ClassCastException
+  à l'exécution !;
+  kill
+endif
+
+stop
+
+@enduml

@@ -1,4 +1,4 @@
-# Collections Java : Lambda et génériques - Mini-projet (partie 5)
+# Collections Java : Les génériques - Mini-projet (partie 5)
 
 Bienvenue dans la cinquième partie du mini-projet sur la gestion de jardin
 communautaire !
@@ -14,24 +14,20 @@ communautaire !
 - [Présentation du mini-projet](#présentation-du-mini-projet)
 - [Objectifs de cette session](#objectifs-de-cette-session)
 - [Structure du projet](#structure-du-projet)
-- [Simplifier le code avec des lambdas](#simplifier-le-code-avec-des-lambdas)
-  - [Étape 1 : utiliser forEach dans la classe Plot](#étape-1--utiliser-foreach-dans-la-classe-plot)
-  - [Étape 2 : utiliser removeIf pour remplacer l'itérateur](#étape-2--utiliser-removeif-pour-remplacer-litérateur)
-  - [Étape 3 : ajouter un filtrage par prédicat dans Plot](#étape-3--ajouter-un-filtrage-par-prédicat-dans-plot)
 - [Créer une classe générique réutilisable](#créer-une-classe-générique-réutilisable)
-  - [Étape 4 : créer la classe générique FilterResult](#étape-4--créer-la-classe-générique-filterresult)
-  - [Étape 5 : utiliser FilterResult dans Plot](#étape-5--utiliser-filterresult-dans-plot)
+  - [Étape 1 : créer la classe générique FilterResult](#étape-1--créer-la-classe-générique-filterresult)
+  - [Étape 2 : ajouter des méthodes de filtrage dans Plot](#étape-2--ajouter-des-méthodes-de-filtrage-dans-plot)
 - [Mettre à jour le programme principal](#mettre-à-jour-le-programme-principal)
-  - [Étape 6 : mettre à jour GardenManagementSystem](#étape-6--mettre-à-jour-gardenmanagementsystem)
+  - [Étape 3 : mettre à jour GardenManagementSystem](#étape-3--mettre-à-jour-gardenmanagementsystem)
 - [Test du projet](#test-du-projet)
   - [Compilation et exécution en ligne de commande](#compilation-et-exécution-en-ligne-de-commande)
   - [Sortie attendue](#sortie-attendue)
 
 ## Présentation du mini-projet
 
-Dans cette cinquième partie du mini-projet, nous allons simplifier et
-généraliser le code de notre système de gestion de jardin communautaire en
-utilisant des expressions lambda et des génériques.
+Dans cette cinquième partie du mini-projet, nous allons généraliser le code de
+notre système de gestion de jardin communautaire en utilisant les génériques
+Java.
 
 Lors des sessions précédentes, nous avons :
 
@@ -44,27 +40,24 @@ Lors des sessions précédentes, nous avons :
 - **Partie 4** : intégré les collections Java (`ArrayList`, `HashSet`,
   `HashMap`).
 
-Dans la partie 4, nous avons écrit des boucles `for-each` et un itérateur pour
-parcourir, filtrer et modifier les collections. Ce code fonctionne, mais il est
-souvent verbeux : pour chaque opération, nous écrivons une boucle complète avec
-une condition.
+Dans la partie 4, nous avons utilisé des listes et des maps pour gérer les
+données. Cependant, quand nous filtrons des plantes (par taille, par type,
+etc.), nous obtenons simplement une liste de résultats sans information
+supplémentaire : combien d'éléments ont été testés ? Quel critère a été utilisé
+?
 
-Dans cette session, nous allons :
-
-- Remplacer les boucles par des lambdas (`forEach`, `removeIf`, `sort`).
-- Ajouter des méthodes de filtrage paramétrable avec `Predicate`.
-- Créer une classe générique `FilterResult<T>` réutilisable pour encapsuler les
-  résultats de filtrage.
+Dans cette session, nous allons créer une classe générique `FilterResult<T>` qui
+encapsule ces informations de façon réutilisable, et l'utiliser pour enrichir
+les méthodes de filtrage de notre parcelle.
 
 ## Objectifs de cette session
 
 À l'issue de cette session, les personnes qui étudient devraient avoir pu :
 
-- Utiliser `forEach` pour remplacer les boucles `for-each`.
-- Utiliser `removeIf` pour remplacer l'itérateur avec suppression.
-- Passer un `Predicate` en paramètre pour filtrer des éléments.
 - Créer une classe générique avec un paramètre de type `<T>`.
-- Utiliser un wildcard borné (`<? extends T>`) pour écrire du code flexible.
+- Utiliser un type générique pour encapsuler des résultats typés.
+- Comprendre comment les génériques assurent la sécurité des types sans
+  duplication de code.
 
 ## Structure du projet
 
@@ -98,154 +91,14 @@ en créer une nouvelle :
 >
 > Votre projet doit contenir toutes les classes des parties précédentes.
 
-## Simplifier le code avec des lambdas
-
-### Étape 1 : utiliser forEach dans la classe Plot
-
-Dans la partie 4, la méthode `displayPlants()` utilise une boucle `for-each` :
-
-```java
-public void displayPlants() {
-    System.out.println("Parcelle " + number + " (" + location
-            + ", " + size + " m2) - "
-            + plants.size() + " plante(s) :");
-    for (PlantBase plant : plants) {
-        System.out.println("  - " + plant);
-    }
-}
-```
-
-Remplacez la boucle `for-each` par un appel à `forEach` avec une lambda :
-
-```java
-public void displayPlants() {
-    System.out.println("Parcelle " + number + " (" + location
-            + ", " + size + " m2) - "
-            + plants.size() + " plante(s) :");
-    plants.forEach(plant -> System.out.println("  - " + plant));
-}
-```
-
-Le résultat est identique, mais le code est plus concis. La lambda
-`plant -> System.out.println("  - " + plant)` est un `Consumer<PlantBase>` qui
-est appliqué à chaque élément de la liste.
-
-### Étape 2 : utiliser removeIf pour remplacer l'itérateur
-
-Dans la partie 4, la méthode `harvestAndRemoveReadyPlants()` utilise un
-itérateur pour récolter et supprimer les plantes prêtes :
-
-```java
-public int harvestAndRemoveReadyPlants() {
-    int count = 0;
-    Iterator<PlantBase> it = plants.iterator();
-    while (it.hasNext()) {
-        PlantBase plant = it.next();
-        if (plant instanceof Harvestable) {
-            Harvestable harvestable = (Harvestable) plant;
-            if (harvestable.isReadyToHarvest()) {
-                harvestable.harvest();
-                System.out.println("Retrait de " + plant.getName()
-                        + " de la parcelle " + number + ".");
-                it.remove();
-                count++;
-            }
-        }
-    }
-    System.out.println(count
-            + " plante(s) récoltée(s) et retirée(s) de la parcelle "
-            + number + ".");
-    return count;
-}
-```
-
-Nous pouvons simplifier cette méthode en collectant d'abord les plantes prêtes à
-récolter avec `forEach`, puis en les supprimant avec `removeAll` :
-
-```java
-public int harvestAndRemoveReadyPlants() {
-    // Identifier les plantes prêtes à récolter
-    List<PlantBase> toRemove = new ArrayList<>();
-    plants.forEach(plant -> {
-        if (plant instanceof Harvestable) {
-            Harvestable harvestable = (Harvestable) plant;
-            if (harvestable.isReadyToHarvest()) {
-                harvestable.harvest();
-                toRemove.add(plant);
-            }
-        }
-    });
-
-    // Supprimer les plantes récoltées
-    plants.removeAll(toRemove);
-    int count = toRemove.size();
-
-    System.out.println(count
-            + " plante(s) récoltée(s) et retirée(s) de la parcelle "
-            + number + ".");
-    return count;
-}
-```
-
-> [!NOTE]
->
-> On collecte d'abord les plantes prêtes dans une liste temporaire `toRemove`,
-> ce qui évite le problème de modification de la liste pendant son parcours.
-> Ensuite, `removeAll` supprime toutes les plantes récoltées en une seule
-> opération.
-
-### Étape 3 : ajouter un filtrage par prédicat dans Plot
-
-Ajoutons une méthode qui permet de filtrer les plantes selon un critère
-quelconque, passé sous forme de `Predicate` :
-
-```java
-import java.util.function.Predicate;
-```
-
-```java
-    /**
-     * Retourne les plantes qui satisfont un prédicat.
-     *
-     * @param predicate le critère de filtrage
-     * @return la liste des plantes correspondantes
-     */
-    public List<PlantBase> filterPlants(
-            Predicate<PlantBase> predicate) {
-        List<PlantBase> result = new ArrayList<>();
-        plants.forEach(plant -> {
-            if (predicate.test(plant)) {
-                result.add(plant);
-            }
-        });
-        return result;
-    }
-```
-
-Cette méthode est très flexible. On peut l'utiliser avec n'importe quel critère
-:
-
-```java
-// Plantes de plus de 30 cm
-List<PlantBase> largePlants =
-        plot.filterPlants(p -> p.getSize() > 30.0);
-
-// Plantes récoltables
-List<PlantBase> harvestable =
-        plot.filterPlants(p -> p instanceof Harvestable);
-```
-
-Le `Predicate<PlantBase>` est une interface fonctionnelle de
-`java.util.function`. Sa méthode `test()` retourne `true` ou `false`.
-
 ## Créer une classe générique réutilisable
 
-### Étape 4 : créer la classe générique FilterResult
+### Étape 1 : créer la classe générique FilterResult
 
-Quand on filtre une collection, on obtient souvent une liste de résultats. Mais
-on aimerait aussi connaître le nombre total d'éléments testés et le critère
-utilisé. Créons une classe générique `FilterResult<T>` qui encapsule ces
-informations.
+Quand on filtre une collection, on obtient souvent une simple liste de
+résultats. Mais on aimerait aussi connaître le nombre total d'éléments testés et
+le critère utilisé. Créons une classe générique `FilterResult<T>` qui encapsule
+ces informations.
 
 Créez un fichier `FilterResult.java` dans le dossier `src/` :
 
@@ -267,7 +120,7 @@ public class FilterResult<T> {
      *
      * @param matchingItems les éléments correspondant au critère
      * @param totalCount le nombre total d'éléments testés
-     * @param criteriaDescription la description du critère utilisé
+     * @param criteriaDescription la description du critère
      */
     public FilterResult(List<T> matchingItems, int totalCount,
             String criteriaDescription) {
@@ -319,8 +172,9 @@ public class FilterResult<T> {
         System.out.println("Filtrage : " + criteriaDescription);
         System.out.println("Résultat : " + getMatchCount()
                 + "/" + totalCount + " élément(s).");
-        matchingItems.forEach(item ->
-                System.out.println("  - " + item));
+        for (T item : matchingItems) {
+            System.out.println("  - " + item);
+        }
     }
 }
 ```
@@ -329,47 +183,103 @@ Observez comment le paramètre de type `<T>` est utilisé :
 
 - Le champ `matchingItems` est de type `List<T>`.
 - Les getters retournent `List<T>` et `T` implicitement via la liste.
-- La méthode `displaySummary()` utilise `forEach` avec une lambda pour afficher
-  les éléments, quelle que soit leur type.
+- La méthode `displaySummary()` parcourt les éléments avec une boucle
+  `for-each`, quelle que soit leur type.
 
 Cette classe peut contenir des plantes (`FilterResult<PlantBase>`), des chaînes
-de caractères (`FilterResult<String>`), ou n'importe quel autre type.
+de caractères (`FilterResult<String>`), ou n'importe quel autre type. C'est
+justement l'avantage des génériques : **une seule classe pour tous les types**.
 
-### Étape 5 : utiliser FilterResult dans Plot
+### Étape 2 : ajouter des méthodes de filtrage dans Plot
 
-Modifions la méthode `filterPlants()` pour qu'elle retourne un
-`FilterResult<PlantBase>` :
+Ajoutons des méthodes dans la classe `Plot` qui utilisent `FilterResult` pour
+retourner des résultats de filtrage détaillés.
+
+Ajoutez les imports nécessaires en haut du fichier :
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+```
+
+Puis ajoutez les méthodes de filtrage suivantes dans la classe `Plot` :
 
 ```java
     /**
-     * Filtre les plantes selon un prédicat et retourne un résultat détaillé.
+     * Filtre les plantes par taille minimale.
      *
-     * @param predicate le critère de filtrage
-     * @param description la description du critère
+     * @param minSize la taille minimale en cm
      * @return un FilterResult contenant les plantes correspondantes
      */
-    public FilterResult<PlantBase> filterPlantsDetailed(
-            Predicate<PlantBase> predicate, String description) {
+    public FilterResult<PlantBase> filterPlantsByMinSize(
+            double minSize) {
         List<PlantBase> result = new ArrayList<>();
-        plants.forEach(plant -> {
-            if (predicate.test(plant)) {
+        for (PlantBase plant : plants) {
+            if (plant.getSize() >= minSize) {
                 result.add(plant);
             }
-        });
-        return new FilterResult<>(result, plants.size(), description);
+        }
+        return new FilterResult<>(result, plants.size(),
+                "Plantes >= " + minSize + " cm");
+    }
+
+    /**
+     * Filtre les plantes récoltables.
+     *
+     * @return un FilterResult contenant les plantes récoltables
+     */
+    public FilterResult<PlantBase> filterHarvestablePlants() {
+        List<PlantBase> result = new ArrayList<>();
+        for (PlantBase plant : plants) {
+            if (plant instanceof Harvestable) {
+                result.add(plant);
+            }
+        }
+        return new FilterResult<>(result, plants.size(),
+                "Plantes récoltables");
+    }
+
+    /**
+     * Filtre les plantes selon leur type (VegetablePlant,
+     * FlowerPlant, TreePlant).
+     *
+     * @param typeName le nom simple de la classe à filtrer
+     * @return un FilterResult contenant les plantes du type donné
+     */
+    public FilterResult<PlantBase> filterPlantsByType(
+            String typeName) {
+        List<PlantBase> result = new ArrayList<>();
+        for (PlantBase plant : plants) {
+            if (plant.getClass().getSimpleName()
+                    .equals(typeName)) {
+                result.add(plant);
+            }
+        }
+        return new FilterResult<>(result, plants.size(),
+                "Plantes de type " + typeName);
     }
 ```
 
+Chaque méthode retourne un `FilterResult<PlantBase>` qui contient :
+
+- La liste des plantes correspondant au critère.
+- Le nombre total de plantes testées.
+- Une description textuelle du critère.
+
+> [!NOTE]
+>
+> Sans les génériques, nous aurions dû créer une classe `FilterResultPlantBase`,
+> puis une `FilterResultString`, etc. Avec `FilterResult<T>`, une seule classe
+> suffit pour tous les types.
+
 ## Mettre à jour le programme principal
 
-### Étape 6 : mettre à jour GardenManagementSystem
+### Étape 3 : mettre à jour GardenManagementSystem
 
-Remplacez le programme principal pour utiliser les lambdas et les génériques.
-Ouvrez le fichier `GardenManagementSystem.java` et remplacez son contenu :
+Remplacez le programme principal pour utiliser `FilterResult`. Ouvrez le fichier
+`GardenManagementSystem.java` et remplacez son contenu :
 
 ```java
-import java.util.List;
-
 /**
  * Programme principal du système de gestion de jardin communautaire.
  */
@@ -378,7 +288,7 @@ public class GardenManagementSystem {
     public static void main(String[] args) {
         System.out.println("=== Système de gestion de jardin "
                 + "communautaire ===");
-        System.out.println("Partie 5 : Lambda et génériques\n");
+        System.out.println("Partie 5 : Les génériques\n");
 
         // --- Créer des parcelles avec des plantes ---
         System.out.println("--- Création des parcelles ---");
@@ -404,46 +314,45 @@ public class GardenManagementSystem {
         plot2.addPlant(appleTree);
         System.out.println();
 
-        // --- Affichage avec forEach (lambda) ---
-        System.out.println("--- Affichage avec forEach ---");
+        // --- Affichage des parcelles ---
+        System.out.println("--- Affichage des parcelles ---");
         plot1.displayPlants();
         System.out.println();
         plot2.displayPlants();
         System.out.println();
 
-        // --- Trier les plantes par nom ---
-        System.out.println("--- Tri par nom ---");
-        plot1.getPlants().sort(
-                (a, b) -> a.getName().compareTo(b.getName()));
-        plot1.displayPlants();
-        System.out.println();
-
-        // --- Filtrage avec Predicate ---
-        System.out.println("--- Filtrage avec Predicate ---");
-        List<PlantBase> largePlants =
-                plot1.filterPlants(p -> p.getSize() > 30.0);
-        System.out.println("Plantes > 30 cm dans parcelle 1 :");
-        largePlants.forEach(p ->
-                System.out.println("  - " + p.getName()));
-        System.out.println();
-
         // --- FilterResult générique ---
         System.out.println("--- FilterResult générique ---");
+
+        // Filtrer par taille minimale
+        FilterResult<PlantBase> largePlants =
+                plot1.filterPlantsByMinSize(30.0);
+        largePlants.displaySummary();
+        System.out.println();
+
+        // Filtrer les plantes récoltables
         FilterResult<PlantBase> harvestableResult =
-                plot1.filterPlantsDetailed(
-                        p -> p instanceof Harvestable,
-                        "Plantes récoltables");
+                plot1.filterHarvestablePlants();
         harvestableResult.displaySummary();
         System.out.println();
 
+        // Filtrer par type dans la parcelle 2
         FilterResult<PlantBase> treeResult =
-                plot2.filterPlantsDetailed(
-                        p -> p instanceof TreePlant,
-                        "Arbres");
+                plot2.filterPlantsByType("TreePlant");
         treeResult.displaySummary();
         System.out.println();
 
-        // --- Récolte et suppression avec lambdas ---
+        // --- Démonstration de la réutilisabilité ---
+        System.out.println(
+                "--- Réutilisabilité de FilterResult ---");
+        FilterResult<String> tagResult = new FilterResult<>(
+                java.util.List.of("bio", "local"),
+                5,
+                "Étiquettes sélectionnées");
+        tagResult.displaySummary();
+        System.out.println();
+
+        // --- Récolte et nettoyage ---
         System.out.println("--- Récolte et nettoyage ---");
         plot1.harvestAndRemoveReadyPlants();
         System.out.println();
@@ -451,6 +360,12 @@ public class GardenManagementSystem {
     }
 }
 ```
+
+Remarquez comment `FilterResult` est utilisé avec deux types différents :
+
+- `FilterResult<PlantBase>` pour les résultats de filtrage de plantes.
+- `FilterResult<String>` pour démontrer que la même classe fonctionne avec
+  n'importe quel type.
 
 ## Test du projet
 
@@ -470,7 +385,7 @@ Le résultat devrait ressembler à ceci :
 
 ```text
 === Système de gestion de jardin communautaire ===
-Partie 5 : Lambda et génériques
+Partie 5 : Les génériques
 
 --- Création des parcelles ---
 Tomate cerise ajoutée à la parcelle 1.
@@ -478,7 +393,7 @@ Carotte ajoutée à la parcelle 1.
 Rose ajoutée à la parcelle 2.
 Pommier ajoutée à la parcelle 2.
 
---- Affichage avec forEach ---
+--- Affichage des parcelles ---
 Parcelle 1 (Zone Nord, 25.0 m2) - 2 plante(s) :
   - Tomate cerise (Solanum lycopersicum) - 45.5 cm - Planté le 2026-03-15 [Légume - Récolte dans 0 jours]
   - Carotte (Daucus carota) - 12.0 cm - Planté le 2026-03-20 [Légume - Récolte dans 30 jours]
@@ -487,24 +402,25 @@ Parcelle 2 (Zone Sud, 30.0 m2) - 2 plante(s) :
   - Rose (Rosa) - 35.0 cm - Planté le 2026-04-01 [Fleur Rouge - Pas encore en fleurs]
   - Pommier (Malus domestica) - 180.0 cm - Planté le 2026-02-01 [Arbre - Âge: 3 ans]
 
---- Tri par nom ---
-Parcelle 1 (Zone Nord, 25.0 m2) - 2 plante(s) :
-  - Carotte (Daucus carota) - 12.0 cm - Planté le 2026-03-20 [Légume - Récolte dans 30 jours]
+--- FilterResult générique ---
+Filtrage : Plantes >= 30.0 cm
+Résultat : 1/2 élément(s).
   - Tomate cerise (Solanum lycopersicum) - 45.5 cm - Planté le 2026-03-15 [Légume - Récolte dans 0 jours]
 
---- Filtrage avec Predicate ---
-Plantes > 30 cm dans parcelle 1 :
-  - Tomate cerise
-
---- FilterResult générique ---
 Filtrage : Plantes récoltables
 Résultat : 2/2 élément(s).
-  - Carotte (Daucus carota) - 12.0 cm - Planté le 2026-03-20 [Légume - Récolte dans 30 jours]
   - Tomate cerise (Solanum lycopersicum) - 45.5 cm - Planté le 2026-03-15 [Légume - Récolte dans 0 jours]
+  - Carotte (Daucus carota) - 12.0 cm - Planté le 2026-03-20 [Légume - Récolte dans 30 jours]
 
-Filtrage : Arbres
+Filtrage : Plantes de type TreePlant
 Résultat : 1/2 élément(s).
   - Pommier (Malus domestica) - 180.0 cm - Planté le 2026-02-01 [Arbre - Âge: 3 ans]
+
+--- Réutilisabilité de FilterResult ---
+Filtrage : Étiquettes sélectionnées
+Résultat : 2/5 élément(s).
+  - bio
+  - local
 
 --- Récolte et nettoyage ---
 Récolte de Tomate cerise : 4.55 kg
@@ -512,11 +428,7 @@ Récolte de Tomate cerise : 4.55 kg
 
 Parcelle 1 (Zone Nord, 25.0 m2) - 1 plante(s) :
   - Carotte (Daucus carota) - 12.0 cm - Planté le 2026-03-20 [Légume - Récolte dans 30 jours]
-
-> [!NOTE]
->
-> Après le tri par nom, "Carotte" apparaît avant "Tomate cerise" car "C" est
-> avant "T" dans l'ordre alphabétique.
+```
 
 ## Solution
 
@@ -537,18 +449,16 @@ Vous pouvez trouver la solution complète du mini-projet à l'adresse suivante :
 
 Dans cette cinquième partie du mini-projet, vous avez appris à :
 
-- Remplacer les boucles `for-each` par `forEach` avec des lambdas.
-- Remplacer l'itérateur avec suppression par `removeIf`.
-- Passer un `Predicate` en paramètre pour créer des méthodes de filtrage
-  flexibles.
 - Créer une classe générique `FilterResult<T>` réutilisable avec différents
   types.
-- Utiliser `forEach` avec des lambdas à l'intérieur des classes génériques.
+- Utiliser le paramètre de type `<T>` pour typer les champs, les paramètres et
+  les valeurs de retour.
+- Démontrer la réutilisabilité d'une classe générique avec
+  `FilterResult<PlantBase>` et `FilterResult<String>`.
 
-Les expressions lambda et les génériques rendent le code plus concis, plus
-flexible et plus réutilisable. Le filtrage qui nécessitait auparavant une
-boucle complète tient maintenant en une seule ligne. La classe `FilterResult`
-fonctionne avec n'importe quel type sans duplication de code.
+Les génériques rendent le code plus flexible et réutilisable. La classe
+`FilterResult` fonctionne avec n'importe quel type sans duplication de code,
+tout en conservant la sécurité des types à la compilation.
 
 ### Prochaine étape
 
@@ -573,17 +483,14 @@ Dans la prochaine partie du mini-projet, nous explorerons :
 
 Voici quelques pistes pour enrichir votre projet :
 
-- Ajoutez une méthode `sortPlants(Comparator<PlantBase>)` dans `Plot` qui
-  trie les plantes selon un comparateur donné.
 - Créez une classe générique `Pair<K, V>` pour associer une plante à son
   propriétaire.
-- Ajoutez des méthodes dans `GardenRegistry` qui utilisent des lambdas pour
-  trouver la parcelle avec le plus de plantes ou calculer la taille totale.
-- Utilisez `Predicate.and()` et `Predicate.or()` pour combiner des filtres
-  (par exemple : plantes de plus de 30 cm ET récoltables).
+- Ajoutez une méthode générique dans `Plot` qui retourne le plus grand élément
+  d'une liste selon un critère donné.
+- Créez une classe `Registry<T>` générique qui remplace `GardenCatalog` et
+  `GardenRegistry` avec une seule implémentation.
 
 <!-- URLs -->
 
 [licence]:
 	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/blob/main/LICENSE.md
-```

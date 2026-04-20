@@ -1,4 +1,4 @@
-# Collections Java : Lambda et génériques
+# Collections Java : Les génériques
 
 V. Guidoux, avec l'aide de
 [GitHub Copilot](https://github.com/features/copilot).
@@ -23,18 +23,17 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 > À l'issue de cette séance, les personnes qui étudient devraient être capables
 > de :
 >
-> - Expliquer ce qu'est une expression lambda et une interface fonctionnelle en
->   Java.
-> - Identifier les interfaces fonctionnelles courantes (`Predicate`, `Function`,
->   `Consumer`, `Supplier`).
-> - Créer des expressions lambda pour des interfaces fonctionnelles.
-> - Utiliser les lambdas avec les collections (`forEach`, `removeIf`, `sort`).
-> - Expliquer l'utilité des génériques pour la sécurité de type.
+> - Expliquer l'utilité des génériques pour la sécurité de type et la
+>   réutilisabilité du code.
+> - Identifier les trois problèmes résolus par les génériques : code dupliqué,
+>   absence de sécurité de type et conversions de type manuelles.
 > - Créer des classes et des méthodes génériques avec des paramètres de type.
+> - Utiliser l'opérateur diamant (`<>`) pour l'inférence de type.
 > - Utiliser les wildcards (`<? extends T>`, `<? super T>`) pour écrire du code
 >   flexible.
 > - Appliquer les génériques avec les collections pour éviter les erreurs de
 >   type à la compilation.
+> - Expliquer le concept d'effacement de type (type erasure) et ses limitations.
 >
 > **Méthodes d'enseignement et d'apprentissage**
 >
@@ -68,16 +67,9 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 ## Table des matières
 
 - [Table des matières](#table-des-matières)
-- [Introduction : simplifier et généraliser le code](#introduction--simplifier-et-généraliser-le-code)
-- [Les expressions lambda](#les-expressions-lambda)
-	- [Le problème : trop de code pour une action simple](#le-problème--trop-de-code-pour-une-action-simple)
-	- [La syntaxe d'une lambda](#la-syntaxe-dune-lambda)
-	- [Les interfaces fonctionnelles](#les-interfaces-fonctionnelles)
-	- [Les interfaces fonctionnelles courantes de Java](#les-interfaces-fonctionnelles-courantes-de-java)
-	- [Les lambdas avec les collections](#les-lambdas-avec-les-collections)
-	- [Références de méthodes](#références-de-méthodes)
+- [Introduction : écrire du code réutilisable et sûr](#introduction--écrire-du-code-réutilisable-et-sûr)
 - [Les génériques](#les-génériques)
-	- [Le problème : le code dupliqué et les conversions de type](#le-problème--le-code-dupliqué-et-les-conversions-de-type)
+	- [Le problème : trois raisons d'utiliser les génériques](#le-problème--trois-raisons-dutiliser-les-génériques)
 	- [Les classes génériques](#les-classes-génériques)
 	- [Les méthodes génériques](#les-méthodes-génériques)
 	- [Les wildcards](#les-wildcards)
@@ -88,41 +80,47 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 - [Mini-projet](#mini-projet)
 - [À faire pour la prochaine séance](#à-faire-pour-la-prochaine-séance)
 
-## Introduction : simplifier et généraliser le code
+## Introduction : écrire du code réutilisable et sûr
 
 Dans le chapitre précédent, nous avons découvert les collections Java :
 `ArrayList`, `HashSet` et `HashMap`. Nous savons maintenant stocker, parcourir
 et manipuler des ensembles d'objets de manière flexible.
 
-Mais en travaillant avec les collections, nous avons écrit beaucoup de code
-répétitif. Pour afficher toutes les plantes, nous écrivons une boucle
-`for-each`. Pour filtrer les plantes prêtes à récolter, nous écrivons une autre
-boucle avec une condition. Pour trier les plantes par nom, nous devons créer une
-classe entière qui implémente `Comparator`.
+Mais en utilisant les collections, nous avons toujours dû préciser le type des
+éléments entre chevrons : `ArrayList<PlantBase>`, `HashMap<String, Plot>`, etc.
+Ces chevrons utilisent un mécanisme fondamental de Java : les génériques.
 
-Ce chapitre introduit deux mécanismes qui réduisent cette répétition :
+Ce chapitre explore les génériques en profondeur. Nous verrons pourquoi ils
+existent, comment créer nos propres classes et méthodes génériques, et comment
+les wildcards ajoutent de la flexibilité.
 
-- Les expressions lambda : une syntaxe compacte pour passer un comportement en
-  paramètre d'une méthode.
-- Les génériques : un mécanisme pour écrire des classes et des méthodes qui
-  fonctionnent avec n'importe quel type, tout en restant sûres à la compilation.
+## Les génériques
 
-## Les expressions lambda
+### Le problème : trois raisons d'utiliser les génériques
 
-### Le problème : trop de code pour une action simple
+Sans les génériques, on se heurte à trois problèmes concrets : le code dupliqué,
+l'absence de sécurité de type et la nécessité de faire des conversions de type
+manuelles (source :
+[W3Schools - Java Generics](https://www.w3schools.com/java/java_generics.asp)).
 
-Imaginons que nous voulons trier une liste de plantes par nom. Avec ce que nous
-connaissons jusqu'ici, il faut créer une classe qui implémente l'interface
-`Comparator` :
+![Les trois problèmes résolus par les génériques](./images/generiques-trois-avantages.svg)
+
+#### Premier problème : le code dupliqué (réutilisabilité)
+
+Imaginons que nous avons besoin d'une classe qui stocke une valeur et la
+retourne. Si on veut le faire pour différents types, il faut écrire une classe
+par type :
 
 ```java
-import java.util.Comparator;
+public class StringBox {
+    private String value;
 
-public class PlantNameComparator implements Comparator<PlantBase> {
+    public void set(String value) {
+        this.value = value;
+    }
 
-    @Override
-    public int compare(PlantBase a, PlantBase b) {
-        return a.getName().compareTo(b.getName());
+    public String get() {
+        return value;
     }
 }
 ```
@@ -130,470 +128,193 @@ public class PlantNameComparator implements Comparator<PlantBase> {
 <details>
 <summary>Description du code</summary>
 
-Importation de l'interface `Comparator` du package `java.util`.
+Déclaration d'une classe publique `StringBox` avec un champ privé `value` de
+type `String`.
 
-Déclaration d'une classe publique `PlantNameComparator` qui implémente
-l'interface `Comparator` paramétrée avec le type `PlantBase`.
+Déclaration d'un setter `set` qui accepte un paramètre de type `String` et
+l'assigne au champ `value`.
 
-Redéfinition de la méthode `compare` qui prend deux paramètres de type
-`PlantBase` nommés `a` et `b`. Retour du résultat de la comparaison des noms des
-deux plantes en utilisant la méthode `compareTo` de la classe `String`.
-
-</details>
-
-Puis, dans le programme principal :
-
-```java
-List<PlantBase> plants = new ArrayList<>();
-// ... ajout des plantes ...
-plants.sort(new PlantNameComparator());
-```
-
-<details>
-<summary>Description du code</summary>
-
-Déclaration et initialisation d'une variable `plants` de type `List<PlantBase>`
-avec une nouvelle instance d'`ArrayList`.
-
-Appel de la méthode `sort` sur la liste `plants` en passant une nouvelle
-instance de `PlantNameComparator` comme argument.
+Déclaration d'un getter `get` qui retourne la valeur de type `String`.
 
 </details>
 
-Pour une simple comparaison de noms, nous avons dû créer un fichier entier avec
-une classe, un import et une méthode. C'est beaucoup de code pour exprimer
-quelque chose d'aussi simple que "compare les noms de deux plantes".
-
-Les expressions lambda permettent de simplifier cela.
-
-### La syntaxe d'une lambda
-
-Une expression lambda est une façon concise d'écrire une méthode anonyme (sans
-nom). Voici la syntaxe générale :
-
-```text
-(paramètres) -> expression
-```
-
-Ou, si le corps contient plusieurs instructions :
-
-```text
-(paramètres) -> {
-    instruction1;
-    instruction2;
-    return résultat;
-}
-```
-
-Reprenons l'exemple du tri par nom. Avec une lambda, le code devient :
-
 ```java
-plants.sort((a, b) -> a.getName().compareTo(b.getName()));
-```
-
-<details>
-<summary>Description du code</summary>
-
-Appel de la méthode `sort` sur la liste `plants` en passant une expression
-lambda comme argument. La lambda prend deux paramètres `a` et `b` (dont les
-types sont inférés comme `PlantBase`) et retourne le résultat de la comparaison
-des noms des deux plantes via la méthode `compareTo`.
-
-</details>
-
-Toute la classe `PlantNameComparator` est remplacée par une seule ligne. Java
-comprend automatiquement que `a` et `b` sont de type `PlantBase` grâce au
-contexte (c'est une liste de `PlantBase`).
-
-Voici quelques exemples de lambdas avec différentes formes :
-
-```java
-// Sans paramètre
-Runnable task = () -> System.out.println("Tâche exécutée");
-
-// Un seul paramètre (parenthèses optionnelles)
-Consumer<String> printer = name -> System.out.println("Plante : " + name);
-
-// Plusieurs paramètres
-Comparator<PlantBase> byName =
-        (a, b) -> a.getName().compareTo(b.getName());
-
-// Bloc avec plusieurs instructions
-Consumer<PlantBase> detailedPrinter = plant -> {
-    System.out.println("Nom : " + plant.getName());
-    System.out.println("Espèce : " + plant.getSpecies());
-};
-```
-
-<details>
-<summary>Description du code</summary>
-
-Déclaration d'une variable `task` de type `Runnable` initialisée avec une lambda
-sans paramètre qui appelle `System.out.println` avec le texte "Tâche exécutée".
-
-Déclaration d'une variable `printer` de type `Consumer<String>` initialisée avec
-une lambda à un paramètre `name` qui affiche "Plante : " suivi du nom.
-
-Déclaration d'une variable `byName` de type `Comparator<PlantBase>` initialisée
-avec une lambda à deux paramètres `a` et `b` qui compare les noms des plantes.
-
-Déclaration d'une variable `detailedPrinter` de type `Consumer<PlantBase>`
-initialisée avec une lambda à un paramètre `plant` et un bloc de deux
-instructions affichant le nom et l'espèce de la plante.
-
-</details>
-
-> [!NOTE]
->
-> Les types des paramètres d'une lambda sont optionnels. Java les déduit
-> automatiquement du contexte. Vous pouvez écrire `(PlantBase a, PlantBase b)`
-> ou simplement `(a, b)`.
-
-### Les interfaces fonctionnelles
-
-Une lambda n'existe pas seule : elle implémente toujours une interface
-fonctionnelle. Une interface fonctionnelle est une interface qui ne contient
-qu'une seule méthode abstraite.
-
-Nos interfaces du mini-projet ne sont pas des interfaces fonctionnelles car
-elles contiennent plusieurs méthodes (`Harvestable` a `harvest()` et
-`isReadyToHarvest()`). Mais `Comparator` en est une : elle n'a qu'une seule
-méthode abstraite `compare()`.
-
-On peut créer ses propres interfaces fonctionnelles :
-
-```java
-@FunctionalInterface
-public interface PlantFilter {
-    boolean test(PlantBase plant);
-}
-```
-
-<details>
-<summary>Description du code</summary>
-
-Annotation `@FunctionalInterface` indiquant que cette interface est
-fonctionnelle (une seule méthode abstraite).
-
-Déclaration d'une interface publique `PlantFilter` avec une méthode abstraite
-`test` qui prend un paramètre de type `PlantBase` et retourne un `boolean`.
-
-</details>
-
-L'annotation `@FunctionalInterface` est optionnelle mais recommandée. Elle
-demande au compilateur de vérifier que l'interface contient bien une seule
-méthode abstraite. Si on ajoute une deuxième méthode, le compilateur signale une
-erreur.
-
-On peut ensuite utiliser cette interface avec une lambda :
-
-```java
-PlantFilter readyToHarvest = plant ->
-        plant instanceof Harvestable
-                && ((Harvestable) plant).isReadyToHarvest();
-
-PlantFilter largerThan50cm = plant -> plant.getSize() > 50.0;
-```
-
-<details>
-<summary>Description du code</summary>
-
-Déclaration d'une variable `readyToHarvest` de type `PlantFilter` initialisée
-avec une lambda qui vérifie si la plante est une instance de `Harvestable` et si
-elle est prête à être récoltée (conjonction logique avec l'opérateur `&&`).
-
-Déclaration d'une variable `largerThan50cm` de type `PlantFilter` initialisée
-avec une lambda qui vérifie si la taille de la plante est supérieure à 50.0
-(comparaison avec l'opérateur `>`).
-
-</details>
-
-### Les interfaces fonctionnelles courantes de Java
-
-Java fournit des interfaces fonctionnelles prédéfinies dans le package
-`java.util.function`. Voici les quatre principales :
-
-| Interface        | Méthode             | Description                  |
-| :--------------- | :------------------ | :--------------------------- |
-| `Predicate<T>`   | `boolean test(T t)` | Teste une condition.         |
-| `Function<T, R>` | `R apply(T t)`      | Transforme un `T` en un `R`. |
-| `Consumer<T>`    | `void accept(T t)`  | Consomme un `T` sans retour. |
-| `Supplier<T>`    | `T get()`           | Fournit un `T` sans entrée.  |
-
-Ces interfaces remplacent le besoin de créer nos propres interfaces comme
-`PlantFilter`. On peut directement utiliser `Predicate<PlantBase>` à la place :
-
-```java
-import java.util.function.Predicate;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
-
-// Predicate : teste une condition
-Predicate<PlantBase> isLarge = plant -> plant.getSize() > 50.0;
-System.out.println(isLarge.test(tomato)); // true ou false
-
-// Function : transforme un objet
-Function<PlantBase, String> toDescription = plant ->
-        plant.getName() + " (" + plant.getSpecies() + ")";
-System.out.println(toDescription.apply(tomato));
-// Tomate cerise (Solanum lycopersicum)
-
-// Consumer : effectue une action
-Consumer<PlantBase> printName = plant ->
-        System.out.println("Plante : " + plant.getName());
-printName.accept(tomato); // Plante : Tomate cerise
-
-// Supplier : fournit un objet
-Supplier<PlantBase> defaultPlant = () ->
-        new VegetablePlant("Laitue", "Lactuca sativa",
-                "2026-05-01", 5.0, 60);
-PlantBase newPlant = defaultPlant.get();
-```
-
-<details>
-<summary>Description du code</summary>
-
-Importation des quatre interfaces fonctionnelles du package
-`java.util.function`.
-
-Déclaration d'une variable `isLarge` de type `Predicate<PlantBase>` initialisée
-avec une lambda qui teste si la taille de la plante est supérieure à 50.0. Appel
-de la méthode `test` du prédicat sur la variable `tomato`.
-
-Déclaration d'une variable `toDescription` de type `Function<PlantBase, String>`
-initialisée avec une lambda qui concatène le nom et l'espèce de la plante. Appel
-de la méthode `apply` sur la variable `tomato`.
-
-Déclaration d'une variable `printName` de type `Consumer<PlantBase>` initialisée
-avec une lambda qui affiche le nom de la plante. Appel de la méthode `accept`
-sur la variable `tomato`.
-
-Déclaration d'une variable `defaultPlant` de type `Supplier<PlantBase>`
-initialisée avec une lambda sans paramètre qui crée un nouveau `VegetablePlant`.
-Appel de la méthode `get` pour obtenir la plante.
-
-</details>
-
-> [!TIP]
->
-> En pratique, vous utiliserez surtout `Predicate` (pour filtrer) et `Consumer`
-> (pour agir sur chaque élément). `Function` et `Supplier` sont utiles mais
-> moins fréquents dans du code débutant.
-
-### Les lambdas avec les collections
-
-Les collections Java offrent plusieurs méthodes qui acceptent des lambdas. Voici
-les plus courantes :
-
-#### forEach : appliquer une action à chaque élément
-
-La méthode `forEach` remplace la boucle `for-each` dans de nombreux cas :
-
-```java
-List<PlantBase> plants = new ArrayList<>();
-// ... ajout des plantes ...
-
-// Avant : boucle for-each
-for (PlantBase plant : plants) {
-    System.out.println(plant.getName());
-}
-
-// Après : avec forEach et une lambda
-plants.forEach(plant -> System.out.println(plant.getName()));
-```
-
-<details>
-<summary>Description du code</summary>
-
-Déclaration et initialisation d'une variable `plants` de type `List<PlantBase>`
-avec une nouvelle instance d'`ArrayList`.
-
-Boucle `for-each` qui parcourt la liste `plants` et affiche le nom de chaque
-plante.
-
-Appel de la méthode `forEach` sur la liste `plants` en passant une lambda qui
-affiche le nom de chaque plante.
-
-</details>
-
-#### removeIf : supprimer selon une condition
-
-La méthode `removeIf` supprime tous les éléments qui satisfont une condition :
-
-```java
-// Supprimer les plantes de moins de 20 cm
-plants.removeIf(plant -> plant.getSize() < 20.0);
-```
-
-<details>
-<summary>Description du code</summary>
-
-Appel de la méthode `removeIf` sur la liste `plants` en passant une lambda (de
-type `Predicate<PlantBase>`) qui teste si la taille de la plante est inférieure
-à 20.0. Tous les éléments satisfaisant la condition sont supprimés de la liste.
-
-</details>
-
-> [!NOTE]
->
-> `removeIf` utilise un itérateur en interne. C'est une alternative plus concise
-> à la boucle avec `Iterator` et `it.remove()` que nous avons vue dans le
-> chapitre précédent.
-
-#### sort : trier selon un critère
-
-La méthode `sort` accepte un `Comparator` sous forme de lambda :
-
-```java
-// Trier par nom (ordre alphabétique)
-plants.sort((a, b) -> a.getName().compareTo(b.getName()));
-
-// Trier par taille (croissant)
-plants.sort((a, b) -> Double.compare(a.getSize(), b.getSize()));
-```
-
-<details>
-<summary>Description du code</summary>
-
-Appel de la méthode `sort` sur la liste `plants` en passant une lambda qui
-compare les noms de deux plantes par ordre alphabétique via `compareTo`.
-
-Appel de la méthode `sort` sur la liste `plants` en passant une lambda qui
-compare les tailles de deux plantes par ordre croissant via `Double.compare`.
-
-</details>
-
-#### replaceAll : transformer chaque élément (listes de String)
-
-Pour une liste de chaînes de caractères, `replaceAll` transforme chaque élément
-:
-
-```java
-List<String> names = new ArrayList<>(
-        List.of("tomate", "carotte", "basilic"));
-names.replaceAll(name -> name.toUpperCase());
-System.out.println(names); // [TOMATE, CAROTTE, BASILIC]
-```
-
-<details>
-<summary>Description du code</summary>
-
-Déclaration et initialisation d'une variable `names` de type `List<String>` avec
-une `ArrayList` contenant trois éléments créés via `List.of`.
-
-Appel de la méthode `replaceAll` sur la liste `names` en passant une lambda (de
-type `UnaryOperator<String>`) qui convertit chaque nom en majuscules via la
-méthode `toUpperCase`. Affichage de la liste transformée.
-
-</details>
-
-### Références de méthodes
-
-Lorsqu'une lambda se contente d'appeler une méthode existante, on peut utiliser
-une référence de méthode. La syntaxe utilise l'opérateur `::` :
-
-```java
-// Lambda
-plants.forEach(plant -> System.out.println(plant));
-
-// Référence de méthode (équivalent)
-plants.forEach(System.out::println);
-```
-
-<details>
-<summary>Description du code</summary>
-
-Appel de la méthode `forEach` sur la liste `plants` avec une lambda qui passe
-chaque élément à `System.out.println`.
-
-Appel de la méthode `forEach` sur la liste `plants` avec une référence de
-méthode `System.out::println`, qui est équivalente à la lambda précédente.
-
-</details>
-
-Il existe quatre types de références de méthodes :
-
-| Type               | Syntaxe           | Exemple               |
-| :----------------- | :---------------- | :-------------------- |
-| Méthode statique   | `Classe::méthode` | `Math::abs`           |
-| Méthode d'instance | `objet::méthode`  | `System.out::println` |
-| Méthode d'un type  | `Type::méthode`   | `String::toUpperCase` |
-| Constructeur       | `Classe::new`     | `ArrayList::new`      |
-
-> [!TIP]
->
-> Les références de méthodes sont optionnelles : on peut toujours utiliser une
-> lambda à la place. Elles rendent le code plus lisible quand la lambda ne fait
-> qu'appeler une seule méthode existante.
-
-## Les génériques
-
-### Le problème : le code dupliqué et les conversions de type
-
-Avant les génériques (Java 1.4 et avant), les collections stockaient des
-`Object`. Cela posait deux problèmes.
-
-Premier problème : les conversions de type manuelles (casting) :
-
-```java
-// Sans génériques (ancien Java)
-List plants = new ArrayList();
-plants.add(new VegetablePlant("Tomate", "Solanum", "2026-03-15",
-        45.5, 0));
-plants.add("Ceci n'est pas une plante"); // Pas d'erreur !
-
-// Il faut caster manuellement
-PlantBase plant = (PlantBase) plants.get(0); // OK
-PlantBase oops = (PlantBase) plants.get(1);  // ClassCastException !
-```
-
-<details>
-<summary>Description du code</summary>
-
-Déclaration d'une variable `plants` de type `List` (sans paramètre de type)
-initialisée avec une nouvelle instance d'`ArrayList`.
-
-Ajout d'un `VegetablePlant` à la liste, puis ajout d'une `String`. Les deux
-ajouts compilent sans erreur car la liste accepte n'importe quel `Object`.
-
-Cast de l'élément à l'index 0 en `PlantBase` : fonctionne car c'est un
-`VegetablePlant`. Cast de l'élément à l'index 1 en `PlantBase` : provoque une
-`ClassCastException` à l'exécution car c'est une `String`.
-
-</details>
-
-Second problème : le code dupliqué. Si on veut écrire une classe "boîte" qui
-contient un objet, il faut une classe par type :
-
-```java
-public class StringBox {
-    private String value;
-    public void set(String value) { this.value = value; }
-    public String get() { return value; }
-}
-
 public class IntegerBox {
     private Integer value;
-    public void set(Integer value) { this.value = value; }
-    public Integer get() { return value; }
+
+    public void set(Integer value) {
+        this.value = value;
+    }
+
+    public Integer get() {
+        return value;
+    }
 }
 ```
 
 <details>
 <summary>Description du code</summary>
 
-Déclaration d'une classe `StringBox` avec un champ privé `value` de type
-`String`, un setter `set` et un getter `get`.
+Déclaration d'une classe publique `IntegerBox` avec un champ privé `value` de
+type `Integer`.
 
-Déclaration d'une classe `IntegerBox` avec un champ privé `value` de type
-`Integer`, un setter `set` et un getter `get`.
+Déclaration d'un setter `set` qui accepte un paramètre de type `Integer` et
+l'assigne au champ `value`.
 
-Le code des deux classes est identique à l'exception du type.
+Déclaration d'un getter `get` qui retourne la valeur de type `Integer`.
 
 </details>
 
-Les génériques résolvent ces deux problèmes.
+```java
+public class PlantBaseBox {
+    private PlantBase value;
+
+    public void set(PlantBase value) {
+        this.value = value;
+    }
+
+    public PlantBase get() {
+        return value;
+    }
+}
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une classe publique `PlantBaseBox` avec un champ privé `value` de
+type `PlantBase`.
+
+Déclaration d'un setter `set` qui accepte un paramètre de type `PlantBase` et
+l'assigne au champ `value`.
+
+Déclaration d'un getter `get` qui retourne la valeur de type `PlantBase`.
+
+</details>
+
+Trois classes avec exactement la même logique, seul le type change. Si on doit
+ajouter une méthode ou corriger un bug, il faut le faire dans chaque classe.
+
+![Sans et avec génériques](./images/generiques-sans-avec.svg)
+
+#### Deuxième problème : l'absence de sécurité de type
+
+On pourrait essayer de résoudre le problème de duplication en utilisant `Object`
+comme type universel. En Java, toutes les classes héritent implicitement de la
+classe `Object`. C'est la racine de la hiérarchie de classes :
+
+![Hiérarchie de la classe Object en Java](./images/hierarchie-object.svg)
+
+Puisque tout est un `Object`, on pourrait créer une seule classe qui utilise ce
+type :
+
+```java
+public class ObjectBox {
+    private Object value;
+
+    public void set(Object value) {
+        this.value = value;
+    }
+
+    public Object get() {
+        return value;
+    }
+}
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une classe publique `ObjectBox` avec un champ privé `value` de
+type `Object`.
+
+Déclaration d'un setter `set` qui accepte un paramètre de type `Object` et
+l'assigne au champ `value`.
+
+Déclaration d'un getter `get` qui retourne la valeur de type `Object`.
+
+</details>
+
+Le code n'est plus dupliqué, mais on perd la sécurité de type. On peut stocker
+n'importe quoi et le compilateur ne détecte aucune erreur :
+
+```java
+ObjectBox box = new ObjectBox();
+box.set("Tomate");
+box.set(42);        // Pas d'erreur de compilation !
+box.set(3.14);      // Pas d'erreur non plus !
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une variable `box` de type `ObjectBox` initialisée avec une
+nouvelle instance.
+
+Appel de `set` avec une `String`, puis avec un `Integer`, puis avec un `Double`.
+Les trois appels compilent sans erreur car `Object` accepte n'importe quel type.
+
+</details>
+
+Le compilateur ne peut pas vérifier que l'on utilise toujours le même type dans
+la boîte. L'erreur ne se manifeste qu'à l'exécution.
+
+![Risque sans sécurité de type](./images/generiques-securite-type.svg)
+
+#### Troisième problème : les conversions de type manuelles (casting)
+
+Comme `ObjectBox.get()` retourne un `Object`, il faut convertir (caster) le
+résultat à chaque fois qu'on le récupère :
+
+```java
+ObjectBox box = new ObjectBox();
+box.set("Tomate");
+
+// Il faut caster manuellement
+String value = (String) box.get();
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une variable `box` de type `ObjectBox` initialisée avec une
+nouvelle instance. Appel de `set` avec la `String` "Tomate".
+
+Déclaration d'une variable `value` de type `String` initialisée avec le résultat
+de `get()`, converti (casté) en `String` avec l'opérateur `(String)`.
+
+</details>
+
+Si on se trompe de type lors du cast, on obtient une `ClassCastException` à
+l'exécution :
+
+```java
+ObjectBox box = new ObjectBox();
+box.set(42);
+
+// Compile sans erreur, mais plante à l'exécution !
+String value = (String) box.get(); // ClassCastException !
+```
+
+<details>
+<summary>Description du code</summary>
+
+Déclaration d'une variable `box` de type `ObjectBox` initialisée avec une
+nouvelle instance. Appel de `set` avec l'entier `42`.
+
+Tentative de cast du résultat de `get()` en `String`. Le cast compile sans
+erreur car le compilateur ne connaît pas le type réel de l'objet. À l'exécution,
+une `ClassCastException` est levée car la valeur est un `Integer` et non un
+`String`.
+
+</details>
+
+Les casts manuels rendent le code fragile et difficile à maintenir. On
+préférerait que le compilateur détecte ces erreurs avant l'exécution.
+
+Les génériques résolvent ces trois problèmes simultanément : ils permettent
+d'écrire une seule classe réutilisable, avec une vérification des types à la
+compilation et sans cast manuel.
 
 ### Les classes génériques
 
@@ -921,18 +642,12 @@ n'existent qu'à la compilation, pas à l'exécution.
 <details>
 <summary>Pour aller plus loin</summary>
 
-Les expressions lambda et les génériques ouvrent la porte à des concepts plus
-avancés :
+Les génériques ouvrent la porte à des concepts plus avancés :
 
-- Les streams Java (`java.util.stream`) permettent de créer des pipelines de
-  traitement de données en enchaînant des opérations comme `filter`, `map` et
-  `collect`.
 - Les types bornés (`<T extends Comparable<T>>`) permettent de contraindre un
   paramètre de type à implémenter une interface.
-- Les méthodes `default` dans les interfaces fonctionnelles permettent de
-  chaîner des prédicats avec `and()`, `or()` et `negate()`.
-- Le pattern Strategy utilise les interfaces fonctionnelles pour paramétrer le
-  comportement d'une classe.
+- Les collections génériques et les types paramétrés sont la base de nombreuses
+  bibliothèques Java.
 
 </details>
 
@@ -940,19 +655,18 @@ avancés :
 
 ## Conclusion
 
-Dans ce chapitre, nous avons découvert deux mécanismes qui simplifient et
-généralisent le code Java :
+Dans ce chapitre, nous avons découvert les génériques, un mécanisme fondamental
+de Java :
 
-- Les expressions lambda permettent de passer un comportement en paramètre d'une
-  méthode, sans créer de classe dédiée. Elles sont particulièrement utiles avec
-  les méthodes `forEach`, `removeIf` et `sort` des collections.
-- Les interfaces fonctionnelles (`Predicate`, `Function`, `Consumer`,
-  `Supplier`) sont les types qui rendent les lambdas possibles.
-- Les génériques permettent d'écrire des classes et des méthodes qui
-  fonctionnent avec n'importe quel type, tout en détectant les erreurs de type à
-  la compilation plutôt qu'à l'exécution.
+- Les génériques résolvent trois problèmes : le code dupliqué, l'absence de
+  sécurité de type et les conversions de type manuelles.
+- Les classes génériques (`Box<T>`, `Pair<K, V>`) permettent d'écrire du code
+  réutilisable qui fonctionne avec n'importe quel type.
+- Les méthodes génériques permettent de paramétrer une méthode sans rendre toute
+  la classe générique.
 - Les wildcards (`? extends T`, `? super T`) ajoutent de la flexibilité aux
   génériques.
+- L'effacement de type (type erasure) impose certaines limitations à connaître.
 
 ## Exemples de code
 

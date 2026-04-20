@@ -1,5 +1,3 @@
-import java.util.List;
-
 /**
  * Programme principal du système de gestion de jardin communautaire.
  */
@@ -8,7 +6,7 @@ public class GardenManagementSystem {
     public static void main(String[] args) {
         System.out.println("=== Système de gestion de jardin "
                 + "communautaire ===");
-        System.out.println("Partie 5 : Lambda et génériques\n");
+        System.out.println("Partie 5 : Les génériques\n");
 
         // --- Créer des parcelles avec des plantes ---
         System.out.println("--- Création des parcelles ---");
@@ -34,46 +32,45 @@ public class GardenManagementSystem {
         plot2.addPlant(appleTree);
         System.out.println();
 
-        // --- Affichage avec forEach (lambda) ---
-        System.out.println("--- Affichage avec forEach ---");
+        // --- Affichage des parcelles ---
+        System.out.println("--- Affichage des parcelles ---");
         plot1.displayPlants();
         System.out.println();
         plot2.displayPlants();
         System.out.println();
 
-        // --- Trier les plantes par nom ---
-        System.out.println("--- Tri par nom ---");
-        plot1.getPlants().sort(
-                (a, b) -> a.getName().compareTo(b.getName()));
-        plot1.displayPlants();
-        System.out.println();
-
-        // --- Filtrage avec Predicate ---
-        System.out.println("--- Filtrage avec Predicate ---");
-        List<PlantBase> largePlants =
-                plot1.filterPlants(p -> p.getSize() > 30.0);
-        System.out.println("Plantes > 30 cm dans parcelle 1 :");
-        largePlants.forEach(p ->
-                System.out.println("  - " + p.getName()));
-        System.out.println();
-
         // --- FilterResult générique ---
         System.out.println("--- FilterResult générique ---");
+
+        // Filtrer par taille minimale
+        FilterResult<PlantBase> largePlants =
+                plot1.filterPlantsByMinSize(30.0);
+        largePlants.displaySummary();
+        System.out.println();
+
+        // Filtrer les plantes récoltables
         FilterResult<PlantBase> harvestableResult =
-                plot1.filterPlantsDetailed(
-                        p -> p instanceof Harvestable,
-                        "Plantes récoltables");
+                plot1.filterHarvestablePlants();
         harvestableResult.displaySummary();
         System.out.println();
 
+        // Filtrer par type dans la parcelle 2
         FilterResult<PlantBase> treeResult =
-                plot2.filterPlantsDetailed(
-                        p -> p instanceof TreePlant,
-                        "Arbres");
+                plot2.filterPlantsByType("TreePlant");
         treeResult.displaySummary();
         System.out.println();
 
-        // --- Récolte et suppression avec lambdas ---
+        // --- Démonstration de la réutilisabilité ---
+        System.out.println(
+                "--- Réutilisabilité de FilterResult ---");
+        FilterResult<String> tagResult = new FilterResult<>(
+                java.util.List.of("bio", "local"),
+                5,
+                "Étiquettes sélectionnées");
+        tagResult.displaySummary();
+        System.out.println();
+
+        // --- Récolte et nettoyage ---
         System.out.println("--- Récolte et nettoyage ---");
         plot1.harvestAndRemoveReadyPlants();
         System.out.println();

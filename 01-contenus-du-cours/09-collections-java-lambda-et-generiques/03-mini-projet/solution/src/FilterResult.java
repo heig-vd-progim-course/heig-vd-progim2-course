@@ -67,7 +67,8 @@ public class FilterResult<T> {
         System.out.println("Filtrage : " + criteriaDescription);
         System.out.println("Résultat : " + getMatchCount()
                 + "/" + totalCount + " élément(s).");
-        matchingItems.forEach(item ->
-                System.out.println("  - " + item));
+        for (T item : matchingItems) {
+            System.out.println("  - " + item);
+        }
     }
 }

@@ -1,11 +1,11 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.function.Predicate;
 
 /**
  * Classe représentant une parcelle dans le jardin communautaire.
- * Cette version utilise des lambdas pour simplifier le parcours
- * et le filtrage.
+ * Cette version utilise FilterResult pour des résultats de filtrage
+ * génériques.
  */
 public class Plot {
     private int number;
@@ -67,13 +67,15 @@ public class Plot {
     }
 
     /**
-     * Affiche toutes les plantes de la parcelle avec forEach.
+     * Affiche toutes les plantes de la parcelle.
      */
     public void displayPlants() {
         System.out.println("Parcelle " + number + " (" + location
                 + ", " + size + " m2) - "
                 + plants.size() + " plante(s) :");
-        plants.forEach(plant -> System.out.println("  - " + plant));
+        for (PlantBase plant : plants) {
+            System.out.println("  - " + plant);
+        }
     }
 
     /**
@@ -82,22 +84,19 @@ public class Plot {
      * @return le nombre de plantes récoltées et supprimées
      */
     public int harvestAndRemoveReadyPlants() {
-        // Identifier les plantes prêtes à récolter
-        List<PlantBase> toRemove = new ArrayList<>();
-        plants.forEach(plant -> {
+        int count = 0;
+        Iterator<PlantBase> it = plants.iterator();
+        while (it.hasNext()) {
+            PlantBase plant = it.next();
             if (plant instanceof Harvestable) {
                 Harvestable harvestable = (Harvestable) plant;
                 if (harvestable.isReadyToHarvest()) {
                     harvestable.harvest();
-                    toRemove.add(plant);
+                    it.remove();
+                    count++;
                 }
             }
-        });
-
-        // Supprimer les plantes récoltées
-        plants.removeAll(toRemove);
-        int count = toRemove.size();
-
+        }
         System.out.println(count
                 + " plante(s) récoltée(s) et retirée(s) de la parcelle "
                 + number + ".");
@@ -105,39 +104,56 @@ public class Plot {
     }
 
     /**
-     * Retourne les plantes qui satisfont un prédicat.
+     * Filtre les plantes par taille minimale.
      *
-     * @param predicate le critère de filtrage
-     * @return la liste des plantes correspondantes
+     * @param minSize la taille minimale en cm
+     * @return un FilterResult contenant les plantes correspondantes
      */
-    public List<PlantBase> filterPlants(
-            Predicate<PlantBase> predicate) {
+    public FilterResult<PlantBase> filterPlantsByMinSize(
+            double minSize) {
         List<PlantBase> result = new ArrayList<>();
-        plants.forEach(plant -> {
-            if (predicate.test(plant)) {
+        for (PlantBase plant : plants) {
+            if (plant.getSize() >= minSize) {
                 result.add(plant);
             }
-        });
-        return result;
+        }
+        return new FilterResult<>(result, plants.size(),
+                "Plantes >= " + minSize + " cm");
     }
 
     /**
-     * Filtre les plantes selon un prédicat et retourne un résultat
-     * détaillé.
+     * Filtre les plantes récoltables.
      *
-     * @param predicate le critère de filtrage
-     * @param description la description du critère
-     * @return un FilterResult contenant les plantes correspondantes
+     * @return un FilterResult contenant les plantes récoltables
      */
-    public FilterResult<PlantBase> filterPlantsDetailed(
-            Predicate<PlantBase> predicate, String description) {
+    public FilterResult<PlantBase> filterHarvestablePlants() {
         List<PlantBase> result = new ArrayList<>();
-        plants.forEach(plant -> {
-            if (predicate.test(plant)) {
+        for (PlantBase plant : plants) {
+            if (plant instanceof Harvestable) {
                 result.add(plant);
             }
-        });
-        return new FilterResult<>(result, plants.size(), description);
+        }
+        return new FilterResult<>(result, plants.size(),
+                "Plantes récoltables");
+    }
+
+    /**
+     * Filtre les plantes selon leur type.
+     *
+     * @param typeName le nom simple de la classe à filtrer
+     * @return un FilterResult contenant les plantes du type donné
+     */
+    public FilterResult<PlantBase> filterPlantsByType(
+            String typeName) {
+        List<PlantBase> result = new ArrayList<>();
+        for (PlantBase plant : plants) {
+            if (plant.getClass().getSimpleName()
+                    .equals(typeName)) {
+                result.add(plant);
+            }
+        }
+        return new FilterResult<>(result, plants.size(),
+                "Plantes de type " + typeName);
     }
 
     // Getters
