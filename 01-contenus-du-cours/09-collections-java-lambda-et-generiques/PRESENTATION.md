@@ -5,12 +5,11 @@ size: "16:9"
 paginate: "true"
 author: "V. Guidoux, avec l'aide de GitHub Copilot"
 description:
-  "Collections Java - Lambda et génériques pour le cours ProgIM2 enseigné à la
+  "Collections Java - Les génériques pour le cours ProgIM2 enseigné à la
   HEIG-VD, Suisse"
 lang: "fr"
 url: "https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/09-collections-java-lambda-et-generiques/presentation.html"
-header:
-  "[**Collections Java : Lambda et génériques**][contenu-complet-sur-github]"
+header: "[**Collections Java : Les génériques**][contenu-complet-sur-github]"
 footer:
   "[**HEIG-VD**](https://heig-vd.ch) - [ProgIM2
   2025-2026](https://github.com/heig-vd-progim-course/heig-vd-progim2-course) -
@@ -18,7 +17,7 @@ footer:
 headingDivider: 6
 ---
 
-# Collections Java : Lambda et génériques
+# Collections Java : Les génériques
 
 <!--
 _class: lead
@@ -47,280 +46,157 @@ _Pour plus de détails, consulter le [contenu complet sur
 GitHub][contenu-complet-sur-github] ou en cliquant sur l'en-tête de ce
 document._
 
-## Objectifs (1/2)
+## Objectifs (1/3)
 
-- Expliquer ce qu'est une expression lambda et une interface fonctionnelle en
-  Java.
-- Identifier les interfaces fonctionnelles courantes (`Predicate`, `Function`,
-  `Consumer`, `Supplier`).
-- Créer des expressions lambda pour des interfaces fonctionnelles.
-- Utiliser les lambdas avec les collections (`forEach`, `removeIf`, `sort`).
+- Expliquer l'utilité des génériques pour la sécurité de type et la
+  réutilisabilité du code.
+- Identifier les trois problèmes résolus par les génériques : code dupliqué,
+  absence de sécurité de type et conversions de type manuelles.
 
 ![bg right:40%][illustration-objectifs]
 
-## Objectifs (2/2)
+## Objectifs (2/3)
 
-- Expliquer l'utilité des génériques pour la sécurité de type.
 - Créer des classes et des méthodes génériques avec des paramètres de type.
+- Utiliser l'opérateur diamant (`<>`) pour l'inférence de type.
 - Utiliser les wildcards (`<? extends T>`, `<? super T>`) pour écrire du code
   flexible.
-- Appliquer les génériques avec les collections pour éviter les erreurs de type
-  à la compilation.
 
 ![bg right:40%][illustration-objectifs]
 
-## Les expressions lambda
+## Objectifs (3/3)
 
-<!-- _class: lead -->
+- Appliquer les génériques avec les collections pour éviter les erreurs de type
+  à la compilation.
+- Expliquer le concept d'effacement de type (type erasure) et ses limitations.
 
-### Le problème : trop de code
+![bg right:40%][illustration-objectifs]
 
-Pour trier une liste de plantes par nom, il faut créer une classe entière :
+## Introduction : écrire du code réutilisable et sûr
 
-```java
-public class PlantNameComparator implements Comparator<PlantBase> {
-    @Override
-    public int compare(PlantBase a, PlantBase b) {
-        return a.getName().compareTo(b.getName());
-    }
-}
-```
+Dans le chapitre précédent, nous avons utilisé les collections Java :
+`ArrayList<PlantBase>`, `HashMap<String, Plot>`, etc.
 
-Puis l'utiliser :
+Ces chevrons (`<>`) utilisent un mécanisme fondamental de Java : les
+**génériques**.
 
-```java
-plants.sort(new PlantNameComparator());
-```
-
-C'est beaucoup de code pour une simple comparaison.
-
-### La solution : les lambdas
-
-Avec une lambda, tout tient en une ligne :
-
-```java
-plants.sort((a, b) -> a.getName().compareTo(b.getName()));
-```
-
-Une expression lambda est une **fonction anonyme** (sans nom) qui peut être
-passée en paramètre d'une méthode.
-
-Syntaxe : `(paramètres) -> expression`
-
-### Différentes formes de lambdas
-
-```java
-// Sans paramètre
-Runnable task = () -> System.out.println("Tâche exécutée");
-
-// Un seul paramètre (parenthèses optionnelles)
-Consumer<String> printer = name ->
-        System.out.println("Plante : " + name);
-
-// Plusieurs paramètres
-Comparator<PlantBase> byName =
-        (a, b) -> a.getName().compareTo(b.getName());
-```
-
-Les types des paramètres sont **inférés** automatiquement par Java.
-
-### Bloc avec plusieurs instructions
-
-Si le corps de la lambda contient plusieurs lignes, on utilise des accolades et
-un `return` explicite si nécessaire :
-
-```java
-Consumer<PlantBase> detailedPrinter = plant -> {
-    System.out.println("Nom : " + plant.getName());
-    System.out.println("Espèce : " + plant.getSpecies());
-};
-```
-
-## Les interfaces fonctionnelles
-
-<!-- _class: lead -->
-
-### Qu'est-ce qu'une interface fonctionnelle ?
-
-Une interface fonctionnelle est une interface avec **une seule méthode
-abstraite**.
-
-```java
-@FunctionalInterface
-public interface PlantFilter {
-    boolean test(PlantBase plant);
-}
-```
-
-L'annotation `@FunctionalInterface` est optionnelle mais recommandée : le
-compilateur vérifie qu'il n'y a bien qu'une seule méthode abstraite.
-
-### Utiliser une interface fonctionnelle avec une lambda
-
-```java
-PlantFilter isReady = plant ->
-        plant instanceof Harvestable
-                && ((Harvestable) plant).isReadyToHarvest();
-
-PlantFilter isLarge = plant -> plant.getSize() > 50.0;
-```
-
-La lambda **implémente** la méthode `test()` de l'interface `PlantFilter`.
-
-### Les quatre interfaces fonctionnelles de Java (1/2)
-
-Java fournit des interfaces fonctionnelles prédéfinies dans `java.util.function`
-:
-
-| Interface        | Méthode             | Description                  |
-| :--------------- | :------------------ | :--------------------------- |
-| `Predicate<T>`   | `boolean test(T t)` | Teste une condition.         |
-| `Function<T, R>` | `R apply(T t)`      | Transforme un `T` en un `R`. |
-| `Consumer<T>`    | `void accept(T t)`  | Consomme un `T` sans retour. |
-| `Supplier<T>`    | `T get()`           | Fournit un `T` sans entrée.  |
-
-### Les quatre interfaces fonctionnelles de Java (2/2)
-
-```java
-// Predicate : teste une condition
-Predicate<PlantBase> isLarge = plant -> plant.getSize() > 50.0;
-
-// Function : transforme un objet
-Function<PlantBase, String> toName = plant -> plant.getName();
-
-// Consumer : effectue une action
-Consumer<PlantBase> print = plant ->
-        System.out.println(plant.getName());
-
-// Supplier : fournit un objet
-Supplier<PlantBase> create = () ->
-        new VegetablePlant("Laitue", "Lactuca", "2026-05-01", 5, 60);
-```
-
-## Lambdas avec les collections
-
-<!-- _class: lead -->
-
-### forEach : appliquer une action
-
-```java
-// Avant : boucle for-each
-for (PlantBase plant : plants) {
-    System.out.println(plant.getName());
-}
-
-// Après : avec forEach
-plants.forEach(plant -> System.out.println(plant.getName()));
-```
-
-`forEach` accepte un `Consumer<T>`.
-
-### removeIf : supprimer selon une condition
-
-```java
-// Supprimer les plantes de moins de 20 cm
-plants.removeIf(plant -> plant.getSize() < 20.0);
-```
-
-`removeIf` accepte un `Predicate<T>`.
-
-C'est une alternative plus concise à la boucle avec `Iterator` et `it.remove()`.
-
-### sort : trier selon un critère
-
-```java
-// Trier par nom (ordre alphabétique)
-plants.sort((a, b) -> a.getName().compareTo(b.getName()));
-
-// Trier par taille (croissant)
-plants.sort((a, b) -> Double.compare(a.getSize(), b.getSize()));
-```
-
-`sort` accepte un `Comparator<T>`.
-
-### Références de méthodes
-
-Quand une lambda appelle simplement une méthode existante, on peut utiliser
-l'opérateur `::` :
-
-```java
-// Lambda
-plants.forEach(plant -> System.out.println(plant));
-
-// Référence de méthode (équivalent)
-plants.forEach(System.out::println);
-```
-
-| Type               | Syntaxe           | Exemple               |
-| :----------------- | :---------------- | :-------------------- |
-| Méthode statique   | `Classe::méthode` | `Math::abs`           |
-| Méthode d'instance | `objet::méthode`  | `System.out::println` |
-| Constructeur       | `Classe::new`     | `ArrayList::new`      |
+- Pourquoi les génériques existent.
+- Comment créer nos propres classes et méthodes génériques.
+- Comment les wildcards ajoutent de la flexibilité.
 
 ## Les génériques
 
 <!-- _class: lead -->
 
-### Le problème : sans génériques (1/2)
+### Le problème : trois raisons d'utiliser les génériques
 
-Avant les génériques, les collections stockaient des `Object` :
+Sans les génériques, on se heurte à trois problèmes concrets :
 
-```java
-List plants = new ArrayList();
-plants.add(new VegetablePlant("Tomate", "Solanum",
-        "2026-03-15", 45.5, 0));
-plants.add("Ceci n'est pas une plante"); // Pas d'erreur !
-```
+1. Le **code dupliqué** : une classe par type.
+2. L'**absence de sécurité de type** : erreurs à l'exécution.
+3. Les **conversions de type manuelles** : casts risqués.
 
-Aucune vérification de type à la compilation.
-
-### Le problème : sans génériques (2/2)
-
-Il fallait caster manuellement :
+#### Premier problème : le code dupliqué (réutilisabilité)
 
 ```java
-PlantBase plant = (PlantBase) plants.get(0); // OK
-PlantBase oops = (PlantBase) plants.get(1);
-// ClassCastException à l'exécution !
+public class StringBox {
+    private String value;
+    public void set(String value) { this.value = value; }
+    public String get() { return value; }
+}
+
+public class IntegerBox {
+    private Integer value;
+    public void set(Integer value) { this.value = value; }
+    public Integer get() { return value; }
+}
 ```
 
-L'erreur n'apparaît qu'à l'**exécution**, pas à la **compilation**.
+#### Deuxième problème : l'absence de sécurité de type (1/2)
+
+On pourrait utiliser `Object` pour éviter la duplication :
+
+```java
+public class ObjectBox {
+    private Object value;
+    public void set(Object value) { this.value = value; }
+    public Object get() { return value; }
+}
+```
+
+#### Deuxième problème : l'absence de sécurité de type (2/2)
+
+Le code n'est plus dupliqué, mais on perd la sécurité :
+
+```java
+ObjectBox box = new ObjectBox();
+box.set("Tomate");
+box.set(42);     // Pas d'erreur de compilation !
+box.set(3.14);   // Pas d'erreur non plus !
+```
+
+Le compilateur ne vérifie plus rien. L'erreur ne se manifeste qu'à l'exécution.
+
+#### Troisième problème : les conversions de type manuelles (casting) (1/2)
+
+Comme `ObjectBox.get()` retourne un `Object`, il faut caster à chaque fois :
+
+```java
+ObjectBox box = new ObjectBox();
+box.set("Tomate");
+String value = (String) box.get(); // Cast manuel
+```
+
+#### Troisième problème : les conversions de type manuelles (casting) (2/2)
+
+Si on se trompe de type :
+
+```java
+ObjectBox box = new ObjectBox();
+box.set(42);
+String value = (String) box.get(); // ClassCastException !
+```
+
+Les casts rendent le code fragile. On préférerait que le compilateur détecte ces
+erreurs **avant** l'exécution.
 
 ### Les classes génériques
 
-Un paramètre de type `<T>` est remplacé par un type concret à l'utilisation :
+Une classe générique déclare un paramètre de type entre chevrons (`<>`). Ce
+paramètre est remplacé par un type concret à l'utilisation :
 
 ```java
 public class Box<T> {
     private T value;
+
     public void set(T value) { this.value = value; }
     public T get() { return value; }
 }
 ```
 
-Utilisation :
+`T` est un paramètre de type. Par convention : `T` (type), `E` (element), `K`
+(key), `V` (value).
+
+### Les classes génériques - utilisation
 
 ```java
 Box<String> stringBox = new Box<>();
 stringBox.set("Tomate");
-String name = stringBox.get(); // Pas de cast
-```
-
-### Sécurité de type à la compilation
-
-```java
-Box<String> stringBox = new Box<>();
-stringBox.set("Tomate");    // OK
-// stringBox.set(42);       // Erreur de compilation !
+String name = stringBox.get(); // Pas de cast !
 
 Box<Integer> intBox = new Box<>();
-intBox.set(42);             // OK
-int value = intBox.get();   // Auto-unboxing
+intBox.set(42);
+int value = intBox.get();
+
+stringBox.set(42); // Erreur de compilation !
 ```
 
-Les erreurs de type sont détectées **à la compilation**, pas à l'exécution.
+**Réutilisabilité, Sécurité, Pas de cast**
 
-### Plusieurs paramètres de type
+### Les classes génériques - plusieurs paramètres
+
+<div class="two-columns">
+<div>
 
 ```java
 public class Pair<K, V> {
@@ -337,34 +213,71 @@ public class Pair<K, V> {
 }
 ```
 
-Conventions : `T` (type), `E` (element), `K` (key), `V` (value).
-
-### Les méthodes génériques
-
-Le paramètre de type est déclaré **avant** le type de retour :
+</div>
+<div>
 
 ```java
-public static <T> void printAll(List<T> items) {
-    for (T item : items) {
-        System.out.println(item);
+public class Main {
+    public static void main(String[] args) {
+        Pair<String, Integer> plantAge =
+                new Pair<>("Pommier", 3);
+        String name = plantAge.getKey();   // "Pommier"
+        int age = plantAge.getValue();      // 3
     }
-}
-
-public static <T> T getFirst(List<T> items) {
-    if (items.isEmpty()) { return null; }
-    return items.get(0);
 }
 ```
 
-Le type `T` est **inféré** lors de l'appel.
+</div>
+</div>
 
-## Les wildcards
+### Les méthodes génériques
+
+```java
+public class GardenUtils {
+
+    public static <T> void printAll(List<T> items) {
+        for (T item : items) {
+            System.out.println(item);
+        }
+    }
+    public static <T> T getFirst(List<T> items) {
+        if (items.isEmpty()) {
+            return null;
+        }
+        return items.get(0);
+    }
+}
+```
+
+### Les méthodes génériques - utilisation
+
+```java
+List<PlantBase> plants = new ArrayList<>();
+// ...
+GardenUtils.printAll(plants);
+// T est inféré comme PlantBase
+
+PlantBase first = GardenUtils.getFirst(plants); // Retourne un PlantBase, pas un Object
+
+// ------------------
+List<String> names = List.of("Tomate", "Carotte");
+GardenUtils.printAll(names);
+// T est inféré comme String
+
+String firstName = GardenUtils.getFirst(names);
+// Retourne un String, sans cast
+```
+
+### Les wildcards
 
 <!-- _class: lead -->
 
-### Wildcard non borné : `<?>`
+Les wildcards (jokers) rendent les génériques plus flexibles. Ils sont utilisés
+quand on ne connaît pas ou ne veut pas fixer le type exact.
 
-Accepte n'importe quel type :
+#### Le wildcard non borné : `<?>`
+
+`<?>` signifie "n'importe quel type" :
 
 ```java
 public static void printList(List<?> list) {
@@ -374,11 +287,20 @@ public static void printList(List<?> list) {
 }
 ```
 
-Fonctionne avec `List<String>`, `List<PlantBase>`, etc.
+Fonctionne avec n'importe quel type de liste :
 
-### Wildcard borné supérieurement : `<? extends T>`
+```java
+printList(plants);  // List<PlantBase> -> OK
+printList(names);   // List<String>    -> OK
+```
 
-Accepte `T` ou un **sous-type** de `T`. Utile pour **lire** :
+On peut **lire** les éléments (comme `Object`), mais on ne peut pas **écrire**
+dedans (sauf `null`).
+
+#### Le wildcard borné supérieurement : `<? extends T>`
+
+`<? extends T>` signifie "un type qui est `T` ou un sous-type de `T`". On peut
+**lire** les éléments en tant que `T` :
 
 ```java
 public static double totalSize(
@@ -391,37 +313,60 @@ public static double totalSize(
 }
 ```
 
-Fonctionne avec `List<PlantBase>`, `List<VegetablePlant>`, etc.
+```java
+List<VegetablePlant> vegetables = new ArrayList<>();
+double total = totalSize(vegetables); // OK
+```
 
-### Wildcard borné inférieurement : `<? super T>`
+Accepte `List<PlantBase>`, `List<VegetablePlant>`, `List<FlowerPlant>`, etc.
 
-Accepte `T` ou un **super-type** de `T`. Utile pour **écrire** :
+#### Le wildcard borné inférieurement : `<? super T>`
+
+`<? super T>` signifie "un type qui est `T` ou un super-type de `T`". On peut
+**écrire** des éléments de type `T` :
 
 ```java
-public static void addDefaults(
+public static void addDefaultVegetables(
         List<? super VegetablePlant> list) {
-    list.add(new VegetablePlant("Laitue", "Lactuca",
-            "2026-05-01", 5.0, 45));
+    list.add(new VegetablePlant("Laitue",
+            "Lactuca sativa", "2026-05-01", 5.0, 45));
 }
 ```
 
-Fonctionne avec `List<VegetablePlant>`, `List<PlantBase>`, `List<Object>`.
+```java
+List<PlantBase> allPlants = new ArrayList<>();
+addDefaultVegetables(allPlants); // OK
+```
 
-### Règle PECS
+Accepte `List<VegetablePlant>`, `List<PlantBase>`, `List<Object>`.
 
-**P**roducer **E**xtends, **C**onsumer **S**uper :
+#### Règle PECS
 
-- **Lire** des éléments => `<? extends T>`.
-- **Écrire** des éléments => `<? super T>`.
+Règle mnémotechnique **PECS** (Producer Extends, Consumer Super) :
+
+| Opération               | Wildcard        | Exemple                 |
+| :---------------------- | :-------------- | :---------------------- |
+| **Lire** des éléments   | `<? extends T>` | `totalSize(List<...>)`  |
+| **Écrire** des éléments | `<? super T>`   | `addDefault(List<...>)` |
+| **Lire et écrire**      | Pas de wildcard | `List<T>`               |
 
 ### Limitations des génériques
 
-- Pas de types primitifs : `List<int>` est interdit, utiliser `List<Integer>`.
-- Pas d'instanciation : `new T()` est interdit.
-- Pas de tableau générique : `new T[10]` est interdit.
+Les génériques ont quelques restrictions liées à l'**effacement de type** (type
+erasure) :
 
-Ces restrictions viennent de l'**effacement de type** (type erasure) : les
-génériques n'existent qu'à la compilation, pas à l'exécution.
+- Pas de types primitifs : `List<int>` est interdit, utiliser `List<Integer>`.
+- Pas de `new T()` : on ne peut pas créer d'instance d'un paramètre de type.
+- Pas de `new T[10]` : on ne peut pas créer de tableau d'un type générique.
+
+Java remplace les types génériques par `Object` à la compilation. Les génériques
+n'existent qu'à la compilation, pas à l'exécution :
+
+```java
+Box<String> box1 = new Box<>("Hello");
+Box<Integer> box2 = new Box<>(42);
+// box1.getClass() == box2.getClass() -> true !
+```
 
 ## Questions
 

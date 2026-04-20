@@ -5,12 +5,11 @@ size: 16:9
 paginate: true
 author: V. Guidoux, avec l'aide de GitHub Copilot
 description:
-  Quiz sur le contenu Collections Java - Lambda et génériques pour le cours
-  ProgIM2 enseigné à la HEIG-VD, Suisse
+  "Quiz sur le contenu Collections Java - Les génériques pour le cours ProgIM2
+  enseigné à la HEIG-VD, Suisse"
 url: https://heig-vd-progim-course.github.io/heig-vd-progim2-course/01-contenus-du-cours/09-collections-java-lambda-et-generiques/quiz.html
 header:
-  "[**Collections Java : Lambda et génériques -
-  Quiz**][contenu-complet-sur-github]"
+  "[**Collections Java : Les génériques - Quiz**][contenu-complet-sur-github]"
 footer:
   "[**HEIG-VD**](https://heig-vd.ch) - [ProgIM2
   2025-2026](https://github.com/heig-vd-progim-course/heig-vd-progim2-course) -
@@ -18,7 +17,7 @@ footer:
 headingDivider: 6
 ---
 
-# Collections Java : Lambda et génériques - Quiz
+# Collections Java : Les génériques - Quiz
 
 <!--
 _class: lead
@@ -47,177 +46,6 @@ GitHub][contenu-complet-sur-github]._
 
 ## Question 1 - Donnée
 
-**Complétion : forEach avec lambda**
-
-Complétez le code pour afficher chaque élément de la liste :
-
-```java
-List<String> fruits = new ArrayList<>();
-fruits.add("Pomme");
-fruits.add("Poire");
-
-fruits.______(fruit -> System.out.println(fruit));
-```
-
-- **A.** `for`
-- **B.** `forEach`
-- **C.** `each`
-- **D.** `loop`
-
-## Question 1 - Réponse
-
-**Réponse correcte : B** - `forEach`
-
-```java
-fruits.forEach(fruit -> System.out.println(fruit));
-```
-
-La méthode `forEach` prend un `Consumer<T>` en paramètre. La lambda
-`fruit -> System.out.println(fruit)` est un `Consumer<String>` : elle prend un
-`String` et ne retourne rien.
-
-## Question 2 - Donnée
-
-**Prédiction : removeIf**
-
-Quel est le contenu de la liste après l'exécution ?
-
-```java
-List<Integer> numbers = new ArrayList<>();
-numbers.add(5);
-numbers.add(12);
-numbers.add(3);
-numbers.add(8);
-numbers.add(15);
-
-numbers.removeIf(n -> n > 10);
-System.out.println(numbers);
-```
-
-- **A.** `[12, 15]`
-- **B.** `[5, 3, 8]`
-- **C.** `[5, 12, 3, 8, 15]`
-- **D.** `[]`
-
-## Question 2 - Réponse
-
-**Réponse correcte : B** - `[5, 3, 8]`
-
-```java
-numbers.removeIf(n -> n > 10);
-// Supprime 12 (12 > 10) et 15 (15 > 10)
-// Garde 5, 3, 8 (tous <= 10)
-```
-
-`removeIf` supprime tous les éléments pour lesquels le `Predicate` retourne
-`true`. Ici, les éléments **supérieurs à 10** sont supprimés.
-
-## Question 3 - Donnée
-
-**Complétion : sort avec lambda**
-
-Complétez le code pour trier la liste par ordre alphabétique :
-
-```java
-List<String> cities = new ArrayList<>();
-cities.add("Zurich");
-cities.add("Berne");
-cities.add("Genève");
-
-cities.sort(______ -> a.compareTo(b));
-```
-
-- **A.** `(a, b)`
-- **B.** `a, b`
-- **C.** `(String a, String b)`
-- **D.** A et C sont corrects
-
-## Question 3 - Réponse
-
-**Réponse correcte : D** - A et C sont corrects
-
-```java
-// Forme courte (types inférés)
-cities.sort((a, b) -> a.compareTo(b));
-
-// Forme longue (types explicites)
-cities.sort((String a, String b) -> a.compareTo(b));
-```
-
-Les deux formes sont valides. Java peut **inférer les types** des paramètres
-grâce au type de la liste (`List<String>`). La forme courte `(a, b)` est
-préférée car plus concise.
-
-## Question 4 - Donnée
-
-**Prédiction : interface fonctionnelle**
-
-Quel est le type de chaque variable ?
-
-```java
-_______ isLong = s -> s.length() > 5;
-_______ toUpper = s -> s.toUpperCase();
-_______ printer = s -> System.out.println(s);
-```
-
-- **A.** `Predicate<String>`, `Function<String, String>`, `Consumer<String>`
-- **B.** `Function<String, Boolean>`, `Function<String, String>`,
-  `Consumer<String>`
-- **C.** `Consumer<String>`, `Function<String, String>`, `Predicate<String>`
-- **D.** `Predicate<String>`, `Consumer<String>`, `Function<String, String>`
-
-## Question 4 - Réponse
-
-**Réponse correcte : A**
-
-```java
-Predicate<String> isLong = s -> s.length() > 5;
-// Prend un String, retourne boolean -> Predicate
-
-Function<String, String> toUpper = s -> s.toUpperCase();
-// Prend un String, retourne un String -> Function
-
-Consumer<String> printer = s -> System.out.println(s);
-// Prend un String, ne retourne rien -> Consumer
-```
-
-Les trois interfaces sont dans `java.util.function` :
-
-- `Predicate<T>` : `T -> boolean` (méthode `test()`).
-- `Function<T, R>` : `T -> R` (méthode `apply()`).
-- `Consumer<T>` : `T -> void` (méthode `accept()`).
-
-## Question 5 - Donnée
-
-**Prédiction : référence de méthode**
-
-Ces deux lignes produisent-elles le même résultat ?
-
-```java
-// Ligne A
-list.forEach(s -> System.out.println(s));
-
-// Ligne B
-list.forEach(System.out::println);
-```
-
-- **A.** Oui, les deux affichent chaque élément.
-- **B.** Non, la ligne B provoque une erreur de compilation.
-- **C.** Non, la ligne B affiche les éléments dans un ordre différent.
-- **D.** Oui, mais la ligne B est plus lente.
-
-## Question 5 - Réponse
-
-**Réponse correcte : A** - Oui, les deux affichent chaque élément.
-
-`System.out::println` est une **référence de méthode**. C'est un raccourci pour
-une lambda qui ne fait que transmettre son argument à une méthode existante.
-
-La règle : quand une lambda a la forme `x -> method(x)`, on peut la remplacer
-par `object::method` ou `Class::method`.
-
-## Question 6 - Donnée
-
 **Complétion : classe générique**
 
 Complétez la déclaration de cette classe générique :
@@ -241,7 +69,7 @@ public class Box______  {
 - **C.** `<String>`, `String`, `String`, `String`
 - **D.** `<T>`, `Object`, `Object`, `T`
 
-## Question 6 - Réponse
+## Question 1 - Réponse
 
 **Réponse correcte : A** - `<T>`, `T`, `T`, `T`
 
@@ -263,7 +91,88 @@ Le paramètre de type `T` est déclaré après le nom de la classe (`Box<T>`) et
 utilisé partout où le type concret sera substitué. À l'utilisation,
 `Box<String>` remplace tous les `T` par `String`.
 
-## Question 7 - Donnée
+## Question 2 - Donnée
+
+**Complétion : opérateur diamant**
+
+Quelle ligne utilise correctement l'opérateur diamant `<>` ?
+
+```java
+// Ligne A
+Box<String> box = new Box<String>("Hello");
+
+// Ligne B
+Box<String> box = new Box<>("Hello");
+
+// Ligne C
+Box<> box = new Box<String>("Hello");
+
+// Ligne D
+Box box = new Box<>("Hello");
+```
+
+- **A.** Uniquement A.
+- **B.** Uniquement B.
+- **C.** A et B sont correctes.
+- **D.** A, B et D sont correctes.
+
+## Question 2 - Réponse
+
+**Réponse correcte : C** - A et B sont correctes.
+
+```java
+// A : correct (type explicite des deux côtés)
+Box<String> box = new Box<String>("Hello");
+
+// B : correct (diamant : type inféré à droite)
+Box<String> box = new Box<>("Hello");
+
+// C : ERREUR - le diamant doit être à droite, pas à gauche
+// D : WARNING - type brut à gauche (perte de sécurité)
+```
+
+L'opérateur diamant `<>` permet à Java d'inférer le type à partir de la
+déclaration. La ligne D compile avec un avertissement mais utilise un type brut.
+
+## Question 3 - Donnée
+
+**Complétion : méthode générique**
+
+Complétez cette méthode générique qui retourne le premier élément d'une liste :
+
+```java
+public static ______ ______ getFirst(List<T> items) {
+    if (items.isEmpty()) {
+        return null;
+    }
+    return items.get(0);
+}
+```
+
+- **A.** `T`, `<T>`
+- **B.** `<T>`, `T`
+- **C.** `Object`, `<T>`
+- **D.** `<T>`, `Object`
+
+## Question 3 - Réponse
+
+**Réponse correcte : B** - `<T>`, `T`
+
+```java
+public static <T> T getFirst(List<T> items) {
+    if (items.isEmpty()) {
+        return null;
+    }
+    return items.get(0);
+}
+```
+
+Pour une méthode générique, le paramètre de type `<T>` est déclaré **avant** le
+type de retour. L'ordre est : modificateurs, `<T>`, type de retour, nom de la
+méthode. Le type de retour est `T` (pas `Object`), ce qui conserve la sécurité
+des types.
+
+## Question 4 - Donnée
 
 **Prédiction : effacement de type**
 
@@ -280,7 +189,7 @@ System.out.println(box1.getClass() == box2.getClass());
 - **C.** Erreur de compilation.
 - **D.** `ClassCastException` à l'exécution.
 
-## Question 7 - Réponse
+## Question 4 - Réponse
 
 **Réponse correcte : A** - `true`
 
@@ -296,7 +205,44 @@ deviennent simplement `Box`.
 Il n'existe pas de classe `Box<String>` distincte de `Box<Integer>` à
 l'exécution.
 
-## Question 8 - Donnée
+## Question 5 - Donnée
+
+**Prédiction : sécurité de type**
+
+Quelles lignes provoquent une erreur de compilation ?
+
+```java
+List<String> names = new ArrayList<>();
+names.add("Alice");
+names.add(42);                       // Ligne A
+
+List<Object> objects = new ArrayList<>();
+objects.add("Texte");
+objects.add(42);                     // Ligne B
+
+List<?> wildcard = names;
+wildcard.add("Bob");                 // Ligne C
+```
+
+- **A.** Lignes A et C uniquement.
+- **B.** Lignes A, B et C.
+- **C.** Ligne A uniquement.
+- **D.** Aucune erreur de compilation.
+
+## Question 5 - Réponse
+
+**Réponse correcte : A** - Lignes A et C uniquement.
+
+- **Ligne A** : erreur. `names` est de type `List<String>`, on ne peut pas
+  ajouter un `int`.
+- **Ligne B** : pas d'erreur. `List<Object>` accepte `String` et `Integer` (les
+  deux héritent de `Object`).
+- **Ligne C** : erreur. On ne peut pas ajouter d'éléments à une `List<?>` (sauf
+  `null`). Le compilateur ne connaît pas le type exact.
+
+Les génériques détectent les erreurs de type **avant** l'exécution.
+
+## Question 6 - Donnée
 
 **Comparaison : wildcard extends vs super**
 
@@ -315,7 +261,7 @@ public void addInts(List<? super Integer> list) { ... }
 - **C.** Les deux sont identiques.
 - **D.** Aucune des deux ne compile.
 
-## Question 8 - Réponse
+## Question 6 - Réponse
 
 **Réponse correcte : A**
 
@@ -333,46 +279,42 @@ public void addInts(List<? super Integer> list) { ... }
 
 C'est le principe **PECS** : _Producer Extends, Consumer Super_.
 
-## Question 9 - Donnée
+## Question 7 - Donnée
 
-**Prédiction : Predicate en paramètre**
+**Prédiction : List&lt;String&gt; et List&lt;Object&gt;**
 
-Quel est le résultat de ce code ?
+Ce code compile-t-il ?
 
 ```java
 List<String> names = new ArrayList<>();
 names.add("Alice");
-names.add("Bob");
-names.add("Charlotte");
-names.add("Eve");
 
-Predicate<String> isShort = s -> s.length() <= 3;
-names.removeIf(isShort);
-System.out.println(names);
+List<Object> objects = names;
 ```
 
-- **A.** `[Alice, Charlotte]`
-- **B.** `[Bob, Eve]`
-- **C.** `[Alice, Bob, Charlotte, Eve]`
-- **D.** `[Alice, Charlotte, Eve]`
+- **A.** Oui, `String` hérite de `Object`.
+- **B.** Non, erreur de compilation.
+- **C.** Oui, mais avertissement du compilateur.
+- **D.** Oui, mais `ClassCastException` à l'exécution.
 
-## Question 9 - Réponse
+## Question 7 - Réponse
 
-**Réponse correcte : A** - `[Alice, Charlotte]`
+**Réponse correcte : B** - Non, erreur de compilation.
+
+Même si `String` hérite de `Object`, `List<String>` **n'est pas** un sous-type
+de `List<Object>`. Les génériques sont **invariants**.
+
+Si c'était permis, on pourrait écrire :
 
 ```java
-Predicate<String> isShort = s -> s.length() <= 3;
-names.removeIf(isShort);
-// Bob (3 lettres, 3 <= 3 -> true) : supprimé
-// Eve (3 lettres, 3 <= 3 -> true) : supprimé
-// Alice (5 lettres, 5 <= 3 -> false) : conservé
-// Charlotte (9 lettres, 9 <= 3 -> false) : conservé
+List<Object> objects = names;  // Si c'était permis...
+objects.add(42);               // Ajout d'un Integer !
+String s = names.get(1);      // ClassCastException !
 ```
 
-Le `Predicate` peut être stocké dans une variable et réutilisé. On le passe
-ensuite à `removeIf` qui appelle `test()` sur chaque élément.
+Pour accepter les deux, utilisez `List<?>` ou `List<? extends Object>`.
 
-## Question 10 - Donnée
+## Question 8 - Donnée
 
 **Prédiction : type brut**
 
@@ -393,14 +335,14 @@ for (Object item : rawList) {
 - **C.** Compile mais `ClassCastException` à l'exécution.
 - **D.** Compile mais `NullPointerException` à l'exécution.
 
-## Question 10 - Réponse
+## Question 8 - Réponse
 
 **Réponse correcte : C** - Compile mais `ClassCastException` à l'exécution.
 
 ```java
-List rawList = new ArrayList();  // Type brut : pas de vérification
+List rawList = new ArrayList();  // Type brut
 rawList.add("Hello");            // OK
-rawList.add(42);                 // OK (pas de vérification de type)
+rawList.add(42);                 // OK (pas de vérification)
 
 for (Object item : rawList) {
     String s = (String) item;    // ClassCastException sur 42 !
@@ -410,6 +352,77 @@ for (Object item : rawList) {
 Sans paramètre de type (`List` au lieu de `List<String>`), Java ne peut pas
 vérifier les types à la compilation. Le cast `(String)` échoue quand l'élément
 est un `Integer`.
+
+## Question 9 - Donnée
+
+**Prédiction : Pair générique**
+
+Quel est le résultat de ce code ?
+
+```java
+Pair<String, Integer> p = new Pair<>("Alice", 22);
+System.out.println(p.getKey());
+System.out.println(p.getValue());
+System.out.println(p.getKey().getClass().getSimpleName());
+System.out.println(p.getValue().getClass().getSimpleName());
+```
+
+- **A.** `Alice`, `22`, `String`, `Integer`
+- **B.** `Alice`, `22`, `Object`, `Object`
+- **C.** Erreur de compilation.
+- **D.** `Alice`, `22`, `String`, `int`
+
+## Question 9 - Réponse
+
+**Réponse correcte : A** - `Alice`, `22`, `String`, `Integer`
+
+```java
+System.out.println(p.getKey());    // Alice
+System.out.println(p.getValue());  // 22
+System.out.println(
+        p.getKey().getClass().getSimpleName());    // String
+System.out.println(
+        p.getValue().getClass().getSimpleName());  // Integer
+```
+
+Les génériques conservent le type à la compilation. `getKey()` retourne un
+`String` et `getValue()` retourne un `Integer` (pas `int` car `getClass()`
+s'appelle sur l'objet wrapper, pas sur le type primitif).
+
+## Question 10 - Donnée
+
+**Prédiction : limitations des génériques**
+
+Lequel de ces codes provoque une erreur de compilation ?
+
+```java
+// Code A
+Box<int> box = new Box<>(42);
+
+// Code B
+Box<String> box = new Box<>(null);
+
+// Code C
+Box<String>[] boxes = new Box<String>[10];
+```
+
+- **A.** A uniquement.
+- **B.** A et C.
+- **C.** A, B et C.
+- **D.** Aucun.
+
+## Question 10 - Réponse
+
+**Réponse correcte : B** - A et C.
+
+- **Code A** : erreur. Les génériques ne fonctionnent pas avec les types
+  primitifs (`int`, `double`, etc.). Il faut utiliser `Box<Integer>`.
+- **Code B** : pas d'erreur. On peut passer `null` à un constructeur générique.
+- **Code C** : erreur. On ne peut pas créer un tableau de type générique en
+  Java. C'est une limitation de l'effacement de type.
+
+Les types primitifs et les tableaux de génériques sont deux limitations
+importantes à connaître.
 
 ## Questions
 
