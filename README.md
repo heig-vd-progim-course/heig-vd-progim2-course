@@ -45,8 +45,8 @@ d'apprentissage, et les méthodes d'évaluation.
 |     06 | 23.03 - 27.03 | [Entraînement : Examen blanc](./01-contenus-du-cours/98-entrainement-examen-blanc/)                                                           | 🟢 Prêt     |
 |     🚨 | 30.03 - 03.04 | Evaluation intermédiaire                                                                                                                      | 🟢 Prêt     |
 |     07 | 13.04 - 17.04 | [Collections Java : Listes, sets et maps](./01-contenus-du-cours/08-collections-java-listes-sets-et-maps/)                                    | 🟢 Prêt     |
-|     08 | 20.04 - 24.04 | [Collections Java : Lambda et génériques](./01-contenus-du-cours/09-collections-java-lambda-et-generiques/)                                   | 🔴 À faire  |
-|     09 | 27.04 - 01.05 | [Gestion des exceptions](./01-contenus-du-cours/10-gestion-des-exceptions/)                                                                   | 🔴 À faire  |
+|     08 | 20.04 - 24.04 | [Collections Java : Les génériques](./01-contenus-du-cours/09-collections-java-lambda-et-generiques/)                                         | 🟢 Prêt     |
+|     09 | 27.04 - 01.05 | [Types enveloppes et comparaison d'objets](./01-contenus-du-cours/10-types-enveloppes-et-comparaison/)                                        | 🔴 À faire  |
 |     10 | 04.05 - 08.05 | [Tests unitaires avec JUnit](./01-contenus-du-cours/12-tests-unitaires-avec-junit/)                                                           | 🔴 À faire  |
 |     11 | 11.05 - 15.05 | [JavaFX et interfaces graphiques](./01-contenus-du-cours/13-javafx-et-interfaces-graphiques/)                                                 | 🔴 À faire  |
 |     12 | 18.05 - 22.05 | [Récapitulatif et préparation à l'examen](./01-contenus-du-cours/14-recapitulatif-et-preparation-a-lexamen/)                                  | 🔴 À faire  |

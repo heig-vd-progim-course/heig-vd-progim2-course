@@ -1,0 +1,68 @@
+@startuml hierarchie-enveloppes
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+abstract class Object {
+    + equals(obj : Object) : boolean
+    + hashCode() : int
+    + toString() : String
+}
+
+abstract class Number {
+    + intValue() : int
+    + doubleValue() : double
+    + longValue() : long
+}
+
+class Integer {
+    + {static} MAX_VALUE : int
+    + {static} MIN_VALUE : int
+    + {static} parseInt(s : String) : int
+    + {static} valueOf(i : int) : Integer
+}
+
+class Double {
+    + {static} parseDouble(s : String) : double
+    + {static} valueOf(d : double) : Double
+}
+
+class Long {
+    + {static} parseLong(s : String) : long
+}
+
+class Float {
+    + {static} parseFloat(s : String) : float
+}
+
+class Boolean {
+    + {static} parseBoolean(s : String) : boolean
+    + {static} valueOf(b : boolean) : Boolean
+}
+
+class Character {
+    + {static} isLetter(c : char) : boolean
+    + {static} isDigit(c : char) : boolean
+    + {static} toUpperCase(c : char) : char
+}
+
+Object <|-- Number
+Object <|-- Boolean
+Object <|-- Character
+Number <|-- Integer
+Number <|-- Double
+Number <|-- Long
+Number <|-- Float
+
+note right of Number
+  Les classes numériques
+  héritent de Number.
+end note
+
+note right of Object
+  Boolean et Character héritent
+  directement de Object.
+end note
+
+@enduml
