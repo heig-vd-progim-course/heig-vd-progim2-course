@@ -399,11 +399,36 @@ System.out.println(numbers);  // [1, 3, 5]
   ensemble.
 - `Comparable<T>` et `compareTo()` définissent un ordre naturel pour le tri.
 
+## Questions
+
+<!-- _class: lead -->
+
+Est-ce que vous avez des questions ?
+
+## À vous de jouer !
+
+- (Re)lire le contenu de cours.
+- Lire les exemples de code et les descriptions. Faire les exercices et faire le
+  mini-projet.
+- Poser des questions si nécessaire !
+
+➡️ [Visualiser le contenu complet sur GitHub.][contenu-complet-sur-github]
+
+**N'hésitez pas à vous entraider si vous avez des difficultés !**
+
+![bg right:30%][illustration-a-vous-de-jouer]
+
 ## Sources
 
-- [Oracle Java Documentation - Wrapper Classes](https://docs.oracle.com/en/java/docs/)
-- [Oracle Java Documentation - Comparable](https://docs.oracle.com/en/java/api/java.base/java/lang/Comparable.html)
-- [Oracle Java Documentation - Collections.sort](<https://docs.oracle.com/en/java/api/java.base/java/util/Collections.html#sort(java.util.List)>)
+- [Illustration principale][illustration-principale] par
+  [Suzi Kim](https://unsplash.com/@kimsuzi08) sur
+  [Unsplash](https://unsplash.com/fr/photos/quelques-boites-aux-lettres-bleues-et-rouges-zmQe62UUxvU)
+- [Illustration][illustration-objectifs] par
+  [Aline de Nadai](https://unsplash.com/@alinedenadai) sur
+  [Unsplash](https://unsplash.com/photos/low-angle-view-of-ball-shoots-in-the-ring-j6brni7fpvs)
+- [Illustration][illustration-a-vous-de-jouer] par
+  [Nikita Kachanovsky](https://unsplash.com/@nkachanovskyyy) sur
+  [Unsplash](https://unsplash.com/photos/white-sony-ps4-dualshock-controller-over-persons-palm-FJFPuE1MAOM)
 
 <!-- URLs -->
 
@@ -411,7 +436,12 @@ System.out.println(numbers);  // [1, 3, 5]
 	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/tree/main/01-contenus-du-cours/10-types-enveloppes-et-comparaison/
 [licence]:
 	https://github.com/heig-vd-progim-course/heig-vd-progim2-course/blob/main/LICENSE.md
+
+<!-- Illustrations -->
+
 [illustration-principale]:
-	https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1280&q=80
+	https://images.unsplash.com/photo-1666185761495-730baec32703?fit=crop&h=720
 [illustration-objectifs]:
-	https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1280&q=80
+	https://images.unsplash.com/photo-1516389573391-5620a0263801?fit=crop&h=720
+[illustration-a-vous-de-jouer]:
+	https://images.unsplash.com/photo-1509198397868-475647b2a1e5?fit=crop&h=720
