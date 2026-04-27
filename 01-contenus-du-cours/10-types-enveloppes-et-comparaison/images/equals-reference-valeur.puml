@@ -1,0 +1,28 @@
+@startuml equals-reference-valeur
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+object "m1 : Movie" as m1 {
+    title = "Inception"
+    year = 2010
+    rating = 9.0
+}
+
+object "m2 : Movie" as m2 {
+    title = "Inception"
+    year = 2010
+    rating = 9.0
+}
+
+m1 -[hidden]-> m2
+
+note top of m1
+  Deux références distinctes :
+  m1 == m2 → false
+  Mêmes valeurs :
+  m1.equals(m2) → true
+end note
+
+@enduml

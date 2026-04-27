@@ -1,0 +1,24 @@
+@startuml autoboxing-unboxing
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+skinparam activityFontSize 14
+skinparam ArrowFontSize 13
+
+rectangle "Code source" {
+    rectangle "int i = 42" as prim #LightBlue
+    rectangle "Integer obj = 42" as box #LightGreen
+    rectangle "int j = obj" as unbox #LightBlue
+}
+
+prim --> box : autoboxing\n(Java crée Integer.valueOf(42))
+box --> unbox : unboxing\n(Java appelle obj.intValue())
+
+note bottom of box
+  Java effectue ces conversions
+  automatiquement depuis Java 5.
+end note
+
+@enduml

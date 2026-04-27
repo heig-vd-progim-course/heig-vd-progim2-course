@@ -1,0 +1,37 @@
+@startuml movie-comparable
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+interface "Comparable<Movie>" as Comparable {
+    + compareTo(other : Movie) : int
+}
+
+class Movie {
+    - title : String
+    - year : Integer
+    - duration : Integer
+    - rating : Double
+    --
+    + Movie(title : String, year : Integer, duration : Integer, rating : Double)
+    + getTitle() : String
+    + getYear() : Integer
+    + getDuration() : Integer
+    + getRating() : Double
+    + compareTo(other : Movie) : int
+    + equals(obj : Object) : boolean
+    + hashCode() : int
+    + toString() : String
+}
+
+Comparable <|.. Movie : implémente
+
+note right of Movie
+  compareTo() compare les films
+  par note décroissante.
+  equals() compare titre + année.
+  hashCode() cohérent avec equals().
+end note
+
+@enduml
