@@ -87,14 +87,11 @@ ArrayList<Integer> durations = new ArrayList<>();
 ArrayList<Double> ratings = new ArrayList<>();
 ```
 
-Les génériques ne fonctionnent qu'avec des **objets**. D'où les classes
-enveloppes.
-
 ## Les types enveloppes
 
 <!-- _class: lead -->
 
-### Les types primitifs et leurs classes enveloppes
+### Les types primitifs vs classes enveloppes
 
 | Type primitif | Classe enveloppe | Exemple                |
 | :------------ | :--------------- | :--------------------- |
@@ -105,11 +102,7 @@ enveloppes.
 | `char`        | `Character`      | `ArrayList<Character>` |
 | `float`       | `Float`          | `ArrayList<Float>`     |
 
-Toutes dans `java.lang` → aucun import nécessaire.
-
 ### Hiérarchie des classes enveloppes
-
-![Hiérarchie des classes enveloppes](./images/hierarchie-enveloppes.svg)
 
 - `Number` est la classe parente de toutes les classes numériques.
 - On peut stocker des `Integer` et des `Double` dans une `List<Number>`.
@@ -128,12 +121,9 @@ Boolean flag    = Boolean.valueOf(true);
 L'inverse : `intValue()`, `doubleValue()`, `booleanValue()` extraient la valeur
 primitive depuis l'objet.
 
-Ces méthodes expliquent ce que Java fait **automatiquement** lors de
-l'autoboxing.
-
 ### L'autoboxing et l'unboxing (1/2)
 
-Depuis Java 5, la conversion est **automatique** :
+Dans Java, la conversion est **automatique** :
 
 ```java
 // Autoboxing : int → Integer
@@ -144,8 +134,6 @@ Integer year = 2010;
 int y = year;
 // équivaut à : int y = year.intValue();
 ```
-
-![L'autoboxing et l'unboxing](./images/autoboxing-unboxing.svg)
 
 ### L'autoboxing et l'unboxing (2/2)
 
@@ -160,7 +148,7 @@ durations.add(132);
 int first = durations.get(0);  // unboxing : Integer → int
 ```
 
-### Les méthodes utilitaires (1/2)
+### Les méthodes utilitaires (1/3)
 
 **Convertir une chaîne en nombre :**
 
@@ -170,7 +158,9 @@ double rating  = Double.parseDouble("8.5");
 long id        = Long.parseLong("12345678");
 ```
 
-> [!WARNING] Si la chaîne n'est pas un nombre valide → `NumberFormatException` !
+> Si la chaîne n'est pas un nombre valide → `NumberFormatException` !
+
+### Les méthodes utilitaires (2/3)
 
 **Constantes utiles :**
 
@@ -180,7 +170,7 @@ System.out.println(Integer.MIN_VALUE);  // -2147483648
 System.out.println(Integer.SIZE);       // 32 (bits)
 ```
 
-### Les méthodes utilitaires (2/2)
+### Les méthodes utilitaires (3/3)
 
 **Méthodes utilitaires de `Character` :**
 
@@ -211,7 +201,7 @@ System.out.println(x.equals(y)); // true  (comparaison par valeur)
 
 **Règle :** ne jamais comparer des objets avec `==`. Utiliser `equals()`.
 
-### Les pièges : unboxing d'une valeur `null`
+### Les pièges : unboxing d'une valeur `null` (1/2)
 
 Un objet enveloppe peut être `null`. Si Java tente de l'unboxer →
 `NullPointerException` :
@@ -221,17 +211,17 @@ Integer value = null;
 int i = value;  // NullPointerException !
 ```
 
+### Les pièges : unboxing d'une valeur `null` (2/2)
+
 Cas fréquent avec les collections :
 
 ```java
 ArrayList<Integer> list = new ArrayList<>();
 list.add(null);
 for (int d : list) { ... }  // NullPointerException !
-```
 
-Toujours vérifier `null` avant d'unboxer :
+// Toujours vérifier `null` avant d'unboxer :
 
-```java
 if (value != null) {
     int i = value;
 }
@@ -241,7 +231,11 @@ if (value != null) {
 
 <!-- _class: lead -->
 
-### L'opérateur `==` et la méthode `equals()`
+### Movie
+
+![Classe Movie implémentant Comparable](./images/movie-comparable.svg)
+
+### L'opérateur `==` et la méthode `equals()` (1/2)
 
 `==` compare des **références** (adresses mémoire), pas des valeurs :
 
@@ -253,6 +247,8 @@ System.out.println(s1 == s2);       // false : deux objets distincts
 System.out.println(s1.equals(s2));  // true  : même contenu
 ```
 
+### L'opérateur `==` et la méthode `equals()` (2/2)
+
 Sans redéfinir `equals()`, deux objets `Movie` avec les mêmes données ne sont
 pas égaux :
 
@@ -261,14 +257,6 @@ Movie m1 = new Movie("Inception", 2010, 148, 9.0);
 Movie m2 = new Movie("Inception", 2010, 148, 9.0);
 System.out.println(m1.equals(m2));  // false (hérité de Object)
 ```
-
-### Deux objets, deux références
-
-![Deux objets Movie avec les mêmes données mais des références distinctes](./images/equals-reference-valeur.svg)
-
-Deux instances distinctes en mémoire, même si leur contenu est identique.
-
-`equals()` hérité de `Object` compare les **adresses**, pas le **contenu**.
 
 ### Redéfinir `equals()` (1/2)
 
@@ -305,9 +293,7 @@ System.out.println(m1.equals(m3));  // false
 ### La méthode `hashCode()` (1/2)
 
 `hashCode()` est utilisée par `HashSet` et `HashMap` pour trouver les éléments
-rapidement.
-
-**Sans `hashCode()` cohérent :**
+rapidement. **Sans `hashCode()` cohérent :**
 
 ```java
 HashSet<Movie> favorites = new HashSet<>();
@@ -332,10 +318,6 @@ public int hashCode() {
     result = 31 * result + year.hashCode();
     return result;
 }
-```
-
-```java
-System.out.println(favorites.contains(search)); // true !
 ```
 
 ## L'interface `Comparable<T>`
@@ -373,8 +355,6 @@ public class Movie implements Comparable<Movie> {
 }
 ```
 
-![Classe Movie implémentant Comparable](./images/movie-comparable.svg)
-
 ### Trier avec `Collections.sort()`
 
 ```java
@@ -389,15 +369,12 @@ Collections.sort(movies);
 for (Movie m : movies) {
     System.out.println(m.getRating() + " - " + m.getTitle());
 }
-```
 
-Sortie : `9.0 - Inception`, `9.0 - The Dark Knight`, `8.6 - Interstellar`,
-`7.4 - Tenet`
+// Sortie : `9.0 - Inception`, `9.0 - The Dark Knight`, `8.6 - Interstellar`, `7.4 - Tenet`
+```
 
 ### Trier avec `Collections.sort()` - remarque
 
-> [!NOTE]
->
 > Les classes enveloppes numériques (`Integer`, `Double`, etc.) implémentent
 > déjà `Comparable`. C'est pourquoi `Collections.sort()` fonctionne
 > automatiquement sur une `ArrayList<Integer>`.
