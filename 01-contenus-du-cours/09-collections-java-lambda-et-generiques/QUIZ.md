@@ -62,14 +62,9 @@ public class Box______  {
 }
 ```
 
-- **A.** `<T>`, `T`, `T`, `T`
-- **B.** `<Object>`, `Object`, `Object`, `Object`
-- **C.** `<String>`, `String`, `String`, `String`
-- **D.** `<T>`, `Object`, `Object`, `T`
-
 ## Question 1 - Réponse
 
-**Réponse correcte : A** - `<T>`, `T`, `T`, `T`
+**Réponse correcte :** `<T>`, `T`, `T`, `T`
 
 ```java
 public class Box<T> {
@@ -135,7 +130,7 @@ public static ______ ______ getFirst(List<T> items) {
 
 ## Question 3 - Réponse
 
-**Réponse correcte : B** - `<T>`, `T`
+**Réponse correcte :** - `<T>`, `T`
 
 ```java
 public static <T> T getFirst(List<T> items) {
@@ -202,6 +197,7 @@ Integer n = copy.get(0);             // Ligne C
 
 Les génériques détectent les erreurs de type **avant** l'exécution.
 
+<!--
 ## Question 7 - Donnée
 
 **Prédiction : List&lt;String&gt; et List&lt;Object&gt;**
@@ -219,7 +215,7 @@ List<Object> objects = names;
 - **B.** Non, erreur de compilation.
 - **C.** Oui, mais avertissement du compilateur.
 - **D.** Oui, mais `ClassCastException` à l'exécution.
-<!--
+
 
 ## Question 7 - Réponse
 
