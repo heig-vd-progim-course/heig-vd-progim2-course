@@ -15,7 +15,8 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 - [Table des matières](#table-des-matières)
 - [Exercices](#exercices)
 - [Exercices de complétion](#exercices-de-complétion)
-  - [Exercice 1 - autoboxing et unboxing](#exercice-1---autoboxing-et-unboxing)
+  - [Exercice 1a - compléter le code](#exercice-1a---compléter-le-code)
+  - [Exercice 1b - autoboxing ou unboxing ?](#exercice-1b---autoboxing-ou-unboxing-)
   - [Exercice 2 - méthodes utilitaires](#exercice-2---méthodes-utilitaires)
   - [Exercice 3 - redéfinir equals()](#exercice-3---redéfinir-equals)
   - [Exercice 4 - redéfinir hashCode()](#exercice-4---redéfinir-hashcode)
@@ -50,45 +51,67 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 Ces exercices permettent de pratiquer la syntaxe des classes enveloppes et des
 méthodes liées à la comparaison en complétant du code existant.
 
-### Exercice 1 - autoboxing et unboxing
+### Exercice 1a - compléter le code
 
 Complétez le code suivant en remplaçant les `______` par les valeurs correctes.
-Pour chaque ligne, indiquez si Java effectue un autoboxing, un unboxing, ou ni
-l'un ni l'autre.
+Les commentaires indiquent ce qu'il faut compléter.
 
 ```java
-Integer a = ______;             // (1) autoboxing ou pas ?
-int b = Integer.valueOf(42);    // (2) autoboxing ou pas ?
-Integer c = ______;             // (3) crée un Integer via valueOf
-int d = ______;                 // (4) unboxing depuis c
+Integer a = ______;                     // (1) assigner un entier
+Integer c = ______;                     // (2) créer un Integer avec valueOf()
+int d = ______;                         // (3) récupérer la valeur primitive de c
 ArrayList<Integer> list = new ArrayList<>();
-list.add(______);               // (5) autoboxing ou pas ?
-int first = list.get(0);        // (6) autoboxing ou pas ?
+list.add(______);                       // (4) ajouter un entier littéral
 ```
+
+> [!NOTE]
+>
+> Par "entier littéral", on entend un nombre entier écrit directement dans le
+> code, par exemple `42` ou `-5`.
 
 <details>
 <summary>Corrigé</summary>
 
 ```java
-Integer a = 10;                 // (1) autoboxing : int 10 → Integer
-int b = Integer.valueOf(42);    // (2) unboxing : Integer.valueOf(42) → int
-Integer c = Integer.valueOf(5); // (3) valueOf explicite, pas d'autoboxing
-int d = c;                      // (4) unboxing : Integer → int
+Integer a = 10;
+int b = Integer.valueOf(42);
+Integer c = Integer.valueOf(5);
+int d = c;
 ArrayList<Integer> list = new ArrayList<>();
-list.add(7);                    // (5) autoboxing : int 7 → Integer
-int first = list.get(0);        // (6) unboxing : Integer → int
+list.add(7);
+int first = list.get(0);
 ```
 
-Notes :
+</details>
 
-- **(1)** : autoboxing implicite.
-- **(2)** : `Integer.valueOf(42)` retourne un `Integer`, assigné à `int b` →
-  unboxing.
-- **(3)** : appel explicite à `valueOf()`, équivalent à l'autoboxing mais sans
-  être implicite.
-- **(4)** : unboxing implicite.
-- **(5)** : `list.add()` attend un `Integer`, Java fait l'autoboxing de `7`.
-- **(6)** : `list.get(0)` retourne un `Integer`, assigné à `int` → unboxing.
+### Exercice 1b - autoboxing ou unboxing ?
+
+En vous basant sur le code complété de l'exercice 1a, indiquez pour chacune des
+lignes numérotées si Java effectue un autoboxing, un unboxing, ou ni l'un ni
+l'autre.
+
+```java
+Integer a = 10;                 // (1)
+int b = Integer.valueOf(42);    // (2)
+Integer c = Integer.valueOf(5); // (3)
+int d = c;                      // (4)
+ArrayList<Integer> list = new ArrayList<>();
+list.add(7);                    // (5)
+int first = list.get(0);        // (6)
+```
+
+<details>
+<summary>Corrigé</summary>
+
+- **(1)** : autoboxing — `int 10` est converti implicitement en `Integer`.
+- **(2)** : unboxing — `Integer.valueOf(42)` retourne un `Integer`, assigné à
+  `int b`.
+- **(3)** : ni l'un ni l'autre — appel explicite à `valueOf()`, pas de
+  conversion implicite.
+- **(4)** : unboxing — `Integer c` est converti implicitement en `int`.
+- **(5)** : autoboxing — `list.add()` attend un `Integer`, Java convertit `7`
+  implicitement.
+- **(6)** : unboxing — `list.get(0)` retourne un `Integer`, assigné à `int`.
 
 </details>
 
