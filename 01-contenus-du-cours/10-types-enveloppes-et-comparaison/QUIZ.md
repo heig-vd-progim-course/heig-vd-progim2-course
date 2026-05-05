@@ -56,14 +56,9 @@ Associez chaque type primitif à sa classe enveloppe :
 | `boolean`     | ?                |
 | `char`        | ?                |
 
-- **A.** `Integer`, `Double`, `Boolean`, `Character`
-- **B.** `Int`, `Double`, `Bool`, `Char`
-- **C.** `Integer`, `Float`, `Boolean`, `Character`
-- **D.** `Integer`, `Double`, `Boolean`, `Char`
-
 ## Question 1 - Réponse
 
-**Réponse correcte : A** - `Integer`, `Double`, `Boolean`, `Character`
+**Réponse correcte :** `Integer`, `Double`, `Boolean`, `Character`
 
 | Type primitif | Classe enveloppe |
 | :------------ | :--------------- |
@@ -129,13 +124,10 @@ true
 ```
 
 La JVM met en cache les `Integer` entre **-128 et 127**. `a` et `b` pointent
-vers le même objet (dans le cache) → `==` retourne `true`.
-
-`x` et `y` valent 200 (hors du cache) → deux objets distincts → `==` retourne
-`false`.
-
-`equals()` compare toujours les **valeurs**, quel que soit le cache → `true`
-dans les deux cas.
+vers le même objet (dans le cache) → `==` retourne `true`. `x` et `y` valent 200
+(hors du cache) → deux objets distincts → `==` retourne `false`. `equals()`
+compare toujours les **valeurs**, quel que soit le cache → `true` dans les deux
+cas.
 
 ## Question 4 - Donnée
 
@@ -162,14 +154,9 @@ Integer year = Integer.valueOf(2010);
 </div>
 </div>
 
-- **A.** Oui, elles produisent exactement le même résultat.
-- **B.** Non, la version A crée un objet, la version B retourne une valeur.
-- **C.** Oui, mais la version B est obsolète depuis Java 5.
-- **D.** Non, la version A utilise `new Integer(2010)`.
-
 ## Question 4 - Réponse
 
-**Réponse correcte : A** - elles produisent exactement le même résultat.
+**Oui, elles produisent exactement le même résultat.**
 
 L'autoboxing (version A) est du sucre syntaxique : le compilateur génère
 exactement l'appel `Integer.valueOf(2010)` (version B).
@@ -194,18 +181,12 @@ for (int d : durations) {
 }
 ```
 
-- **A.** Affiche `148`, `null`, `97`.
-- **B.** Affiche `148`, `0`, `97`.
-- **C.** Erreur de compilation.
-- **D.** `NullPointerException` à l'exécution.
-
 ## Question 5 - Réponse
 
-**Réponse correcte : D** - `NullPointerException` à l'exécution.
+**`NullPointerException` à l'exécution.**
 
 La boucle `for (int d : durations)` tente d'unboxer chaque `Integer` en `int`.
-Sur la valeur `null`, Java appelle `null.intValue()` → `NullPointerException`.
-
+Sur la valeur `null`, Java appelle `null.intValue()` → `NullPointerException`
 Pour éviter ce problème :
 
 ```java
@@ -267,12 +248,6 @@ La version A a deux défauts :
 - Si `obj` est `null` → le cast `(Movie) obj` provoque une
   `NullPointerException`.
 - Si `obj` n'est pas un `Movie` → le cast provoque une `ClassCastException`.
-
-La version B protège contre ces deux cas :
-
-- `this == obj` : optimisation (même objet).
-- `obj == null` : protection contre `null`.
-- `getClass() != obj.getClass()` : vérification du type avant le cast.
 
 ## Question 7 - Donnée
 
@@ -382,11 +357,6 @@ Avec la liste : `Tenet (7.4)`, `Inception (9.0)`, `Interstellar (8.6)`, après
 
 - Négatif si `a < b` → `a` est placé avant `b`.
 - Positif si `a > b` → `a` est placé après `b`.
-
-En version A, si `this.rating < other.rating`, `this` est placé avant `other` →
-ordre croissant.
-
-En version B, on inverse : `other.rating` en premier → ordre décroissant.
 
 ## Questions
 

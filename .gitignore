@@ -12,8 +12,9 @@
 *.pdf
 
 # Exception: Allow exam PDFs in evaluations folder
-!02-evaluations/exam-debut-semestre-2026-partie-*-enonce.pdf
-!02-evaluations/exam-debut-semestre-2026-partie-*-avec-solutions.pdf
+!02-evaluations/exam-blanc/exam-debut-semestre-2026-partie-*-enonce.pdf
+!02-evaluations/exam-blanc/exam-debut-semestre-2026-partie-*-avec-solutions.pdf
+!02-evaluations/correction-partie-*.pdf
 
 ## Java 
 # Compiled Java class files

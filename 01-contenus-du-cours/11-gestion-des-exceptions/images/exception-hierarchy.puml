@@ -1,0 +1,64 @@
+@startuml exception-hierarchy
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+' Hiérarchie des exceptions Java
+
+class Throwable {
+  -message: String
+  -cause: Throwable
+  +getMessage(): String
+  +getCause(): Throwable
+  +printStackTrace(): void
+}
+
+class Error
+class Exception
+
+class OutOfMemoryError
+class StackOverflowError
+
+class RuntimeException
+class IOException
+class SQLException
+
+class NullPointerException
+class NumberFormatException
+class ArrayIndexOutOfBoundsException
+class IllegalArgumentException
+
+Throwable <|-- Error
+Throwable <|-- Exception
+
+Error <|-- OutOfMemoryError
+Error <|-- StackOverflowError
+
+Exception <|-- RuntimeException
+Exception <|-- IOException
+Exception <|-- SQLException
+
+RuntimeException <|-- NullPointerException
+RuntimeException <|-- NumberFormatException
+RuntimeException <|-- ArrayIndexOutOfBoundsException
+RuntimeException <|-- IllegalArgumentException
+
+note right of Error
+  Erreurs graves de la JVM.
+  Ne pas capturer.
+end note
+
+note right of IOException
+  Exceptions vérifiées (checked) :
+  le compilateur oblige
+  à les gérer.
+end note
+
+note right of RuntimeException
+  Exceptions non vérifiées (unchecked) :
+  erreurs de programmation
+  courantes.
+end note
+
+@enduml
