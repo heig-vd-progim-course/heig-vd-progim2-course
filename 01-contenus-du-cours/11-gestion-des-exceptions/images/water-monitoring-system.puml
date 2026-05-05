@@ -1,0 +1,24 @@
+@startuml water-monitoring-system
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+' Système de surveillance de la qualité de l'eau (version initiale)
+
+class WaterSensor {
+  -id: String
+  -ph: double
+  +WaterSensor(id: String, ph: double)
+  +getId(): String
+  +getPh(): double
+  +readFromString(raw: String): double
+}
+
+class Main {
+  +{static} main(args: String[]): void
+}
+
+Main ..> WaterSensor : utilise
+
+@enduml

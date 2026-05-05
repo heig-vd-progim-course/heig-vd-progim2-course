@@ -1,0 +1,25 @@
+@startuml custom-exceptions
+!theme plain
+
+skinparam classAttributeIconSize 0
+skinparam classFontStyle bold
+
+' Hiérarchie des exceptions personnalisées du système
+
+class Exception <<(C,#ADD8E6)>>
+
+class InvalidPhException {
+  +InvalidPhException(sensorId: String, value: double)
+  +InvalidPhException(sensorId: String, value: double, cause: Throwable)
+}
+
+Exception <|-- InvalidPhException
+
+note right of InvalidPhException
+  Exception vérifiée (checked).
+  Lancée quand une valeur de pH
+  est hors de la plage 0.0 - 14.0,
+  ou quand le format est invalide.
+end note
+
+@enduml
