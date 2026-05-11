@@ -9,8 +9,18 @@ préparer et donner le cours.
 ## Table des matières
 
 - [Table des matières](#table-des-matières)
+- [Démo en direct : tests unitaires JUnit (séance 12)](#démo-en-direct--tests-unitaires-junit-séance-12)
 - [Configuration de la manette 8bitdo Micro](#configuration-de-la-manette-8bitdo-micro)
   - [Comment utiliser le fichier de configuration](#comment-utiliser-le-fichier-de-configuration)
+
+## Démo en direct : tests unitaires JUnit (séance 12)
+
+Le fichier
+[demo-tests-unitaires-seance-12.md](./demo-tests-unitaires-seance-12.md)
+décrit comment montrer les tests unitaires JUnit en direct pendant la séance 12,
+en utilisant les fichiers du dépôt. Il couvre la préparation, le déroulement
+étape par étape de la démo (y compris comment provoquer volontairement un échec
+pour illustrer la valeur des tests), ainsi qu'une variante pour IntelliJ IDEA.
 
 ## Configuration de la manette 8bitdo Micro
 
