@@ -23,22 +23,20 @@ Ce travail est sous licence [CC BY-SA 4.0][licence].
 > À l'issue de cette séance, les personnes qui étudient devraient être capables
 > de :
 >
-> - Expliquer l'importance des tests unitaires en développement logiciel.
-> - Identifier ce qui constitue un bon test unitaire.
+> - Accepter que les tests unitaires font partie intégrante du développement
+>   logiciel.
 > - Différencier tests unitaires, tests d'intégration et tests fonctionnels.
+> - Décrire ce qui constitue un bon test unitaire.
 > - Reconnaître les avantages du développement piloté par les tests (TDD).
-> - Créer une classe de test avec JUnit.
-> - Utiliser les annotations `@Test`, `@BeforeEach`, `@AfterEach`.
+> - Créer une classe de test JUnit avec les annotations `@Test` et
+>   `@BeforeEach`.
 > - Écrire des assertions avec `assertEquals()`, `assertTrue()`,
->   `assertFalse()`, `assertNull()`.
-> - Exécuter les tests et interpréter les résultats.
-> - Tester les exceptions attendues avec `assertThrows()`.
-> - Utiliser `@BeforeAll` et `@AfterAll` pour l'initialisation globale.
-> - Organiser les tests en suites de tests.
-> - Appliquer les principes AAA (Arrange-Act-Assert).
-> - Évaluer la couverture de code des tests.
-> - Identifier les branches et cas limites à tester.
-> - Créer des tests pour les cas nominaux et les cas d'erreur.
+>   `assertFalse()`, `assertNull()` et `assertThrows()`.
+> - Appliquer les principes AAA (Arrange-Act-Assert) pour structurer ses tests.
+> - Évaluer la couverture de code et identifier les branches et cas limites à
+>   tester.
+> - Argumenter l'utilité des tests unitaires dans le contexte d'un projet
+>   logiciel.
 >
 > **Méthodes d'enseignement et d'apprentissage**
 >
